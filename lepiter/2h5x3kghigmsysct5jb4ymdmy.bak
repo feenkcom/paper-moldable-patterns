@@ -140,7 +140,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:33:07.551213+01:00"
+						"dateAndTimeString" : "2023-11-27T13:33:09.480822+01:00"
 					}
 				},
 				"uid" : {
@@ -150,7 +150,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[Patter"
+				"string" : "[[Pattern map]] "
 			},
 			{
 				"__type" : "textSnippet",

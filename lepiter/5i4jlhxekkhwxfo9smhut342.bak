@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:35:27.603913+01:00"
+						"dateAndTimeString" : "2023-11-27T14:12:44.965013+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:35:39.572344+01:00"
+						"dateAndTimeString" : "2023-11-27T14:13:36.319531+01:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,47 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "We need to adapt this  version of the map ..."
+				"string" : "We need to update the map. The two new patterns need to be linked in. Perhaps we need a"
+			},
+			{
+				"__type" : "exampleSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-11-27T13:33:19.233156+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-11-27T13:33:19.233156+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "rE5tPoPHDQC5o6ivCQ6VAg=="
+				},
+				"exampleSelector" : "mapV1",
+				"previewHeight" : 400,
+				"previewShowSelector" : "gtLiveFor:",
+				"exampleBehaviorName" : "PatternMap",
+				"codeExpanded" : true,
+				"previewExpanded" : false,
+				"noCode" : true
 			},
 			{
 				"__type" : "textSnippet",
@@ -103,54 +143,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:37:03.898512+01:00"
+						"dateAndTimeString" : "2023-11-27T14:12:35.112816+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "3ZqJSYPHDQC8IB2gCQ6VAg=="
 				},
-				"code" : "MoldableDevelopmentPatternsSlideshow new patternMapScenery asElement exportAsPNG"
-			},
-			{
-				"__type" : "exampleSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:33:19.233156+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:33:19.233156+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "rE5tPoPHDQC5o6ivCQ6VAg=="
-				},
-				"exampleSelector" : "mapV0",
-				"previewHeight" : 400,
-				"previewShowSelector" : "gtLiveFor:",
-				"exampleBehaviorName" : "PatternMap",
-				"codeExpanded" : true,
-				"previewExpanded" : false,
-				"noCode" : true
+				"code" : "PatternMap new mapV1 asElement exportAsPNG"
 			},
 			{
 				"__type" : "textSnippet",
@@ -177,7 +177,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:42:14.033836+01:00"
+						"dateAndTimeString" : "2023-11-27T13:52:50.366105+01:00"
 					}
 				},
 				"uid" : {
@@ -187,41 +187,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : ""
-			},
-			{
-				"__type" : "pharoSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:45:56.065068+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:47:07.903571+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "TKOJa4PHDQC/dMByCQ6VAg=="
-				},
-				"code" : "PatternMap new mapV0"
+				"string" : "See [[TG notes]] — we should add “Tooling buildup” and “Throwaway analysis tool”. "
 			},
 			{
 				"__type" : "textSnippet",
