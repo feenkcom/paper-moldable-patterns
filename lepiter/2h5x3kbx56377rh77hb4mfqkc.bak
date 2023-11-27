@@ -66,7 +66,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T10:55:19.895877+01:00"
+						"dateAndTimeString" : "2023-11-27T10:55:15.056901+01:00"
 					}
 				},
 				"uid" : {
@@ -76,7 +76,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "The repo for the LaTeX sources and related material: [](https://github.com/feenkcom/paper-moldable-patterns) "
+				"string" : "The repo for the LaTeX sources and related material: [](https://github.com/feenkcom/paper-moldable-patterns)"
 			},
 			{
 				"__type" : "textSnippet",
@@ -92,7 +92,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T10:55:29.514859+01:00"
+						"dateAndTimeString" : "2023-11-27T10:54:29.653789+01:00"
 					}
 				},
 				"editEmail" : {
@@ -103,7 +103,44 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T10:55:29.514859+01:00"
+						"dateAndTimeString" : "2023-11-27T10:54:29.653789+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "MXZrBoHHDQCIVB5JBQHWKQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : ""
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-11-27T10:54:29.844972+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-11-27T10:54:29.844972+01:00"
 					}
 				},
 				"uid" : {
@@ -114,6 +151,40 @@
 					"__type" : "textStyle"
 				},
 				"string" : ""
+			},
+			{
+				"__type" : "pharoSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-11-27T10:54:31.319486+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-11-27T10:54:31.819743+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "B+CEBoHHDQCIXsaTBQHWKQ=="
+				},
+				"code" : "Metacello new\r\trepository: 'github://feenkcom/paper-moldable-patterns:main/src';\r\tbaseline: 'PaperMoldablePatterns';\r\tload.\r#BaselineOfPaperMoldablePatterns asClass loadLepiter."
 			}
 		]
 	},
