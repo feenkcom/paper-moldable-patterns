@@ -172,7 +172,8 @@
 \newcommand{\etal}{\emph{et al.}\xspace}
 \newcommand{\etc}{\emph{etc.}\xspace}
 % ============================================================
-\newcommand{\st}[1]{{\tt #1}}
+\newcommand{\st}[1]{{\tt #1}\xspace}
+\newcommand{\pattern}[1]{\emph{\nameref{pat:#1}}\xspace}
 % ============================================================
 \begin{document}
 
@@ -213,7 +214,7 @@ Moldable Development is a way to support decision-making by molding the developm
 \maketitle
 
 % ===== Introduction =========================
-\section{Introduction}
+\section{Introduction: Moldable development in a Nutshell}
 
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it is difficult to extract that knowledge.
@@ -225,15 +226,15 @@ The usual views of software systems are
 But neither of these lends itself well to answering questions about the system.
 Software analysis tools can help to some extent, but since every system and every problem is different, it is rare for generic analysis tools to scale to arbitrary systems.
 
-Moldable development is an approach to constructing software systems that are \emph{explainable}.
-This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system, \emph{as these questions arise}.
-These custom tools consist of small extensions to the \emph{moldable} tools of the IDE, such as the object inspector, the code browser, the debugger and the notebook.
-
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{custom-views}
   \caption{Custom views of a Ludo game.}
   \label{fig:ludo-views}
 \end{figure}
+
+Moldable development is an approach to constructing software systems that are \emph{explainable}.
+This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system, \emph{as these questions arise}.
+These custom tools consist of small extensions to the \emph{moldable} tools of the IDE, such as the object inspector, the code browser, the debugger and the notebook.
 
 As a simple example, consider the Inspector views of a Ludo game implementation in \autoref{fig:ludo-views}.
 With a conventional implementation, we can either try to play the game interactively, or we can stare at the source code.
@@ -247,12 +248,19 @@ In the second pane we can explore the moves of  the completed game, and in the t
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
-Of course, this begs the question how to actually
+Of course, this begs the question how to actually apply moldable development in practice.
+Moldable development is a way to make systems explainable.
+This means making the domain model of a software system visible and explorable through custom tools.
+This in turn suggests that there are two distinct roles involved in moldable development:
+\begin{inparaenum}[(i)]
+\item the \emph{Facilitator} is responsible for the technical realization of custom tools, and
+\item the \emph{Stakeholder} is responsible for the domain model and questions about the domain that should be answered by the custom tools.
+\end{inparaenum}
+In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
 
 
-\todo{explain Facilitator and Stakeholder}
-
-\todo{introduce map}
+% ===== Moldable Development Patterns =========================
+\section{Moldable Development Patterns}
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{map}
@@ -260,14 +268,33 @@ Of course, this begs the question how to actually
   \label{fig:map}
 \end{figure}
 
+Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, summarized in \autoref{fig:map}.
+These patterns have emerged over several years of experience in developing the Glamorous Toolkit\footnote{\url{https://gtoolkit.com}} moldable development platform, and applying it to numerous systems.
+At the root we have the pattern \pattern{explainableSystem}, a software system whose domain model has been exposed with the help of numerous custom tools.
+Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted with a simple customization.
+Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
+A \pattern{projectDiary} is a notebook that serves as a starting point for development tasks.
+A \pattern{throwawayAnalysisTool} can be a useful prototype to initially engage a Stakeholder by demonstrating the possibilities of moldable development.
 
-% ===== Moldable Development Patterns =========================
-\section{Moldable Development Patterns}
+Moldable development itself starts with a \pattern{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
+An interesting instance can be encapsulated as an \pattern{exampleObject}, essentially a unit test that returns a tested object.
+An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
+In case the domain includes already existing data entities, these can be wrapped in a \pattern{viewableDataWrapper} to produce a moldable object.
+
+A moldable object can be explored with the help of its \pattern{contextualPlayground}, a live programming environment bound to the state of a live instance.
+Working code can be extracted from such a playground to create custom tools.
+The most common of these tools are:
+\begin{inparaenum}[(i)]
+\item a \pattern{customView}, a dedicated view of an object within a moldable tool such as an object inspector or a code browser, to display or visualize domain-specific information,
+\item a \pattern{customAction} that encapsulates a useful domain action, and
+\item a \pattern{customSearch}, to perform an ad hoc query over objects reachable from a given moldable object.
+\end{inparaenum}
+A custom view is frequently a \pattern{simpleView} that can be quickly prototype, and later extended.
+A custom search often benefits from a \pattern{collectionWrapper}, to allow the results of a query to be also molded with custom tools.
 
 
-
-% ----- PATTERN -------------------------
-\subsection{Explainable System}
+% ----- Explainable System -------------------------
+\subsection*{Explainable System}\label{pat:explainableSystem}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -276,8 +303,8 @@ Of course, this begs the question how to actually
 
 
 
-% ----- PATTERN -------------------------
-\subsection{Moldable Tool}
+% ----- Moldable Tool -------------------------
+\subsection*{Moldable Tool}\label{pat:moldableTool}
 \cite{Chis17a}
 \subsubsection*{Context}
 \subsubsection*{Problem}
@@ -287,8 +314,8 @@ Of course, this begs the question how to actually
 
 
 
-% ----- PATTERN -------------------------
-\subsection{Tooling Buildup}
+% ----- Tooling Buildup -------------------------
+\subsection*{Tooling Buildup}\label{pat:toolingBuildup}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -298,7 +325,7 @@ Of course, this begs the question how to actually
 
 
 % ----- Throwaway Analysis Tool -------------------------
-\subsection{Throwaway Analysis Tool}
+\subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -307,7 +334,7 @@ Of course, this begs the question how to actually
 
 
 % ----- Project Diary -------------------------
-\subsection{Project Diary}
+\subsection*{Project Diary}\label{pat:projectDiary}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -316,7 +343,7 @@ Of course, this begs the question how to actually
 
 
 % ----- Moldable Object -------------------------
-\subsection{Moldable Object}
+\subsection*{Moldable Object}\label{pat:moldableObject}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -324,7 +351,7 @@ Of course, this begs the question how to actually
 \subsubsection*{Consequences}
 
 % ----- Example Object -------------------------
-\subsection{Example Object}
+\subsection*{Example Object}\label{pat:exampleObject}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -332,7 +359,7 @@ Of course, this begs the question how to actually
 \subsubsection*{Consequences}
 
 % ----- Viewable Data Wrapper -------------------------
-\subsection{Viewable Data Wrapper}
+\subsection*{Viewable Data Wrapper}\label{pat:viewableDataWrapper}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -341,7 +368,7 @@ Of course, this begs the question how to actually
 
 
 % ----- Contextual Playground -------------------------
-\subsection{Contextual Playground}
+\subsection*{Contextual Playground}\label{pat:contextualPlayground}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -349,8 +376,9 @@ Of course, this begs the question how to actually
 \subsubsection*{Consequences}
 
 
-% ----- Viewable Entity -------------------------
-\subsection{Viewable Entity}
+% ----- Custom View -------------------------
+\subsection*{Custom View}\label{pat:customView}
+% AKA Viewable Entity
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -360,7 +388,7 @@ Of course, this begs the question how to actually
 
 
 % ----- Simple View -------------------------
-\subsection{Simple View}
+\subsection*{Simple View}\label{pat:simpleView}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -370,7 +398,7 @@ Of course, this begs the question how to actually
 
 
 % ----- Custom Action -------------------------
-\subsection{Custom Action}
+\subsection*{Custom Action}\label{pat:customAction}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -378,8 +406,8 @@ Of course, this begs the question how to actually
 \subsubsection*{Consequences}
 
 
-% ----- PATTERN -------------------------
-\subsection{Custom Search}
+% ----- Custom Search -------------------------
+\subsection*{Custom Search}\label{pat:customSearch}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -388,7 +416,7 @@ Of course, this begs the question how to actually
 
 
 % ----- Collection Wrapper -------------------------
-\subsection{Collection Wrapper}
+\subsection*{Collection Wrapper}\label{pat:collectionWrapper}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -407,10 +435,8 @@ Of course, this begs the question how to actually
 
 % ===== TEMPLATES =========================
 
-
-
 % ----- PATTERN -------------------------
-\subsection{PATTERN}
+\subsection*{PATTERN}\label{pat:PATTERN}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
