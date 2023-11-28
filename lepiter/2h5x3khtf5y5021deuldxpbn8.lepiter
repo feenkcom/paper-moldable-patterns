@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T11:55:18.974173+01:00"
+						"dateAndTimeString" : "2023-11-28T09:49:15.685463+01:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "It's probably best to editthe LaTeX files in a separate clone, as changes will not be seen by the GT Git tool ..."
+				"string" : "It's probably best to edit the LaTeX files in a separate clone, as changes will not be seen by the GT Git tool ..."
 			},
 			{
 				"__type" : "pharoSnippet",
