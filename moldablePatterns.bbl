@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{1}
+\begin{thebibliography}{0}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -36,24 +36,5 @@
 \providecommand\bibinfo[2]{#2}
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
-
-\bibitem[\protect\citeauthoryear{Chi\c{s}, G\^irba, Nierstrasz, and
-  Syrel}{Chi\c{s} et~al\mbox{.}}{2015}]%
-        {Chis15a}
-\bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Tudor
-  G\^irba}, \bibinfo{person}{Oscar Nierstrasz}, {and} \bibinfo{person}{Aliaksei
-  Syrel}.} \bibinfo{year}{2015}\natexlab{}.
-\newblock \showarticletitle{The {Moldable} {Inspector}}. In
-  \bibinfo{booktitle}{\emph{Proceedings of the 2015 ACM International Symposium
-  on New Ideas, New Paradigms, and Reflections on Programming and Software}}
-  (Pittsburgh, PA, USA) \emph{(\bibinfo{series}{Onward! 2015})}.
-  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
-  \bibinfo{pages}{44--60}.
-\newblock
-\showISBNx{978-1-4503-3688-8}
-\urldef\tempurl%
-\url{https://doi.org/10.1145/2814228.2814234}
-\showDOI{\tempurl}
-
 
 \end{thebibliography}
