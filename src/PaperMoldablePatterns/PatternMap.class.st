@@ -179,7 +179,7 @@ item9 position: (263.99999999999994@303.0000000000001).
 item9 extent: (213.819071451823@40.0).
 item10 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Example Object')
 attributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 15; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).
-item10 position: (503.0000000000001@203.00000000000006).
+item10 position: (503.0000000000001@205.00000000000006).
 item10 extent: (162.92442321777332@40.0).
 item11 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Viewable Entity')
 attributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 16; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).
@@ -215,5 +215,6 @@ scenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item9 to: ite
 scenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item9 to: item12.
 scenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item11 to: item13.
 scenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item1 to: item14.
+
 ^ scenery
 ]
