@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T14:12:44.965013+01:00"
+						"dateAndTimeString" : "2023-11-28T10:33:21.478601+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T14:13:39.086811+01:00"
+						"dateAndTimeString" : "2023-11-28T10:33:32.098092+01:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "We need to update the map. The two new patterns need to be linked in. Perhaps we need a different flow."
+				"string" : "We refine the oldmap and add several new patterns."
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -73,7 +73,7 @@
 					"__type" : "uid",
 					"uidString" : "rE5tPoPHDQC5o6ivCQ6VAg=="
 				},
-				"exampleSelector" : "mapV1",
+				"exampleSelector" : "mapV2",
 				"previewHeight" : 400,
 				"previewShowSelector" : "gtLiveFor:",
 				"exampleBehaviorName" : "PatternMap",
