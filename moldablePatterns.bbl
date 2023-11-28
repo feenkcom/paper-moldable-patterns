@@ -37,22 +37,21 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
-\bibitem[\protect\citeauthoryear{Chi\c{s}, G\^irba, Nierstrasz, and
-  Syrel}{Chi\c{s} et~al\mbox{.}}{2015}]%
-        {Chis15a}
+\bibitem[\protect\citeauthoryear{Chi\c{s}, G\^irba, Kubelka, Nierstrasz,
+  Reichhart, and Syrel}{Chi\c{s} et~al\mbox{.}}{2017}]%
+        {Chis17a}
 \bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Tudor
-  G\^irba}, \bibinfo{person}{Oscar Nierstrasz}, {and} \bibinfo{person}{Aliaksei
-  Syrel}.} \bibinfo{year}{2015}\natexlab{}.
-\newblock \showarticletitle{The {Moldable} {Inspector}}. In
-  \bibinfo{booktitle}{\emph{Proceedings of the 2015 ACM International Symposium
-  on New Ideas, New Paradigms, and Reflections on Programming and Software}}
-  (Pittsburgh, PA, USA) \emph{(\bibinfo{series}{Onward! 2015})}.
-  \bibinfo{publisher}{ACM}, \bibinfo{address}{New York, NY, USA},
-  \bibinfo{pages}{44--60}.
+  G\^irba}, \bibinfo{person}{Juraj Kubelka}, \bibinfo{person}{Oscar
+  Nierstrasz}, \bibinfo{person}{Stefan Reichhart}, {and}
+  \bibinfo{person}{Aliaksei Syrel}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Moldable Tools for Object-oriented Development}.
+\newblock In \bibinfo{booktitle}{\emph{PAUSE: Present And Ulterior Software
+  Engineering}}, \bibfield{editor}{\bibinfo{person}{Bertrand~Meyer
+  Manuel~Mazzara}} (Ed.). \bibinfo{publisher}{Springer, Cham},
+  \bibinfo{pages}{77--101}.
 \newblock
-\showISBNx{978-1-4503-3688-8}
 \urldef\tempurl%
-\url{https://doi.org/10.1145/2814228.2814234}
+\url{https://doi.org/10.1007/978-3-319-67425-4_6}
 \showDOI{\tempurl}
 
 
