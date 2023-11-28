@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{0}
+\begin{thebibliography}{1}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -36,5 +36,23 @@
 \providecommand\bibinfo[2]{#2}
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[\protect\citeauthoryear{Chi\c{s}, G\^irba, Kubelka, Nierstrasz,
+  Reichhart, and Syrel}{Chi\c{s} et~al\mbox{.}}{2017}]%
+        {Chis17a}
+\bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Tudor
+  G\^irba}, \bibinfo{person}{Juraj Kubelka}, \bibinfo{person}{Oscar
+  Nierstrasz}, \bibinfo{person}{Stefan Reichhart}, {and}
+  \bibinfo{person}{Aliaksei Syrel}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Moldable Tools for Object-oriented Development}.
+\newblock In \bibinfo{booktitle}{\emph{PAUSE: Present And Ulterior Software
+  Engineering}}, \bibfield{editor}{\bibinfo{person}{Bertrand~Meyer
+  Manuel~Mazzara}} (Ed.). \bibinfo{publisher}{Springer, Cham},
+  \bibinfo{pages}{77--101}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1007/978-3-319-67425-4_6}
+\showDOI{\tempurl}
+
 
 \end{thebibliography}
