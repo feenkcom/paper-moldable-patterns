@@ -12,6 +12,7 @@
 \acmISBN{978-1-4503-XXXX-X/18/06}
 % ============================================================
 \input{macros}
+\input{st80.tex}
 % ============================================================
 \begin{document}
 \title{Moldable Development Patterns}
@@ -45,6 +46,7 @@ Based on several years of experience of applying moldable development to industr
 % ===== Introduction =========================
 \section{Introduction: Moldable development in a Nutshell}
 
+
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it is difficult to extract that knowledge.
 The usual views of software systems are
@@ -71,10 +73,10 @@ We can also run the tests, but if these are all green, they do not help us to un
 By applying moldable development, we turn questions we have about the game into custom views.
 
 The figure shows three connected custom Inspector views of a running game.
-In the leftmost pane we see the game GUI as the \st{Board} view.
-We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of REPL).
+In the leftmost pane we see the game GUI as the \ct{Board} view.
+We can also interact programmatically with the game, evaluating ``\ct{self autoPlay: 1000}'' in a contextual playground (a kind of REPL).
 In the second pane we can explore the moves of  the completed game, and in the third pane we can explore individual moves.
-The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
+The \ct{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
 Of course, this begs the question how to actually apply moldable development in practice.
@@ -299,7 +301,7 @@ Examples can be complex to set up.Unit tests consume examples, but they are only
 
 Wrap examples as (instance) methods that optionally evaluate some tests (assertions), and return the example instance. Each example may also use one or more examples as the initial setup for the new example.
 
-To start, you need a modified unit testing framework in which tests return the exercised fixture, namely, an example. In GT, you create an Example by defining a parameterless method that has a \st{gtExample} pragma, and returns an object. (A similar framework for Java is JExample.)
+To start, you need a modified unit testing framework in which tests return the exercised fixture, namely, an example. In GT, you create an Example by defining a parameterless method that has a \ct{gtExample} pragma, and returns an object. (A similar framework for Java is JExample.)
 
 Here's a simple example that returns a parse node for the parsed string '3+4', and asserts that the result is not fully reduced (evaluated).
 
