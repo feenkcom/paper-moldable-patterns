@@ -125,6 +125,8 @@ A custom search often benefits from a \pattern{collectionWrapper}, to allow the 
 
 \on{We have a budget of roughly one column for each pattern. To start with, we keep the patterns to a minimum size. It is easier to expand them than to reduce them in size.}
 
+\on{NB: For each of these, start with the solution, then reverse engineer the problem, the forces, the consequences and the context.}
+
 % ----- Explainable System -------------------------
 \subsection*{Explainable System}\label{pat:explainableSystem}
 
@@ -167,9 +169,18 @@ Unlike static documentation, the custom tools are more likely to stay in sync wi
 
 \subsubsection*{Solution}
 
-Make the IDE tools moldable by making it easy to plug in new behavior.
+
+
 \on{Add citation ...}\cite{Chis17a}
 
+
+\on{NB: Emphasize that we don't mean plugins, which are static. The tools need to mold dynamically to different domain objects. So static approaches like plugins and configuration files are not suitable. Need approaches like annotations/pragmas that are associated to the domain objects themselves.
+The solution is about (i) making tools react to run-time context, and (ii) making the adaptations cheap and easy.
+It's not about supporting arbitrary plugins, but about configuring what the tool does best.
+An Inspector is about showing views of objects, navigating and interacting with them.
+A debugger is about showing the run-time execution state, and stepping through it.
+A notebook is about displaying different kinds of information, linking them, and interacting with them.
+So those are the aspects you want to control for each tool.}
 
 \subsubsection*{Consequences}
 
@@ -181,6 +192,11 @@ Make the IDE tools moldable by making it easy to plug in new behavior.
 \subsubsection*{Problem}
 \subsubsection*{Forces}
 \subsubsection*{Solution}
+
+\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
+
+\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
+
 \subsubsection*{Consequences}
 
 
@@ -191,84 +207,295 @@ Make the IDE tools moldable by making it easy to plug in new behavior.
 \subsubsection*{Problem}
 \subsubsection*{Forces}
 \subsubsection*{Solution}
+
+\on{What are the recurring ideas? The purpose is to engage the Stakeholder. Pick some task that will demonstrate the benefit of an explainable system, but without stressing the Stakeholder. The task should be feasible in reasonable time but non-trivial. There should be a clear value for the Stakeholder, that is, do something that the Stakeholder has difficulty with.}
+
 \subsubsection*{Consequences}
 
 
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
+
+\on{See \href{https://book.gtoolkit.com/project-diary-dyquv1ad359wsnwasp6hwkgcj}{Project Diary book page}}
+
 \subsubsection*{Context}
+
 \subsubsection*{Problem}
+
+How can you keep track of and document your progress in a moldable development project?
+
 \subsubsection*{Forces}
+
+It's boring to write documentation after the fact, so it is rarely done. Documentation is not part of the running system, so it distracts you from coding.
+
+Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
+
 \subsubsection*{Solution}
+
+Use a notebook as the starting point for your project and all of its tasks. Use the notebook to keep a diary of your progress. As the project matures, use the notebook as a draft for the documentation.
+
+Create a dedicated notebook page for each project to summarize the goals, and provide pointers to related material.
+
+If needed, add a code snippet for any setup tasks (e.g., cloning repositories or loading databases). Add code snippets to the notebook pages to serve as moldable objects to start coding from. Extract interesting code snippets as example objects to document interesting use cases, or to serve as tests.
+
+As the project grows, organize the notebook into a main page with an overview, and separate notebook pages for different tasks or groups of related tasks.
+
+Consider using notebook tags to organize your pages implicitly. For example, use a dedicated project tag for all the project pages, and additional tags to indicate their status (``todo'', ``completed'', ``urgent'' etc.). For example, the DRAFT tag is used to track pages of the GT Book itself that require further editing.
+
+At the end of a project, consider recycling and rewriting the project pages to create documentation. In this way the diary can serve as a rough draft.
+
+%For an example, see Implementing a Ludo Game as a moldable development exercise. This is the starting page of a Project diary for the Ludo Game. The pages initially tracked the development steps of the project, and contain snippets from which to continue development. As the project came to an end, the pages were edited and rewritten to serve as documentation.
+
+
 \subsubsection*{Consequences}
 
 
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
+
+\on{See \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Moldable Object}}
+
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+When you code a class, you are several steps away from seeing the consequences of your coding. How can you close the gap between the code and the live objects?
+
 \subsubsection*{Forces}
+
+As a programmer, you want to quickly get feedback about the code you are writing.
+
+Programmers are used to first writing code in a code editor, then compiling and running (or testing) it.
+
+Code editors provide you feedback about the source code, not the live instances.
+
+
 \subsubsection*{Solution}
+
+Start coding by inspecting moldable object , that is, a live instance of the class you are coding, not in a code editor.
+
+Then you can incrementally add behavior to the object, and create custom views as you code to make the new behavior visible.
+
+\on{Recycle or adapt more from the \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Steps}.}
+
+
 \subsubsection*{Consequences}
 
 % ----- Example Object -------------------------
 \subsection*{Example Object}\label{pat:exampleObject}
+
+\on{See \href{https://book.gtoolkit.com/example-object-dyquv1b6xptl2c0ayhgb376bw}{Example Object book page}}
+
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+How do you organize examples for testing and documentation?
+
 \subsubsection*{Forces}
+
+Concrete examples are need for many purposes, such as documentation, testing, and exploration.
+Examples can be complex to set up.Unit tests consume examples, but they are only accessible if a test fails.
+
 \subsubsection*{Solution}
+
+Wrap examples as (instance) methods that optionally evaluate some tests (assertions), and return the example instance. Each example may also use one or more examples as the initial setup for the new example.
+
+To start, you need a modified unit testing framework in which tests return the exercised fixture, namely, an example. In GT, you create an Example by defining a parameterless method that has a \st{gtExample} pragma, and returns an object. (A similar framework for Java is JExample.)
+
+Here's a simple example that returns a parse node for the parsed string '3+4', and asserts that the result is not fully reduced (evaluated).
+
+%a3plus4
+%	<gtExample>
+%	| result |
+%	result := self parseExpression: '3+4'.
+%	self assert: result isReduced not.
+%	^ result
+    
+Unlike normal test methods, examples can be composed. For example, this example method performs an evaluation step on the previous example, and returns the fully reduced expression node, asserting that no more evaluation steps can be performed.
+
+%a3plus4is7
+%	<gtExample>
+%	| result context |
+%	context := self a3plus4 asContext.
+%	result := context step.
+%	self assert: result isSPLValue.
+%	self assert: result value equals: 7.
+%	^ result
+    
+
+
 \subsubsection*{Consequences}
+
+Examples can be run just like classical unit tests.
+
+When an example fails, its dependent examples do not need to be run.
+
+When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point. (The example snippets above illustrate this.)
+
+When you are searching for usages of an API, not only do you find examples that illustrate the usage, but by running the example you obtain a live instance that you can explore.
+
+
 
 % ----- Viewable Data Wrapper -------------------------
 \subsection*{Viewable Data Wrapper}\label{pat:viewableDataWrapper}
+\on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Viewable data wrapper book page}}
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+When you explore data with a platform such as GT, the views you obtain reflect the low-level data structures used to represent the data, not the underlying domain concepts. How can we add appropriate high-level views to the data?
+
 \subsubsection*{Forces}
+
+When we explore data, we represent them using suitable low-level data structures.
+
+Data structures (lists, dictionaries) reflect the representation of data, not their interpretation.
+
+To analyze and explore data, we need higher-level views that reflect our understanding of the data.
+
+
 \subsubsection*{Solution}
+
+Wrap each kind of data in a dedicated class reflecting the problem domain. 
+
+As you explore the data, introduce custom views to the domain class that reflect answers to questions you ask about the data.
+
+Extract the data of interest. This might be data sitting in your file system (for example, a CSV file), or data retrieved from a website.
+
+A classical example can be seen in Working with a REST API: the GitHub case study .
+
+We obtain a Dictionary representation of JSON data about the feenk GitHub organization:
+
+url := 'https://api.github.com/orgs/feenkcom'.
+json := ZnClient new get: url.
+dictionary := STON fromString: json.
+  
+If we explore this object, we just see the keys and values of the raw downloaded data. From this view, of course we can explore the data by navigating the Dictionary views, or by programatically exploring other paths using the Inspector Playground, but we cannot add or tailor views to specifically support the GitHub Organization domain.
+
+We address these problems by wrapping the raw data as a dedicated GhOrganization object, as follows:
+
+GhOrganization new rawData: dictionary.
+  
+Now we can add custom views specific to this domain, for example, listing the Repositories of an organization, or the most recent GitHub events. For each new domain concept, we introduce a dedicated wrapper object, so we can navigate the entire model via the domain concepts.
+
+
+
 \subsubsection*{Consequences}
 
 
 % ----- Contextual Playground -------------------------
 \subsection*{Contextual Playground}\label{pat:contextualPlayground}
+\on{See \href{https://book.gtoolkit.com/contextual-playground-9jkob08mw269cpxowmbe0ld8i}{Contextual Playground book page}}
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+When we code new behavior as methods, we must must repeatedly change our context to incrementally develop the logic. Testing the code requires a separate setup. How can we efficiently prototype and test the new behavior?
+
 \subsubsection*{Forces}
+
+An editor for coding new methods typically provides no facilities for testing the code.
+
+Setting up code to prototype and test logic can be cumbersome.
+
+Writing tests first for parts of the logic of a complex method may can be overkill.
+
+
 \subsubsection*{Solution}
+
+Prototype new behavior in the Playground of a Moldable object, i.e., an Inspector on a live instance of the class. The Playground will be bound to the context of the instance, so self and all slots can be accessed exactly as they would in a running method.
+
+From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
+
+Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an Extract method refactoring.
+
+\on{See the Steps in the book page}
+
+
 \subsubsection*{Consequences}
 
 
 % ----- Custom View -------------------------
 \subsection*{Custom View}\label{pat:customView}
+\on{See \href{https://book.gtoolkit.com/viewable-entity-9jkob0898tctthh5o3m23fv4e}{Viewable entity book page}}
 % AKA Viewable Entity
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+As you explore a live model, you may find yourself repeatedly navigating through multiple inspector views to reach the information you want. How can you make this process more efficient?
+
+
 \subsubsection*{Forces}
+
+Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating Playground snippets, to reach a new Inspector instance.
+
+The sequence of steps may be cumbersome to follow repeatedly.
+
+
+
 \subsubsection*{Solution}
+
+Turn interesting data into a viewable entity . Extract the navigation steps into a new custom view for the moldable object you start navigating from. Possibly start with a simple forward view to an existing view of the target data, and later refine this into a dedicated view.
+
+\on{See the Steps in the book page}
+
+
 \subsubsection*{Consequences}
 
 
 
 % ----- Simple View -------------------------
 \subsection*{Simple View}\label{pat:simpleView}
+\on{See \href{https://book.gtoolkit.com/simple-view-dyquv19x8xwi85g99n0akc5lu}{Simple view book page}}
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+How much effort should you invest into creating a new view?
+
+
 \subsubsection*{Forces}
+
+There are many different kinds of views; how can you tell which one is most suitable?
+
+
+
 \subsubsection*{Solution}
+
+A view exists only to answer a question about a domain object. Pick the simplest view that will answer the question. Only refine the view if it can answer more questions.
+
+\on{See the Steps in the Book page.}
+
 \subsubsection*{Consequences}
 
 
 
 % ----- Custom Action -------------------------
 \subsection*{Custom Action}\label{pat:customAction}
+\on{See \href{https://book.gtoolkit.com/custom-action-7ed0nuwfqc5qp8b1b257cavgy}{Custom Action book page}}
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+As you are developing an explorable model of your application, you may find yourself repeatedly evaluating the same code snippets to perform a given action. How can you streamline these tasks?
+
+
 \subsubsection*{Forces}
+
+Repeated tasks are annoying and time-consuming.
+
+Remembering how to perform common tasks increases cognitive overload.
+
+
+
 \subsubsection*{Solution}
+
+Add a custom action button to the key objects involved in the repeated tasks, encapsulating the boilerplate code to perfom them.
+
+\on{See the Steps in the Book page.}
+
+
 \subsubsection*{Consequences}
 
 
 % ----- Custom Search -------------------------
 \subsection*{Custom Search}\label{pat:customSearch}
+\on{NB: New pattern}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
@@ -278,10 +505,39 @@ Make the IDE tools moldable by making it easy to plug in new behavior.
 
 % ----- Collection Wrapper -------------------------
 \subsection*{Collection Wrapper}\label{pat:collectionWrapper}
+\on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+What is the best way to provide custom views of collections of domain objects, when they may occur in many different contexts?
+
+Example:
+When we explore a website, we have lists of links in a website or a webpage, we have lists of internal links, external links, broken links, or queries returning links that match some text. Providing custom views for each of these is tedious and leads to much duplicated code.
+
+
+
 \subsubsection*{Forces}
+
+It is common to have to deal with collections of domain objects, but it is tedious to create custom views for each of these. Collections may form part of the internal state of a domain object, such as a website containing pages, or a page containing links, but a collection may also be returned by a query, such as a Spotter search, forexample the set of web pages containing a certain string in their title or page contents.
+
+Raw collections have uninteresting views. Collections are very similar and have a lot of boilerplate code. Many views are essentially collections, and have similar implementations.
+
 \subsubsection*{Solution}
+
+Wrap collections of domain objects in a dedicated group wrapper, and give it dedicated views, actions and searches.
+
+Create a dedicated wrapper for a collection of domain entities. An example is WebPageGroup , which wraps a collection web pages.
+
+Have the collection wrapper use the TGtGroupWithItems trait. This trait has an items slot for the wrapped collection, and provides a large number of Collection methods to make the trait user behave like a Collection.
+
+In case there are other classes that share views, actions and searches with the collection wrapper, consider putting these in a shared trait as well. For example, a website is also a collection of pages. We put the shared views and other behavior in the trait TWebPageGroup . The trait users are AWebsite and WebPageGroup .
+
+Wherever you need to show a collection of these objects, just forward the view to the wrapper to avoid duplicating the view code. 
+% See TWebPageGroup>>#gtReachablePagesFor: .
+
+% If you have gtSearches, be sure they return the collection wrapper and not the raw collection, using the sendCategory: message, for example, TWebPageGroup>>#gtSpotterForPageContents: .
+
+
 \subsubsection*{Consequences}
 
 
