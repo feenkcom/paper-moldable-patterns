@@ -46,7 +46,6 @@ Based on several years of experience of applying moldable development to industr
 % ===== Introduction =========================
 \section{Introduction: Moldable development in a Nutshell}
 
-
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it is difficult to extract that knowledge.
 The usual views of software systems are
@@ -88,7 +87,6 @@ This in turn suggests that there are two distinct roles involved in moldable dev
 \item the \emph{Stakeholder} is responsible for the domain model and questions about the domain that should be answered by the custom tools.
 \end{inparaenum}
 In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
-
 
 % ===== Moldable Development Patterns =========================
 \section{Moldable Development Patterns}
@@ -133,15 +131,12 @@ A custom search often benefits from a \pattern{collectionWrapper}, to allow the 
 \subsection*{Explainable System}\label{pat:explainableSystem}
 
 \subsubsection*{Context}
-
 Making technical and non-technical decisions about the further development and evolution of a software system is difficult because the system is complex and hard to understand.
 
 \subsubsection*{Problem}
-
 How can you prepare a software system so that various stakeholders (both technical and non-technical) can easily answer questions they have about it?
 
 \subsubsection*{Forces}
-
 Source code is impossible to read at scale.
 Static documentation tends to get out of date.
 The live, running system is designed to fulfil end user use cases, not answering technical or business questions.
@@ -149,7 +144,6 @@ Generic analysis tools and IDEs are unlikely to be able to answer domain-specifi
 Developing custom tools can be costly and time-consuming.
 
 \subsubsection*{Solution}
-
 Transform the software system into a ``live'' domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations.
 Leverage open, ``moldable'' IDE tools to reduce the cost of building custom tools.
 Drive the development of the custom tools by concrete questions you have about the system.
@@ -157,9 +151,9 @@ Drive the development of the custom tools by concrete questions you have about t
 \on{Add pointers to some subsequent patterns.}
 
 \subsubsection*{Consequences}
-
 The custom tools become part of the live, running system.
 Unlike static documentation, the custom tools are more likely to stay in sync with the evolving system.
+
 \on{More ... Also some negative consequences?}
 
 % ----- Moldable Tool -------------------------
@@ -170,12 +164,7 @@ Unlike static documentation, the custom tools are more likely to stay in sync wi
 \subsubsection*{Forces}
 
 \subsubsection*{Solution}
-
-
-
 \on{Add citation ...}\cite{Chis17a}
-
-
 \on{NB: Emphasize that we don't mean plugins, which are static. The tools need to mold dynamically to different domain objects. So static approaches like plugins and configuration files are not suitable. Need approaches like annotations/pragmas that are associated to the domain objects themselves.
 The solution is about (i) making tools react to run-time context, and (ii) making the adaptations cheap and easy.
 It's not about supporting arbitrary plugins, but about configuring what the tool does best.
@@ -186,36 +175,29 @@ So those are the aspects you want to control for each tool.}
 
 \subsubsection*{Consequences}
 
-
-
 % ----- Tooling Buildup -------------------------
 \subsection*{Tooling Buildup}\label{pat:toolingBuildup}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
 \subsubsection*{Solution}
-
 \on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
 
 \on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
 
 \subsubsection*{Consequences}
 
-
-
 % ----- Throwaway Analysis Tool -------------------------
 \subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
-\subsubsection*{Solution}
 
+\subsubsection*{Solution}
 \on{What are the recurring ideas? The purpose is to engage the Stakeholder. Pick some task that will demonstrate the benefit of an explainable system, but without stressing the Stakeholder. The task should be feasible in reasonable time but non-trivial. There should be a clear value for the Stakeholder, that is, do something that the Stakeholder has difficulty with.}
 
 \subsubsection*{Consequences}
 
-
-% ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
 
 \on{See \href{https://book.gtoolkit.com/project-diary-dyquv1ad359wsnwasp6hwkgcj}{Project Diary book page}}
@@ -223,17 +205,14 @@ So those are the aspects you want to control for each tool.}
 \subsubsection*{Context}
 
 \subsubsection*{Problem}
-
 How can you keep track of and document your progress in a moldable development project?
 
 \subsubsection*{Forces}
-
-It's boring to write documentation after the fact, so it is rarely done. Documentation is not part of the running system, so it distracts you from coding.
-
+It's boring to write documentation after the fact, so it is rarely done.
+Documentation is not part of the running system, so it distracts you from coding.
 Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
 
 \subsubsection*{Solution}
-
 Use a notebook as the starting point for your project and all of its tasks. Use the notebook to keep a diary of your progress. As the project matures, use the notebook as a draft for the documentation.
 
 Create a dedicated notebook page for each project to summarize the goals, and provide pointers to related material.
@@ -248,9 +227,9 @@ At the end of a project, consider recycling and rewriting the project pages to c
 
 %For an example, see Implementing a Ludo Game as a moldable development exercise. This is the starting page of a Project diary for the Ludo Game. The pages initially tracked the development steps of the project, and contain snippets from which to continue development. As the project came to an end, the pages were edited and rewritten to serve as documentation.
 
-
 \subsubsection*{Consequences}
 
+A project notebook page should contain snippets to create Moldable object instances that can be used as starting points for Moldable Development.
 
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
@@ -270,7 +249,6 @@ Programmers are used to first writing code in a code editor, then compiling and 
 
 Code editors provide you feedback about the source code, not the live instances.
 
-
 \subsubsection*{Solution}
 
 Start coding by inspecting moldable object , that is, a live instance of the class you are coding, not in a code editor.
@@ -278,7 +256,6 @@ Start coding by inspecting moldable object , that is, a live instance of the cla
 Then you can incrementally add behavior to the object, and create custom views as you code to make the new behavior visible.
 
 \on{Recycle or adapt more from the \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Steps}.}
-
 
 \subsubsection*{Consequences}
 
@@ -324,7 +301,6 @@ Unlike normal test methods, examples can be composed. For example, this example 
 %	^ result
     
 
-
 \subsubsection*{Consequences}
 
 Examples can be run just like classical unit tests.
@@ -334,8 +310,6 @@ When an example fails, its dependent examples do not need to be run.
 When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point. (The example snippets above illustrate this.)
 
 When you are searching for usages of an API, not only do you find examples that illustrate the usage, but by running the example you obtain a live instance that you can explore.
-
-
 
 % ----- Viewable Data Wrapper -------------------------
 \subsection*{Viewable Data Wrapper}\label{pat:viewableDataWrapper}
@@ -352,7 +326,6 @@ When we explore data, we represent them using suitable low-level data structures
 Data structures (lists, dictionaries) reflect the representation of data, not their interpretation.
 
 To analyze and explore data, we need higher-level views that reflect our understanding of the data.
-
 
 \subsubsection*{Solution}
 
@@ -378,10 +351,7 @@ GhOrganization new rawData: dictionary.
   
 Now we can add custom views specific to this domain, for example, listing the Repositories of an organization, or the most recent GitHub events. For each new domain concept, we introduce a dedicated wrapper object, so we can navigate the entire model via the domain concepts.
 
-
-
 \subsubsection*{Consequences}
-
 
 % ----- Contextual Playground -------------------------
 \subsection*{Contextual Playground}\label{pat:contextualPlayground}
@@ -399,7 +369,6 @@ Setting up code to prototype and test logic can be cumbersome.
 
 Writing tests first for parts of the logic of a complex method may can be overkill.
 
-
 \subsubsection*{Solution}
 
 Prototype new behavior in the Playground of a Moldable object, i.e., an Inspector on a live instance of the class. The Playground will be bound to the context of the instance, so self and all slots can be accessed exactly as they would in a running method.
@@ -410,9 +379,7 @@ Code snippets that work as expected can then be copy-pasted to existing methods,
 
 \on{See the Steps in the book page}
 
-
 \subsubsection*{Consequences}
-
 
 % ----- Custom View -------------------------
 \subsection*{Custom View}\label{pat:customView}
@@ -423,14 +390,11 @@ Code snippets that work as expected can then be copy-pasted to existing methods,
 
 As you explore a live model, you may find yourself repeatedly navigating through multiple inspector views to reach the information you want. How can you make this process more efficient?
 
-
 \subsubsection*{Forces}
 
 Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating Playground snippets, to reach a new Inspector instance.
 
 The sequence of steps may be cumbersome to follow repeatedly.
-
-
 
 \subsubsection*{Solution}
 
@@ -438,10 +402,7 @@ Turn interesting data into a viewable entity . Extract the navigation steps into
 
 \on{See the Steps in the book page}
 
-
 \subsubsection*{Consequences}
-
-
 
 % ----- Simple View -------------------------
 \subsection*{Simple View}\label{pat:simpleView}
@@ -451,12 +412,9 @@ Turn interesting data into a viewable entity . Extract the navigation steps into
 
 How much effort should you invest into creating a new view?
 
-
 \subsubsection*{Forces}
 
 There are many different kinds of views; how can you tell which one is most suitable?
-
-
 
 \subsubsection*{Solution}
 
@@ -466,8 +424,6 @@ A view exists only to answer a question about a domain object. Pick the simplest
 
 \subsubsection*{Consequences}
 
-
-
 % ----- Custom Action -------------------------
 \subsection*{Custom Action}\label{pat:customAction}
 \on{See \href{https://book.gtoolkit.com/custom-action-7ed0nuwfqc5qp8b1b257cavgy}{Custom Action book page}}
@@ -476,14 +432,11 @@ A view exists only to answer a question about a domain object. Pick the simplest
 
 As you are developing an explorable model of your application, you may find yourself repeatedly evaluating the same code snippets to perform a given action. How can you streamline these tasks?
 
-
 \subsubsection*{Forces}
 
 Repeated tasks are annoying and time-consuming.
 
 Remembering how to perform common tasks increases cognitive overload.
-
-
 
 \subsubsection*{Solution}
 
@@ -491,9 +444,7 @@ Add a custom action button to the key objects involved in the repeated tasks, en
 
 \on{See the Steps in the Book page.}
 
-
 \subsubsection*{Consequences}
-
 
 % ----- Custom Search -------------------------
 \subsection*{Custom Search}\label{pat:customSearch}
@@ -503,7 +454,6 @@ Add a custom action button to the key objects involved in the repeated tasks, en
 \subsubsection*{Forces}
 \subsubsection*{Solution}
 \subsubsection*{Consequences}
-
 
 % ----- Collection Wrapper -------------------------
 \subsection*{Collection Wrapper}\label{pat:collectionWrapper}
@@ -516,11 +466,9 @@ What is the best way to provide custom views of collections of domain objects, w
 Example:
 When we explore a website, we have lists of links in a website or a webpage, we have lists of internal links, external links, broken links, or queries returning links that match some text. Providing custom views for each of these is tedious and leads to much duplicated code.
 
-
-
 \subsubsection*{Forces}
 
-It is common to have to deal with collections of domain objects, but it is tedious to create custom views for each of these. Collections may form part of the internal state of a domain object, such as a website containing pages, or a page containing links, but a collection may also be returned by a query, such as a Spotter search, forexample the set of web pages containing a certain string in their title or page contents.
+It is common to have to deal with collections of domain objects, but it is tedious to create custom views for each of these. Collections may form part of the internal state of a domain object, such as a website containing pages, or a page containing links, but a collection may also be returned by a query, such as a Spotter search, for example the set of web pages containing a certain string in their title or page contents.
 
 Raw collections have uninteresting views. Collections are very similar and have a lot of boilerplate code. Many views are essentially collections, and have similar implementations.
 
@@ -532,22 +480,19 @@ Create a dedicated wrapper for a collection of domain entities. An example is We
 
 Have the collection wrapper use the TGtGroupWithItems trait. This trait has an items slot for the wrapped collection, and provides a large number of Collection methods to make the trait user behave like a Collection.
 
-In case there are other classes that share views, actions and searches with the collection wrapper, consider putting these in a shared trait as well. For example, a website is also a collection of pages. We put the shared views and other behavior in the trait TWebPageGroup . The trait users are AWebsite and WebPageGroup .
+In case there are other classes that share views, actions and searches with the collection wrapper, consider putting these in a shared trait as well. For example, a website is also a collection of pages. We put the shared views and other behaviour in the trait TWebPageGroup . The trait users are AWebsite and WebPageGroup.
 
 Wherever you need to show a collection of these objects, just forward the view to the wrapper to avoid duplicating the view code. 
 % See TWebPageGroup>>#gtReachablePagesFor: .
 
 % If you have gtSearches, be sure they return the collection wrapper and not the raw collection, using the sendCategory: message, for example, TWebPageGroup>>#gtSpotterForPageContents: .
 
-
 \subsubsection*{Consequences}
-
 
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{moldablePatterns}
-
 
 \end{document}
 \endinput
@@ -561,7 +506,6 @@ Wherever you need to show a collection of these objects, just forward the view t
 \subsubsection*{Forces}
 \subsubsection*{Solution}
 \subsubsection*{Consequences}
-
 
 \begin{inparaenum}[(i)]
 \item
