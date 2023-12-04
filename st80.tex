@@ -31,7 +31,7 @@
   literate=
     {BANG}{!}1
     {UNDERSCORE}{\_}1
-    {\\st}{Smalltalk}9 % convenience -- in case \st occurs in code
+    % {\\st}{Smalltalk}9 % convenience -- in case \st occurs in code
     % {'}{{\textquotesingle}}1 % replaced by upquote=true in \lstset
     {_}{{$\leftarrow$}}1
     {>>>}{{\sep}}1
@@ -65,11 +65,11 @@
 	columns=fullflexible} % no fixed width fonts
 % In-line code (literal)
 % Normally use this for all in-line code:
-\newcommand{\ct}{\lstinline[mathescape=false,backgroundcolor=\color{white},basicstyle={\sffamily\upshape}]}
+\newcommand{\st}{\lstinline[mathescape=false,backgroundcolor=\color{white},basicstyle={\sffamily\upshape}]}
 % In-line code (latex enabled)
 % Use this only in special situations where \ct does not work
 % (within section headings ...):
-\newcommand{\lct}[1]{{\textsf{\textup{#1}}}}
+\newcommand{\lst}[1]{{\textsf{\textup{#1}}}}
 % Code environments
 \lstnewenvironment{code}{%
 	\lstset{%

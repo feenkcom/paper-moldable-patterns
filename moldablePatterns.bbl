@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -53,6 +53,20 @@
 \urldef\tempurl%
 \url{https://doi.org/10.1007/978-3-319-67425-4_6}
 \showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{G\^irba}{G\^irba}{2021}]%
+        {Girb21a}
+\bibfield{author}{\bibinfo{person}{Tudor G\^irba}.}
+  \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{Introducing {Lepiter}: Knowledge Management +
+  Multi-language Notebooks + Moldable Development}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{https://lepiter.io/feenk/introducing-lepiter--knowledge-management--e2p6apqsz5npq7m4xte0kkywn/}
+\showURL{%
+\tempurl}
 
 
 \end{thebibliography}
