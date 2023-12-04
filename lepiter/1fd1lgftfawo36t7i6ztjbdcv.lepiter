@@ -219,7 +219,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-04T11:30:07.096616+01:00"
+						"dateAndTimeString" : "2023-12-04T14:28:00.593879+01:00"
 					}
 				},
 				"uid" : {
@@ -229,7 +229,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "#Exaplainable system ?"
+				"string" : "#Explainable system ?"
 			},
 			{
 				"__type" : "textSnippet",
@@ -406,7 +406,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-04T11:29:18.081908+01:00"
+						"dateAndTimeString" : "2023-12-04T14:27:57.173097+01:00"
 					}
 				},
 				"uid" : {
@@ -416,7 +416,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : ""
+				"string" : "# Moldable Object"
 			}
 		]
 	},
