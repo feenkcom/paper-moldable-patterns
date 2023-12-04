@@ -14,6 +14,10 @@
 \input{macros}
 \input{st80.tex}
 % ============================================================
+% Macros for this paper
+\newcommand{\pattern}[1]{\emph{\nameref{pat:#1}}\xspace}
+\newcommand{\GT}{GT\xspace} % In case we want to display it differently ...
+% ============================================================
 \begin{document}
 \title{Moldable Development Patterns}
 
@@ -36,7 +40,7 @@
 \begin{abstract}
 Moldable development supports decision-making by making software systems \emph{explainable}.
 This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model.
-Based on several years of experience of applying moldable development to industrial systems, we have identified numerous mutually supporting patterns to explain how moldable development works.
+Based on several years of experience of applying moldable development to industrial systems, we have identified numerous mutually supporting patterns to explain how moldable development works in practice.
 \end{abstract}
 
 % \keywords{TODO}
@@ -47,57 +51,56 @@ Based on several years of experience of applying moldable development to industr
 \section{Introduction: Moldable development in a Nutshell}
 
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
-But it is difficult to extract that knowledge.
+But it can be difficult to extract that knowledge.
 The usual views of software systems are
 \begin{inparaenum}[(i)]
-\item the source code,
+\item the source code, and
 \item the running system.
 \end{inparaenum}
 But neither of these lends itself well to answering questions about the system.
 Software analysis tools can help to some extent, but since every system and every problem is different, it is rare for generic analysis tools to scale to arbitrary systems.
 
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{custom-views}
-  \caption{Custom views of a Ludo game.}
-  \label{fig:ludo-views}
-\end{figure}
-
 Moldable development is an approach to constructing software systems that are \emph{explainable}.
 This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system, \emph{as these questions arise}.
 These custom tools consist of small extensions to the \emph{moldable} tools of the IDE, such as the object inspector, the code browser, the debugger and the notebook.
 
-As a simple example, consider the Inspector views of a Ludo game implementation in \autoref{fig:ludo-views}.
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{customViews}
+  \caption{Custom views of a Ludo game.}
+  \label{fig:ludoViews}
+\end{figure}
+
+As a simple example, consider the Inspector views of a Ludo game implementation in \autoref{fig:ludoViews}.
 With a conventional implementation, we can either try to play the game interactively, or we can stare at the source code.
 We can also run the tests, but if these are all green, they do not help us to understand the system.
 By applying moldable development, we turn questions we have about the game into custom views.
 
-The figure shows three connected custom Inspector views of a running game.
-In the leftmost pane we see the game GUI as the \ct{Board} view.
-We can also interact programmatically with the game, evaluating ``\ct{self autoPlay: 1000}'' in a contextual playground (a kind of REPL).
+The figure shows three connected custom Inspector views of a running game in the Glamorous Toolkit\footnote{\url{https://gtoolkit.com}} (\GT), a moldable development environment.
+In the leftmost pane we see the game GUI as the \st{Board} view.
+We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of REPL) below the view.
 In the second pane we can explore the moves of  the completed game, and in the third pane we can explore individual moves.
-The \ct{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
+The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
+In a nutshell, Moldable development is a way to make systems explainable by making the domain model of a software system visible and explorable through custom tools.
 Of course, this begs the question how to actually apply moldable development in practice.
-Moldable development is a way to make systems explainable.
-This means making the domain model of a software system visible and explorable through custom tools.
-This in turn suggests that there are two distinct roles involved in moldable development:
+In our experience applying moldable development to many industrial and open source systems, we have encountered a number of repeating patterns, which we document below.
+
+% ===== Moldable Development Patterns =========================
+\section{Moldable Development Patterns}
+
+There are two distinct roles involved in moldable development:
 \begin{inparaenum}[(i)]
 \item the \emph{Facilitator} is responsible for the technical realization of custom tools, and
 \item the \emph{Stakeholder} is responsible for the domain model and questions about the domain that should be answered by the custom tools.
 \end{inparaenum}
 In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
 
-% ===== Moldable Development Patterns =========================
-\section{Moldable Development Patterns}
-
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{map}
   \caption{A map of moldable development patterns.}
   \label{fig:map}
 \end{figure}
-
-\on{Do we need all these patterns?}
 
 Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, summarized in \autoref{fig:map}.
 These patterns have emerged over several years of experience in developing the Glamorous Toolkit\footnote{\url{https://gtoolkit.com}} moldable development platform, and applying it to numerous systems.
@@ -131,7 +134,7 @@ A custom search often benefits from a \pattern{collectionWrapper}, to allow the 
 \subsection*{Explainable System}\label{pat:explainableSystem}
 
 \subsubsection*{Context}
-Making technical and non-technical decisions about the further development and evolution of a software system is difficult because the system is complex and hard to understand.
+You need to make technical and non-technical decisions about the further development and evolution of a software system, but this is difficult because the system is complex and hard to understand.
 
 \subsubsection*{Problem}
 How can you prepare a software system so that various stakeholders (both technical and non-technical) can easily answer questions they have about it?
@@ -160,11 +163,37 @@ Unlike static documentation, the custom tools are more likely to stay in sync wi
 \subsection*{Moldable Tool}\label{pat:moldableTool}
 
 \subsubsection*{Context}
+You are developing a complex software system, and find that the existing development tools fall short in supporting domain-specific questions about the software.
+
 \subsubsection*{Problem}
+How can you cheaply and effectively extend the development environment with domain-specific tools that address your application domain?
+
 \subsubsection*{Forces}
+Generic software tools are fine for answering generic questions, but they do not scale well when addressing domain-specific questions.
+(Consider a generic debugger being used to debug an event-driven application\,---\,you want to step through the chain of events, not the stack.)
+A plugin-architecture can open up an IDE to new tools, but plugins can be complex and expensive to implement, and they often do not play nicely with existing tools or with each other.
 
 \subsubsection*{Solution}
-\on{Add citation ...}\cite{Chis17a}
+Make the development tools \emph{moldable} to the \emph{dynamic context} of the artifacts they are intended to work with~\cite{Chis17a}.
+
+A moldable tool makes its core functionality configurable by means of a lightweight mechanism.
+For example, a Test Runner in a modern IDE recognizes the presence of test cases by means of various programming conventions, \ie a test case is a method with a standard annotation, or it's a method whose name starts with \st{"test"} and belongs to a class that inherits from a \st{TestCase} class or implements a \st{Test} interface.
+
+By the same token an Inspector can be made moldable by recognizing that an object it is inspecting has one or more custom views defined as methods with a \st{<gtView>} annotation.
+
+\on{add explanation}
+\autoref{fig:viewCode}
+
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{viewCode}
+  \caption{Defining a custom Inspector view.}
+  \label{fig:viewCode}
+\end{figure}
+
+\on{Other examples: Notebook, Debugger, Coder}
+
+
 \on{NB: Emphasize that we don't mean plugins, which are static. The tools need to mold dynamically to different domain objects. So static approaches like plugins and configuration files are not suitable. Need approaches like annotations/pragmas that are associated to the domain objects themselves.
 The solution is about (i) making tools react to run-time context, and (ii) making the adaptations cheap and easy.
 It's not about supporting arbitrary plugins, but about configuring what the tool does best.
@@ -198,14 +227,15 @@ So those are the aspects you want to control for each tool.}
 
 \subsubsection*{Consequences}
 
+% ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
-
-\on{See \href{https://book.gtoolkit.com/project-diary-dyquv1ad359wsnwasp6hwkgcj}{Project Diary book page}}
+%\on{See \href{https://book.gtoolkit.com/project-diary-dyquv1ad359wsnwasp6hwkgcj}{Project Diary book page}}
 
 \subsubsection*{Context}
+You are working on a software project and need to track your progress.
 
 \subsubsection*{Problem}
-How can you keep track of and document your progress in a moldable development project?
+How can you keep track of decisions, experiments and progress in a moldable development project?
 
 \subsubsection*{Forces}
 It's boring to write documentation after the fact, so it is rarely done.
@@ -213,40 +243,55 @@ Documentation is not part of the running system, so it distracts you from coding
 Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
 
 \subsubsection*{Solution}
-Use a notebook as the starting point for your project and all of its tasks. Use the notebook to keep a diary of your progress. As the project matures, use the notebook as a draft for the documentation.
+Use a live notebook as the starting point for your project and all of its tasks.
+Use the notebook to keep a diary of your progress.
+As the project matures, use the notebook as a draft for the documentation.
 
 Create a dedicated notebook page for each project to summarize the goals, and provide pointers to related material.
 
-If needed, add a code snippet for any setup tasks (e.g., cloning repositories or loading databases). Add code snippets to the notebook pages to serve as moldable objects to start coding from. Extract interesting code snippets as example objects to document interesting use cases, or to serve as tests.
+For example, in \autoref{fig:projectDiary} we see a live Lepiter page \cite{Girb21a} documenting the task of adding some list views to the Ludo game.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{projectDiaryExample}
+  \caption{Documenting your progress in a live notebook.}
+  \label{fig:projectDiary}
+\end{figure}
+
+If needed, add a code snippet for any setup tasks (e.g., cloning repositories or loading databases).
+Add code snippets to the notebook pages to serve as moldable objects to start coding from.
+Extract interesting code snippets as example objects to document interesting use cases, or to serve as tests.
 
 As the project grows, organize the notebook into a main page with an overview, and separate notebook pages for different tasks or groups of related tasks.
 
-Consider using notebook tags to organize your pages implicitly. For example, use a dedicated project tag for all the project pages, and additional tags to indicate their status (``todo'', ``completed'', ``urgent'' etc.). For example, the DRAFT tag is used to track pages of the GT Book itself that require further editing.
+Consider using notebook tags to organize your pages implicitly. For example, use a dedicated project tag for all the project pages, and additional tags to indicate their status (``todo'', ``completed'', ``urgent'' \etc).
+For example, the ``DRAFT'' tag is used to track pages of the Glamorous Toolkit Book\footnote{The GT Book is the documentation of the Glamorous Toolkit Moldable Development Environment implemented as a live notebook. A static snapshot is also available: \url{https://book.gtoolkit.com}.} that require further editing.
 
 At the end of a project, consider recycling and rewriting the project pages to create documentation. In this way the diary can serve as a rough draft.
 
-%For an example, see Implementing a Ludo Game as a moldable development exercise. This is the starting page of a Project diary for the Ludo Game. The pages initially tracked the development steps of the project, and contain snippets from which to continue development. As the project came to an end, the pages were edited and rewritten to serve as documentation.
-
 \subsubsection*{Consequences}
 
-A project notebook page should contain snippets to create Moldable object instances that can be used as starting points for Moldable Development.
+A live notebook is an integral part of the project, and evolves together with other software artifacts.
+Notebook pages can express tasks in various stages of completion, so can be used as starting points for further development tasks.
+Notebooks can serve not only to track progress, but also as documentation for both technical and non-technical stakeholders.
 
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
-
-\on{See \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Moldable Object}}
-
+%\on{See \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Moldable Object}}
+\on{Work on this one next.}
 \subsubsection*{Context}
+You need to start coding.
+
 \subsubsection*{Problem}
 
-When you code a class, you are several steps away from seeing the consequences of your coding. How can you close the gap between the code and the live objects?
+\todo{Need a single statement.}
+
+When you code a class, you are several steps away from seeing the consequences of your coding.
+How can you close the gap between the code and the live objects?
 
 \subsubsection*{Forces}
-
+\on{More}
 As a programmer, you want to quickly get feedback about the code you are writing.
-
 Programmers are used to first writing code in a code editor, then compiling and running (or testing) it.
-
 Code editors provide you feedback about the source code, not the live instances.
 
 \subsubsection*{Solution}
@@ -257,7 +302,17 @@ Then you can incrementally add behavior to the object, and create custom views a
 
 \on{Recycle or adapt more from the \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Steps}.}
 
+\todo{How to get the live object?
+From a playground. From a code snippet. From an example.
+}
+
+
 \subsubsection*{Consequences}
+
+\todo{}
+
+
+
 
 % ----- Example Object -------------------------
 \subsection*{Example Object}\label{pat:exampleObject}
@@ -278,7 +333,7 @@ Examples can be complex to set up.Unit tests consume examples, but they are only
 
 Wrap examples as (instance) methods that optionally evaluate some tests (assertions), and return the example instance. Each example may also use one or more examples as the initial setup for the new example.
 
-To start, you need a modified unit testing framework in which tests return the exercised fixture, namely, an example. In GT, you create an Example by defining a parameterless method that has a \ct{gtExample} pragma, and returns an object. (A similar framework for Java is JExample.)
+To start, you need a modified unit testing framework in which tests return the exercised fixture, namely, an example. In GT, you create an Example by defining a parameterless method that has a \st{gtExample} pragma, and returns an object. (A similar framework for Java is JExample.)
 
 Here's a simple example that returns a parse node for the parsed string '3+4', and asserts that the result is not fully reduced (evaluated).
 
