@@ -219,7 +219,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-04T11:30:07.096616+01:00"
+						"dateAndTimeString" : "2023-12-04T14:28:00.593879+01:00"
 					}
 				},
 				"uid" : {
@@ -229,13 +229,51 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "#Exaplainable system ?"
+				"string" : "#Explainable system ?"
 			},
 			{
 				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
-					"items" : [ ]
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2023-12-04T11:30:03.697228+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2023-12-04T11:36:52.196998+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "wgKCVg7IDQC937sGB2YZGA=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Show the view code for the Moves view of a Ludo game."
+						}
+					]
 				},
 				"createEmail" : {
 					"__type" : "email",
@@ -368,7 +406,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-04T11:29:18.081908+01:00"
+						"dateAndTimeString" : "2023-12-04T14:27:57.173097+01:00"
 					}
 				},
 				"uid" : {
@@ -378,7 +416,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : ""
+				"string" : "# Moldable Object"
 			}
 		]
 	},
