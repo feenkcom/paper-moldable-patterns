@@ -126,10 +126,6 @@ The most common of these tools are:
 A custom view is frequently a \pattern{simpleView} that can be quickly prototype, and later extended.
 A custom search often benefits from a \pattern{collectionWrapper}, to allow the results of a query to be also molded with custom tools.
 
-\on{We have a budget of roughly one column for each pattern. To start with, we keep the patterns to a minimum size. It is easier to expand them than to reduce them in size.}
-
-\on{NB: For each of these, start with the solution, then reverse engineer the problem, the forces, the consequences and the context.}
-
 % ----- Explainable System -------------------------
 \subsection*{Explainable System}\label{pat:explainableSystem}
 
@@ -147,17 +143,13 @@ Generic analysis tools and IDEs are unlikely to be able to answer domain-specifi
 Developing custom tools can be costly and time-consuming.
 
 \subsubsection*{Solution}
-Transform the software system into a ``live'' domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations.
-Leverage open, ``moldable'' IDE tools to reduce the cost of building custom tools.
+Transform the software system into a live domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations.
+Leverage open, moldable IDE tools to reduce the cost of building custom tools.
 Drive the development of the custom tools by concrete questions you have about the system.
-
-\on{Add pointers to some subsequent patterns.}
 
 \subsubsection*{Consequences}
 The custom tools become part of the live, running system.
 Unlike static documentation, the custom tools are more likely to stay in sync with the evolving system.
-
-\on{More ... Also some negative consequences?}
 
 % ----- Moldable Tool -------------------------
 \subsection*{Moldable Tool}\label{pat:moldableTool}
@@ -179,11 +171,9 @@ Make the development tools \emph{moldable} to the \emph{dynamic context} of the 
 A moldable tool makes its core functionality configurable by means of a lightweight mechanism.
 For example, a Test Runner in a modern IDE recognizes the presence of test cases by means of various programming conventions, \ie a test case is a method with a standard annotation, or it's a method whose name starts with \st{"test"} and belongs to a class that inherits from a \st{TestCase} class or implements a \st{Test} interface.
 
-By the same token an Inspector can be made moldable by recognizing that an object it is inspecting has one or more custom views defined as methods with a \st{<gtView>} annotation.
-
-\on{add explanation}
-\autoref{fig:viewCode}
-
+By the same token an Inspector can be made moldable by recognizing that an object it is inspecting has one or more custom views defined.
+For example, in \autoref{fig:viewCode} we see that inspecting an instance of a \st{GtLudoRecordingGame} yields a custom \st{Moves} view listing the moves played thus far, as the Inspector detects a \st{gtMovesFor:} method defined in the object with a \st{<gtView>} pragma (\ie annotation).
+The custom view is defined in a just a few lines of code, creating a \st{columnedList} from the moves.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{viewCode}
@@ -191,29 +181,27 @@ By the same token an Inspector can be made moldable by recognizing that an objec
   \label{fig:viewCode}
 \end{figure}
 
-\on{Other examples: Notebook, Debugger, Coder}
+The precise mechanism used to mold a tool is not so important, as is the fact that the customizations should be cheap, \ie few lines of code, and \emph{dynamic}, \ie detected at run time.
 
-
-\on{NB: Emphasize that we don't mean plugins, which are static. The tools need to mold dynamically to different domain objects. So static approaches like plugins and configuration files are not suitable. Need approaches like annotations/pragmas that are associated to the domain objects themselves.
-The solution is about (i) making tools react to run-time context, and (ii) making the adaptations cheap and easy.
-It's not about supporting arbitrary plugins, but about configuring what the tool does best.
-An Inspector is about showing views of objects, navigating and interacting with them.
-A debugger is about showing the run-time execution state, and stepping through it.
-A notebook is about displaying different kinds of information, linking them, and interacting with them.
-So those are the aspects you want to control for each tool.}
+Other examples include:
+\begin{inparaenum}[(i)]
+\item a moldable code editor offering alternative views of packages, classes or methods to show dependencies, tests, or other more domain-specific features,
+\item a moldable debugger to adapt the stepping behavior for domains such as event-driven applications, or parsing rules,
+\item a moldable notebook, supporting domain-specific snippets or annotations.
+\end{inparaenum}
 
 \subsubsection*{Consequences}
+A moldable tool requires no up-front configuration, since it will be dynamically molded by the artifacts it encounters.
+Conversely, since custom tools are an intrinsic part of software systems rather than the IDE, molding happens when needed.
 
 % ----- Tooling Buildup -------------------------
 \subsection*{Tooling Buildup}\label{pat:toolingBuildup}
+\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
+\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
 \subsubsection*{Solution}
-\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
-
-\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
-
 \subsubsection*{Consequences}
 
 % ----- Throwaway Analysis Tool -------------------------
@@ -244,10 +232,9 @@ Tools for tracking your progress are separate from the code base, so they are co
 
 \subsubsection*{Solution}
 Use a live notebook as the starting point for your project and all of its tasks.
+Create a dedicated notebook page for each project, or even each project task, to summarize the goals, and provide pointers to related material.
 Use the notebook to keep a diary of your progress.
 As the project matures, use the notebook as a draft for the documentation.
-
-Create a dedicated notebook page for each project to summarize the goals, and provide pointers to related material.
 
 For example, in \autoref{fig:projectDiary} we see a live Lepiter page \cite{Girb21a} documenting the task of adding some list views to the Ludo game.
 
@@ -257,8 +244,8 @@ For example, in \autoref{fig:projectDiary} we see a live Lepiter page \cite{Girb
   \label{fig:projectDiary}
 \end{figure}
 
-If needed, add a code snippet for any setup tasks (e.g., cloning repositories or loading databases).
-Add code snippets to the notebook pages to serve as moldable objects to start coding from.
+If needed, add code snippets for any setup tasks (e.g., cloning repositories or loading databases).
+Also add code snippets to the notebook pages to serve as moldable objects to start coding from.
 Extract interesting code snippets as example objects to document interesting use cases, or to serve as tests.
 
 As the project grows, organize the notebook into a main page with an overview, and separate notebook pages for different tasks or groups of related tasks.
@@ -278,27 +265,27 @@ Notebooks can serve not only to track progress, but also as documentation for bo
 \subsection*{Moldable Object}\label{pat:moldableObject}
 %\on{See \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Moldable Object}}
 \on{Work on this one next.}
+
 \subsubsection*{Context}
-You need to start coding.
+
+You have your basic infrastructure in place, and want to start the process of creating an explainable system, either from scratch, or based on some existing software or data.
 
 \subsubsection*{Problem}
 
-\todo{Need a single statement.}
-
-When you code a class, you are several steps away from seeing the consequences of your coding.
-How can you close the gap between the code and the live objects?
+Where do you start coding an explainable system?
 
 \subsubsection*{Forces}
-\on{More}
+
 As a programmer, you want to quickly get feedback about the code you are writing.
-Programmers are used to first writing code in a code editor, then compiling and running (or testing) it.
-Code editors provide you feedback about the source code, not the live instances.
+When you write code in a classical IDE code editor, you are several steps away from seeing the consequences of your coding.
+To write unit tests, you must already have an idea what behavior you want to test and what the results should be.
 
 \subsubsection*{Solution}
 
-Start coding by inspecting moldable object , that is, a live instance of the class you are coding, not in a code editor.
+Start coding by inspecting a moldable object, that is, a live instance of the class you are coding, not in a code editor.
+Then incrementally pose domain-specific questions, find the answers by exploring and interacting with the object, and then turn those answers into custom tools, behaviors and tests.
 
-Then you can incrementally add behavior to the object, and create custom views as you code to make the new behavior visible.
+
 
 \on{Recycle or adapt more from the \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Steps}.}
 
