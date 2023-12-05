@@ -15,6 +15,8 @@
 \input{st80.tex}
 % ============================================================
 % Macros for this paper
+%\usepackage{enumitem}
+%\setlist[description]{font=\itshape}
 \newcommand{\pattern}[1]{\emph{\nameref{pat:#1}}\xspace}
 \newcommand{\GT}{GT\xspace} % In case we want to display it differently ...
 % ============================================================
@@ -264,45 +266,61 @@ Notebooks can serve not only to track progress, but also as documentation for bo
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
 %\on{See \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Moldable Object}}
-\on{Work on this one next.}
-
 \subsubsection*{Context}
-
 You have your basic infrastructure in place, and want to start the process of creating an explainable system, either from scratch, or based on some existing software or data.
 
 \subsubsection*{Problem}
-
 Where do you start coding an explainable system?
 
 \subsubsection*{Forces}
-
 As a programmer, you want to quickly get feedback about the code you are writing.
 When you write code in a classical IDE code editor, you are several steps away from seeing the consequences of your coding.
 To write unit tests, you must already have an idea what behavior you want to test and what the results should be.
 
 \subsubsection*{Solution}
-
 Start coding by inspecting a moldable object, that is, a live instance of the class you are coding, not in a code editor.
 Then incrementally pose domain-specific questions, find the answers by exploring and interacting with the object, and then turn those answers into custom tools, behaviors and tests.
 
+Moldable development is about making systems explainable with the help of custom tools, which means that you need to start the process by asking questions that you want to answer.
+In most cases you can't immediately start building the custom tools, but rather you need to explore the domain objects to understand how to answer the question.
+Once you know how to get the answer, you can turn the exploration steps into a custom tool.
+Starting with a live object means that you can immediately start the exploration process.
+Turning the exploration of an object into a custom tool is the process of molding it, hence we call it a ``moldable object.''
 
+How do you obtain a moldable object?
+\begin{itemize}[---]
+\item \emph{You already have a class:} create a \pattern{projectDiary} notebook page containing a code snippet to create an instance of the class, and start from there.
+\item \emph{You don't have a class:} start instead with a code snippet that instantiates an empty class, and then prototype the behavior.
+\item \emph{You have a test case:} turn the test case into an \pattern{exampleObject} and start from there.
+\item \emph{You have some data:} wrap the data as a \pattern{viewableDataWrapper}.
+\end{itemize}
 
-\on{Recycle or adapt more from the \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Steps}.}
+In \autoref{fig:stackMachine} we see an initial notebook page in which we start to explore an instance of a new \st{StackMachine} class that we create with a \emph{fixit} action:
+The wrench icon indicates that the class does not exist, so before we can evaluate the expression and inspect the new, moldable object, we must select one of the suggested fixes, in this case, to create a new class.
 
-\todo{How to get the live object?
-From a playground. From a code snippet. From an example.
-}
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{stackMachine}
+  \caption{Creating a fresh, moldable object for a new class.}
+  \label{fig:stackMachine}
+\end{figure}
 
+Once we have created the missing class and start to inspect it, we can start to ask questions, such as \emph{What is the number of items in the stack?}, \emph{What is the state of the stack?}, and \emph{How can we push new items onto the stack?}
+We can use a \pattern{contextualPlayground} to write experimental code, that we later extract as methods, and as we answer questions we can create small custom tools, such as a \pattern{customView} or a \pattern{customAction}.
+
+Whenever we identify an interesting state of our moldable object, we can extract it as an \pattern{exampleObject} that we can use as a test case, or as a starting point for further moldable development.
 
 \subsubsection*{Consequences}
+Instead of writing code in a text editor in the context of the source code of a class, you are always working in the context of a live object, whose behavior can be immediately explored.
 
-\todo{}
+Instead of writing hypothetical code that you must afterward test, you start by prototyping code and then extracting new behavior.
 
-
-
+Instead of trying to program custom tools in a vacuum, you first explore and prototype answers to questions, and then extract the code you need to create a custom tool.
 
 % ----- Example Object -------------------------
 \subsection*{Example Object}\label{pat:exampleObject}
+
+% --- CONTINUE HERE
+\here
 
 \on{See \href{https://book.gtoolkit.com/example-object-dyquv1b6xptl2c0ayhgb376bw}{Example Object book page}}
 
