@@ -198,21 +198,51 @@ Conversely, since custom tools are an intrinsic part of software systems rather 
 
 % ----- Tooling Buildup -------------------------
 \subsection*{Tooling Buildup}\label{pat:toolingBuildup}
-\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
-\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
+%\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
+%\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
 \subsubsection*{Context}
+You want to start moldable development but lack the basic infrastructure to start exploring the domain.
+You may be missing a parser for a data format or a DSL, a language bridge to an execution platform, or implementations of key analysis algorithms. 
+
 \subsubsection*{Problem}
+How do start moldable development if you are missing core infrastructure?
+
 \subsubsection*{Forces}
+When you are building on top of an existing project, you may be missing key tools to allow you to start exploring the domain.
+You might not know where to find existing implementations to directly use, or to port or adapt to your development platform.
+You might lack the expertise to build the tools yourself.
+
 \subsubsection*{Solution}
+To start a moldable development activity, you need to have the basic tools available to start exploring.
+If these are missing, you need to first work on a \emph{tooling buildup} phase.
+In this phase you do \emph{focus} on specific domain questions you want to explore, but rather on building the tools you need to start exploring.
+
+Here are some examples:
+\begin{inparaenum}[(i)]
+\item building a parser for YAML configuration files so that you can extract useful data from them and apply the \pattern{viewableDataWrapper} pattern,
+\item building an island parser\cite{Kurs14b} to extract interesting bits of information from source files in software languages for which a full parser may not be readily available,
+\item building a bridge to a foreign execution platform, such as for Python, or AWS, or a database system, so that you can observe and interact with run-time entities in the target platform, or
+\item building a graph-traversal to detect dependencies, deadlocks \etc\end{inparaenum}
+
 \subsubsection*{Consequences}
+Tooling buildup will slow you down.
+Once you have the right tools in place, you can move fast.
 
 % ----- Throwaway Analysis Tool -------------------------
 \subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
+
+%: --- CONTINUE HERE
+\here
+
 \subsubsection*{Context}
 \subsubsection*{Problem}
 \subsubsection*{Forces}
 
 \subsubsection*{Solution}
+
+
+
+
 \on{What are the recurring ideas? The purpose is to engage the Stakeholder. Pick some task that will demonstrate the benefit of an explainable system, but without stressing the Stakeholder. The task should be feasible in reasonable time but non-trivial. There should be a clear value for the Stakeholder, that is, do something that the Stakeholder has difficulty with.}
 
 \subsubsection*{Consequences}
@@ -375,9 +405,6 @@ When you are searching for usages of an API, not only do you find examples that 
 
 % ----- Viewable Data Wrapper -------------------------
 \subsection*{Viewable Data Wrapper}\label{pat:viewableDataWrapper}
-
-%: --- CONTINUE HERE
-\here
 
 \on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Viewable data wrapper book page}}
 \subsubsection*{Context}
@@ -565,6 +592,14 @@ Wherever you need to show a collection of these objects, just forward the view t
 
 % ===== TEMPLATES =========================
 
+\begin{inparaenum}[(i)]
+\item
+\item
+\end{inparaenum}
+
+%: --- CONTINUE HERE
+\here
+
 % ----- PATTERN -------------------------
 \subsection*{PATTERN}\label{pat:PATTERN}
 \subsubsection*{Context}
@@ -572,9 +607,3 @@ Wherever you need to show a collection of these objects, just forward the view t
 \subsubsection*{Forces}
 \subsubsection*{Solution}
 \subsubsection*{Consequences}
-
-\begin{inparaenum}[(i)]
-\item
-\item
-\end{inparaenum}
-
