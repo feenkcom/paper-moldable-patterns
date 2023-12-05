@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{2}
+\begin{thebibliography}{3}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -67,6 +67,27 @@
 \url{https://lepiter.io/feenk/introducing-lepiter--knowledge-management--e2p6apqsz5npq7m4xte0kkywn/}
 \showURL{%
 \tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Kuhn, Rompaey, H\"ansenberger, Nierstrasz,
+  Demeyer, Gaelli, and Leemput}{Kuhn et~al\mbox{.}}{2008}]%
+        {Kuhn08a}
+\bibfield{author}{\bibinfo{person}{Adrian Kuhn}, \bibinfo{person}{Bart~Van
+  Rompaey}, \bibinfo{person}{Lea H\"ansenberger}, \bibinfo{person}{Oscar
+  Nierstrasz}, \bibinfo{person}{Serge Demeyer}, \bibinfo{person}{Markus
+  Gaelli}, {and} \bibinfo{person}{Koenraad~Van Leemput}.}
+  \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{{JExample}: Exploiting Dependencies Between Tests
+  to Improve Defect Localization}. In \bibinfo{booktitle}{\emph{Extreme
+  Programming and Agile Processes in Software Engineering, 9th International
+  Conference, XP 2008}} \emph{(\bibinfo{series}{Lecture Notes in Computer
+  Science})}, \bibfield{editor}{\bibinfo{person}{P.~Abrahamsson}} (Ed.).
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{73--82}.
+\newblock
+\showISBNx{978-3-540-68254-7}
+\urldef\tempurl%
+\url{https://doi.org/10.1007/978-3-540-68255-4_8}
+\showDOI{\tempurl}
 
 
 \end{thebibliography}
