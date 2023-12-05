@@ -415,35 +415,24 @@ When you are searching for usages of an API, not only do you find examples that 
 
 % ----- Moldable Data Wrapper -------------------------
 \subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
-
-%: --- CONTINUE HERE
-\here
-
 % \on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Moldable Data Wrapper book page}}
 \subsubsection*{Context}
 You are working in a domain with existing data that you want to turn into an explainable system.
 
 \subsubsection*{Problem}
-How do you develop custom tools for 
-
-
-
-When you explore data with a platform such as GT, the views you obtain reflect the low-level data structures used to represent the data, not the underlying domain concepts.
-How can we add appropriate high-level views to the data?
+How do you develop custom tools for existing data?
 
 \subsubsection*{Forces}
-
 When we explore data, we represent them using suitable low-level data structures.
-
 Data structures (lists, dictionaries) reflect the representation of data, not their interpretation.
-
 To analyze and explore data, we need higher-level views that reflect our understanding of the data.
 
 \subsubsection*{Solution}
+Wrap each kind of data inside a dedicated class reflecting the problem domain entity.
+As you explore the data, introduce custom tools (views \etc) to the domain class that reflect answers to questions you ask about the data.
 
-Wrap each kind of data in a dedicated class reflecting the problem domain. 
-
-As you explore the data, introduce custom views to the domain class that reflect answers to questions you ask about the data.
+%: --- CONTINUE HERE
+\here
 
 Extract the data of interest. This might be data sitting in your file system (for example, a CSV file), or data retrieved from a website.
 
@@ -451,9 +440,11 @@ A classical example can be seen in Working with a REST API: the GitHub case stud
 
 We obtain a Dictionary representation of JSON data about the feenk GitHub organization:
 
+\begin{code}
 url := 'https://api.github.com/orgs/feenkcom'.
 json := ZnClient new get: url.
 dictionary := STON fromString: json.
+\end{code}
   
 If we explore this object, we just see the keys and values of the raw downloaded data. From this view, of course we can explore the data by navigating the Dictionary views, or by programatically exploring other paths using the Inspector Playground, but we cannot add or tailor views to specifically support the GitHub Organization domain.
 
