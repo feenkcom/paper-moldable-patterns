@@ -11,6 +11,11 @@
 \acmConference[EuroPLoP '24]{29th European Conference on Pattern Languages of Programs}{July 3--7, 2024}{Kloster Irsee, Germany}
 \acmISBN{978-1-4503-XXXX-X/18/06}
 % ============================================================
+% https://www.europlop.net
+%    FEBRUARY 5, 2024 - Deadline for initial paper submission
+%    MARCH 10, 2024 -  Acceptance for shepherding; Start of shepherding
+%    JUNE 16, 2024 - End of shepherding; Deadline for conference version of paper
+% ============================================================
 \input{macros}
 \input{st80.tex}
 % ============================================================
@@ -115,7 +120,7 @@ A \pattern{throwawayAnalysisTool} can be a useful prototype to initially engage 
 Moldable development itself starts with a \pattern{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
 An interesting instance can be encapsulated as an \pattern{exampleObject}, essentially a unit test that returns a tested object.
 An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
-In case the domain includes already existing data entities, these can be wrapped in a \pattern{viewableDataWrapper} to produce a moldable object.
+In case the domain includes already existing data entities, these can be wrapped in a \pattern{moldableDataWrapper} to produce a moldable object.
 
 A moldable object can be explored with the help of its \pattern{contextualPlayground}, a live programming environment bound to the state of a live instance.
 Working code can be extracted from such a playground to create custom tools.
@@ -198,24 +203,64 @@ Conversely, since custom tools are an intrinsic part of software systems rather 
 
 % ----- Tooling Buildup -------------------------
 \subsection*{Tooling Buildup}\label{pat:toolingBuildup}
-\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
-\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
+%\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
+%\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
 \subsubsection*{Context}
+You want to start moldable development but lack the basic infrastructure to start exploring the domain.
+You may be missing a parser for a data format or a DSL, a language bridge to an execution platform, or implementations of key analysis algorithms. 
+
 \subsubsection*{Problem}
+How do start moldable development if you are missing core infrastructure?
+
 \subsubsection*{Forces}
+When you are building on top of an existing project, you may be missing key tools to allow you to start exploring the domain.
+You might not know where to find existing implementations to directly use, or to port or adapt to your development platform.
+You might lack the expertise to build the tools yourself.
+
 \subsubsection*{Solution}
+To start a moldable development activity, you need to have the basic tools available to start exploring.
+If these are missing, you need to first work on a \emph{tooling buildup} phase.
+In this phase you do \emph{focus} on specific domain questions you want to explore, but rather on building the tools you need to start exploring.
+
+Here are some examples:
+\begin{inparaenum}[(i)]
+\item building a parser for YAML configuration files so that you can extract useful data from them and apply the \pattern{moldableDataWrapper} pattern,
+\item building an island parser\cite{Kurs14b} to extract interesting bits of information from source files in software languages for which a full parser may not be readily available,
+\item building a bridge to a foreign execution platform, such as for Python, or AWS, or a database system, so that you can observe and interact with run-time entities in the target platform, or
+\item building a graph-traversal to detect dependencies, deadlocks \etc\end{inparaenum}
+
 \subsubsection*{Consequences}
+Tooling buildup will slow you down.
+Once you have the right tools in place, you can move fast.
 
 % ----- Throwaway Analysis Tool -------------------------
 \subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
+
 \subsubsection*{Context}
+You are starting a new moldable development project for a customer with an existing code base.
+
 \subsubsection*{Problem}
+How do you pick the first moldable development task to focus on?
+
 \subsubsection*{Forces}
+The stakeholders are already heavily committed to their current development tasks, and have little time to spare for you.
+They are almost certainly skeptical that moldable development will make them more productive.
+You need to demonstrate early success to get the customer to commit long-term to further collaboration.
+It can be difficult to pick a task that is both feasible in a short amount of time, and also brings value to the stakeholders.
 
 \subsubsection*{Solution}
-\on{What are the recurring ideas? The purpose is to engage the Stakeholder. Pick some task that will demonstrate the benefit of an explainable system, but without stressing the Stakeholder. The task should be feasible in reasonable time but non-trivial. There should be a clear value for the Stakeholder, that is, do something that the Stakeholder has difficulty with.}
+Rapidly develop a throwaway analysis tool that clearly demonstrates the advantages of turning a part of the target system into an explainable system.
+The task should be feasible in reasonable time but non-trivial.
+There should be a clear value for the Stakeholder, that is, do something that the Stakeholder has difficulty with.
+
+Pick an aspect of their system that is causing problems, and apply moldable development to build a throwaway analysis tool that exposes the parts that are currently hard to understand.
+Since the stakeholder has little time to spare to guide you, you may have to work in the dark at times.
+Try to always have something to show when you come back with questions.
 
 \subsubsection*{Consequences}
+By quickly developing a solution to an ongoing problem, you will engage the stakeholder.
+It does not matter if the custom tools you develop do not perfectly match the stakeholder's needs, as the only goal is to convince the stakeholders to commit to closer and longer-term collaboration.
+This means that you should feel ready to throw away whatever tool you develop and start again with the stakeholder on board.
 
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
@@ -292,7 +337,7 @@ How do you obtain a moldable object?
 \item \emph{You already have a class:} create a \pattern{projectDiary} notebook page containing a code snippet to create an instance of the class, and start from there.
 \item \emph{You don't have a class:} start instead with a code snippet that instantiates an empty class, and then prototype the behavior.
 \item \emph{You have a test case:} turn the test case into an \pattern{exampleObject} and start from there.
-\item \emph{You have some data:} wrap the data as a \pattern{viewableDataWrapper}.
+\item \emph{You have some data:} wrap the data as a \pattern{moldableDataWrapper}.
 \end{itemize}
 
 In \autoref{fig:stackMachine} we see an initial notebook page in which we start to explore an instance of a new \st{StackMachine} class that we create with a \emph{fixit} action:
@@ -311,9 +356,7 @@ Whenever we identify an interesting state of our moldable object, we can extract
 
 \subsubsection*{Consequences}
 Instead of writing code in a text editor in the context of the source code of a class, you are always working in the context of a live object, whose behavior can be immediately explored.
-
 Instead of writing hypothetical code that you must afterward test, you start by prototyping code and then extracting new behavior.
-
 Instead of trying to program custom tools in a vacuum, you first explore and prototype answers to questions, and then extract the code you need to create a custom tool.
 
 % ----- Example Object -------------------------
@@ -366,24 +409,27 @@ Examples such as these can be embedded into notebook pages and used as moldable 
     
 \subsubsection*{Consequences}
 Examples can be run just like classical unit tests.
-
 When an example fails, its dependent examples do not need to be run.
-
 When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point.
-
 When you are searching for usages of an API, not only do you find examples that illustrate the usage, but by running the example you obtain a live instance that you can explore.
 
-% ----- Viewable Data Wrapper -------------------------
-\subsection*{Viewable Data Wrapper}\label{pat:viewableDataWrapper}
+% ----- Moldable Data Wrapper -------------------------
+\subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
 
 %: --- CONTINUE HERE
 \here
 
-\on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Viewable data wrapper book page}}
+% \on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Moldable Data Wrapper book page}}
 \subsubsection*{Context}
-\subsubsection*{Problem}
+You are working in a domain with existing data that you want to turn into an explainable system.
 
-When you explore data with a platform such as GT, the views you obtain reflect the low-level data structures used to represent the data, not the underlying domain concepts. How can we add appropriate high-level views to the data?
+\subsubsection*{Problem}
+How do you develop custom tools for 
+
+
+
+When you explore data with a platform such as GT, the views you obtain reflect the low-level data structures used to represent the data, not the underlying domain concepts.
+How can we add appropriate high-level views to the data?
 
 \subsubsection*{Forces}
 
@@ -464,7 +510,8 @@ The sequence of steps may be cumbersome to follow repeatedly.
 
 \subsubsection*{Solution}
 
-Turn interesting data into a viewable entity . Extract the navigation steps into a new custom view for the moldable object you start navigating from. Possibly start with a simple forward view to an existing view of the target data, and later refine this into a dedicated view.
+Turn interesting data into a custom view.
+Extract the navigation steps into a new custom view for the moldable object you start navigating from. Possibly start with a simple forward view to an existing view of the target data, and later refine this into a dedicated view.
 
 \on{See the Steps in the book page}
 
@@ -565,6 +612,14 @@ Wherever you need to show a collection of these objects, just forward the view t
 
 % ===== TEMPLATES =========================
 
+\begin{inparaenum}[(i)]
+\item
+\item
+\end{inparaenum}
+
+%: --- CONTINUE HERE
+\here
+
 % ----- PATTERN -------------------------
 \subsection*{PATTERN}\label{pat:PATTERN}
 \subsubsection*{Context}
@@ -572,9 +627,3 @@ Wherever you need to show a collection of these objects, just forward the view t
 \subsubsection*{Forces}
 \subsubsection*{Solution}
 \subsubsection*{Consequences}
-
-\begin{inparaenum}[(i)]
-\item
-\item
-\end{inparaenum}
-

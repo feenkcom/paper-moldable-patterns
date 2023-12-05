@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{3}
+\begin{thebibliography}{4}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -87,6 +87,27 @@
 \showISBNx{978-3-540-68254-7}
 \urldef\tempurl%
 \url{https://doi.org/10.1007/978-3-540-68255-4_8}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Kur\v{s}, Lungu, and Nierstrasz}{Kur\v{s}
+  et~al\mbox{.}}{2014}]%
+        {Kurs14b}
+\bibfield{author}{\bibinfo{person}{Jan Kur\v{s}}, \bibinfo{person}{Mircea
+  Lungu}, {and} \bibinfo{person}{Oscar Nierstrasz}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Bounded Seas: Island Parsing Without Shipwrecks}.
+  In \bibinfo{booktitle}{\emph{Software Language Engineering}}
+  \emph{(\bibinfo{series}{Lecture Notes in Computer Science})},
+  \bibfield{editor}{\bibinfo{person}{Beno\^{i}t Combemale},
+  \bibinfo{person}{David~J. Pearce}, \bibinfo{person}{Olivier Barais}, {and}
+  \bibinfo{person}{Jurgen~J. Vinju}} (Eds.), Vol.~\bibinfo{volume}{8706}.
+  \bibinfo{publisher}{Springer International Publishing},
+  \bibinfo{pages}{62--81}.
+\newblock
+\showISBNx{978-3-319-11244-2}
+\urldef\tempurl%
+\url{https://doi.org/10.1007/978-3-319-11245-9_4}
 \showDOI{\tempurl}
 
 
