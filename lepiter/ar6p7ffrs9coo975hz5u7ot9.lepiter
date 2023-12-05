@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T14:15:17.922963+01:00"
+						"dateAndTimeString" : "2023-12-05T11:35:12.309422+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,20 +29,20 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T14:15:32.785729+01:00"
+						"dateAndTimeString" : "2023-12-05T11:36:00.596718+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "qniN1IPHDQChVwB/AyrGCg=="
+					"uidString" : "v3C+hiLIDQCzjKjDB9wLBQ=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "We start from the GT Book pages: {{gtPage:Moldable Development patterns|db=2j9m7db2i4oz116bexd7wbdxo}} "
+				"string" : "We don't yet have a `StackMachine` class, so  let's create an empty class and start our moldable development exploration from there:"
 			},
 			{
-				"__type" : "textSnippet",
+				"__type" : "pharoSnippet",
 				"children" : {
 					"__type" : "snippets",
 					"items" : [ ]
@@ -55,7 +55,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T14:15:33.186632+01:00"
+						"dateAndTimeString" : "2023-12-05T11:36:02.785537+01:00"
 					}
 				},
 				"editEmail" : {
@@ -66,17 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T14:16:21.416334+01:00"
+						"dateAndTimeString" : "2023-12-05T11:37:10.407775+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "91121YPHDQCiCxQdAyrGCg=="
+					"uidString" : "BaHAiSLIDQC2W37qB9wLBQ=="
 				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : "We want to follow a stricter template: Context / Problem / Forces / SOlution / Consequences. "
+				"code" : "sm := StackMachine new"
 			}
 		]
 	},
@@ -88,7 +85,7 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2023-11-27T14:15:17.895734+01:00"
+			"dateAndTimeString" : "2023-12-05T11:35:12.279529+01:00"
 		}
 	},
 	"editEmail" : {
@@ -99,15 +96,15 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2023-11-27T14:15:17.895734+01:00"
+			"dateAndTimeString" : "2023-12-05T11:35:21.5206+01:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "Adapting the text"
+		"title" : "Exploring a Stack Machine"
 	},
 	"uid" : {
 		"__type" : "uuid",
-		"uuid" : "cc0d8dd4-83c7-0d00-a156-7f4a032ac60a"
+		"uuid" : "5dfbbd86-22c8-0d00-b38b-623507dc0b05"
 	}
 }

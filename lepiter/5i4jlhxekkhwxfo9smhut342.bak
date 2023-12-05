@@ -73,7 +73,7 @@
 					"__type" : "uid",
 					"uidString" : "rE5tPoPHDQC5o6ivCQ6VAg=="
 				},
-				"exampleSelector" : "mapV2",
+				"exampleSelector" : "mapV3",
 				"previewHeight" : 400,
 				"previewShowSelector" : "gtLiveFor:",
 				"exampleBehaviorName" : "PatternMap",
@@ -143,14 +143,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-28T10:19:22.462642+01:00"
+						"dateAndTimeString" : "2023-11-28T15:13:00.534019+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "3ZqJSYPHDQC8IB2gCQ6VAg=="
 				},
-				"code" : "PatternMap new mapV2 asElement exportAsPNG"
+				"code" : "PatternMap new mapV3 asElement exportAsPNG"
 			},
 			{
 				"__type" : "textSnippet",

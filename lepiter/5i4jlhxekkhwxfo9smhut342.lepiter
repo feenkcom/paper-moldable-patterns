@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-28T10:33:32.098092+01:00"
+						"dateAndTimeString" : "2023-12-05T09:20:21.41133+01:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "We refine the oldmap and add several new patterns."
+				"string" : "We refine the old map and add several new patterns."
 			},
 			{
 				"__type" : "exampleSnippet",
