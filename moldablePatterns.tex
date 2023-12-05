@@ -11,6 +11,11 @@
 \acmConference[EuroPLoP '24]{29th European Conference on Pattern Languages of Programs}{July 3--7, 2024}{Kloster Irsee, Germany}
 \acmISBN{978-1-4503-XXXX-X/18/06}
 % ============================================================
+% https://www.europlop.net
+%    FEBRUARY 5, 2024 - Deadline for initial paper submission
+%    MARCH 10, 2024 -  Acceptance for shepherding; Start of shepherding
+%    JUNE 16, 2024 - End of shepherding; Deadline for conference version of paper
+% ============================================================
 \input{macros}
 \input{st80.tex}
 % ============================================================
@@ -231,21 +236,31 @@ Once you have the right tools in place, you can move fast.
 % ----- Throwaway Analysis Tool -------------------------
 \subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
 
-%: --- CONTINUE HERE
-\here
-
 \subsubsection*{Context}
+You are starting a new moldable development project for a customer with an existing code base.
+
 \subsubsection*{Problem}
+How do you pick the first moldable development task to focus on?
+
 \subsubsection*{Forces}
+The stakeholders are already heavily committed to their current development tasks, and have little time to spare for you.
+They are almost certainly skeptical that moldable development will make them more productive.
+You need to demonstrate early success to get the customer to commit long-term to further collaboration.
+It can be difficult to pick a task that is both feasible in a short amount of time, and also brings value to the stakeholders.
 
 \subsubsection*{Solution}
+Rapidly develop a throwaway analysis tool that clearly demonstrates the advantages of turning a part of the target system into an explainable system.
+The task should be feasible in reasonable time but non-trivial.
+There should be a clear value for the Stakeholder, that is, do something that the Stakeholder has difficulty with.
 
-
-
-
-\on{What are the recurring ideas? The purpose is to engage the Stakeholder. Pick some task that will demonstrate the benefit of an explainable system, but without stressing the Stakeholder. The task should be feasible in reasonable time but non-trivial. There should be a clear value for the Stakeholder, that is, do something that the Stakeholder has difficulty with.}
+Pick an aspect of their system that is causing problems, and apply moldable development to build a throwaway analysis tool that exposes the parts that are currently hard to understand.
+Since the stakeholder has little time to spare to guide you, you may have to work in the dark at times.
+Try to always have something to show when you come back with questions.
 
 \subsubsection*{Consequences}
+By quickly developing a solution to an ongoing problem, you will engage the stakeholder.
+It does not matter if the custom tools you develop do not perfectly match the stakeholder's needs, as the only goal is to convince the stakeholders to commit to closer and longer-term collaboration.
+This means that you should feel ready to throw away whatever tool you develop and start again with the stakeholder on board.
 
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
@@ -341,9 +356,7 @@ Whenever we identify an interesting state of our moldable object, we can extract
 
 \subsubsection*{Consequences}
 Instead of writing code in a text editor in the context of the source code of a class, you are always working in the context of a live object, whose behavior can be immediately explored.
-
 Instead of writing hypothetical code that you must afterward test, you start by prototyping code and then extracting new behavior.
-
 Instead of trying to program custom tools in a vacuum, you first explore and prototype answers to questions, and then extract the code you need to create a custom tool.
 
 % ----- Example Object -------------------------
@@ -396,15 +409,15 @@ Examples such as these can be embedded into notebook pages and used as moldable 
     
 \subsubsection*{Consequences}
 Examples can be run just like classical unit tests.
-
 When an example fails, its dependent examples do not need to be run.
-
 When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point.
-
 When you are searching for usages of an API, not only do you find examples that illustrate the usage, but by running the example you obtain a live instance that you can explore.
 
 % ----- Viewable Data Wrapper -------------------------
 \subsection*{Viewable Data Wrapper}\label{pat:viewableDataWrapper}
+
+%: --- CONTINUE HERE
+\here
 
 \on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Viewable data wrapper book page}}
 \subsubsection*{Context}
