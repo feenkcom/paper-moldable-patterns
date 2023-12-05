@@ -341,7 +341,16 @@ Here is a simple example method that creates a fresh instance of the \st{gtLudoG
 It resembles a classical unit test in all respects except one: it returns the instance of the unit under test, \ie the \st{game} instance.
 
 \begin{code}
-GtLudoGameExamples>>#emptyGame	<gtExample>	| game |	game := self gameClass new.	self assert: game isOver not.	self assert: game winner equals: 'No one'.	self assert: game currentPlayer name equals: 'A'.	self assert: game playerToRoll.	self assert: game playerToMove not.	^ game
+GtLudoGameExamples>>#emptyGame
+	<gtExample>
+	| game |
+	game := self gameClass new.
+	self assert: game isOver not.
+	self assert: game winner equals: 'No one'.
+	self assert: game currentPlayer name equals: 'A'.
+	self assert: game playerToRoll.
+	self assert: game playerToMove not.
+	^ game
 \end{code}
     
 Unlike normal test methods, examples can be composed.
