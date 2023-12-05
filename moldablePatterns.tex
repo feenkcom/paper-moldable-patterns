@@ -120,7 +120,7 @@ A \pattern{throwawayAnalysisTool} can be a useful prototype to initially engage 
 Moldable development itself starts with a \pattern{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
 An interesting instance can be encapsulated as an \pattern{exampleObject}, essentially a unit test that returns a tested object.
 An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
-In case the domain includes already existing data entities, these can be wrapped in a \pattern{viewableDataWrapper} to produce a moldable object.
+In case the domain includes already existing data entities, these can be wrapped in a \pattern{moldableDataWrapper} to produce a moldable object.
 
 A moldable object can be explored with the help of its \pattern{contextualPlayground}, a live programming environment bound to the state of a live instance.
 Working code can be extracted from such a playground to create custom tools.
@@ -224,7 +224,7 @@ In this phase you do \emph{focus} on specific domain questions you want to explo
 
 Here are some examples:
 \begin{inparaenum}[(i)]
-\item building a parser for YAML configuration files so that you can extract useful data from them and apply the \pattern{viewableDataWrapper} pattern,
+\item building a parser for YAML configuration files so that you can extract useful data from them and apply the \pattern{moldableDataWrapper} pattern,
 \item building an island parser\cite{Kurs14b} to extract interesting bits of information from source files in software languages for which a full parser may not be readily available,
 \item building a bridge to a foreign execution platform, such as for Python, or AWS, or a database system, so that you can observe and interact with run-time entities in the target platform, or
 \item building a graph-traversal to detect dependencies, deadlocks \etc\end{inparaenum}
@@ -337,7 +337,7 @@ How do you obtain a moldable object?
 \item \emph{You already have a class:} create a \pattern{projectDiary} notebook page containing a code snippet to create an instance of the class, and start from there.
 \item \emph{You don't have a class:} start instead with a code snippet that instantiates an empty class, and then prototype the behavior.
 \item \emph{You have a test case:} turn the test case into an \pattern{exampleObject} and start from there.
-\item \emph{You have some data:} wrap the data as a \pattern{viewableDataWrapper}.
+\item \emph{You have some data:} wrap the data as a \pattern{moldableDataWrapper}.
 \end{itemize}
 
 In \autoref{fig:stackMachine} we see an initial notebook page in which we start to explore an instance of a new \st{StackMachine} class that we create with a \emph{fixit} action:
@@ -413,17 +413,23 @@ When an example fails, its dependent examples do not need to be run.
 When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point.
 When you are searching for usages of an API, not only do you find examples that illustrate the usage, but by running the example you obtain a live instance that you can explore.
 
-% ----- Viewable Data Wrapper -------------------------
-\subsection*{Viewable Data Wrapper}\label{pat:viewableDataWrapper}
+% ----- Moldable Data Wrapper -------------------------
+\subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
 
 %: --- CONTINUE HERE
 \here
 
-\on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Viewable data wrapper book page}}
+% \on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Moldable Data Wrapper book page}}
 \subsubsection*{Context}
-\subsubsection*{Problem}
+You are working in a domain with existing data that you want to turn into an explainable system.
 
-When you explore data with a platform such as GT, the views you obtain reflect the low-level data structures used to represent the data, not the underlying domain concepts. How can we add appropriate high-level views to the data?
+\subsubsection*{Problem}
+How do you develop custom tools for 
+
+
+
+When you explore data with a platform such as GT, the views you obtain reflect the low-level data structures used to represent the data, not the underlying domain concepts.
+How can we add appropriate high-level views to the data?
 
 \subsubsection*{Forces}
 
@@ -504,7 +510,8 @@ The sequence of steps may be cumbersome to follow repeatedly.
 
 \subsubsection*{Solution}
 
-Turn interesting data into a viewable entity . Extract the navigation steps into a new custom view for the moldable object you start navigating from. Possibly start with a simple forward view to an existing view of the target data, and later refine this into a dedicated view.
+Turn interesting data into a custom view.
+Extract the navigation steps into a new custom view for the moldable object you start navigating from. Possibly start with a simple forward view to an existing view of the target data, and later refine this into a dedicated view.
 
 \on{See the Steps in the book page}
 
