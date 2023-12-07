@@ -20,6 +20,8 @@
 \input{st80.tex}
 % ============================================================
 % Macros for this paper
+\usepackage{caption}
+\captionsetup{aboveskip=5pt,belowskip=-10pt} % Adjust the space around figure captions
 %\usepackage{enumitem}
 %\setlist[description]{font=\itshape}
 \newcommand{\pattern}[1]{\emph{\nameref{pat:#1}}\xspace}
@@ -403,12 +405,12 @@ GtLudoGameExamples>>#emptyGame
 \end{code}
     
 Unlike normal test methods, examples can be composed.
-In \autoref{fig:playerArolls6} we see a second example, \st{playerArolls6}, that starts from the \st{emptyGame} example, rolls a $6$, asserts a few facts, and returns the game instance in its new state.
+In \autoref{fig:composedExample} we see a second example, \st{composedExample}, that starts from the \st{emptyGame} example, rolls a $6$, asserts a few facts, and returns the game instance in its new state.
 
 \begin{figure}[h]
-  \includegraphics[width=\columnwidth]{playerArolls6}
+  \includegraphics[width=\columnwidth]{composedExample}
   \caption{Composing examples.}
-  \label{fig:playerArolls6}
+  \label{fig:composedExample}
 \end{figure}
 
 Examples such as these can be embedded into notebook pages and used as moldable objects for further development tasks.
@@ -437,36 +439,56 @@ To analyze and explore data, we need higher-level views that reflect our underst
 Wrap each kind of data inside a dedicated class reflecting the problem domain entity.
 As you explore the data, introduce custom tools (views \etc) to the domain class that reflect answers to questions you ask about the data.
 
-%: --- CONTINUE HERE
-\here
-
-Extract the data of interest. This might be data sitting in your file system (for example, a CSV file), or data retrieved from a website.
-
-A classical example can be seen in Working with a REST API: the GitHub case study .
-
-We obtain a Dictionary representation of JSON data about the feenk GitHub organization:
+First extract the data of interest.
+This might be data sitting in your file system (for example, a CSV file), or data retrieved from a website.
+For example, here we retrieve a \st{Dictionary} representation of JSON data about the feenk GitHub organization:
 
 \begin{code}
 url := 'https://api.github.com/orgs/feenkcom'.
 json := ZnClient new get: url.
 dictionary := STON fromString: json.
 \end{code}
-  
-If we explore this object, we just see the keys and values of the raw downloaded data. From this view, of course we can explore the data by navigating the Dictionary views, or by programatically exploring other paths using the Inspector Playground, but we cannot add or tailor views to specifically support the GitHub Organization domain.
 
-We address these problems by wrapping the raw data as a dedicated GhOrganization object, as follows:
+The dictionary representation, however, is not well-suited for exploring the GitHub organization domain.
+If we explore the resulting object\,---\,see \autoref{fig:rawGitHubData}\,---\,we just see the keys and values of the raw downloaded data.
+From this view, of course we can explore the data by navigating the Dictionary views, or by programatically exploring other paths, but we cannot add or tailor views to specifically support the GitHub Organization domain.
 
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{rawGitHubData}
+  \caption{Raw GitHub data.}
+  \label{fig:rawGitHubData}
+\end{figure}
+
+We address these problems by wrapping the raw data as a dedicated \st{GhOrganization} object, as follows:
+
+\begin{code}
 GhOrganization new rawData: dictionary.
-  
-Now we can add custom views specific to this domain, for example, listing the Repositories of an organization, or the most recent GitHub events. For each new domain concept, we introduce a dedicated wrapper object, so we can navigate the entire model via the domain concepts.
+\end{code}
+
+Now we can add custom views specific to this domain, for example, listing the Repositories of an organization, or the most recent GitHub events.
+For each new domain concept, we introduce a dedicated wrapper object, so we can navigate the entire model via the domain concepts.
+We see the result after some moldable development steps in \autoref{fig:wrappedGitHubData}.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{wrappedGitHubData}
+  \caption{Wrapped GitHub data.}
+  \label{fig:wrappedGitHubData}
+\end{figure}
 
 \subsubsection*{Consequences}
+
+By wrapping the raw domain data, you obtain a moldable object that can be customized to form part of an explainable system.
+Each time you navigate to other data representing further domain entities, wrap them as well, to build an explorable domain model.
+In case custom tools of the underlying data objects are useful, you can always recycle them and make them available to the wrapped objects as well.
 
 % ----- Contextual Playground -------------------------
 \subsection*{Contextual Playground}\label{pat:contextualPlayground}
 \on{See \href{https://book.gtoolkit.com/contextual-playground-9jkob08mw269cpxowmbe0ld8i}{Contextual Playground book page}}
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+%: --- CONTINUE HERE
+\here
 
 When we code new behavior as methods, we must must repeatedly change our context to incrementally develop the logic. Testing the code requires a separate setup. How can we efficiently prototype and test the new behavior?
 
