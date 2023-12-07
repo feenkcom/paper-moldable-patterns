@@ -116,8 +116,8 @@ These patterns have emerged over several years of experience in developing the G
 At the root we have the pattern \pattern{explainableSystem}, a software system whose domain model has been exposed with the help of numerous custom tools.
 Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted with a simple customization.
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
+A \pattern{blindSpot} is problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \pattern{projectDiary} is a notebook that serves as a starting point for development tasks.
-A \pattern{blindSpot} can be a useful prototype to initially engage a Stakeholder by demonstrating the possibilities of moldable development.
 
 Moldable development itself starts with a \pattern{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
 An interesting instance can be encapsulated as an \pattern{exampleObject}, essentially a unit test that returns a tested object.
@@ -587,8 +587,8 @@ Add a custom action button to the key objects involved in the repeated tasks, en
 \subsubsection*{Solution}
 \subsubsection*{Consequences}
 
-% ----- Collection Wrapper -------------------------
-\subsection*{Collection Wrapper}\label{pat:collectionWrapper}
+% ----- Moldable Collection Wrapper -------------------------
+\subsection*{Moldable Collection Wrapper}\label{pat:collectionWrapper}
 \on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
 \subsubsection*{Context}
 \subsubsection*{Problem}
