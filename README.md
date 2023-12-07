@@ -8,7 +8,7 @@ Metacello new
 	repository: 'github://feenkcom/paper-moldable-patterns:main/src';
 	baseline: 'PaperMoldablePatterns';
 	load.
-#BaselineOfPaperMoldablePatterns asClass loadLepiter
+#BaselineOfPaperMoldablePatterns asClass loadLepiter.
 ```
 
 
