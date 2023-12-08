@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-04T11:26:15.995372+01:00"
+						"dateAndTimeString" : "2023-12-08T10:19:06.15028+01:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Here are some snippets used to create the figures"
+				"string" : "Here are some snippets used to create the figures. See also {{gtPage:Moldable Development patterns|db=2j9m7db2i4oz116bexd7wbdxo}} in the GT Book. "
 			},
 			{
 				"__type" : "textSnippet",
@@ -861,7 +861,79 @@
 				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
-					"items" : [ ]
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2023-12-08T10:26:00.874035+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2023-12-08T10:30:42.458057+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "da7S6F3IDQCXxMLXAOalTQ=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Take example of a Ludo game played for a while. Show how raw view is clumsy for browsing Players, so create a columned list view instead."
+						},
+						{
+							"__type" : "pharoSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2023-12-08T10:30:45.82343+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2023-12-08T10:31:07.007487+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "x6fO+V3IDQCbCzNkAOalTQ=="
+							},
+							"code" : "GtLudoRecordingGame new autoPlay: 100; yourself"
+						}
+					]
 				},
 				"createEmail" : {
 					"__type" : "email",
@@ -882,7 +954,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-07T09:21:37.546939+01:00"
+						"dateAndTimeString" : "2023-12-08T10:26:00.626695+01:00"
 					}
 				},
 				"uid" : {
@@ -892,7 +964,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : ""
+				"string" : "# Custom View"
 			},
 			{
 				"__type" : "textSnippet",
