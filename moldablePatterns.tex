@@ -483,41 +483,56 @@ In case custom tools of the underlying data objects are useful, you can always r
 
 % ----- Contextual Playground -------------------------
 \subsection*{Contextual Playground}\label{pat:contextualPlayground}
-\on{See \href{https://book.gtoolkit.com/contextual-playground-9jkob08mw269cpxowmbe0ld8i}{Contextual Playground book page}}
+%\on{See \href{https://book.gtoolkit.com/contextual-playground-9jkob08mw269cpxowmbe0ld8i}{Contextual Playground book page}}
+\subsubsection*{Context}
+You have a moldable object, and you are ready to start exploring.
+
+\subsubsection*{Problem}
+Where do you start coding?
+
+\subsubsection*{Forces}
+An editor for coding new methods typically provides no facilities for testing the code.
+When we code new behavior as methods, we must repeatedly change our context to incrementally develop the logic.
+Testing the code requires a separate setup.
+Setting up code to prototype and test logic can be cumbersome.
+Writing tests first for parts of the logic of a complex method may can be overkill.
+
+\subsubsection*{Solution}
+Prototype new behavior in the contextual playground of the Inspector on a Moldable object.
+The Playground will be bound to the context of the instance, so self and all slots can be accessed exactly as they would in a running method.
+From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
+Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an Extract method refactoring.
+
+In \autoref{fig:contextualPlayground} we see an Inspector view of an instance of a Ludo game.
+We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
+We prototype the behavior in the contextual playground at the bottom of the inspector on the game instance.
+By evaluating the code snippet and inspecting the result, we can explore the current player after a move in the second pane at right.
+We can similarly open a contextual playground on the player, if we need to.
+Once we are happy with the new behavior, we can extract it as a new method.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{contextualPlayground}
+  \caption{Prototyping behavior in a contextual playground.}
+  \label{fig:contextualPlayground}
+\end{figure}
+
+A well-known use of contextual playgrounds is the JavaScript console of a modern web browser: while inspecting a live web page, you can explore and programmatically interact with the live objects in the run-time environment of the page.
+
+\subsubsection*{Consequences}
+By prototyping new behavior in a contextual playground, you obtain immediate feedback for experimental code.
+
+% ----- Custom View -------------------------
+\subsection*{Custom View}\label{pat:customView}
+%\on{See \href{https://book.gtoolkit.com/viewable-entity-9jkob0898tctthh5o3m23fv4e}{Viewable entity book page}}
+% AKA Viewable Entity
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
 
 %: --- CONTINUE HERE
 \here
 
-When we code new behavior as methods, we must must repeatedly change our context to incrementally develop the logic. Testing the code requires a separate setup. How can we efficiently prototype and test the new behavior?
 
-\subsubsection*{Forces}
-
-An editor for coding new methods typically provides no facilities for testing the code.
-
-Setting up code to prototype and test logic can be cumbersome.
-
-Writing tests first for parts of the logic of a complex method may can be overkill.
-
-\subsubsection*{Solution}
-
-Prototype new behavior in the Playground of a Moldable object, i.e., an Inspector on a live instance of the class. The Playground will be bound to the context of the instance, so self and all slots can be accessed exactly as they would in a running method.
-
-From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
-
-Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an Extract method refactoring.
-
-\on{See the Steps in the book page}
-
-\subsubsection*{Consequences}
-
-% ----- Custom View -------------------------
-\subsection*{Custom View}\label{pat:customView}
-\on{See \href{https://book.gtoolkit.com/viewable-entity-9jkob0898tctthh5o3m23fv4e}{Viewable entity book page}}
-% AKA Viewable Entity
-\subsubsection*{Context}
-\subsubsection*{Problem}
 
 As you explore a live model, you may find yourself repeatedly navigating through multiple inspector views to reach the information you want. How can you make this process more efficient?
 
