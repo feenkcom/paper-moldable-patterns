@@ -25,7 +25,7 @@
 %\usepackage{enumitem}
 %\setlist[description]{font=\itshape}
 \newcommand{\pattern}[1]{\emph{\nameref{pat:#1}}\xspace}
-\newcommand{\GT}{GT\xspace} % In case we want to display it differently ...
+\newcommand{\GT}{\st{GT}\xspace} % In case we want to display it differently ...
 % ============================================================
 \begin{document}
 \title{Moldable Development Patterns}
@@ -559,37 +559,56 @@ Custom views become an intrinsic part of a software system, turning it into an \
 
 % ----- Simple View -------------------------
 \subsection*{Simple View}\label{pat:simpleView}
-\on{See \href{https://book.gtoolkit.com/simple-view-dyquv19x8xwi85g99n0akc5lu}{Simple view book page}}
+% \on{See \href{https://book.gtoolkit.com/simple-view-dyquv19x8xwi85g99n0akc5lu}{Simple view book page}}
 \subsubsection*{Context}
+You have found some useful domain information to expose and have decided to implement a \pattern{customView}.
+
 \subsubsection*{Problem}
-
-
-
-%: --- CONTINUE HERE
-\here
-
-
-
-
-How much effort should you invest into creating a new view?
+How should you design a custom view to effectively communicate the information of interest?
 
 \subsubsection*{Forces}
-
-There are many different kinds of views; how can you tell which one is most suitable?
+There are many different ways to design a view.
+It is hard to anticipate what information another Stakeholder would be interested in seeing.
+You can spend an arbitrary amount of time and effort implementing a rich, interactive visualization as a view.
 
 \subsubsection*{Solution}
+Always start with the simplest kind of view that you can implement quickly to convey just the information you are interested in for your current task.
+Enhance it or replace it by a richer view only when there is a clear need to do so.
 
-A view exists only to answer a question about a domain object. Pick the simplest view that will answer the question. Only refine the view if it can answer more questions.
+This pattern follows exactly the same reasoning as the ``Goal/Question/Metric'' approach~\cite{Basi94a} for designing software metrics.
+A view, like a metric, only exists because it helps you to answer a question that supports you in achieving some goal.
+Views, or metrics, that do not support a specific goal or answer a concrete question have no reason to exist.
+It follows, then, that a view should be design to answer a specific question you have in a development task.
+The simplest design that achieves this is the one you want.
+If new goals and questions arise, you will then either design new views, or extend or replace the existing view by a richer one.
 
-\on{See the Steps in the Book page.}
+\GT supports a wide range of different kinds of views, ranging from simple textual lists and trees, to arbitrary visualizations.
+However, the most widely used view in the default environment is the \st{forward} view, which allows an object to reuse a view of a component or a collaborator.
+This is also the simplest view to implement, since it only requires, at a minimum, the specification of the target object and the view method to reuse.
+
+The next most popular view is a \st{columnedList}, which presents a collection of data in a format resembling a spreadsheet with column headers.
+The \st{Moves} view in \autoref{fig:rawViewVsCustomView} is an example.
+A common flow is to start with a \st{forward} view to an existing \st{columnedList} view of another object, then replace it by a custom \st{columnedList} when a need is identified to rename, replace or add columns.
+
+In contrast, the \st{Board} view of the Ludo game (see \autoref{fig:contextualPlayground}) is \emph{not} a simple view, as it requires some effort to build up the interactive GUI view of the board.
+On the other hand, once we have such a view, it can be reused and repurposed, as we can see in the \st{Positions} view of the Ludo player object in the same figure.
+
+Other kinds of simple views exist to display plain text, simple lists without columns, and trees of hierarchical data.
 
 \subsubsection*{Consequences}
+A simple view requires little effort to implement and can be quickly deployed and tested.
+Simple views are easy to understand and extend or replace.
 
 % ----- Custom Action -------------------------
 \subsection*{Custom Action}\label{pat:customAction}
 \on{See \href{https://book.gtoolkit.com/custom-action-7ed0nuwfqc5qp8b1b257cavgy}{Custom Action book page}}
 \subsubsection*{Context}
 \subsubsection*{Problem}
+
+%: --- CONTINUE HERE
+\here
+
+
 
 As you are developing an explorable model of your application, you may find yourself repeatedly evaluating the same code snippets to perform a given action. How can you streamline these tasks?
 
