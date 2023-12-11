@@ -601,35 +601,45 @@ Simple views are easy to understand and extend or replace.
 
 % ----- Custom Action -------------------------
 \subsection*{Custom Action}\label{pat:customAction}
-\on{See \href{https://book.gtoolkit.com/custom-action-7ed0nuwfqc5qp8b1b257cavgy}{Custom Action book page}}
+% \on{See \href{https://book.gtoolkit.com/custom-action-7ed0nuwfqc5qp8b1b257cavgy}{Custom Action book page}}
 \subsubsection*{Context}
+You are developing an explorable domain model of your application and find yourself repeatedly evaluating the same code snippets to perform a certain action or navigate to another object.
+
 \subsubsection*{Problem}
-
-%: --- CONTINUE HERE
-\here
-
-
-
-As you are developing an explorable model of your application, you may find yourself repeatedly evaluating the same code snippets to perform a given action. How can you streamline these tasks?
+How can you streamline these actions?
 
 \subsubsection*{Forces}
-
 Repeated tasks are annoying and time-consuming.
-
 Remembering how to perform common tasks increases cognitive overload.
+Storing code to perform common actions as methods or as snippets in class comments doesn't guarantee that the code will be easily found when you need it.
 
 \subsubsection*{Solution}
+Add a custom action button to the moldable tool for the object involved in a repeated task, encapsulating the boilerplate code to perform it.
+Be sure to pick an evocative button icon and tooltip text to make the intent of the button clear.
+Only add buttons for the most important actions to avoid cluttering the interface of a moldable tool.
 
-Add a custom action button to the key objects involved in the repeated tasks, encapsulating the boilerplate code to perfom them.
+As an example, consider the Inspector view of a Lepiter notebook page in \autoref{fig:customLePageAction}.
+Common actions are to navigate to the notebook database, to view the file in which the state of the notebook page is stored, or to export an HTML version of the page.
+Each of these actions can easily be packaged as an Inspector button, so that the action can be performed with a single click, opening a new Inspector view of the result.
+In the example we navigate to the database holding all related notebook pages for the given project.
 
-\on{See the Steps in the Book page.}
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{customLePageAction}
+  \caption{Custom actions for lepiter pages.}
+  \label{fig:customLePageAction}
+\end{figure}
 
 \subsubsection*{Consequences}
+Custom actions appear as buttons in moldable tools only in the context of the objects to which they can be applied.
 
 % ----- Custom Search -------------------------
 \subsection*{Custom Search}\label{pat:customSearch}
 \on{NB: New pattern}
 \subsubsection*{Context}
+
+%: --- CONTINUE HERE
+\here
+
 \subsubsection*{Problem}
 \subsubsection*{Forces}
 \subsubsection*{Solution}
