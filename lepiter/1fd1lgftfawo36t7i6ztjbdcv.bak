@@ -1359,7 +1359,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2023-12-12T16:59:34.132147+01:00"
+									"dateAndTimeString" : "2023-12-12T16:59:44.975515+01:00"
 								}
 							},
 							"uid" : {
@@ -1369,7 +1369,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Show the search for “Smalltalk” in the ESUg website: {{gtMethod:name=PillarWebsiteExamples>>#esug2014}}"
+							"string" : "Show the search for “Smalltalk” in the ESUG website: {{gtMethod:name=PillarWebsiteExamples>>#esug2014}}. "
 						}
 					]
 				},
