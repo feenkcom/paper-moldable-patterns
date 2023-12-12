@@ -556,6 +556,7 @@ From this custom view we can furthermore dive directly into the Move object, whi
 \subsubsection*{Consequences}
 A custom view exposes information about a domain that can otherwise be hard to find.
 Custom views become an intrinsic part of a software system, turning it into an \pattern{explainableSystem}.
+You need a \pattern{moldableTool} into which you can dynamically plug custom views.
 
 % ----- Simple View -------------------------
 \subsection*{Simple View}\label{pat:simpleView}
@@ -631,24 +632,48 @@ In the example we navigate to the database holding all related notebook pages fo
 
 \subsubsection*{Consequences}
 Custom actions appear as buttons in moldable tools only in the context of the objects to which they can be applied.
+You need a \pattern{moldableTool} into which you can dynamically plug custom actions.
 
 % ----- Custom Search -------------------------
 \subsection*{Custom Search}\label{pat:customSearch}
-\on{NB: New pattern}
 \subsubsection*{Context}
-
-%: --- CONTINUE HERE
-\here
+You have a complex domain model consisting of various kinds of entities related to each other.
 
 \subsubsection*{Problem}
+How can you effectively navigate between domain entities by name, content or other criteria?
+
 \subsubsection*{Forces}
+It can be hard to anticipate which domain  entities you will need to navigate to.
+Designing a good query interface can be a difficult task.
+
 \subsubsection*{Solution}
+Add a custom search for every kind of domain entity you want to navigate to.
+Simply search by substring against various attributes of the domain objects.
+Add a separate search for each attribute type or domain object.
+
+In \autoref{fig:customSearch} we see several custom searches for page names, page content and link names within a website.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{customSearch}
+  \caption{Custom substring searches.}
+  \label{fig:customSearch}
+\end{figure}
+
+As with other custom tools, one way to implement a custom search is as a method of the domain object from which the search is initiated, with a dedicated annotation.
+In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within multiple moldable tools, such as the Inspector, the Coder, and also the Notebook.
+
 \subsubsection*{Consequences}
+You need a \pattern{moldableTool} into which you can dynamically plug custom searches.
+The same search interface can accommodate multiple custom searches to query different attributes of multiple domain entities.
 
 % ----- Moldable Collection Wrapper -------------------------
 \subsection*{Moldable Collection Wrapper}\label{pat:collectionWrapper}
 \on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
 \subsubsection*{Context}
+
+%: --- CONTINUE HERE
+\here
+
 \subsubsection*{Problem}
 
 What is the best way to provide custom views of collections of domain objects, when they may occur in many different contexts?
