@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{5}
+\begin{thebibliography}{7}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -68,6 +68,24 @@
 \showDOI{\tempurl}
 
 
+\bibitem[\protect\citeauthoryear{Ducasse, Nierstrasz, Sch{\"a}rli, Wuyts, and
+  Black}{Ducasse et~al\mbox{.}}{2006}]%
+        {Duca06b}
+\bibfield{author}{\bibinfo{person}{St\'ephane Ducasse}, \bibinfo{person}{Oscar
+  Nierstrasz}, \bibinfo{person}{Nathanael Sch{\"a}rli}, \bibinfo{person}{Roel
+  Wuyts}, {and} \bibinfo{person}{Andrew~P. Black}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{Traits: A Mechanism for fine-grained Reuse}.
+\newblock \bibinfo{journal}{\emph{TOPLAS: ACM Transactions on Programming
+  Languages and Systems}} \bibinfo{volume}{28}, \bibinfo{number}{2}
+  (\bibinfo{date}{March} \bibinfo{year}{2006}), \bibinfo{pages}{331--388}.
+\newblock
+\showISSN{0164-0925}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1119479.1119483}
+\showDOI{\tempurl}
+
+
 \bibitem[\protect\citeauthoryear{G\^irba}{G\^irba}{2021}]%
         {Girb21a}
 \bibfield{author}{\bibinfo{person}{Tudor G\^irba}.}
@@ -121,6 +139,20 @@
 \showISBNx{978-3-319-11244-2}
 \urldef\tempurl%
 \url{https://doi.org/10.1007/978-3-319-11245-9_4}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Nierstrasz and G\^irba}{Nierstrasz and
+  G\^irba}{2022}]%
+        {Nier22a}
+\bibfield{author}{\bibinfo{person}{Oscar Nierstrasz} {and}
+  \bibinfo{person}{Tudor G\^irba}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Making Systems Explainable}. In
+  \bibinfo{booktitle}{\emph{{VISSOFT}'22: Proceedings of the 10th IEEE Working
+  Conference on Software Visualization}}. \bibinfo{publisher}{IEEE}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/VISSOFT55257.2022.00009}
 \showDOI{\tempurl}
 
 

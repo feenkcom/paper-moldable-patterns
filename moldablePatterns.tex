@@ -152,7 +152,7 @@ Generic analysis tools and IDEs are unlikely to be able to answer domain-specifi
 Developing custom tools can be costly and time-consuming.
 
 \subsubsection*{Solution}
-Transform the software system into a live domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations.
+Transform the software system into a live domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations~\cite{Nier22a}.
 Leverage open, moldable IDE tools to reduce the cost of building custom tools.
 Drive the development of the custom tools by concrete questions you have about the system.
 
@@ -668,28 +668,43 @@ The same search interface can accommodate multiple custom searches to query diff
 
 % ----- Moldable Collection Wrapper -------------------------
 \subsection*{Moldable Collection Wrapper}\label{pat:collectionWrapper}
-\on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
+% \on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
 \subsubsection*{Context}
+Within your application domain, you not only have to deal with individual domain objects, but also composite entities (\eg a book of notebook pages, a website of web pages), and collections of entities (\eg the result of query).
+
+\subsubsection*{Problem}
+
+
 
 %: --- CONTINUE HERE
 \here
 
-\subsubsection*{Problem}
 
 What is the best way to provide custom views of collections of domain objects, when they may occur in many different contexts?
 
 Example:
-When we explore a website, we have lists of links in a website or a webpage, we have lists of internal links, external links, broken links, or queries returning links that match some text. Providing custom views for each of these is tedious and leads to much duplicated code.
+
 
 \subsubsection*{Forces}
 
 It is common to have to deal with collections of domain objects, but it is tedious to create custom views for each of these. Collections may form part of the internal state of a domain object, such as a website containing pages, or a page containing links, but a collection may also be returned by a query, such as a Spotter search, for example the set of web pages containing a certain string in their title or page contents.
 
-Raw collections have uninteresting views. Collections are very similar and have a lot of boilerplate code. Many views are essentially collections, and have similar implementations.
+Raw collections have uninteresting views.
+Collections are very similar and have a lot of boilerplate code.
+Many views are essentially collections, and have similar implementations.
+
+When we explore a website, we have lists of links in a website or a webpage, we have lists of internal links, external links, broken links, or queries returning links that match some text. 
+Providing custom views for each of these is tedious and leads to much duplicated code.
+
+
 
 \subsubsection*{Solution}
 
 Wrap collections of domain objects in a dedicated group wrapper, and give it dedicated views, actions and searches.
+
+NB: Highlight that we want both collections and composites to have the same interfaces, so we need an abstract superclass or a trait.
+
+\cite{Duca06b}
 
 Create a dedicated wrapper for a collection of domain entities. An example is WebPageGroup , which wraps a collection web pages.
 
