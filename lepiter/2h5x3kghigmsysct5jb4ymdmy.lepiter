@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T10:45:44.312873+01:00"
+						"dateAndTimeString" : "2023-12-13T14:05:41.593925+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,17 +29,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T10:45:44.315187+01:00"
+						"dateAndTimeString" : "2023-12-13T14:07:37.762442+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "bJmv5oDHDQCERfp7BQHWKQ=="
+					"uidString" : "hWGpj8XIDQChAxKeA0CDPQ=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[Moldable Development Patterns paper]]"
+				"string" : "This repo: [](https://github.com/feenkcom/paper-moldable-patterns) "
 			},
 			{
 				"__type" : "textSnippet",
@@ -55,7 +55,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T10:53:52.983102+01:00"
+						"dateAndTimeString" : "2023-12-13T14:06:53.164102+01:00"
 					}
 				},
 				"editEmail" : {
@@ -66,17 +66,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-05T17:53:04.538397+01:00"
+						"dateAndTimeString" : "2023-12-13T14:06:59.407731+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "RKMXBIHHDQCIBTSFBQHWKQ=="
+					"uidString" : "2nLtk8XIDQChOsg6A0CDPQ=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[EuroPLoP 2024]] "
+				"string" : "We are planning a paper on Moldable Development Patterns for  [[EuroPLoP 2024]]. "
 			},
 			{
 				"__type" : "textSnippet",
@@ -359,12 +359,12 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2023-11-27T10:45:42.03364+01:00"
+			"dateAndTimeString" : "2023-12-13T14:06:08.610466+01:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "ToC"
+		"title" : "Moldable Development Patterns paper"
 	},
 	"uid" : {
 		"__type" : "uuid",

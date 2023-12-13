@@ -1213,7 +1213,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2023-12-11T14:44:01.428275+01:00"
+									"dateAndTimeString" : "2023-12-13T14:08:03.632057+01:00"
 								}
 							},
 							"uid" : {
@@ -1223,7 +1223,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "We can demo this with an Inspector on the {{gtPage:Moldable Development Patterns paper|db=2h5x3kiekrj6wq63de7hq3gkq}} page."
+							"string" : "We can demo this with an Inspector on the {{gtPage:Moldable Development Patterns paper|db=2h5x3kiekrj6wq63de7hq3gkq}} page. "
 						}
 					]
 				},
