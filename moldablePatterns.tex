@@ -44,7 +44,7 @@
   \country{Switzerland}}
 \email{tudor.girba@feenk.com}
 
-\renewcommand{\shortauthors}{G\^irba et al.}
+\renewcommand{\shortauthors}{Nierstrasz and G\^irba} % If more, then change to et al.
 
 \begin{abstract}
 Moldable development supports decision-making by making software systems \emph{explainable}.
@@ -705,20 +705,16 @@ Wrapped collections can be made plug-compatible with raw collections.
 % ===== Conclusion =========================
 \section{Conclusion}
 
-%: --- CONTINUE HERE
-\here
+Moldable development makes software systems explainable by making it cheap to add dozens of custom tools that support decision making.
+Moldable development in practice, however, requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
+The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
+Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
 
-\on{Points to mention:
-These patterns were mined in the context of GT, but they could work in any environment that supports a minimum of live programming support.
-...
-}
-
-
+% ===== References =========================
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{moldablePatterns}
-
 
 \end{document}
 \endinput
