@@ -57,7 +57,7 @@
   G\^irba}, \bibinfo{person}{Juraj Kubelka}, \bibinfo{person}{Oscar
   Nierstrasz}, \bibinfo{person}{Stefan Reichhart}, {and}
   \bibinfo{person}{Aliaksei Syrel}.} \bibinfo{year}{2017}\natexlab{}.
-\newblock \showarticletitle{Moldable Tools for Object-oriented Development}.
+\newblock \showarticletitle{Moldable Tools for Object-Oriented Development}.
 \newblock In \bibinfo{booktitle}{\emph{PAUSE: Present And Ulterior Software
   Engineering}}, \bibfield{editor}{\bibinfo{person}{Bertrand~Meyer
   Manuel~Mazzara}} (Ed.). \bibinfo{publisher}{Springer, Cham},
@@ -75,7 +75,7 @@
   Nierstrasz}, \bibinfo{person}{Nathanael Sch{\"a}rli}, \bibinfo{person}{Roel
   Wuyts}, {and} \bibinfo{person}{Andrew~P. Black}.}
   \bibinfo{year}{2006}\natexlab{}.
-\newblock \showarticletitle{Traits: A Mechanism for fine-grained Reuse}.
+\newblock \showarticletitle{Traits: A mechanism for fine-grained reuse}.
 \newblock \bibinfo{journal}{\emph{TOPLAS: ACM Transactions on Programming
   Languages and Systems}} \bibinfo{volume}{28}, \bibinfo{number}{2}
   (\bibinfo{date}{March} \bibinfo{year}{2006}), \bibinfo{pages}{331--388}.

@@ -669,60 +669,56 @@ The same search interface can accommodate multiple custom searches to query diff
 % ----- Moldable Collection Wrapper -------------------------
 \subsection*{Moldable Collection Wrapper}\label{pat:collectionWrapper}
 % \on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
+
 \subsubsection*{Context}
 Within your application domain, you not only have to deal with individual domain objects, but also composite entities (\eg a book of notebook pages, a website of web pages), and collections of entities (\eg the result of query).
 
 \subsubsection*{Problem}
+How can you effectively provide custom tools for various kinds of collections of domain entities?
 
+\subsubsection*{Forces}
+Collections are generic data structures with generic views that are not necessarily informative for your domain.
+Collections of domain entities may occur in various forms and contexts, such as the state of a composite object, or the result of a query.
+Providing custom views for each of these can be tedious and lead to much duplicated code.
 
+\subsubsection*{Solution}
+Wrap collections of domain objects in a dedicated collection wrapper, and give it dedicated views, actions and searches.
+In case there are multiple composite entities or collections that should share the same custom tools, factor these out into a common abstract superclass or trait~\cite{Duca06b}.
+
+For example, in \autoref{fig:moldableCollectionWrapper} we see that when we navigate to the \st{Pages} of a website, we obtain nota raw collection, but a \st{WebPageGroup} wrapping the collection, and providing custom tools, such as a map of reachable and unreachable pages.
+Similarly, a query for pages matching a particular string will also return a wrapped group with dedicated tools.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{moldableCollectionWrapper}
+  \caption{A moldable collection wrapper for web pages.}
+  \label{fig:moldableCollectionWrapper}
+\end{figure}
+
+Furthermore, if the wrapped collection or composite object should also behave like a collection, use a trait to forward collection API requests to the underlying collection.
+In this example, \st{WebPageGroup} uses the trait \st{TGtGroupWithItems} that forwards all collection requests to the \st{items} field of the wrapper that holds the raw collection.
+
+\subsubsection*{Consequences}
+Composite domain objects and collections of domain objects can be molded to support custom tools.
+Query results can be similarly molded.
+Wrapped collections can be made plug-compatible with raw collections.
+
+% ===== Conclusion =========================
+\section{Conclusion}
 
 %: --- CONTINUE HERE
 \here
 
+\on{Points to mention:
+These patterns were mined in the context of GT, but they could work in any environment that supports a minimum of live programming support.
+...
+}
 
-What is the best way to provide custom views of collections of domain objects, when they may occur in many different contexts?
-
-Example:
-
-
-\subsubsection*{Forces}
-
-It is common to have to deal with collections of domain objects, but it is tedious to create custom views for each of these. Collections may form part of the internal state of a domain object, such as a website containing pages, or a page containing links, but a collection may also be returned by a query, such as a Spotter search, for example the set of web pages containing a certain string in their title or page contents.
-
-Raw collections have uninteresting views.
-Collections are very similar and have a lot of boilerplate code.
-Many views are essentially collections, and have similar implementations.
-
-When we explore a website, we have lists of links in a website or a webpage, we have lists of internal links, external links, broken links, or queries returning links that match some text. 
-Providing custom views for each of these is tedious and leads to much duplicated code.
-
-
-
-\subsubsection*{Solution}
-
-Wrap collections of domain objects in a dedicated group wrapper, and give it dedicated views, actions and searches.
-
-NB: Highlight that we want both collections and composites to have the same interfaces, so we need an abstract superclass or a trait.
-
-\cite{Duca06b}
-
-Create a dedicated wrapper for a collection of domain entities. An example is WebPageGroup , which wraps a collection web pages.
-
-Have the collection wrapper use the TGtGroupWithItems trait. This trait has an items slot for the wrapped collection, and provides a large number of Collection methods to make the trait user behave like a Collection.
-
-In case there are other classes that share views, actions and searches with the collection wrapper, consider putting these in a shared trait as well. For example, a website is also a collection of pages. We put the shared views and other behaviour in the trait TWebPageGroup . The trait users are AWebsite and WebPageGroup.
-
-Wherever you need to show a collection of these objects, just forward the view to the wrapper to avoid duplicating the view code. 
-% See TWebPageGroup>>#gtReachablePagesFor: .
-
-% If you have gtSearches, be sure they return the collection wrapper and not the raw collection, using the sendCategory: message, for example, TWebPageGroup>>#gtSpotterForPageContents: .
-
-\subsubsection*{Consequences}
 
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{moldablePatterns}
+
 
 \end{document}
 \endinput
