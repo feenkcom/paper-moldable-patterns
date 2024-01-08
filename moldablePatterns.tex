@@ -32,14 +32,14 @@
 
 \author{Oscar Nierstrasz}
 \affiliation{%
-  \institution{feenk GmbH}
+  \institution{feenk gmbh}
   \city{Wabern}
   \country{Switzerland}}
 \email{oscar.nierstrasz@feenk.com}
 
 \author{Tudor G\^irba}
 \affiliation{%
-  \institution{feenk GmbH}
+  \institution{feenk gmbh}
   \city{Wabern}
   \country{Switzerland}}
 \email{tudor.girba@feenk.com}
@@ -49,7 +49,7 @@
 \begin{abstract}
 Moldable development supports decision-making by making software systems \emph{explainable}.
 This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model.
-Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified numerous mutually supporting patterns to explain how moldable development works in practice.
+Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
 \end{abstract}
 
 % \keywords{TODO}
@@ -84,14 +84,14 @@ With a conventional implementation, we can either try to play the game interacti
 We can also run the tests, but if these are all green, they do not help us to understand the system.
 By applying moldable development, we turn questions we have about the game into custom views.
 
-The figure shows three connected custom inspector views of a running game in the Glamorous Toolkit\footnote{\url{https://gtoolkit.com}} (\GT), a moldable development environment.
+The figure shows three connected custom inspector views of a running game in Glamorous Toolkit\footnote{\url{https://gtoolkit.com}} (\GT), a moldable development environment.
 In the leftmost pane we see the game GUI as the \st{Board} view.
 We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of REPL) below the view.
 In the second pane we can explore the moves of  the completed game, and in the third pane we can explore individual moves.
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
-In a nutshell, Moldable development is a way to make systems explainable by making the domain model of a software system visible and explorable through custom tools.
+In a nutshell, Moldable development is a way to make systems explainable by making the domain model \tg{the domain model is only a part of what is interesting inside a system. Could we use the term ``inside of'' instead?} of a software system visible and explorable through custom tools.
 Of course, this begs the question how to actually apply moldable development in practice.
 In our experience applying moldable development to many industrial and open source systems, we have encountered a number of repeating patterns, which we document below.
 
@@ -138,8 +138,30 @@ The most common of these tools are:
 A custom view is frequently a \pattern{simpleView} that can be quickly prototyped, and later extended.
 A custom search often benefits from a \pattern{collectionWrapper}, to allow the results of a query to be also molded with custom tools.
 
+
+\tg{I would propose reordering the patterns and maybe grouping them:
+Modeling:
+- Moldable Object
+- Example Object
+- Moldable Data Wrapper
+- Moldable Collection Wrapper
+Tooling:
+- Moldable Tool
+- Contextual Playground
+- Custom View
+- Custom Search
+- Custom Action
+Process:
+- Project Diary
+- Tooling Buildup
+- Blind Spot
+- Simple View
+}
+
 % ----- Explainable System -------------------------
 \subsection*{Explainable System}\label{pat:explainableSystem}
+
+\tg{I am not sure about this. I think we do not need this pattern, or at least not here. Explainable software seems more of a goal than a pattern.}
 
 \subsubsection*{Context}
 You need to make technical and non-technical decisions about the further development and evolution of a software system, but this is difficult because the system is complex and hard to understand.
@@ -149,7 +171,7 @@ How can you prepare a software system so that various stakeholders (both technic
 
 \subsubsection*{Forces}
 Source code is impossible to read at scale.
-Static documentation tends to get out of date.
+Manual documentation tends to get out of date.
 The live, running system is designed to fulfil end user use cases, but not answering technical or business questions.
 Generic analysis tools and IDEs are unlikely to be able to answer domain-specific questions about your system.
 Developing custom tools can be costly and time-consuming.
@@ -166,8 +188,10 @@ Unlike static documentation, the custom tools are more likely to stay in sync wi
 % ----- Moldable Tool -------------------------
 \subsection*{Moldable Tool}\label{pat:moldableTool}
 
+\tg{I think we should focus the paper one what a practitioner should do. Building a moldable tool will happen less often. I am not sure it's a pattern for this audience. But maybe we can use this as an overarching example rather than a pattern.}
+
 \subsubsection*{Context}
-You are developing a complex software system, and find that the existing development tools fall short in supporting domain-specific questions about the software.
+You are developing a software system, and find that the existing development tools fall short in supporting domain-specific questions about the software.
 
 \subsubsection*{Problem}
 How can you cheaply and effectively extend the development environment with domain-specific tools that address your application domain?
@@ -243,7 +267,7 @@ Once you have the right tools in place, you can move fast.
 % ----- Blind Spot -------------------------
 \subsection*{Blind Spot}\label{pat:blindSpot}
 \subsubsection*{Context}
-You are starting a new moldable development project for a customer with an existing code base, and you need to engage the key stakeholders.
+You are starting \chg{a new moldable development project for a customer}{to work} with an existing \ins{team and} code base, and you need to engage the key stakeholders.
 
 \subsubsection*{Problem}
 How do you pick the first moldable development task to focus on?
@@ -257,9 +281,9 @@ It can be difficult to pick a task that is both feasible in a short amount of ti
 \subsubsection*{Solution}
 Find the parts of the system that are creating problems for the stakeholders and make them \emph{explainable}.
 These are the ``blind spots'' that are difficult to understand, to monitor, or to debug.
-Pick one of these blind spots as a target for moldable development.
+Pick one of these blind spots as a target\del{ for moldable development}.
 The task should be feasible in reasonable time but non-trivial.
-There should be a clear value for the Stakeholder, that is, do something that the Stakeholder has difficulty with.
+There should be a clear value for the stakeholder, that is, do something that the stakeholder has difficulty with.
 
 Some typical examples are 
 \begin{inparaenum}[(i)]
@@ -291,7 +315,7 @@ Documentation is not part of the running system, so it distracts you from coding
 Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
 
 \subsubsection*{Solution}
-Use a live notebook as the starting point for your project and all of its tasks.
+Use a live notebook as the starting point for \del{your project and} all \del{of its} tasks.
 Create a dedicated notebook page for each project, or even each project task, to summarize the goals, and provide pointers to related material.
 Use the notebook to keep a diary of your progress.
 As the project matures, use the notebook as a draft for the documentation.
@@ -324,6 +348,9 @@ Notebooks can serve not only to track progress, but also as documentation for bo
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
 %\on{See \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Moldable Object}}
+
+\tg{This pattern seems to be described differently from the book. In the book it's about programming in the context of the object. Here we talk about creating it. I think the focus should be like in the book. The creation is a consequence of that.}
+
 \subsubsection*{Context}
 You have your basic infrastructure in place, and want to start the process of creating an explainable system, either from scratch, or based on some existing software or data.
 
@@ -345,6 +372,7 @@ Once you know how to get the answer, you can turn the exploration steps into a c
 Starting with a live object means that you can immediately start the exploration process.
 Turning the exploration of an object into a custom tool is the process of molding it, hence we call it a ``moldable object.''
 
+\tg{I like how this delegates the creation part to other patterns}
 How do you obtain a moldable object?
 \begin{itemize}[---]
 \item \emph{You already have a class:} create a \pattern{projectDiary} notebook page containing a code snippet to create an instance of the class, and start from there.
@@ -355,6 +383,8 @@ How do you obtain a moldable object?
 
 In \autoref{fig:stackMachine} we see an initial notebook page in which we start to explore an instance of a new \st{StackMachine} class that we create with a \emph{fixit} action:
 The wrench icon indicates that the class does not exist, so before we can evaluate the expression and inspect the new, moldable object, we must select one of the suggested fixes, in this case, to create a new class.
+
+\tg{let's make the example about a snippet in the context of an object. Perhaps about auto playing the Ludo game, like in Figure 1, but only with two panes and on the right we see the History view.}
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{stackMachine}
@@ -420,12 +450,15 @@ In \autoref{fig:composedExample} we see a second example, \st{playerArolls6}, th
 \end{figure}
 
 Examples such as these can be embedded into notebook pages and used as moldable objects for further development tasks.
+
     
 \subsubsection*{Consequences}
 Examples can be run just like classical unit tests.
 When an example fails, its dependent examples do not need to be run.
 When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point.
 When you are searching for usages of an API, not only do you find examples that illustrate the usage, but by running the example you obtain a live instance that you can explore.
+
+\tg{A consequence is also that examples become unit of documentation. We could provide an example with the explanation of game moves in a Lepiter page}
 
 % ----- Moldable Data Wrapper -------------------------
 \subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
@@ -477,7 +510,7 @@ We see the result after some moldable development steps in \autoref{fig:wrappedG
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{wrappedGitHubData}
-  \caption{Wrapped GitHub data.}
+  \caption{Wrapped GitHub data. \tg{The picture shows also a gray hover highlighting. It should only show the selected one}}
   \label{fig:wrappedGitHubData}
 \end{figure}
 
@@ -501,13 +534,15 @@ An editor for coding new methods typically provides no facilities for testing th
 When we code new behavior as methods, we must repeatedly change our context to incrementally develop the logic.
 Testing the code requires a separate setup.
 Setting up code to prototype and test logic can be cumbersome.
-Writing tests first for parts of the logic of a complex method may can be overkill.
+Writing tests first for parts of the logic of a complex method can be overkill.
 
 \subsubsection*{Solution}
 Prototype new behavior in the contextual playground of the inspector on a \pattern{moldableObject}.
 The playground will be bound to the context of the instance, so \st{self} and all slots (\ie fields) can be accessed exactly as they would in a running method.
 From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
 Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an \emph{Extract method} refactoring~\cite{Fowl99a}.
+
+\tg{Perhaps we could show here an example of a Python object showing custom views (we now have a movie example in the book) and a python snippet to navigate it.}
 
 In \autoref{fig:contextualPlayground} we see an inspector view of an instance of a Ludo game.
 We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
@@ -712,7 +747,7 @@ Wrapped collections can be made plug-compatible with raw collections.
 \section{Conclusion}
 
 Moldable development makes software systems explainable by making it cheap to add custom tools that support decision making.
-Moldable development in practice, however, requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
+\del{Moldable development} in practice, however, requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
 The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
 Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
 
