@@ -156,6 +156,7 @@ Process:
 - Tooling Buildup
 - Blind Spot
 - Simple View
+- Throwaway Analysis Tool
 }
 
 % ----- Explainable System -------------------------
@@ -742,6 +743,39 @@ In this example, \st{WebPageGroup} uses the trait \st{TGtGroupWithItems} that fo
 Composite domain objects and collections of domain objects can be molded to support custom tools.
 Query results can be similarly molded.
 Wrapped collections can be made plug-compatible with raw collections.
+
+% ----- Throwaway Analysis Tool -------------------------
+\subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
+
+\tg{This section is a stub}
+
+\subsubsection*{Context}
+You are assessing a problem such as a bug, a performance problem, or a security issue, and you are facing a problem that is not understandable.
+
+\subsubsection*{Problem}
+How can you advance the assessment effectively?
+
+\subsubsection*{Forces}
+The goal of an assessment is to find answers as quickly as possible.
+Custom tools help make analyses faster.
+Reusable tools can slow the answer finding.
+
+\subsubsection*{Solution}
+Build a tool for your problem only.
+Use a \pattern{contextualPlayground} to prototype a visualization or to explore through a quick query.
+The focus should be on finding an answer. Reusability should only later become a concern.
+Some tools can indeed become reusable as a \pattern{customView}, \pattern{customSearch}, or \pattern{customAction}, but that should not be the driving force.
+When you start with reusability in mind, you tend to favor generic tools. 
+However, assessment benefits from contextual tools.
+Focusing on the context first speeds up the overall effort. 
+To make this economically feasible, the cost of the tool should be amortized on the first use.
+You can make this possible through a \pattern{moldableTool}.
+
+\tg{Throwaway analyses tools can appear like a waste: it cost development effort that you do not get to reuse. However, the goal is to optimize the overall development speed. The alternative to custom tools is manual exploration. Building a tool, even for just one usage, can outcompete manual exploration by a large margin. That budget difference can more than make for the cost of the tool development.}
+
+\subsubsection*{Consequences}
+\tg{to do}
+
 
 % ===== Conclusion =========================
 \section{Conclusion}
