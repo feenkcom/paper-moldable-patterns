@@ -1,17 +1,6 @@
 Extension { #name : #GtHome }
 
 { #category : #'*PaperMoldablePatterns' }
-GtHome >> oscarSection [
-	<gtHomeSection>
-	^ GtHomeStartPageSection new 
-		title: 'Oscar''s Todos';
-		description: 'Oscar''s Lepiter Database';
-		databaseName: 'Documents/lepiter/default';
-		startPageName: 'ASAP';
-		priority: 8
-]
-
-{ #category : #'*PaperMoldablePatterns' }
 GtHome >> patternsPaperSection [
 	<gtHomeSection>
 	^ GtHomeStartPageSection new 
