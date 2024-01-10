@@ -91,7 +91,9 @@ In the second pane we can explore the moves of  the completed game, and in the t
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
-In a nutshell, Moldable development is a way to make systems explainable by making the domain model \tg{the domain model is only a part of what is interesting inside a system. Could we use the term ``inside of'' instead?} of a software system visible and explorable through custom tools.
+In a nutshell, Moldable development is a way to make systems explainable by making the \emph{inside}
+% \tg{the domain model is only a part of what is interesting inside a system. Could we use the term ``inside of'' instead?}
+of a software system visible and explorable through custom tools.
 Of course, this begs the question how to actually apply moldable development in practice.
 In our experience applying moldable development to many industrial and open source systems, we have encountered a number of repeating patterns, which we document below.
 
@@ -107,16 +109,19 @@ In a purely technical domain, these two roles can often be played by the same pe
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{map}
-  \caption{A map of moldable development patterns.}
+  \caption{A map of moldable development patterns.
+  \\ \todo{Update the map to reflect the new categories?}}
   \label{fig:map}
 \end{figure}
 
 Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, summarized in \autoref{fig:map}.
 These patterns have emerged over several years of experience in developing the \GT moldable development platform, and applying it to numerous systems.
-The patterns are mostly design patterns, showing how to tackle a design problem in moldable development, but many can also be interpreted as process patterns, that is, tasks and activities to perform during moldable development.
+\meh{The patterns are mostly design patterns, showing how to tackle a design problem in moldable development, but many can also be interpreted as process patterns, that is, tasks and activities to perform during moldable development.}
+\on{Fix to refer to the three categories.}
 The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
 
-At the root we have the pattern \pattern{explainableSystem}, a software system whose domain model has been exposed with the help of numerous custom tools.
+\meh{At the root we have the pattern \pattern{explainableSystem}, a software system whose domain model has been exposed with the help of numerous custom tools.}
+\on{No longer a pattern but a goal.}
 Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \pattern{blindSpot} is problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
@@ -140,17 +145,17 @@ A custom search often benefits from a \pattern{collectionWrapper}, to allow the 
 
 
 \tg{I would propose reordering the patterns and maybe grouping them:
-Modeling:
-- Moldable Object
-- Example Object
-- Moldable Data Wrapper
-- Moldable Collection Wrapper
 Tooling:
 - Moldable Tool
 - Contextual Playground
 - Custom View
 - Custom Search
 - Custom Action
+Modeling:
+- Moldable Object
+- Example Object
+- Moldable Data Wrapper
+- Moldable Collection Wrapper
 Process:
 - Project Diary
 - Tooling Buildup
@@ -159,37 +164,16 @@ Process:
 - Throwaway Analysis Tool
 }
 
-% ----- Explainable System -------------------------
-\subsection*{Explainable System}\label{pat:explainableSystem}
+% ===== Tooling =========================
+\section{Tooling}\label{sec:tooling}
 
-\tg{I am not sure about this. I think we do not need this pattern, or at least not here. Explainable software seems more of a goal than a pattern.}
-
-\subsubsection*{Context}
-You need to make technical and non-technical decisions about the further development and evolution of a software system, but this is difficult because the system is complex and hard to understand.
-
-\subsubsection*{Problem}
-How can you prepare a software system so that various stakeholders (both technical and non-technical) can easily answer questions they have about it?
-
-\subsubsection*{Forces}
-Source code is impossible to read at scale.
-Manual documentation tends to get out of date.
-The live, running system is designed to fulfil end user use cases, but not answering technical or business questions.
-Generic analysis tools and IDEs are unlikely to be able to answer domain-specific questions about your system.
-Developing custom tools can be costly and time-consuming.
-
-\subsubsection*{Solution}
-Transform the software system into a live domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations~\cite{Nier22a}.
-Leverage open, moldable IDE tools to reduce the cost of building custom tools.
-Drive the development of the custom tools by posing concrete questions you have about the system.
-
-\subsubsection*{Consequences}
-The custom tools become part of the live, running system.
-Unlike static documentation, the custom tools are more likely to stay in sync with the evolving system.
+\on{Needs a preamble.
+These patterns are about the building the custom tools.}
 
 % ----- Moldable Tool -------------------------
 \subsection*{Moldable Tool}\label{pat:moldableTool}
 
-\tg{I think we should focus the paper one what a practitioner should do. Building a moldable tool will happen less often. I am not sure it's a pattern for this audience. But maybe we can use this as an overarching example rather than a pattern.}
+% \tg{I think we should focus the paper one what a practitioner should do. Building a moldable tool will happen less often. I am not sure it's a pattern for this audience. But maybe we can use this as an overarching example rather than a pattern.}
 
 \subsubsection*{Context}
 You are developing a software system, and find that the existing development tools fall short in supporting domain-specific questions about the software.
@@ -232,119 +216,156 @@ A moldable tool requires no up-front configuration, since it will be dynamically
 Conversely, since custom tools are an intrinsic part of software systems rather than the IDE, molding happens when needed.
 Some tooling effort is required to open up the existing IDE tools to make them moldable, \ie dynamically customizable.
 
-% ----- Tooling Buildup -------------------------
-\subsection*{Tooling Buildup}\label{pat:toolingBuildup}
-%\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
-%\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
+% ----- Contextual Playground -------------------------
+\subsection*{Contextual Playground}\label{pat:contextualPlayground}
+%\on{See \href{https://book.gtoolkit.com/contextual-playground-9jkob08mw269cpxowmbe0ld8i}{Contextual Playground book page}}
 \subsubsection*{Context}
-You want to start moldable development but lack the basic infrastructure to start exploring the domain.
-You may be missing a parser for a data format or a DSL, a language bridge to an execution platform, or implementations of key analysis algorithms. 
+You have a moldable object, and you are ready to start exploring.
 
 \subsubsection*{Problem}
-How do start moldable development if you are missing core infrastructure?
+Where do you start coding?
 
 \subsubsection*{Forces}
-When you are building on top of an existing project, you may be missing key tools to allow you to start exploring the domain.
-You might not know where to find existing implementations to directly use, or to port or adapt to your development platform.
-You might lack the expertise to build the tools yourself.
+An editor for coding new methods typically provides no facilities for testing the code.
+When we code new behavior as methods, we must repeatedly change our context to incrementally develop the logic.
+Testing the code requires a separate setup.
+Setting up code to prototype and test logic can be cumbersome.
+Writing tests first for parts of the logic of a complex method can be overkill.
 
 \subsubsection*{Solution}
-To start a moldable development activity, you need to have the basic tools available to start exploring.
-If these are missing, you need to first work on a \emph{tooling buildup} phase.
-In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on building the tools you need to start exploring.
+Prototype new behavior in the contextual playground of the inspector on a \pattern{moldableObject}.
+The playground will be bound to the context of the instance, so \st{self} and all slots (\ie fields) can be accessed exactly as they would in a running method.
+From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
+Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an \emph{Extract method} refactoring~\cite{Fowl99a}.
 
-Here are some examples:
-\begin{inparaenum}[(i)]
-\item building a parser for YAML configuration files so that you can extract useful data from them and apply the \pattern{moldableDataWrapper} pattern,
-\item building an island parser~\cite{Kurs14b} to extract interesting bits of information from source files in software languages for which a full parser may not be readily available,
-\item building a bridge to a foreign execution platform, such as for Python, or AWS, or a database system, so that you can observe and interact with run-time entities in the target platform, or
-\item implementing graph-traversal algorithms to detect dependencies, deadlocks \etc
-\end{inparaenum}
+\tg{Perhaps we could show here an example of a Python object showing custom views (we now have a movie example in the book) and a python snippet to navigate it.}
 
-\subsubsection*{Consequences}
-Tooling buildup will slow you down.
-Once you have the right tools in place, you can move fast.
-
-% ----- Blind Spot -------------------------
-\subsection*{Blind Spot}\label{pat:blindSpot}
-\subsubsection*{Context}
-You are starting \chg{a new moldable development project for a customer}{to work} with an existing \ins{team and} code base, and you need to engage the key stakeholders.
-
-\subsubsection*{Problem}
-How do you pick the first moldable development task to focus on?
-
-\subsubsection*{Forces}
-The stakeholders are already heavily committed to their current development tasks, and have little time to spare for you.
-They are almost certainly skeptical that moldable development will make them more productive.
-You need to demonstrate early success to get the customer to commit long-term to further collaboration.
-It can be difficult to pick a task that is both feasible in a short amount of time, and also brings value to the stakeholders.
-
-\subsubsection*{Solution}
-Find the parts of the system that are creating problems for the stakeholders and make them \emph{explainable}.
-These are the ``blind spots'' that are difficult to understand, to monitor, or to debug.
-Pick one of these blind spots as a target\del{ for moldable development}.
-The task should be feasible in reasonable time but non-trivial.
-There should be a clear value for the stakeholder, that is, do something that the stakeholder has difficulty with.
-
-Some typical examples are 
-\begin{inparaenum}[(i)]
-\item exposing hidden dependencies between features, 
-\item visualizing performance costs of test runs on a cluster, or
-\item providing views to gain insights into scheduling deadlocks.
-\end{inparaenum}
-
-Since the stakeholder has little time to spare to guide you, you may have to work in the dark at times.
-Be sure to always have something to show when you come back with questions.
-
-\subsubsection*{Consequences}
-By quickly developing a solution to an ongoing problem, you will engage the stakeholder.
-It does not matter if the custom tools you develop do not perfectly match the stakeholder's needs, as the only goal is to convince the stakeholders to commit to closer and longer-term collaboration.
-
-% ----- Project Diary -------------------------
-\subsection*{Project Diary}\label{pat:projectDiary}
-%\on{See \href{https://book.gtoolkit.com/project-diary-dyquv1ad359wsnwasp6hwkgcj}{Project Diary book page}}
-
-\subsubsection*{Context}
-You are working on a software project and need to track your progress.
-
-\subsubsection*{Problem}
-How can you keep track of decisions, experiments and progress in a moldable development project?
-
-\subsubsection*{Forces}
-It's boring to write documentation after the fact, so it is rarely done.
-Documentation is not part of the running system, so it distracts you from coding.
-Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
-
-\subsubsection*{Solution}
-Use a live notebook as the starting point for \del{your project and} all \del{of its} tasks.
-Create a dedicated notebook page for each project, or even each project task, to summarize the goals, and provide pointers to related material.
-Use the notebook to keep a diary of your progress.
-As the project matures, use the notebook as a draft for the documentation.
-
-For example, in \autoref{fig:projectDiary} we see a live Lepiter page~\cite{Girb21a} in the \GT Book\footnote{The GT Book is the documentation of the Glamorous Toolkit Moldable Development Environment implemented as a live Lepiter notebook. An archived static snapshot of this page is also available: \url{https://web.archive.org/web/20231213144857/https://book.gtoolkit.com/adding-simple-list-views-for-ludo-players--3g9kpmxty3fj9eev3ucmqkztc}.} documenting the task of adding some list views to the Ludo game.
+In \autoref{fig:contextualPlayground} we see an inspector view of an instance of a Ludo game.
+We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
+We prototype the behavior in the contextual playground at the bottom of the inspector on the game instance.
+By evaluating the code snippet and inspecting the result, we can explore the current player after a move in the second pane at right.
+We can similarly open a contextual playground on the player, if we need to.
+Once we are happy with the new behavior, we can extract it as a new method.
 
 \begin{figure}[h]
-  \includegraphics[width=\columnwidth]{projectDiaryExample}
-  \caption{Documenting your progress in a live notebook.}
-  \label{fig:projectDiary}
+  \includegraphics[width=\columnwidth]{contextualPlayground}
+  \caption{Prototyping behavior in a contextual playground.}
+  \label{fig:contextualPlayground}
 \end{figure}
 
-If needed, add code snippets for any setup tasks (\eg cloning repositories or loading databases).
-Also add code snippets to the notebook pages to serve as moldable objects to start coding from.
-Extract interesting code snippets as example objects to document interesting use cases, or to serve as tests.
-
-As the project grows, organize the notebook into a main page with an overview, and separate notebook pages for different tasks or groups of related tasks.
-
-Consider using notebook tags to organize your pages implicitly. For example, use a dedicated project tag for all the project pages, and additional tags to indicate their status (``todo'', ``completed'', ``urgent'' \etc).
-For example, the ``DRAFT'' tag is used to track pages of the \GT Book that require further editing.
-
-At the end of a project, consider recycling and rewriting the project pages to create documentation. In this way the diary can serve as a rough draft.
+A well-known use of contextual playgrounds is the JavaScript console of a modern web browser: while inspecting a live web page, you can explore and programmatically interact with the live objects in the run-time environment of the page.
 
 \subsubsection*{Consequences}
+By prototyping new behavior in a contextual playground, you obtain immediate feedback for experimental code.
 
-A live notebook is an integral part of the project, and evolves together with other software artifacts.
-Notebook pages can express tasks in various stages of completion, so can be used as starting points for further development tasks.
-Notebooks can serve not only to track progress, but also as documentation for both technical and non-technical stakeholders.
+% ----- Custom View -------------------------
+\subsection*{Custom View}\label{pat:customView}
+%\on{See \href{https://book.gtoolkit.com/viewable-entity-9jkob0898tctthh5o3m23fv4e}{Viewable entity book page}}
+% AKA Viewable Entity
+\subsubsection*{Context}
+You are exploring a live domain model and find some interesting information.
+
+\subsubsection*{Problem}
+How do you make it easy to find interesting information again?
+
+\subsubsection*{Forces}
+Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating Playground snippets, to reach the answer you seek.
+The sequence of steps may be cumbersome to follow repeatedly.
+
+\subsubsection*{Solution}
+Turn interesting data into a custom view.
+Extract the navigation steps into a new custom view for the moldable object you start navigating from.
+Start with a \pattern{simpleView}.
+
+As an example, consider the views of a partially played Ludo game in \autoref{fig:rawViewVsCustomView}.
+We would like to understand which moves have been played up to now.
+In the leftmost pane we are exploring a ``raw view''\,---\,a generic view of the state of the object.
+With this view we can navigate to the individual moves and explore them, but it is a clumsy way to explore the object.
+In the second pane we see a custom \st{Moves} view that lists the moves in order, with columns showing each roll of the die, the player who rolled the die, and any token that may have moved.
+From this custom view we can furthermore dive directly into the \st{Move} object, which in turn has a custom view visualizing the change in state.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{rawViewVsCustomView}
+  \caption{A raw view and two custom views.}
+  \label{fig:rawViewVsCustomView}
+\end{figure}
+
+\subsubsection*{Consequences}
+A custom view exposes information about a domain that can otherwise be hard to find.
+Custom views become an intrinsic part of a software system, turning it into an \pattern{explainableSystem}.
+You need a \pattern{moldableTool} into which you can dynamically plug custom views.
+
+% ----- Custom Search -------------------------
+\subsection*{Custom Search}\label{pat:customSearch}
+\subsubsection*{Context}
+You have a complex domain model consisting of various kinds of entities related to each other.
+
+\subsubsection*{Problem}
+How can you effectively navigate between domain entities by name, content or other criteria?
+
+\subsubsection*{Forces}
+It can be hard to anticipate which domain  entities you will need to navigate to.
+Designing a good query interface can be a difficult task.
+
+\subsubsection*{Solution}
+Add a custom search for every kind of domain entity you want to navigate to.
+Simply search by substring against various attributes of the domain objects.
+Add a separate search for each attribute type or domain object.
+
+In \autoref{fig:customSearch} we see several custom searches for page names, page content and link names within a website.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{customSearch}
+  \caption{Custom substring searches.}
+  \label{fig:customSearch}
+\end{figure}
+
+As with other custom tools, one way to implement a custom search is as a method of the domain object from which the search is initiated, with a dedicated annotation.
+In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within multiple moldable tools, such as the inspector, the code editor, and also the notebook.
+
+\subsubsection*{Consequences}
+You need a \pattern{moldableTool} into which you can dynamically plug custom searches.
+The same search interface can accommodate multiple custom searches to query different attributes of multiple domain entities.
+
+% ----- Custom Action -------------------------
+\subsection*{Custom Action}\label{pat:customAction}
+% \on{See \href{https://book.gtoolkit.com/custom-action-7ed0nuwfqc5qp8b1b257cavgy}{Custom Action book page}}
+\subsubsection*{Context}
+You are developing an explorable domain model of your application and find yourself repeatedly evaluating the same code snippets to perform a certain action or navigate to another object.
+
+\subsubsection*{Problem}
+How can you streamline execution of repeated actions?
+
+\subsubsection*{Forces}
+Repeated tasks are annoying and time-consuming.
+Remembering how to perform common tasks increases cognitive overload.
+Storing code to perform common actions as methods or as snippets in class comments doesn't guarantee that the code will be easily found when you need it.
+
+\subsubsection*{Solution}
+Add a custom action button to the moldable tool for the object involved in a repeated task, encapsulating the boilerplate code to perform it.
+Be sure to pick an evocative button icon and tooltip text to make the intent of the button clear.
+Only add buttons for the most important actions to avoid cluttering the interface of a moldable tool.
+
+As an example, consider the inspector view of a Lepiter notebook page in \autoref{fig:customLePageAction}.
+Common actions are to navigate to the notebook database, to view the file in which the state of the notebook page is stored, or to export an HTML version of the page.
+Each of these actions can easily be packaged as an inspector button, so that the action can be performed with a single click, opening a new inspector view of the result.
+In the example we navigate to the database holding all related notebook pages for the given project.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{customLePageAction}
+  \caption{Custom actions for lepiter pages.}
+  \label{fig:customLePageAction}
+\end{figure}
+
+\subsubsection*{Consequences}
+Custom actions appear as buttons in moldable tools only in the context of the objects to which they can be applied.
+You need a \pattern{moldableTool} into which you can dynamically plug custom actions.
+
+% ===== Modeling =========================
+\section{Modeling}\label{sec:modeling}
+
+\on{Needs a preamble.
+These patterns are about modeling domain entities to serve as starting points for moldable development.}
 
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
@@ -521,84 +542,172 @@ By wrapping the raw domain data, you obtain a moldable object that can be custom
 Each time you navigate to other data representing further domain entities, wrap them as well, to build an explorable domain model.
 In case custom tools of the underlying data objects are useful, you can always recycle them and make them available to the wrapped objects as well.
 
-% ----- Contextual Playground -------------------------
-\subsection*{Contextual Playground}\label{pat:contextualPlayground}
-%\on{See \href{https://book.gtoolkit.com/contextual-playground-9jkob08mw269cpxowmbe0ld8i}{Contextual Playground book page}}
+% ----- Moldable Collection Wrapper -------------------------
+\subsection*{Moldable Collection Wrapper}\label{pat:collectionWrapper}
+% \on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
+
 \subsubsection*{Context}
-You have a moldable object, and you are ready to start exploring.
+Within your application domain, you not only have to deal with individual domain objects, but also composite entities (\eg a book of notebook pages, a website of web pages), and collections of entities (\eg the result of query).
 
 \subsubsection*{Problem}
-Where do you start coding?
+How can you effectively provide custom tools for various kinds of collections of domain entities?
 
 \subsubsection*{Forces}
-An editor for coding new methods typically provides no facilities for testing the code.
-When we code new behavior as methods, we must repeatedly change our context to incrementally develop the logic.
-Testing the code requires a separate setup.
-Setting up code to prototype and test logic can be cumbersome.
-Writing tests first for parts of the logic of a complex method can be overkill.
+Collections are generic data structures with generic views that are not necessarily informative for your domain.
+Collections of domain entities may occur in various forms and contexts, such as the state of a composite object, or the result of a query.
+Providing custom views for each of these can be tedious and lead to much duplicated code.
 
 \subsubsection*{Solution}
-Prototype new behavior in the contextual playground of the inspector on a \pattern{moldableObject}.
-The playground will be bound to the context of the instance, so \st{self} and all slots (\ie fields) can be accessed exactly as they would in a running method.
-From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
-Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an \emph{Extract method} refactoring~\cite{Fowl99a}.
+Wrap a collection of domain objects in a dedicated collection wrapper, and give it dedicated views, actions and searches.
+In case there are multiple composite entities or collections that should share the same custom tools, factor these out into a common abstract superclass or trait~\cite{Duca06b}.
 
-\tg{Perhaps we could show here an example of a Python object showing custom views (we now have a movie example in the book) and a python snippet to navigate it.}
-
-In \autoref{fig:contextualPlayground} we see an inspector view of an instance of a Ludo game.
-We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
-We prototype the behavior in the contextual playground at the bottom of the inspector on the game instance.
-By evaluating the code snippet and inspecting the result, we can explore the current player after a move in the second pane at right.
-We can similarly open a contextual playground on the player, if we need to.
-Once we are happy with the new behavior, we can extract it as a new method.
+For example, in \autoref{fig:moldableCollectionWrapper} we see that when we navigate to the \st{Pages} of a website, we obtain not a raw collection, but a \lst{Web\-Page\-Group} wrapping the collection, and providing custom tools, such as a map of reachable and unreachable pages.
+Similarly, a query for pages matching a particular string will also return a wrapped group with dedicated tools.
 
 \begin{figure}[h]
-  \includegraphics[width=\columnwidth]{contextualPlayground}
-  \caption{Prototyping behavior in a contextual playground.}
-  \label{fig:contextualPlayground}
+  \includegraphics[width=\columnwidth]{moldableCollectionWrapper}
+  \caption{A moldable collection wrapper for web pages.}
+  \label{fig:moldableCollectionWrapper}
 \end{figure}
 
-A well-known use of contextual playgrounds is the JavaScript console of a modern web browser: while inspecting a live web page, you can explore and programmatically interact with the live objects in the run-time environment of the page.
+Furthermore, if the wrapped collection or composite object should also behave like a collection, use a trait to forward collection API requests to the underlying collection.
+In this example, \st{WebPageGroup} uses the trait \st{TGtGroupWithItems} that forwards all collection requests to the \st{items} slot of the wrapper that holds the raw collection.
 
 \subsubsection*{Consequences}
-By prototyping new behavior in a contextual playground, you obtain immediate feedback for experimental code.
+Composite domain objects and collections of domain objects can be molded to support custom tools.
+Query results can be similarly molded.
+Wrapped collections can be made plug-compatible with raw collections.
 
-% ----- Custom View -------------------------
-\subsection*{Custom View}\label{pat:customView}
-%\on{See \href{https://book.gtoolkit.com/viewable-entity-9jkob0898tctthh5o3m23fv4e}{Viewable entity book page}}
-% AKA Viewable Entity
+
+
+
+
+
+\tg{Modeling:
+- Moldable Object
+- Example Object
+- Moldable Data Wrapper
+- Moldable Collection Wrapper}
+
+
+% ===== Process =========================
+\section{Process}\label{sec:process}
+
+\on{Needs a preamble}
+
+% ----- Project Diary -------------------------
+\subsection*{Project Diary}\label{pat:projectDiary}
+%\on{See \href{https://book.gtoolkit.com/project-diary-dyquv1ad359wsnwasp6hwkgcj}{Project Diary book page}}
+
 \subsubsection*{Context}
-You are exploring a live domain model and find some interesting information.
+You are working on a software project and need to track your progress.
 
 \subsubsection*{Problem}
-How do you make it easy to find interesting information again?
+How can you keep track of decisions, experiments and progress in a moldable development project?
 
 \subsubsection*{Forces}
-Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating Playground snippets, to reach the answer you seek.
-The sequence of steps may be cumbersome to follow repeatedly.
+It's boring to write documentation after the fact, so it is rarely done.
+Documentation is not part of the running system, so it distracts you from coding.
+Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
 
 \subsubsection*{Solution}
-Turn interesting data into a custom view.
-Extract the navigation steps into a new custom view for the moldable object you start navigating from.
-Start with a \pattern{simpleView}.
+Use a live notebook as the starting point for \del{your project and} all \del{of its} tasks.
+Create a dedicated notebook page for each project, or even each project task, to summarize the goals, and provide pointers to related material.
+Use the notebook to keep a diary of your progress.
+As the project matures, use the notebook as a draft for the documentation.
 
-As an example, consider the views of a partially played Ludo game in \autoref{fig:rawViewVsCustomView}.
-We would like to understand which moves have been played up to now.
-In the leftmost pane we are exploring a ``raw view''\,---\,a generic view of the state of the object.
-With this view we can navigate to the individual moves and explore them, but it is a clumsy way to explore the object.
-In the second pane we see a custom \st{Moves} view that lists the moves in order, with columns showing each roll of the die, the player who rolled the die, and any token that may have moved.
-From this custom view we can furthermore dive directly into the \st{Move} object, which in turn has a custom view visualizing the change in state.
+For example, in \autoref{fig:projectDiary} we see a live Lepiter page~\cite{Girb21a} in the \GT Book\footnote{The GT Book is the documentation of the Glamorous Toolkit Moldable Development Environment implemented as a live Lepiter notebook. An archived static snapshot of this page is also available: \url{https://web.archive.org/web/20231213144857/https://book.gtoolkit.com/adding-simple-list-views-for-ludo-players--3g9kpmxty3fj9eev3ucmqkztc}.} documenting the task of adding some list views to the Ludo game.
 
 \begin{figure}[h]
-  \includegraphics[width=\columnwidth]{rawViewVsCustomView}
-  \caption{A raw view and two custom views.}
-  \label{fig:rawViewVsCustomView}
+  \includegraphics[width=\columnwidth]{projectDiaryExample}
+  \caption{Documenting your progress in a live notebook.}
+  \label{fig:projectDiary}
 \end{figure}
 
+If needed, add code snippets for any setup tasks (\eg cloning repositories or loading databases).
+Also add code snippets to the notebook pages to serve as moldable objects to start coding from.
+Extract interesting code snippets as example objects to document interesting use cases, or to serve as tests.
+
+As the project grows, organize the notebook into a main page with an overview, and separate notebook pages for different tasks or groups of related tasks.
+
+Consider using notebook tags to organize your pages implicitly. For example, use a dedicated project tag for all the project pages, and additional tags to indicate their status (``todo'', ``completed'', ``urgent'' \etc).
+For example, the ``DRAFT'' tag is used to track pages of the \GT Book that require further editing.
+
+At the end of a project, consider recycling and rewriting the project pages to create documentation. In this way the diary can serve as a rough draft.
+
 \subsubsection*{Consequences}
-A custom view exposes information about a domain that can otherwise be hard to find.
-Custom views become an intrinsic part of a software system, turning it into an \pattern{explainableSystem}.
-You need a \pattern{moldableTool} into which you can dynamically plug custom views.
+
+A live notebook is an integral part of the project, and evolves together with other software artifacts.
+Notebook pages can express tasks in various stages of completion, so can be used as starting points for further development tasks.
+Notebooks can serve not only to track progress, but also as documentation for both technical and non-technical stakeholders.
+
+% ----- Tooling Buildup -------------------------
+\subsection*{Tooling Buildup}\label{pat:toolingBuildup}
+%\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
+%\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
+\subsubsection*{Context}
+You want to start moldable development but lack the basic infrastructure to start exploring the domain.
+You may be missing a parser for a data format or a DSL, a language bridge to an execution platform, or implementations of key analysis algorithms. 
+
+\subsubsection*{Problem}
+How do start moldable development if you are missing core infrastructure?
+
+\subsubsection*{Forces}
+When you are building on top of an existing project, you may be missing key tools to allow you to start exploring the domain.
+You might not know where to find existing implementations to directly use, or to port or adapt to your development platform.
+You might lack the expertise to build the tools yourself.
+
+\subsubsection*{Solution}
+To start a moldable development activity, you need to have the basic tools available to start exploring.
+If these are missing, you need to first work on a \emph{tooling buildup} phase.
+In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on building the tools you need to start exploring.
+
+Here are some examples:
+\begin{inparaenum}[(i)]
+\item building a parser for YAML configuration files so that you can extract useful data from them and apply the \pattern{moldableDataWrapper} pattern,
+\item building an island parser~\cite{Kurs14b} to extract interesting bits of information from source files in software languages for which a full parser may not be readily available,
+\item building a bridge to a foreign execution platform, such as for Python, or AWS, or a database system, so that you can observe and interact with run-time entities in the target platform, or
+\item implementing graph-traversal algorithms to detect dependencies, deadlocks \etc
+\end{inparaenum}
+
+\subsubsection*{Consequences}
+Tooling buildup will slow you down.
+Once you have the right tools in place, you can move fast.
+
+% ----- Blind Spot -------------------------
+\subsection*{Blind Spot}\label{pat:blindSpot}
+\subsubsection*{Context}
+You are starting \chg{a new moldable development project for a customer}{to work} with an existing \ins{team and} code base, and you need to engage the key stakeholders.
+
+\subsubsection*{Problem}
+How do you pick the first moldable development task to focus on?
+
+\subsubsection*{Forces}
+The stakeholders are already heavily committed to their current development tasks, and have little time to spare for you.
+They are almost certainly skeptical that moldable development will make them more productive.
+You need to demonstrate early success to get the customer to commit long-term to further collaboration.
+It can be difficult to pick a task that is both feasible in a short amount of time, and also brings value to the stakeholders.
+
+\subsubsection*{Solution}
+Find the parts of the system that are creating problems for the stakeholders and make them \emph{explainable}.
+These are the ``blind spots'' that are difficult to understand, to monitor, or to debug.
+Pick one of these blind spots as a target\del{ for moldable development}.
+The task should be feasible in reasonable time but non-trivial.
+There should be a clear value for the stakeholder, that is, do something that the stakeholder has difficulty with.
+
+Some typical examples are 
+\begin{inparaenum}[(i)]
+\item exposing hidden dependencies between features, 
+\item visualizing performance costs of test runs on a cluster, or
+\item providing views to gain insights into scheduling deadlocks.
+\end{inparaenum}
+
+Since the stakeholder has little time to spare to guide you, you may have to work in the dark at times.
+Be sure to always have something to show when you come back with questions.
+
+\subsubsection*{Consequences}
+By quickly developing a solution to an ongoing problem, you will engage the stakeholder.
+It does not matter if the custom tools you develop do not perfectly match the stakeholder's needs, as the only goal is to convince the stakeholders to commit to closer and longer-term collaboration.
 
 % ----- Simple View -------------------------
 \subsection*{Simple View}\label{pat:simpleView}
@@ -642,108 +751,6 @@ Other kinds of simple views exist to display plain text, simple lists without co
 A simple view requires little effort to implement and can be quickly deployed and tested.
 Simple views are easy to understand and extend or replace.
 
-% ----- Custom Action -------------------------
-\subsection*{Custom Action}\label{pat:customAction}
-% \on{See \href{https://book.gtoolkit.com/custom-action-7ed0nuwfqc5qp8b1b257cavgy}{Custom Action book page}}
-\subsubsection*{Context}
-You are developing an explorable domain model of your application and find yourself repeatedly evaluating the same code snippets to perform a certain action or navigate to another object.
-
-\subsubsection*{Problem}
-How can you streamline execution of repeated actions?
-
-\subsubsection*{Forces}
-Repeated tasks are annoying and time-consuming.
-Remembering how to perform common tasks increases cognitive overload.
-Storing code to perform common actions as methods or as snippets in class comments doesn't guarantee that the code will be easily found when you need it.
-
-\subsubsection*{Solution}
-Add a custom action button to the moldable tool for the object involved in a repeated task, encapsulating the boilerplate code to perform it.
-Be sure to pick an evocative button icon and tooltip text to make the intent of the button clear.
-Only add buttons for the most important actions to avoid cluttering the interface of a moldable tool.
-
-As an example, consider the inspector view of a Lepiter notebook page in \autoref{fig:customLePageAction}.
-Common actions are to navigate to the notebook database, to view the file in which the state of the notebook page is stored, or to export an HTML version of the page.
-Each of these actions can easily be packaged as an inspector button, so that the action can be performed with a single click, opening a new inspector view of the result.
-In the example we navigate to the database holding all related notebook pages for the given project.
-
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{customLePageAction}
-  \caption{Custom actions for lepiter pages.}
-  \label{fig:customLePageAction}
-\end{figure}
-
-\subsubsection*{Consequences}
-Custom actions appear as buttons in moldable tools only in the context of the objects to which they can be applied.
-You need a \pattern{moldableTool} into which you can dynamically plug custom actions.
-
-% ----- Custom Search -------------------------
-\subsection*{Custom Search}\label{pat:customSearch}
-\subsubsection*{Context}
-You have a complex domain model consisting of various kinds of entities related to each other.
-
-\subsubsection*{Problem}
-How can you effectively navigate between domain entities by name, content or other criteria?
-
-\subsubsection*{Forces}
-It can be hard to anticipate which domain  entities you will need to navigate to.
-Designing a good query interface can be a difficult task.
-
-\subsubsection*{Solution}
-Add a custom search for every kind of domain entity you want to navigate to.
-Simply search by substring against various attributes of the domain objects.
-Add a separate search for each attribute type or domain object.
-
-In \autoref{fig:customSearch} we see several custom searches for page names, page content and link names within a website.
-
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{customSearch}
-  \caption{Custom substring searches.}
-  \label{fig:customSearch}
-\end{figure}
-
-As with other custom tools, one way to implement a custom search is as a method of the domain object from which the search is initiated, with a dedicated annotation.
-In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within multiple moldable tools, such as the inspector, the code editor, and also the notebook.
-
-\subsubsection*{Consequences}
-You need a \pattern{moldableTool} into which you can dynamically plug custom searches.
-The same search interface can accommodate multiple custom searches to query different attributes of multiple domain entities.
-
-% ----- Moldable Collection Wrapper -------------------------
-\subsection*{Moldable Collection Wrapper}\label{pat:collectionWrapper}
-% \on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
-
-\subsubsection*{Context}
-Within your application domain, you not only have to deal with individual domain objects, but also composite entities (\eg a book of notebook pages, a website of web pages), and collections of entities (\eg the result of query).
-
-\subsubsection*{Problem}
-How can you effectively provide custom tools for various kinds of collections of domain entities?
-
-\subsubsection*{Forces}
-Collections are generic data structures with generic views that are not necessarily informative for your domain.
-Collections of domain entities may occur in various forms and contexts, such as the state of a composite object, or the result of a query.
-Providing custom views for each of these can be tedious and lead to much duplicated code.
-
-\subsubsection*{Solution}
-Wrap a collection of domain objects in a dedicated collection wrapper, and give it dedicated views, actions and searches.
-In case there are multiple composite entities or collections that should share the same custom tools, factor these out into a common abstract superclass or trait~\cite{Duca06b}.
-
-For example, in \autoref{fig:moldableCollectionWrapper} we see that when we navigate to the \st{Pages} of a website, we obtain not a raw collection, but a \lst{Web\-Page\-Group} wrapping the collection, and providing custom tools, such as a map of reachable and unreachable pages.
-Similarly, a query for pages matching a particular string will also return a wrapped group with dedicated tools.
-
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{moldableCollectionWrapper}
-  \caption{A moldable collection wrapper for web pages.}
-  \label{fig:moldableCollectionWrapper}
-\end{figure}
-
-Furthermore, if the wrapped collection or composite object should also behave like a collection, use a trait to forward collection API requests to the underlying collection.
-In this example, \st{WebPageGroup} uses the trait \st{TGtGroupWithItems} that forwards all collection requests to the \st{items} slot of the wrapper that holds the raw collection.
-
-\subsubsection*{Consequences}
-Composite domain objects and collections of domain objects can be molded to support custom tools.
-Query results can be similarly molded.
-Wrapped collections can be made plug-compatible with raw collections.
-
 % ----- Throwaway Analysis Tool -------------------------
 \subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
 
@@ -775,6 +782,57 @@ You can make this possible through a \pattern{moldableTool}.
 
 \subsubsection*{Consequences}
 \tg{to do}
+
+\tg{Process:
+- Project Diary
+- Tooling Buildup
+- Blind Spot
+- Simple View
+- Throwaway Analysis Tool
+}
+
+
+
+
+
+
+% ===== TO REMOVE? =========================
+\section{To remove?}
+
+
+
+
+
+
+
+
+
+% ----- Explainable System -------------------------
+\subsection*{Explainable System}\label{pat:explainableSystem}
+
+\tg{I am not sure about this. I think we do not need this pattern, or at least not here. Explainable software seems more of a goal than a pattern.}
+
+\subsubsection*{Context}
+You need to make technical and non-technical decisions about the further development and evolution of a software system, but this is difficult because the system is complex and hard to understand.
+
+\subsubsection*{Problem}
+How can you prepare a software system so that various stakeholders (both technical and non-technical) can easily answer questions they have about it?
+
+\subsubsection*{Forces}
+Source code is impossible to read at scale.
+Manual documentation tends to get out of date.
+The live, running system is designed to fulfil end user use cases, but not answering technical or business questions.
+Generic analysis tools and IDEs are unlikely to be able to answer domain-specific questions about your system.
+Developing custom tools can be costly and time-consuming.
+
+\subsubsection*{Solution}
+Transform the software system into a live domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations~\cite{Nier22a}.
+Leverage open, moldable IDE tools to reduce the cost of building custom tools.
+Drive the development of the custom tools by posing concrete questions you have about the system.
+
+\subsubsection*{Consequences}
+The custom tools become part of the live, running system.
+Unlike static documentation, the custom tools are more likely to stay in sync with the evolving system.
 
 
 % ===== Conclusion =========================
