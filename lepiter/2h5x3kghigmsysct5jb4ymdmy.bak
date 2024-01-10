@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-13T14:07:14.469278+01:00"
+						"dateAndTimeString" : "2023-12-13T14:07:37.762442+01:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Repo for the LaTeX sources and related material: [](https://github.com/feenkcom/paper-moldable-patterns) "
+				"string" : "This repo: [](https://github.com/feenkcom/paper-moldable-patterns) "
 			},
 			{
 				"__type" : "textSnippet",
