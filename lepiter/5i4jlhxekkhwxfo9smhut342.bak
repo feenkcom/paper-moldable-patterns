@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-28T10:33:21.478601+01:00"
+						"dateAndTimeString" : "2024-01-10T14:48:08.749424+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-05T14:29:21.189945+01:00"
+						"dateAndTimeString" : "2024-01-10T14:48:54.979263+01:00"
 					}
 				},
 				"uid" : {
@@ -39,44 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "We refine the old map and add several new patterns."
-			},
-			{
-				"__type" : "textSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-05T17:53:20.669489+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-05T17:53:33.820244+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "T1QTzyfIDQCjRWPCDbCHig=="
-				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : "Note that several patterns have changed their names slightly ..."
+				"string" : "Now we are changing “Explainable System” from a pattern to a *goal*, and we are categorizing the patterns as *Tooling"
 			},
 			{
 				"__type" : "exampleSnippet",
@@ -110,7 +73,7 @@
 					"__type" : "uid",
 					"uidString" : "rE5tPoPHDQC5o6ivCQ6VAg=="
 				},
-				"exampleSelector" : "mapV4",
+				"exampleSelector" : "mapV5",
 				"previewHeight" : 400,
 				"previewShowSelector" : "gtLiveFor:",
 				"exampleBehaviorName" : "PatternMap",
