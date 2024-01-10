@@ -91,7 +91,9 @@ In the second pane we can explore the moves of  the completed game, and in the t
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
-In a nutshell, Moldable development is a way to make systems explainable by making the domain model \tg{the domain model is only a part of what is interesting inside a system. Could we use the term ``inside of'' instead?} of a software system visible and explorable through custom tools.
+In a nutshell, Moldable development is a way to make systems explainable by making the \emph{inside}
+% \tg{the domain model is only a part of what is interesting inside a system. Could we use the term ``inside of'' instead?}
+of a software system visible and explorable through custom tools.
 Of course, this begs the question how to actually apply moldable development in practice.
 In our experience applying moldable development to many industrial and open source systems, we have encountered a number of repeating patterns, which we document below.
 
@@ -107,16 +109,19 @@ In a purely technical domain, these two roles can often be played by the same pe
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{map}
-  \caption{A map of moldable development patterns.}
+  \caption{A map of moldable development patterns.
+  \\ \todo{Update the map to reflect the new categories?}}
   \label{fig:map}
 \end{figure}
 
 Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, summarized in \autoref{fig:map}.
 These patterns have emerged over several years of experience in developing the \GT moldable development platform, and applying it to numerous systems.
-The patterns are mostly design patterns, showing how to tackle a design problem in moldable development, but many can also be interpreted as process patterns, that is, tasks and activities to perform during moldable development.
+\meh{The patterns are mostly design patterns, showing how to tackle a design problem in moldable development, but many can also be interpreted as process patterns, that is, tasks and activities to perform during moldable development.}
+\on{Fix to refer to the three categories.}
 The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
 
-At the root we have the pattern \pattern{explainableSystem}, a software system whose domain model has been exposed with the help of numerous custom tools.
+\meh{At the root we have the pattern \pattern{explainableSystem}, a software system whose domain model has been exposed with the help of numerous custom tools.}
+\on{No longer a pattern but a goal.}
 Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \pattern{blindSpot} is problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
@@ -162,10 +167,13 @@ Process:
 % ===== Tooling =========================
 \section{Tooling}\label{sec:tooling}
 
+\on{Needs a preamble.
+These patterns are about the building the custom tools.}
+
 % ----- Moldable Tool -------------------------
 \subsection*{Moldable Tool}\label{pat:moldableTool}
 
-\tg{I think we should focus the paper one what a practitioner should do. Building a moldable tool will happen less often. I am not sure it's a pattern for this audience. But maybe we can use this as an overarching example rather than a pattern.}
+% \tg{I think we should focus the paper one what a practitioner should do. Building a moldable tool will happen less often. I am not sure it's a pattern for this audience. But maybe we can use this as an overarching example rather than a pattern.}
 
 \subsubsection*{Context}
 You are developing a software system, and find that the existing development tools fall short in supporting domain-specific questions about the software.
@@ -353,25 +361,11 @@ In the example we navigate to the database holding all related notebook pages fo
 Custom actions appear as buttons in moldable tools only in the context of the objects to which they can be applied.
 You need a \pattern{moldableTool} into which you can dynamically plug custom actions.
 
-
-
-
-
-
-\tg{
-- Moldable Tool
-- Contextual Playground
-- Custom View
-- Custom Search
-- Custom Action}
-
-
-
-
-
 % ===== Modeling =========================
 \section{Modeling}\label{sec:modeling}
 
+\on{Needs a preamble.
+These patterns are about modeling domain entities to serve as starting points for moldable development.}
 
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
@@ -598,6 +592,8 @@ Wrapped collections can be made plug-compatible with raw collections.
 
 % ===== Process =========================
 \section{Process}\label{sec:process}
+
+\on{Needs a preamble}
 
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
