@@ -91,14 +91,24 @@ In the second pane we can explore the moves of  the completed game, and in the t
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
-In a nutshell, Moldable development is a way to make systems explainable by making the \emph{inside}
-% \tg{the domain model is only a part of what is interesting inside a system. Could we use the term ``inside of'' instead?}
-of a software system visible and explorable through custom tools.
+In a nutshell, Moldable development is a way to make systems explainable by making the \emph{inside} of a software system visible and explorable through custom tools.
 Of course, this begs the question how to actually apply moldable development in practice.
 In our experience applying moldable development to many industrial and open source systems, we have encountered a number of repeating patterns, which we document below.
 
 % ===== Moldable Development Patterns =========================
 \section{Moldable Development Patterns}
+
+Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, summarized in \autoref{fig:map}.
+These patterns have emerged over several years of experience in developing the \GT moldable development platform, and applying it to numerous systems.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{map}
+  \caption{A map of moldable development patterns.}
+  \label{fig:map}
+\end{figure}
+
+The patterns are concerned with \emph{Tooling} (tagged with ``T''), with \emph{Modeling} (M), or with the development \emph{Process} (P).
+The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
 
 There are two distinct roles involved in moldable development:
 \begin{inparaenum}[(i)]
@@ -107,25 +117,14 @@ There are two distinct roles involved in moldable development:
 \end{inparaenum}
 In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
 
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{map}
-  \caption{A map of moldable development patterns.
-  \\ \todo{Update the map to reflect the new categories?}}
-  \label{fig:map}
-\end{figure}
+At the top of the map we have ``Explainable System,'' which is not a pattern per se, but rather the goal of moldable development.
+An explainable system is a software system whose domain model has been exposed with the help of numerous custom tools~\cite{Nier22a}.
 
-Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, summarized in \autoref{fig:map}.
-These patterns have emerged over several years of experience in developing the \GT moldable development platform, and applying it to numerous systems.
-\meh{The patterns are mostly design patterns, showing how to tackle a design problem in moldable development, but many can also be interpreted as process patterns, that is, tasks and activities to perform during moldable development.}
-\on{Fix to refer to the three categories.}
-The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
-
-\meh{At the root we have the pattern \pattern{explainableSystem}, a software system whose domain model has been exposed with the help of numerous custom tools.}
-\on{No longer a pattern but a goal.}
 Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \pattern{blindSpot} is problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \pattern{projectDiary} is a notebook that serves as a starting point for development tasks.
+A \pattern{throwawayAnalysisTool} can be a quick way to solve an urgent problem in a focused way.
 
 Moldable development itself starts with a \pattern{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
 An interesting instance can be encapsulated as an \pattern{exampleObject}, essentially a unit test that returns a tested object.
@@ -143,32 +142,10 @@ The most common of these tools are:
 A custom view is frequently a \pattern{simpleView} that can be quickly prototyped, and later extended.
 A custom search often benefits from a \pattern{collectionWrapper}, to allow the results of a query to be also molded with custom tools.
 
-
-\tg{I would propose reordering the patterns and maybe grouping them:
-Tooling:
-- Moldable Tool
-- Contextual Playground
-- Custom View
-- Custom Search
-- Custom Action
-Modeling:
-- Moldable Object
-- Example Object
-- Moldable Data Wrapper
-- Moldable Collection Wrapper
-Process:
-- Project Diary
-- Tooling Buildup
-- Blind Spot
-- Simple View
-- Throwaway Analysis Tool
-}
-
 % ===== Tooling =========================
 \section{Tooling}\label{sec:tooling}
 
-\on{Needs a preamble.
-These patterns are about the building the custom tools.}
+We start by presenting the patterns that enable the cheap creation of custom tools.
 
 % ----- Moldable Tool -------------------------
 \subsection*{Moldable Tool}\label{pat:moldableTool}
@@ -238,7 +215,8 @@ The playground will be bound to the context of the instance, so \st{self} and al
 From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
 Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an \emph{Extract method} refactoring~\cite{Fowl99a}.
 
-\tg{Perhaps we could show here an example of a Python object showing custom views (we now have a movie example in the book) and a python snippet to navigate it.}
+\tg{Perhaps we could show here an example of a Python object showing custom views (we now have a movie example in the book) and a python snippet to navigate it.}\\
+\on{So far I am having difficulties getting the navigation to work.}
 
 In \autoref{fig:contextualPlayground} we see an inspector view of an instance of a Ludo game.
 We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
@@ -364,14 +342,13 @@ You need a \pattern{moldableTool} into which you can dynamically plug custom act
 % ===== Modeling =========================
 \section{Modeling}\label{sec:modeling}
 
-\on{Needs a preamble.
-These patterns are about modeling domain entities to serve as starting points for moldable development.}
+Next we present the patterns related specifically to modeling domain entities.
 
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
 %\on{See \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Moldable Object}}
 
-\tg{This pattern seems to be described differently from the book. In the book it's about programming in the context of the object. Here we talk about creating it. I think the focus should be like in the book. The creation is a consequence of that.}
+%\tg{This pattern seems to be described differently from the book. In the book it's about programming in the context of the object. Here we talk about creating it. I think the focus should be like in the book. The creation is a consequence of that.}
 
 \subsubsection*{Context}
 You have your basic infrastructure in place, and want to start the process of creating an explainable system, either from scratch, or based on some existing software or data.
@@ -394,7 +371,7 @@ Once you know how to get the answer, you can turn the exploration steps into a c
 Starting with a live object means that you can immediately start the exploration process.
 Turning the exploration of an object into a custom tool is the process of molding it, hence we call it a ``moldable object.''
 
-\tg{I like how this delegates the creation part to other patterns}
+%\tg{I like how this delegates the creation part to other patterns}
 How do you obtain a moldable object?
 \begin{itemize}[---]
 \item \emph{You already have a class:} create a \pattern{projectDiary} notebook page containing a code snippet to create an instance of the class, and start from there.
@@ -403,19 +380,20 @@ How do you obtain a moldable object?
 \item \emph{You have some data:} wrap the data as a \pattern{moldableDataWrapper}.
 \end{itemize}
 
-In \autoref{fig:stackMachine} we see an initial notebook page in which we start to explore an instance of a new \st{StackMachine} class that we create with a \emph{fixit} action:
-The wrench icon indicates that the class does not exist, so before we can evaluate the expression and inspect the new, moldable object, we must select one of the suggested fixes, in this case, to create a new class.
+%\tg{let's make the example about a snippet in the context of an object. Perhaps about auto playing the Ludo game, like in Figure 1, but only with two panes and on the right we see the History view.}
 
-\tg{let's make the example about a snippet in the context of an object. Perhaps about auto playing the Ludo game, like in Figure 1, but only with two panes and on the right we see the History view.}
+in \autoref{fig:moldableLudoGame} we see an Inspector on an instance of a \lst{Gt\-Ludo\-Recording\-Game} with a \pattern{contextualPlayground} where we can write experimental code that we later extract as methods.
+In this case we are prototyping the \emph{autoplay} feature.
 
 \begin{figure}[h]
-  \includegraphics[width=\columnwidth]{stackMachine}
-  \caption{Creating a fresh, moldable object for a new class.}
-  \label{fig:stackMachine}
+  \includegraphics[width=\columnwidth]{moldableLudoGame}
+  \caption{A moldable Ludo game instance.}
+  \label{fig:moldableLudoGame}
 \end{figure}
 
-Once we have created the missing class and start to inspect it, we can start to ask questions, such as \emph{What is the number of items in the stack?}, \emph{What is the state of the stack?}, and \emph{How can we push new items onto the stack?}
-We can use a \pattern{contextualPlayground} to write experimental code, that we later extract as methods, and as we answer questions we can create small custom tools, such as a \pattern{customView} or a \pattern{customAction}.
+With the moldable object at hand, we can ask questions like \emph{What is the current state of the Ludo game?}, or \emph{What happened in the last few moves that we autoplayed?}
+As we answer questions we can create small custom tools, such as a \pattern{customView} or a \pattern{customAction}.
+In the second pane we see the \emph{History} view of the object, showing the details of all the moves of the game.
 
 Whenever we identify an interesting state of our moldable object, we can extract it as an \pattern{exampleObject} that we can use as a test case, or as a starting point for further moldable development.
 
@@ -795,44 +773,32 @@ You can make this possible through a \pattern{moldableTool}.
 
 
 
-
-% ===== TO REMOVE? =========================
-\section{To remove?}
-
-
-
-
-
-
-
-
-
-% ----- Explainable System -------------------------
-\subsection*{Explainable System}\label{pat:explainableSystem}
-
-\tg{I am not sure about this. I think we do not need this pattern, or at least not here. Explainable software seems more of a goal than a pattern.}
-
-\subsubsection*{Context}
-You need to make technical and non-technical decisions about the further development and evolution of a software system, but this is difficult because the system is complex and hard to understand.
-
-\subsubsection*{Problem}
-How can you prepare a software system so that various stakeholders (both technical and non-technical) can easily answer questions they have about it?
-
-\subsubsection*{Forces}
-Source code is impossible to read at scale.
-Manual documentation tends to get out of date.
-The live, running system is designed to fulfil end user use cases, but not answering technical or business questions.
-Generic analysis tools and IDEs are unlikely to be able to answer domain-specific questions about your system.
-Developing custom tools can be costly and time-consuming.
-
-\subsubsection*{Solution}
-Transform the software system into a live domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations~\cite{Nier22a}.
-Leverage open, moldable IDE tools to reduce the cost of building custom tools.
-Drive the development of the custom tools by posing concrete questions you have about the system.
-
-\subsubsection*{Consequences}
-The custom tools become part of the live, running system.
-Unlike static documentation, the custom tools are more likely to stay in sync with the evolving system.
+%% ----- Explainable System -------------------------
+%\subsection*{Explainable System}\label{pat:explainableSystem}
+%
+%\tg{I am not sure about this. I think we do not need this pattern, or at least not here. Explainable software seems more of a goal than a pattern.}
+%
+%\subsubsection*{Context}
+%You need to make technical and non-technical decisions about the further development and evolution of a software system, but this is difficult because the system is complex and hard to understand.
+%
+%\subsubsection*{Problem}
+%How can you prepare a software system so that various stakeholders (both technical and non-technical) can easily answer questions they have about it?
+%
+%\subsubsection*{Forces}
+%Source code is impossible to read at scale.
+%Manual documentation tends to get out of date.
+%The live, running system is designed to fulfil end user use cases, but not answering technical or business questions.
+%Generic analysis tools and IDEs are unlikely to be able to answer domain-specific questions about your system.
+%Developing custom tools can be costly and time-consuming.
+%
+%\subsubsection*{Solution}
+%Transform the software system into a live domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations~\cite{Nier22a}.
+%Leverage open, moldable IDE tools to reduce the cost of building custom tools.
+%Drive the development of the custom tools by posing concrete questions you have about the system.
+%
+%\subsubsection*{Consequences}
+%The custom tools become part of the live, running system.
+%Unlike static documentation, the custom tools are more likely to stay in sync with the evolving system.
 
 
 % ===== Conclusion =========================
