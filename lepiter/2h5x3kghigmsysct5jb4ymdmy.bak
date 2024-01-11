@@ -92,6 +92,43 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-10T13:13:48.394329+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-10T13:14:02.393175+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "BzSoGfjKDQCXe3OwAfeGAQ=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Initial submission deadline is Feb 5, 2024."
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2023-11-27T13:32:59.941165+01:00"
 					}
 				},
@@ -203,7 +240,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:33:00.772173+01:00"
+						"dateAndTimeString" : "2024-01-11T14:48:19.724448+01:00"
 					}
 				},
 				"editEmail" : {
@@ -214,17 +251,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:33:09.480822+01:00"
+						"dateAndTimeString" : "2024-01-11T17:00:24.148424+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "NZxTPYPHDQC5RJbiCQ6VAg=="
+					"uidString" : "3jOJiQ3LDQCMOTNrAkWR/g=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[Pattern map]] "
+				"string" : "[[Mondrian pattern map]]"
 			},
 			{
 				"__type" : "textSnippet",
@@ -337,6 +374,43 @@
 					"__type" : "textStyle"
 				},
 				"string" : "[[TG notes]]"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2023-11-27T13:33:00.772173+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-11T16:39:24.505603+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "NZxTPYPHDQC5RJbiCQ6VAg=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "[[Pattern map scenery (obsolete)]] "
 			}
 		]
 	},
