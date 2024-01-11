@@ -251,7 +251,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T14:57:14.006336+01:00"
+						"dateAndTimeString" : "2024-01-11T17:00:24.148424+01:00"
 					}
 				},
 				"uid" : {
@@ -261,7 +261,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[* TODO: Mondrian pattern map]]"
+				"string" : "[[Mondrian pattern map]]"
 			},
 			{
 				"__type" : "textSnippet",
