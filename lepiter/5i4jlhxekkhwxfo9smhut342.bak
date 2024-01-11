@@ -18,6 +18,80 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-11T14:43:43.976885+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-11T14:57:14.009164+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "C6cZeQ3LDQCLaEByAkWR/g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "See also [[* TODO: Mondrian pattern map]] "
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-11T16:39:28.218187+01:00"
+					}
+				},
+				"editEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"editTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
+						"dateAndTimeString" : "2024-01-11T16:39:40.155207+01:00"
+					}
+				},
+				"uid" : {
+					"__type" : "uid",
+					"uidString" : "gFkCFw/LDQC8YTZzAkWR/g=="
+				},
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "Use the Mondrian version instead!"
+			},
+			{
+				"__type" : "textSnippet",
+				"children" : {
+					"__type" : "snippets",
+					"items" : [ ]
+				},
+				"createEmail" : {
+					"__type" : "email",
+					"emailString" : "<unknown>"
+				},
+				"createTime" : {
+					"__type" : "time",
+					"time" : {
+						"__type" : "dateAndTime",
 						"dateAndTimeString" : "2024-01-10T14:48:08.749424+01:00"
 					}
 				},
@@ -76,7 +150,7 @@
 				"exampleSelector" : "mapWithCategoriesV5",
 				"previewHeight" : 400,
 				"previewShowSelector" : "gtLiveFor:",
-				"exampleBehaviorName" : "PatternMap",
+				"exampleBehaviorName" : "PatternMapScenery",
 				"codeExpanded" : true,
 				"previewExpanded" : false,
 				"noCode" : true
@@ -143,14 +217,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T11:57:47.442838+01:00"
+						"dateAndTimeString" : "2024-01-11T14:47:57.099258+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "3ZqJSYPHDQC8IB2gCQ6VAg=="
 				},
-				"code" : "PatternMap new mapWithCategoriesV5 asElement exportAsPNG"
+				"code" : "PatternMapScenery new mapWithCategoriesV5 asElement exportAsPNG"
 			},
 			{
 				"__type" : "textSnippet",
@@ -345,6 +419,42 @@
 											"__type" : "textStyle"
 										},
 										"string" : "{{gtMethod:name=TeachingMoldableDevelopmentSlideshow>>#patternMapScenery}}  "
+									},
+									{
+										"__type" : "pharoRewrite",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-01-11T13:45:07.083503+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-01-11T13:45:07.083503+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "Tx96pwzLDQCGhkkVAkWR/g=="
+										},
+										"search" : "``@scenery\r\t\t\taddItem: (GtSceneryItem new\r\t\t\t\t\tstencil: (GtSceneryTextStencil new\r\t\t\t\t\t\t\ttext: ((BlRunRopedText string: ``@label)\r\t\t\t\t\t\t\t\t\tattributeRuns: (BlRunTree basicNew\r\t\t\t\t\t\t\t\t\t\t\tinstVarAt: 1\r\t\t\t\t\t\t\t\t\t\t\t\tput: (BlRunTreeLeafNode basicNew\r\t\t\t\t\t\t\t\t\t\t\t\t\t\tinstVarAt: 1 put: ``@num;\r\t\t\t\t\t\t\t\t\t\t\t\t\t\tinstVarAt: 2\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tput: ((Array new: 4)\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tat: 1 put: (BlFontSizeAttribute new size: 20);\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tat: 2 put: BlFontItalicAttribute new;\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tat: 3 put: (BlFontWeightAttribute new weight: 700);\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tat: 4\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tput: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tname: 'Source Sans Pro');\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tyourself);\r\t\t\t\t\t\t\t\t\t\t\t\t\t\tyourself);\r\t\t\t\t\t\t\t\t\t\t\tyourself))))",
+										"replace" : "self addItalicItem: ``@label inScenery: ``@scenery",
+										"isMethodPattern" : false
 									}
 								]
 							},
@@ -367,7 +477,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-01-11T12:10:03.183775+01:00"
+									"dateAndTimeString" : "2024-01-11T12:10:09.258699+01:00"
 								}
 							},
 							"uid" : {
@@ -377,7 +487,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "Here we don't match the italic patterns. Could be nice to handle this as an "
+							"string" : "Here we don't match the italic patterns. Could be nice to handle this as an additional argument."
 						},
 						{
 							"__type" : "textSnippet",
@@ -507,12 +617,12 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2023-11-27T13:33:10.879082+01:00"
+			"dateAndTimeString" : "2024-01-11T16:39:24.497468+01:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "Pattern map"
+		"title" : "Pattern map scenery (obsolete)"
 	},
 	"uid" : {
 		"__type" : "uuid",
