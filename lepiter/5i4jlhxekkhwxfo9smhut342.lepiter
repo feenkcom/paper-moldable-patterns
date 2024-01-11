@@ -73,7 +73,7 @@
 					"__type" : "uid",
 					"uidString" : "rE5tPoPHDQC5o6ivCQ6VAg=="
 				},
-				"exampleSelector" : "mapV5",
+				"exampleSelector" : "mapWithCategoriesV5",
 				"previewHeight" : 400,
 				"previewShowSelector" : "gtLiveFor:",
 				"exampleBehaviorName" : "PatternMap",
@@ -143,14 +143,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-06T11:26:36.063191+01:00"
+						"dateAndTimeString" : "2024-01-11T11:57:47.442838+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "3ZqJSYPHDQC8IB2gCQ6VAg=="
 				},
-				"code" : "PatternMap new mapV5 asElement exportAsPNG"
+				"code" : "PatternMap new mapWithCategoriesV5 asElement exportAsPNG"
 			},
 			{
 				"__type" : "textSnippet",
@@ -227,10 +227,196 @@
 				"string" : ""
 			},
 			{
-				"__type" : "pharoSnippet",
+				"__type" : "textSnippet",
 				"children" : {
 					"__type" : "snippets",
-					"items" : [ ]
+					"items" : [
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-01-11T11:51:14.686937+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-01-11T11:52:55.002392+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "XQY8EAvLDQCQYhPBCkLXYg=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "The storeString is not suitable for editing labels, but we can rewrite all the code to use a helper method. NB: We have to match and throw away the `@num` variable."
+						},
+						{
+							"__type" : "pharoRewrite",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-01-11T11:10:18.991951+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-01-11T11:10:18.991951+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "MhjdfQrLDQCNpeC/CkLXYg=="
+							},
+							"search" : "``@scenery\r\t\t\taddItem: (GtSceneryItem new\r\t\t\t\t\tstencil: (GtSceneryTextStencil new\r\t\t\t\t\t\t\ttext: ((BlRunRopedText string: ``@label)\r\t\t\t\t\t\t\t\t\tattributeRuns: (BlRunTree basicNew\r\t\t\t\t\t\t\t\t\t\t\tinstVarAt: 1\r\t\t\t\t\t\t\t\t\t\t\t\tput: (BlRunTreeLeafNode basicNew\r\t\t\t\t\t\t\t\t\t\t\t\t\t\tinstVarAt: 1 put: ``@num;\r\t\t\t\t\t\t\t\t\t\t\t\t\t\tinstVarAt: 2\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tput: ((Array new: 3)\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tat: 1 put: (BlFontSizeAttribute new size: 20);\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tat: 2 put: (BlFontWeightAttribute new weight: 700);\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tat: 3\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tput: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tname: 'Source Sans Pro');\r\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tyourself);\r\t\t\t\t\t\t\t\t\t\t\t\t\t\tyourself);\r\t\t\t\t\t\t\t\t\t\t\tyourself))))",
+							"replace" : "self addItem: ``@label inScenery: ``@scenery",
+							"isMethodPattern" : false
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [
+									{
+										"__type" : "textSnippet",
+										"children" : {
+											"__type" : "snippets",
+											"items" : [ ]
+										},
+										"createEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"createTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-01-11T12:07:39.725581+01:00"
+											}
+										},
+										"editEmail" : {
+											"__type" : "email",
+											"emailString" : "<unknown>"
+										},
+										"editTime" : {
+											"__type" : "time",
+											"time" : {
+												"__type" : "dateAndTime",
+												"dateAndTimeString" : "2024-01-11T12:08:00.024245+01:00"
+											}
+										},
+										"uid" : {
+											"__type" : "uid",
+											"uidString" : "c4XySgvLDQCUs7UxCkLXYg=="
+										},
+										"paragraphStyle" : {
+											"__type" : "textStyle"
+										},
+										"string" : "{{gtMethod:name=TeachingMoldableDevelopmentSlideshow>>#patternMapScenery}}  "
+									}
+								]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-01-11T12:09:36.229566+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-01-11T12:10:09.258699+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "U/s94wrLDQCPdy/tCkLXYg=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : "Here we don't match the italic patterns. Could be nice to handle this as an additional argument."
+						},
+						{
+							"__type" : "textSnippet",
+							"children" : {
+								"__type" : "snippets",
+								"items" : [ ]
+							},
+							"createEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"createTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-01-11T12:07:20.343117+01:00"
+								}
+							},
+							"editEmail" : {
+								"__type" : "email",
+								"emailString" : "<unknown>"
+							},
+							"editTime" : {
+								"__type" : "time",
+								"time" : {
+									"__type" : "dateAndTime",
+									"dateAndTimeString" : "2024-01-11T12:07:20.343117+01:00"
+								}
+							},
+							"uid" : {
+								"__type" : "uid",
+								"uidString" : "s8TKSQvLDQCUHGopCkLXYg=="
+							},
+							"paragraphStyle" : {
+								"__type" : "textStyle"
+							},
+							"string" : ""
+						}
+					]
 				},
 				"createEmail" : {
 					"__type" : "email",
@@ -240,7 +426,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-28T09:49:57.161647+01:00"
+						"dateAndTimeString" : "2024-01-11T11:51:05.407701+01:00"
 					}
 				},
 				"editEmail" : {
@@ -251,14 +437,17 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-12-06T11:25:33.45356+01:00"
+						"dateAndTimeString" : "2024-01-11T11:51:13.957406+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "yEpxPZTHDQCg/JyGDWDFMw=="
+					"uidString" : "aa9XXoPHDQC+cG4SCQ6VAg=="
 				},
-				"code" : "| scenery item1 item2 item3 item4 item5 item6 item7 item8 item9 item10 item11 item12 item13 item14 |\rscenery := GtScenery new.\ritem1 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Custom Search')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 14; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem1 position: (489.0@389.0).\ritem1 extent: (143.6255900065106@33.95640055338538).\ritem2 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Moldable Tool')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 14; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem2 position: (104.0@85.0).\ritem2 extent: (140.40262858072913@38.42666625976557).\ritem3 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Explainable System')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 19; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem3 position: (276.0000000000001@19.0).\ritem3 extent: (187.89250691731763@36.115570068359375).\ritem4 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Tooling Buildup')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 16; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem4 position: (250.0@106.99999999999999).\ritem4 extent: (156.53269449869777@39.02511596679689).\ritem5 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Blind Spot')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 11; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem5 position: (417.0000000000001@106.0).\ritem5 extent: (104.88530476887968@37.088139851887945).\ritem6 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Moldable Object')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 16; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem6 position: (286.00000000000006@204.00000000000003).\ritem6 extent: (170.20192464192695@39.99999999999997).\ritem7 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Moldable Data Wrapper')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 22; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem7 position: (439.00000000000017@268.00000000000006).\ritem7 extent: (217.7007548014322@36.67566935221362).\ritem8 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Project Diary')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 14; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem8 position: (545.0000000000002@82.00000000000011).\ritem8 extent: (127.29105631510424@36.046040852864564).\ritem9 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Contextual Playground')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 22; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem9 position: (263.99999999999994@303.0000000000001).\ritem9 extent: (213.819071451823@40.0).\ritem10 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Example Object')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 15; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem10 position: (547.0000000000001@202.00000000000006).\ritem10 extent: (162.92442321777332@40.0).\ritem11 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Custom View')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 12; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem11 position: (142.0@387.0).\ritem11 extent: (131.2035115559895@34.149831136067746).\ritem12 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Custom Action')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 14; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem12 position: (301.99999999999994@378.9999999999999).\ritem12 extent: (140.5201212565105@40.0).\ritem13 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Simple View')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 12; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem13 position: (133.99999999999994@453.99999999999994).\ritem13 extent: (120.50089518229174@40.0).\ritem14 := scenery addItem: (GtSceneryItem new stencil: (GtSceneryTextStencil new text: (((BlRunRopedText string: 'Moldable Collection Wrapper')\rattributeRuns: ((BlRunTree basicNew instVarAt: 1 put: (BlRunTreeLeafNode basicNew instVarAt: 1 put: 28; instVarAt: 2 put: ((Array new: 3) at: 1 put: (BlFontSizeAttribute new size: 20); at: 2 put: (BlFontWeightAttribute new weight: 700); at: 3 put: (BlFontFamilyDefaultAttribute new beNotOverwritableByStyler name: 'Source Sans Pro'); yourself); yourself); yourself)))))).\ritem14 position: (434.9055989583333@449.0000000000002).\ritem14 extent: (267.3453776041669@40.64951578776055).\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item3 to: item2.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item3 to: item4.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item3 to: item8.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item3 to: item5.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item2 to: item6.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item5 to: item6.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item4 to: item6.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item8 to: item6.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item6 to: item10.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item10 to: item6.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item6 to: item7.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item7 to: item6.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item8 to: item10.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item6 to: item9.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item9 to: item11.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item9 to: item1.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item9 to: item12.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item11 to: item13.\rscenery addConnectionWithStencil: (GtSceneryLineStencil new) from: item1 to: item14.\rscenery"
+				"paragraphStyle" : {
+					"__type" : "textStyle"
+				},
+				"string" : "# Rewriting the storeString"
 			},
 			{
 				"__type" : "textSnippet",
@@ -274,7 +463,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:42:14.688139+01:00"
+						"dateAndTimeString" : "2024-01-11T11:38:40.100598+01:00"
 					}
 				},
 				"editEmail" : {
@@ -285,12 +474,12 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:42:14.688139+01:00"
+						"dateAndTimeString" : "2024-01-11T11:38:40.100598+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
-					"uidString" : "aa9XXoPHDQC+cG4SCQ6VAg=="
+					"uidString" : "KPJB4wrLDQCPewc/CkLXYg=="
 				},
 				"paragraphStyle" : {
 					"__type" : "textStyle"
