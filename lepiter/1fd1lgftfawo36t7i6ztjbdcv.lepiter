@@ -221,7 +221,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2023-12-07T17:53:10.461008+01:00"
+									"dateAndTimeString" : "2024-01-12T11:12:25.212264+01:00"
 								}
 							},
 							"uid" : {
@@ -231,7 +231,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "See {{gtPage:Contextual playground|db=2j9m7db2i4oz116bexd7wbdxo}}. "
+							"string" : "See {{gtPage:Contextual Playground|db=2j9m7db2i4oz116bexd7wbdxo}} "
 						},
 						{
 							"__type" : "textSnippet",
@@ -733,7 +733,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2023-12-11T14:32:00.319603+01:00"
+									"dateAndTimeString" : "2024-01-12T11:12:44.582894+01:00"
 								}
 							},
 							"uid" : {
@@ -743,7 +743,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "See {{gtPage:Custom action|db=2j9m7db2i4oz116bexd7wbdxo}}"
+							"string" : "See {{gtPage:Custom Action|db=2j9m7db2i4oz116bexd7wbdxo}}"
 						},
 						{
 							"__type" : "textSnippet",
@@ -1727,7 +1727,7 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2023-12-08T14:46:22.73009+01:00"
+									"dateAndTimeString" : "2024-01-12T11:13:11.58225+01:00"
 								}
 							},
 							"uid" : {
@@ -1737,7 +1737,7 @@
 							"paragraphStyle" : {
 								"__type" : "textStyle"
 							},
-							"string" : "See {{gtPage:Simple view|db=2j9m7db2i4oz116bexd7wbdxo}} and {{gtPage:Analyzing Inspector view usage|db=cqvjoxfnf6zd764ibqa67pln6}} "
+							"string" : "See {{gtPage:Simple View|db=2j9m7db2i4oz116bexd7wbdxo}} and {{gtPage:Analyzing Inspector view usage|db=cqvjoxfnf6zd764ibqa67pln6}} "
 						},
 						{
 							"__type" : "pharoSnippet",
