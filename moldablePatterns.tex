@@ -745,13 +745,13 @@ How can you advance the assessment effectively?
 
 \subsubsection*{Forces}
 The goal of an assessment is to find answers as quickly as possible.
-Custom tools help make analyses faster.
-Reusable tools can slow the answer finding.
+Custom tools help make analyses faster, while generic, ``reusable'' tools can make it more difficult to find the answers you need.
 
 \subsubsection*{Solution}
-Build a tool for your problem only.
-Use a \pattern{contextualPlayground} to prototype a visualization or to explore through a quick query.
-The focus should be on finding an answer. Reusability should only later become a concern.
+Build a dedicated, throwaway tool just for your problem.
+Use a \pattern{contextualPlayground} to prototype a visualization or to explore the result of a quick query.
+The focus should be on finding an answer.
+Reusability should only later become a concern.
 Some tools can indeed become reusable as a \pattern{customView}, \pattern{customSearch}, or \pattern{customAction}, but that should not be the driving force.
 When you start with reusability in mind, you tend to favor generic tools. 
 However, assessment benefits from contextual tools.
@@ -759,11 +759,23 @@ Focusing on the context first speeds up the overall effort.
 To make this economically feasible, the cost of the tool should be amortized on the first use.
 You can make this possible through a \pattern{moldableTool}.
 
-\tg{Throwaway analyses tools can appear like a waste: it cost development effort that you do not get to reuse. However, the goal is to optimize the overall development speed. The alternative to custom tools is manual exploration. Building a tool, even for just one usage, can outcompete manual exploration by a large margin. That budget difference can more than make for the cost of the tool development.}
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{throwawayQueryTool}
+  \caption{A throwaway analysis to find candidate examples.}
+  \label{fig:throwawayQueryTool}
+\end{figure}
+
+A throwaway analysis tool should be cheap to implement.
+In \autoref{fig:throwawayQueryTool} we see an \emph{ad hoc} query to find Lepiter \pattern{projectDiary} pages that match the string ``\st{Ludo}'' and also contain \pattern{exampleObject} snippets, to illustrate the use of example objects in documentation.
+
+Throwaway analysis tools may appear to be wasteful: they cost development effort that you do not get to reuse.
+However, the goal is to optimize the overall development speed.
+The alternative to custom tools is manual exploration.
+Building a tool, even for just one usage, can outcompete manual exploration by a large margin.
+That budget difference can more than make up for the cost of the tool development.
 
 \subsubsection*{Consequences}
-\tg{to do}
-
+By making it cheap to build analysis tools, tool-building becomes an essential part of the development process, rather than a side activity, just as writing tests has become an integral development activity rather than an add-on.
 
 % ===== Conclusion =========================
 \section{Conclusion}
