@@ -215,21 +215,29 @@ The playground will be bound to the context of the instance, so \st{self} and al
 From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
 Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an \emph{Extract method} refactoring~\cite{Fowl99a}.
 
-\tg{Perhaps we could show here an example of a Python object showing custom views (we now have a movie example in the book) and a python snippet to navigate it.}\\
-\on{So far I am having difficulties getting the navigation to work.}
+% \tg{Perhaps we could show here an example of a Python object showing custom views (we now have a movie example in the book) and a python snippet to navigate it.}
 
-In \autoref{fig:contextualPlayground} we see an inspector view of an instance of a Ludo game.
-We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
-We prototype the behavior in the contextual playground at the bottom of the inspector on the game instance.
-By evaluating the code snippet and inspecting the result, we can explore the current player after a move in the second pane at right.
-We can similarly open a contextual playground on the player, if we need to.
-Once we are happy with the new behavior, we can extract it as a new method.
+In \autoref{fig:inspectingPythonObjects} we see an inspector view of an instance of a Python \st{MovieCollection} class.
 
 \begin{figure}[h]
-  \includegraphics[width=\columnwidth]{contextualPlayground}
-  \caption{Prototyping behavior in a contextual playground.}
-  \label{fig:contextualPlayground}
+  \includegraphics[width=\columnwidth]{inspectingPythonObjects}
+  \caption{Exploring Python objects in a contextual playground.}
+  \label{fig:inspectingPythonObjects}
 \end{figure}
+
+In the contextual playground we experiment with Python code to extract a particular movie.
+We leverage a \pattern{customView} of the \st{MovieCollection} and of the \st{Movie} to aid our exploration.
+Note that \st{self} in the code snippet is bound to the context of the \st{MovieCollection} instance.
+Once we have identified some useful code, we can extract it as a new method of the object.
+Similarly, if we identify an interesting instance, we can use the code to define an \pattern{exampleObject}.
+
+
+%In \autoref{fig:contextualPlayground} we see an inspector view of an instance of a Ludo game.
+%We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
+%We prototype the behavior in the contextual playground at the bottom of the inspector on the game instance.
+%By evaluating the code snippet and inspecting the result, we can explore the current player after a move in the second pane at right.
+%We can similarly open a contextual playground on the player, if we need to.
+%Once we are happy with the new behavior, we can extract it as a new method.
 
 A well-known use of contextual playgrounds is the JavaScript console of a modern web browser: while inspecting a live web page, you can explore and programmatically interact with the live objects in the run-time environment of the page.
 
@@ -464,7 +472,7 @@ When you are searching for usages of an API, not only do you find examples that 
 \subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
 % \on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Moldable Data Wrapper book page}}
 \subsubsection*{Context}
-You are working in a domain with existing data that you want to turn into an \pattern{explainableSystem}.
+You are working in a domain with existing data that you want to turn into an explainable system.
 
 \subsubsection*{Problem}
 How do you develop custom tools for existing data?
