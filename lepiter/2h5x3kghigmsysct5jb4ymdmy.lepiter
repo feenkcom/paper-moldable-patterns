@@ -351,7 +351,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2023-11-27T13:33:00.772173+01:00"
+						"dateAndTimeString" : "2024-01-12T09:33:07.261872+01:00"
 					}
 				},
 				"editEmail" : {
@@ -362,7 +362,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T16:39:24.505603+01:00"
+						"dateAndTimeString" : "2024-01-12T09:33:07.261872+01:00"
 					}
 				},
 				"uid" : {
@@ -372,7 +372,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "[[Pattern map scenery (obsolete)]] "
+				"string" : ""
 			}
 		]
 	},

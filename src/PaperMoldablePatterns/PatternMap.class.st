@@ -7,7 +7,7 @@ Class {
 { #category : #accessing }
 PatternMap >> default [
 	<gtExample>
-	^ LepiterMondrianPageMap new
+	^ LePageMondrianMap new
 		pageTitles: {'Explainable System'.
 				'Moldable Tool'.
 				'Contextual Playground'.
@@ -54,7 +54,7 @@ PatternMap >> default [
 { #category : #accessing }
 PatternMap >> defaultWithTags [
 	<gtExample>
-	^ LepiterMondrianPageMap new
+	^ LePageMondrianMap new
 		pageTitles: {'Explainable System'.
 				'(T) Moldable Tool'.
 				'(T) Contextual Playground'.
