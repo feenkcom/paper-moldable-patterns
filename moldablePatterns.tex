@@ -339,7 +339,7 @@ In the example we navigate to the database holding all related notebook pages fo
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{customLePageAction}
-  \caption{Custom actions for lepiter pages.}
+  \caption{Custom actions for Lepiter pages.}
   \label{fig:customLePageAction}
 \end{figure}
 
@@ -457,7 +457,13 @@ In \autoref{fig:composedExample} we see a second example, \st{playerArolls6}, th
   \label{fig:composedExample}
 \end{figure}
 
-Examples such as these can be embedded into notebook pages and used as moldable objects for further development tasks.
+Examples such as these can be embedded into notebook pages and used as moldable objects for further development tasks, or as documentation, as seen in \autoref{fig:documentingLudo}.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{documentingLudo}
+  \caption{Documenting the Ludo game with live example objects.}
+  \label{fig:documentingLudo}
+\end{figure}
 
     
 \subsubsection*{Consequences}
@@ -466,7 +472,7 @@ When an example fails, its dependent examples do not need to be run.
 When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point.
 When you are searching for usages of an API, not only do you find examples that illustrate the usage, but by running the example you obtain a live instance that you can explore.
 
-\tg{A consequence is also that examples become unit of documentation. We could provide an example with the explanation of game moves in a Lepiter page}
+%\tg{A consequence is also that examples become unit of documentation. We could provide an example with the explanation of game moves in a Lepiter page}
 
 % ----- Moldable Data Wrapper -------------------------
 \subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
@@ -518,9 +524,10 @@ We see the result after some moldable development steps in \autoref{fig:wrappedG
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{wrappedGitHubData}
-  \caption{Wrapped GitHub data. \tg{The picture shows also a gray hover highlighting. It should only show the selected one}}
+  \caption{Wrapped GitHub data.}
   \label{fig:wrappedGitHubData}
 \end{figure}
+%\tg{The picture shows also a gray hover highlighting. It should only show the selected one}
 
 \subsubsection*{Consequences}
 
@@ -564,22 +571,10 @@ Composite domain objects and collections of domain objects can be molded to supp
 Query results can be similarly molded.
 Wrapped collections can be made plug-compatible with raw collections.
 
-
-
-
-
-
-\tg{Modeling:
-- Moldable Object
-- Example Object
-- Moldable Data Wrapper
-- Moldable Collection Wrapper}
-
-
 % ===== Process =========================
 \section{Process}\label{sec:process}
 
-\on{Needs a preamble}
+We conclude with the process patterns.
 
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
@@ -597,7 +592,7 @@ Documentation is not part of the running system, so it distracts you from coding
 Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
 
 \subsubsection*{Solution}
-Use a live notebook as the starting point for \del{your project and} all \del{of its} tasks.
+Use a live notebook as the starting point for all tasks.
 Create a dedicated notebook page for each project, or even each project task, to summarize the goals, and provide pointers to related material.
 Use the notebook to keep a diary of your progress.
 As the project matures, use the notebook as a draft for the documentation.
@@ -663,7 +658,7 @@ Once you have the right tools in place, you can move fast.
 % ----- Blind Spot -------------------------
 \subsection*{Blind Spot}\label{pat:blindSpot}
 \subsubsection*{Context}
-You are starting \chg{a new moldable development project for a customer}{to work} with an existing \ins{team and} code base, and you need to engage the key stakeholders.
+You are starting to work with an existing team and code base, and you need to engage the key stakeholders.
 
 \subsubsection*{Problem}
 How do you pick the first moldable development task to focus on?
@@ -677,7 +672,7 @@ It can be difficult to pick a task that is both feasible in a short amount of ti
 \subsubsection*{Solution}
 Find the parts of the system that are creating problems for the stakeholders and make them \emph{explainable}.
 These are the ``blind spots'' that are difficult to understand, to monitor, or to debug.
-Pick one of these blind spots as a target\del{ for moldable development}.
+Pick one of these blind spots as a target.
 The task should be feasible in reasonable time but non-trivial.
 There should be a clear value for the stakeholder, that is, do something that the stakeholder has difficulty with.
 
@@ -769,51 +764,12 @@ You can make this possible through a \pattern{moldableTool}.
 \subsubsection*{Consequences}
 \tg{to do}
 
-\tg{Process:
-- Project Diary
-- Tooling Buildup
-- Blind Spot
-- Simple View
-- Throwaway Analysis Tool
-}
-
-
-
-
-
-%% ----- Explainable System -------------------------
-%\subsection*{Explainable System}\label{pat:explainableSystem}
-%
-%\tg{I am not sure about this. I think we do not need this pattern, or at least not here. Explainable software seems more of a goal than a pattern.}
-%
-%\subsubsection*{Context}
-%You need to make technical and non-technical decisions about the further development and evolution of a software system, but this is difficult because the system is complex and hard to understand.
-%
-%\subsubsection*{Problem}
-%How can you prepare a software system so that various stakeholders (both technical and non-technical) can easily answer questions they have about it?
-%
-%\subsubsection*{Forces}
-%Source code is impossible to read at scale.
-%Manual documentation tends to get out of date.
-%The live, running system is designed to fulfil end user use cases, but not answering technical or business questions.
-%Generic analysis tools and IDEs are unlikely to be able to answer domain-specific questions about your system.
-%Developing custom tools can be costly and time-consuming.
-%
-%\subsubsection*{Solution}
-%Transform the software system into a live domain model in which each domain entity can be interactively explored with the help of custom tools, \ie simple views and visualizations, metrics, queries, and operations~\cite{Nier22a}.
-%Leverage open, moldable IDE tools to reduce the cost of building custom tools.
-%Drive the development of the custom tools by posing concrete questions you have about the system.
-%
-%\subsubsection*{Consequences}
-%The custom tools become part of the live, running system.
-%Unlike static documentation, the custom tools are more likely to stay in sync with the evolving system.
-
 
 % ===== Conclusion =========================
 \section{Conclusion}
 
 Moldable development makes software systems explainable by making it cheap to add custom tools that support decision making.
-\del{Moldable development} in practice, however, requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
+In practice, however, requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
 The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
 Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
 
