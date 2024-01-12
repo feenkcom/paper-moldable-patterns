@@ -25,7 +25,7 @@
 %\usepackage{enumitem}
 %\setlist[description]{font=\itshape}
 \newcommand{\pattern}[1]{\emph{\nameref{pat:#1}}\xspace}
-\newcommand{\GT}{\st{GT}\xspace} % In case we want to display it differently ...
+\newcommand{\GT}{\lst{GT}\xspace} % In case we want to display it differently ...
 % ============================================================
 \begin{document}
 \title[Moldable Development Patterns --- DRAFT]{Moldable Development Patterns}
@@ -98,8 +98,8 @@ In our experience applying moldable development to many industrial and open sour
 % ===== Moldable Development Patterns =========================
 \section{Moldable Development Patterns}
 
-Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, summarized in \autoref{fig:map}.
-These patterns have emerged over several years of experience in developing the \GT moldable development platform, and applying it to numerous systems.
+Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, in other words, a \emph{pattern language}, summarized in \autoref{fig:map}.
+These patterns have emerged over several years of experience in developing the \GT moldable development platform, and applying it to numerous projects.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{map}
@@ -107,7 +107,7 @@ These patterns have emerged over several years of experience in developing the \
   \label{fig:map}
 \end{figure}
 
-The patterns are concerned with \emph{Tooling} (tagged with ``T''), with \emph{Modeling} (M), or with the development \emph{Process} (P).
+The patterns that are concerned with \emph{Tooling} (tagged with ``T''), with \emph{Modeling} (M), or with the development \emph{Process} (P).
 The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
 
 There are two distinct roles involved in moldable development:
@@ -118,7 +118,7 @@ There are two distinct roles involved in moldable development:
 In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
 
 At the top of the map we have ``Explainable System,'' which is not a pattern per se, but rather the goal of moldable development.
-An explainable system is a software system whose domain model has been exposed with the help of numerous custom tools~\cite{Nier22a}.
+An \emph{explainable system} is a software system whose domain model has been exposed with the help of numerous custom tools~\cite{Nier22a}.
 
 Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
@@ -169,7 +169,7 @@ Make the development tools \emph{moldable} to the \emph{dynamic context} of the 
 A moldable tool makes its core functionality configurable by means of a lightweight mechanism.
 For example, a Test Runner in a modern IDE recognizes the presence of test cases by means of various programming conventions, \ie a test case is a method with a standard annotation, or it's a method whose name starts with ``\st{test}'' and belongs to a class that inherits from a \st{TestCase} class or implements a \st{Test} interface.
 
-By the same token an inspector can be made moldable by recognizing that an object it is inspecting has one or more custom views defined.
+By the same token an inspector can be made moldable by recognizing that an object it is inspecting has one or more custom views defined as annotated methods.
 For example, in \autoref{fig:viewCode} we see that inspecting an instance of a \st{GtLudoRecordingGame} yields a custom \st{Moves} view listing the moves played thus far, as the inspector detects a \st{gtMovesFor:} method defined in the object with a \st{<gtView>} pragma (\ie annotation).\footnote{All the examples are written in Pharo Smalltalk, the platform upon which \GT is built. See \url{https://pharo.org}}
 The custom view is defined in a just a few lines of code, creating a \st{columnedList} from the moves.
 
@@ -278,7 +278,7 @@ From this custom view we can furthermore dive directly into the \st{Move} object
 
 \subsubsection*{Consequences}
 A custom view exposes information about a domain that can otherwise be hard to find.
-Custom views become an intrinsic part of a software system, turning it into an \pattern{explainableSystem}.
+Custom views become an intrinsic part of a software system, thus turning it into an \emph{explainable system}.
 You need a \pattern{moldableTool} into which you can dynamically plug custom views.
 
 % ----- Custom Search -------------------------
@@ -350,7 +350,7 @@ You need a \pattern{moldableTool} into which you can dynamically plug custom act
 % ===== Modeling =========================
 \section{Modeling}\label{sec:modeling}
 
-Next we present the patterns related specifically to modeling domain entities.
+Next we present the patterns related specifically to modeling domain entities in a way that facilitates querying and exploration of an explainable system.
 
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
@@ -370,7 +370,7 @@ When you write code in a classical IDE code editor, you are several steps away f
 To write unit tests, you must already know what behavior you want to test and what the results should be.
 
 \subsubsection*{Solution}
-Start coding by inspecting a moldable object, that is, a live instance of the class you are coding, not in a code editor.
+Start coding by inspecting a moldable object, that is, a live instance of the class you are coding, \emph{not in a code editor}.
 Then incrementally pose domain-specific questions, find the answers by exploring and interacting with the object, and then turn those answers into custom tools, behaviors and tests.
 
 Moldable development is about making systems explainable with the help of custom tools, which means that you need to start the process by asking questions that you want to answer.
@@ -390,8 +390,9 @@ How do you obtain a moldable object?
 
 %\tg{let's make the example about a snippet in the context of an object. Perhaps about auto playing the Ludo game, like in Figure 1, but only with two panes and on the right we see the History view.}
 
-in \autoref{fig:moldableLudoGame} we see an Inspector on an instance of a \lst{Gt\-Ludo\-Recording\-Game} with a \pattern{contextualPlayground} where we can write experimental code that we later extract as methods.
+In \autoref{fig:moldableLudoGame} we see an Inspector on an instance of a \lst{Gt\-Ludo\-Recording\-Game} with a \pattern{contextualPlayground} where we can write experimental code that we later extract as methods.
 In this case we are prototyping the \emph{autoplay} feature.
+In the second pane we see the \emph{History} view of the object, showing the details of all the moves of the game.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{moldableLudoGame}
@@ -401,13 +402,11 @@ In this case we are prototyping the \emph{autoplay} feature.
 
 With the moldable object at hand, we can ask questions like \emph{What is the current state of the Ludo game?}, or \emph{What happened in the last few moves that we autoplayed?}
 As we answer questions we can create small custom tools, such as a \pattern{customView} or a \pattern{customAction}.
-In the second pane we see the \emph{History} view of the object, showing the details of all the moves of the game.
-
 Whenever we identify an interesting state of our moldable object, we can extract it as an \pattern{exampleObject} that we can use as a test case, or as a starting point for further moldable development.
 
 \subsubsection*{Consequences}
 Instead of writing code in a text editor in the context of the source code of a class, you are always working in the context of a live object, whose behavior can be immediately explored.
-Instead of writing hypothetical code that you must afterward test, you start by prototyping code and then extracting new behavior.
+Instead of writing hypothetical code that you must afterward test, you start by prototyping code, and then extracting new behavior.
 Instead of trying to program custom tools in a vacuum, you first explore and prototype answers to questions, and then extract the code you need to create a custom tool.
 
 % ----- Example Object -------------------------
@@ -448,7 +447,7 @@ GtLudoGameExamples>>#emptyGame
 	^ game  "return the game instance"
 \end{code}
 
-Unlike normal test methods, examples can be composed.
+Unlike normal test methods, examples can be \emph{composed}.
 In \autoref{fig:composedExample} we see a second example, \st{playerArolls6}, that starts from the \st{emptyGame} example, rolls a $6$, asserts a few facts, and returns the modified game instance.
 
 \begin{figure}[h]
@@ -508,7 +507,7 @@ From this view, of course we can explore the data by navigating the Dictionary v
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{rawGitHubData}
-  \caption{Raw GitHub data.}
+  \caption{Raw (not moldable) GitHub data.}
   \label{fig:rawGitHubData}
 \end{figure}
 
@@ -524,7 +523,7 @@ We see the result after some moldable development steps in \autoref{fig:wrappedG
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{wrappedGitHubData}
-  \caption{Wrapped GitHub data.}
+  \caption{Wrapped (moldable) GitHub data.}
   \label{fig:wrappedGitHubData}
 \end{figure}
 %\tg{The picture shows also a gray hover highlighting. It should only show the selected one}
@@ -574,7 +573,7 @@ Wrapped collections can be made plug-compatible with raw collections.
 % ===== Process =========================
 \section{Process}\label{sec:process}
 
-We conclude with the process patterns.
+We conclude with the process patterns that guidance in organizing and steering moldable development tasks.
 
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
@@ -723,7 +722,7 @@ The next most popular view is a \st{columnedList}, which presents a collection o
 The \st{Moves} view in \autoref{fig:rawViewVsCustomView} is an example.
 A common flow is to start with a \st{forward} view to an existing \st{columnedList} view of another object, then replace it by a custom \st{columnedList} when a need is identified to rename, replace or add columns.
 
-In contrast, the \st{Board} view of the Ludo game (see \autoref{fig:contextualPlayground}) is \emph{not} a simple view, as it requires some effort to build up the interactive GUI view of the board.
+In contrast, the \st{Board} view of the Ludo game (as seen in \autoref{fig:ludoViews}) is \emph{not} a simple view, as it requires some effort to build up the interactive GUI view of the board.
 On the other hand, once we have such a view, it can be reused and repurposed, as we can see in the \st{Positions} view of the Ludo player object in the same figure.
 
 Other kinds of simple views exist to display plain text, simple lists without columns, and trees of hierarchical data.
@@ -734,8 +733,6 @@ Simple views are easy to understand and extend or replace.
 
 % ----- Throwaway Analysis Tool -------------------------
 \subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
-
-\tg{This section is a stub}
 
 \subsubsection*{Context}
 You are assessing a problem such as a bug, a performance problem, or a security issue, and you are facing a problem that is not understandable.
