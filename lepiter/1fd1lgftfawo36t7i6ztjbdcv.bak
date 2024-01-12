@@ -1322,14 +1322,14 @@
 								"__type" : "time",
 								"time" : {
 									"__type" : "dateAndTime",
-									"dateAndTimeString" : "2024-01-12T13:47:54.2824+01:00"
+									"dateAndTimeString" : "2024-01-12T13:48:22.936161+01:00"
 								}
 							},
 							"uid" : {
 								"__type" : "uid",
 								"uidString" : "MnW7rSDLDQCw3AUoB8qDUw=="
 							},
-							"code" : "(LeDatabase gtBook pages\r\tselect: [ :page | page asMarkdownString includesSubstring: 'Ludo' ])\r\tselect: [ :page | \r\t\texampleSnippets := page\r\t\t\t\tdeep: #children\r\t\t\t\tselect: [ :child | child isKindOf: LePharoSnippet ].\r\t\texampleSnippets notEmpty ]"
+							"code" : "(LeDatabase gtBook pages\r\tselect: [ :page | page asMarkdownString includesSubstring: 'Ludo' ])\r\tselect: [ :page | \r\t\texampleSnippets := page\r\t\t\t\tdeep: #children\r\t\t\t\tselect: [ :child | child isKindOf: LeExampleSnippet ].\r\t\texampleSnippets notEmpty ]."
 						}
 					]
 				},
