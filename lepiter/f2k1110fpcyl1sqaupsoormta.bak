@@ -18,7 +18,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T14:48:31.351228+01:00"
+						"dateAndTimeString" : "2024-01-12T16:27:46.54416+01:00"
 					}
 				},
 				"editEmail" : {
@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T14:48:57.526856+01:00"
+						"dateAndTimeString" : "2024-01-12T16:27:49.174457+01:00"
 					}
 				},
 				"uid" : {
@@ -39,78 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Here is the old version:"
-			},
-			{
-				"__type" : "pharoSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T14:48:58.87226+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T14:48:59.394115+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "ypHeiw3LDQCNh94wAkWR/g=="
-				},
-				"code" : "GtMondrianPatternMapExamples new patternMapWithExplicitPositions."
-			},
-			{
-				"__type" : "textSnippet",
-				"children" : {
-					"__type" : "snippets",
-					"items" : [ ]
-				},
-				"createEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"createTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T14:49:10.853514+01:00"
-					}
-				},
-				"editEmail" : {
-					"__type" : "email",
-					"emailString" : "<unknown>"
-				},
-				"editTime" : {
-					"__type" : "time",
-					"time" : {
-						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T14:49:18.71748+01:00"
-					}
-				},
-				"uid" : {
-					"__type" : "uid",
-					"uidString" : "I2WVjA3LDQCNllIMAkWR/g=="
-				},
-				"paragraphStyle" : {
-					"__type" : "textStyle"
-				},
-				"string" : "We'll redo it."
+				"string" : "Here is the"
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -137,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T16:04:49.193349+01:00"
+						"dateAndTimeString" : "2024-01-12T16:27:30.027451+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "/pL8aA7LDQCdHQ4wAkWR/g=="
 				},
-				"code" : "LepiterMondrianPageMapExamples new patternMapwithExplicitPositions."
+				"code" : "LePageMondrianMapExamples new patternMapwithExplicitPositions."
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -171,14 +100,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-11T16:36:56.080136+01:00"
+						"dateAndTimeString" : "2024-01-12T16:27:35.466976+01:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "kh9YDQ/LDQCuVsihAkWR/g=="
 				},
-				"code" : "LepiterMondrianPageMapExamples new patternMapwithExplicitPositions pageMapWithExplicitPositions."
+				"code" : "LePageMondrianMapExamples new patternMapwithExplicitPositions pageMapWithExplicitPositions."
 			},
 			{
 				"__type" : "textSnippet",
@@ -414,12 +343,12 @@
 		"__type" : "time",
 		"time" : {
 			"__type" : "dateAndTime",
-			"dateAndTimeString" : "2024-01-11T14:57:13.999737+01:00"
+			"dateAndTimeString" : "2024-01-11T17:00:24.142084+01:00"
 		}
 	},
 	"pageType" : {
 		"__type" : "namedPage",
-		"title" : "* TODO: Mondrian pattern map"
+		"title" : "Mondrian pattern map"
 	},
 	"uid" : {
 		"__type" : "uuid",
