@@ -143,7 +143,7 @@ A custom view is frequently a \pattern{simpleView} that can be quickly prototype
 A custom search often benefits from a \pattern{collectionWrapper}, to allow the results of a query to be also molded with custom tools.
 
 % ===== Tooling =========================
-\section{Tooling}\label{sec:tooling}
+\section{Tooling Patterns}\label{sec:tooling}
 
 We start by presenting the patterns that enable the cheap creation of custom tools.
 
@@ -166,7 +166,7 @@ A plugin architecture can open up an IDE to new tools, but plugins can be comple
 \subsubsection*{Solution}
 Make the development tools \emph{moldable} to the \emph{dynamic context} of the artifacts they are intended to work with~\cite{Chis17a}.
 
-A moldable tool makes its core functionality configurable by means of a lightweight mechanism.
+A moldable tool makes its core functionality configurable by means of lightweight mechanisms.
 For example, a Test Runner in a modern IDE recognizes the presence of test cases by means of various programming conventions, \ie a test case is a method with a standard annotation, or it's a method whose name starts with ``\st{test}'' and belongs to a class that inherits from a \st{TestCase} class or implements a \st{Test} interface.
 
 By the same token an inspector can be made moldable by recognizing that an object it is inspecting has one or more custom views defined as annotated methods.
@@ -348,7 +348,7 @@ Custom actions appear as buttons in moldable tools only in the context of the ob
 You need a \pattern{moldableTool} into which you can dynamically plug custom actions.
 
 % ===== Modeling =========================
-\section{Modeling}\label{sec:modeling}
+\section{Modeling Patterns}\label{sec:modeling}
 
 Next we present the patterns related specifically to modeling domain entities in a way that facilitates querying and exploration of an explainable system.
 
@@ -571,7 +571,7 @@ Query results can be similarly molded.
 Wrapped collections can be made plug-compatible with raw collections.
 
 % ===== Process =========================
-\section{Process}\label{sec:process}
+\section{Process Patterns}\label{sec:process}
 
 We conclude with the process patterns that guidance in organizing and steering moldable development tasks.
 
