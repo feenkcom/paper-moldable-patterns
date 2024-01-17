@@ -71,7 +71,7 @@ Software analysis tools can help to some extent, but since every system and ever
 
 Moldable development is an approach to constructing software systems that are \emph{explainable}.
 This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
-These custom tools consist of small extensions to the \emph{moldable} tools of the IDE, such as the object inspector, the code editor, the debugger and the notebook.
+These custom tools consist of small extensions to the \emph{moldable} tools of the integrated development environment (IDE) \tg{could we introduce here the moldable development environment as a concept?}, such as the object inspector, the code editor, the debugger and the notebook.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{customViews}
@@ -84,22 +84,22 @@ With a conventional implementation, we can either try to play the game interacti
 We can also run the tests, but if these are all green, they do not help us to understand the system.
 By applying moldable development, we turn questions we have about the game into custom views.
 
-The figure shows three connected custom inspector views of a running game in Glamorous Toolkit\footnote{\url{https://gtoolkit.com}} (\GT), a moldable development environment.
+The figure shows three connected custom inspector views of a running game in Glamorous Toolkit\footnote{\url{https://gtoolkit.com}} (\GT), a moldable development environment \tg{here we talk about MoDE, but later we refer to IDE. I think it would be nice to introduce MDE earlier and talk about that.}.
 In the leftmost pane we see the game GUI as the \st{Board} view.
 We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of REPL) below the view.
 In the second pane we can explore the moves of  the completed game, and in the third pane we can explore individual moves.
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
-In a nutshell, Moldable development is a way to make systems explainable by making the \emph{inside} of a software system visible and explorable through custom tools.
+In a nutshell, moldable development is a way to make systems explainable by making the \emph{inside} of a software system visible and explorable through custom tools.
 Of course, this begs the question how to actually apply moldable development in practice.
 In our experience applying moldable development to many industrial and open source systems, we have encountered a number of repeating patterns, which we document below.
 
 % ===== Moldable Development Patterns =========================
 \section{Moldable Development Patterns}
 
-Moldable development can be understood in terms of a collection of mutually supporting design and process patterns, in other words, a \emph{pattern language}, summarized in \autoref{fig:map}.
-These patterns have emerged over several years of experience in developing the \GT moldable development platform, and applying it to numerous projects.
+Moldable development can be understood in terms of a collection of mutually supporting \del{design and process} \tg{the term design introduces a new category that we do not talk about later on - it's somehow overlapping tooling and modelling. I would talk here only about patterns and only and only later introduce the difference categories} patterns, in other words, a \emph{pattern language}, summarized in \autoref{fig:map}.
+These patterns have emerged over several years of experience in developing \GT following moldable development, and applying it to numerous projects.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{map}
@@ -118,7 +118,7 @@ There are two distinct roles involved in moldable development:
 In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
 
 At the top of the map we have ``Explainable System,'' which is not a pattern per se, but rather the goal of moldable development.
-An \emph{explainable system} is a software system whose domain model has been exposed with the help of numerous custom tools~\cite{Nier22a}.
+An \empty{explainable system} is a software system whose domain model has been exposed \tg{explainability extends to other parts that would not be considered domain model. For example, a static dependency graph shows how the system is composed based on a model, but I believe it would not be understood to fall under the domain model. Either we explain what we mean by domain model to also include such variations, or we choose another term.} with the help of numerous custom tools~\cite{Nier22a}.
 
 Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
