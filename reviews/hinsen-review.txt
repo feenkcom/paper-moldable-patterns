@@ -1,0 +1,92 @@
+From: Konrad Hinsen <konrad.hinsen@cnrs.fr>
+Subject: Moldable Development Patterns
+Date: 18 January 2024 at 10:20:07 CET
+To: oscar.nierstrasz@feenk.com, tudor.girba@feenk.com
+
+Hi Oscar and Tudor,
+
+Here comes my feedback on your paper!
+
+Konrad.
+
+
+Overall impression: this is a very nice collection of patterns,
+something I wish I had had a few years ago. It looks great for people
+getting into Moldable Development now. And even for veteran GT users
+like myself, having these patterns named and described improves
+understanding of what we have been doing all the time in a less
+principled way. The paper is well written, the examples are well chosen
+(but the images are a bit small, you need to zoom in to read the
+text). This is clearly a highly polished text. I vote for acceptance!
+
+What is not obvious from the description of the patterns is how they
+mutually support each other. There's an opportunity for a follow-up
+paper that describes how the patterns are applied in a real project.
+
+My main criticism of the overall approach of presenting patterns is that
+some of them aren't really patterns. For me, a pattern is something that
+has been repeatedly observed in practice. The very first pattern you
+present, "Moldable Tool", probably isn't a pattern. How many moldable
+tools have been developed? I know of one. A close second is "Tooling
+Buildup". Has anyone outside feenk ever done this, beyond tweaking some
+parser? These two (non-)patterns are probably the biggest obstacle to
+getting started with Moldable Development. If your domain or your tech
+stack is not supported by GT out of the box, testing the idea is a very
+costly endeavor.
+
+"Contextual Playground" is a pattern, but I'd label it "process" rather
+than "tooling". On the other hand, it's also reasonable to have it right
+before "Custom View", as it's a preparation to tooling work.
+
+I find the "modeling patterns" most interesting, because they show how
+Moldable Development goes beyond the developer productivity issues that
+most IDEs focus on. They also provide a perspective on OO that is very
+different from the usual focus on the evolution of a code base. My
+personal highlight is the "Moldable Collection Wrapper". I have been
+fighting a few times with the tension between "I want to add views to
+this" and "I want to have standard collection protocols on this".
+Implementing an adaptor as a trait looks like an obvious solution -
+after reading the paper.
+
+The "Project Diary" pattern is a very useful one, and also heavily used
+in other contexts (in science we call it a "lab notebook"). But there is
+one aspect of it to which is more an ideal than reality: "At the end of
+a project, consider recycling and rewriting the project pages to create
+documentation. In this way the diary can serve as a rough draft." In my
+experience, this rarely happens, and Lepiter supports it even less than
+other tools. Typically you want to keep the diary for yourself as a
+historical record, so morphing it into documentation for others by
+successive edits is not a good approach. Ideally, I'd want to be able to
+mark parts of it for inclusion in a new document that I'd then edit, but
+I haven't yet seen any support for this. In practice, documentation gets
+written from scratch, with the diary serving only as a source of
+detailed information to be copy-pasted. Maybe one day we will see
+refactoring tools for prose.
+
+Finally, a few minor points:
+
+The name "Lepiter" occurs 10 times, but is never properly introduced.
+
+Page 1: "The patterns that are concerned with Tooling (tagged with
+“T”), with Modeling (M), or with the development Process (P)."
+Parse error: not a proper sentence.
+
+Page 2: "Generic software tools are fine for answering generic
+questions, but they do not scale well when addressing domain-specific
+questions."
+The transition from generic to domain-specific is not "scaling" by my
+definition.
+
+-- 
+---------------------------------------------------------------------
+Konrad Hinsen
+Centre de Biophysique Moléculaire, CNRS Orléans
+Synchrotron Soleil - Division Expériences
+Saint Aubin - BP 48
+91192 Gif sur Yvette Cedex, France
+Tel. +33-1 69 35 97 15
+E-Mail: konrad DOT hinsen AT cnrs DOT fr
+http://dirac.cnrs-orleans.fr/~hinsen/
+ORCID: https://orcid.org/0000-0003-0330-9428
+Mastodon: @khinsen@scholar.social
+---------------------------------------------------------------------
