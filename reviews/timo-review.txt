@@ -1,0 +1,22 @@
+Hi Oscar,
+I now finished reading the draft of the moldable patterns paper.
+Summary of the general impressions:
+Very enjoyable to read, and I got the contents even as a non-expert. Both for the individual patterns and for their classification into T, M and P.
+The only section I had to read again after having learned about all the patterns in detail was Section 2. That's certainly due to the necessary brevity in the overview, but I did not have a proper intuition for all the patterns just after reading Section 2. However, not particularly critical to me, as readers can also go the detailed patterns first before coming back to the overview. I think we do not read most papers in a strictly linear way from top to bottom anyway.
+Besides, compared to "classical" SE conference papers (I do not know the style of a typical EuroPLoP paper), I was wondering about the following:
+Scoping/zooming-in:
+- Introduction dives very quickly into moldable development, without considering alternative approaches to making software systems explainable in detail. I assume that this is on purpose, as anything more detailed will be likely incomplete. However, some form of name dropping would probably be the "pattern" here to mention some alternative approaches from fields like classical reverse engineering, software visualization, software metrics, ... Doing so, large parts of the current Introduction could go into a typical section 2 that introduces a concept/problem/... by means of an example; here, modlable development in a nutshell..
+- In the same vein, setting an explicit scope to object-oriented systems / programming in the Introduction would help to avoid discussion about explainability for other kinds of systems, such as data-intensive systems, ML-heavy systems, etc.; there, explainability is also a big issue which, most likely, cannot be fully addressed by the paradigm of moldable development.
+- As a minor scoping issue, while reading the patterns in detail, I was someteimes wondering how tightly all of the solutions are coupled with GT. An alternative structure for presenting the patterns would be to strictly stay within the GT context and (and maybe also with the Ludo example) for sections 3, 4 and 5. And then, in a subsequent section, one could discuss more explicitly the generalizability of the solutions beyond GT (and also indicate other examples beyond the Ludo game).
+Evaluation:
+- Reviewers might ask about some form of evaluation regarding usefulness / effectiveness of the patterns. I was thinking of whether a short section at the end which summarizes "success stories" would help to mitigate potential criticism. I am pretty sure there are plenty of them, also Pablo's work could be mentioned here.
+https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10173982&casa_token=bOzHija3kPoAAAAA:BJgrOahIkRJ3N1kRW9B8BbpzX9PpNyKBf5wOYacwXpk7lsjDZGXgx5Q9jXSLQ2PS6nUMLibi4ULyvJQ&tag=1
+http://bergel.eu/MyPapers/Vale23a-egad.pdf
+Related work / positioning of moldbale development patterns:
+- There is probably no directly related work as nobody else ever presented moldbable development patterns ;-)
+However, reviewers might ask for related work, don't they? Maybe a high-level differentiation from the most prominent works in OO patterns might help to avoid such discussion. In other words, how to position the moldable development patterns within (a relevant subset of) the landscape of patterns and pattern languages.
+Additionally, I left a very few minor comments directly in the PDF.
+
+
+https://seg-zfo8543.slack.com/archives/D046JBJEXNV/p1705918303817719
+
