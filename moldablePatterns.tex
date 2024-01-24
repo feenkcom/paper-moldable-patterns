@@ -20,6 +20,17 @@
 \input{st80.tex}
 % ============================================================
 % Macros for this paper
+%\newcommand\XXX[1]{\nbc{XXX}{#1}{brown}}
+\newcommand\tk[1]{\nbc{Timo}{#1}{cyan}}
+\newcommand\rb[1]{\nbc{Ralf}{#1}{darkgray}}
+%\newcommand\XXX[1]{\nbc{XXX}{#1}{gray}}
+\newcommand\kh[1]{\nbc{Konrad}{#1}{magenta}}
+%\newcommand\XXX[1]{\nbc{XXX}{#1}{olive}}
+%\newcommand\XXX[1]{\nbc{XXX}{#1}{orange}}
+\newcommand\eog[1]{\nbc{Edward}{#1}{purple}}
+%\newcommand\XXX[1]{\nbc{XXX}{#1}{red}}
+%\newcommand\XXX[1]{\nbc{XXX}{#1}{teal}}
+%\newcommand\XXX[1]{\nbc{XXX}{#1}{violet}}
 \usepackage{caption}
 \captionsetup{aboveskip=5pt,belowskip=-10pt} % Adjust the space around figure captions
 %\usepackage{enumitem}
@@ -59,6 +70,9 @@ Based on several years of experience of applying moldable development to both op
 % ===== Introduction =========================
 \section{Introduction: Moldable development in a Nutshell}
 
+\eog{I think the biggest pieces of feedback I've got are centered around as a person who comes from industry like web development, there's terms in here that I would not consider in the vernacular of a like normal industry developer.
+And I think that it might get in the way of doing what you're trying to do.}
+
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it can be difficult to extract that knowledge.
 The usual views of software systems are
@@ -69,9 +83,21 @@ The usual views of software systems are
 But neither of these lends itself well to answering questions about the system.
 Software analysis tools can help to some extent, but since every system and every problem is different, it is rare for generic analysis tools to scale to arbitrary systems.
 
+\eog{Views.
+I don't think that's a thing in vernacular, like the closest you'll find it is in the like V like where I would sit my HTML templates.}
+
+\eog{Scaling to arbitrary systems.
+I'm not sure what that means.}
+
 Moldable development is an approach to constructing software systems that are \emph{explainable}.
 This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
 These custom tools consist of small extensions to the \emph{moldable} tools of the integrated development environment (IDE) \tg{could we introduce here the moldable development environment as a concept?}, such as the object inspector, the code editor, the debugger and the notebook.
+
+\eog{For example, an object inspector also not a thing in the vernacular from where I come from.}
+
+\eog{So I think one of the first things that popped out was this idea of decision making is a thing.
+If you talk about it some more than like I get it.
+But the idea of decision making as a thing wasn't something for me until I started to work at feenk.}
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{customViews}
@@ -107,6 +133,13 @@ These patterns have emerged over several years of experience in developing \GT f
   \label{fig:map}
 \end{figure}
 
+\eog{I think like that, the hard thing for this section number two that I found is that there's like a lot of definitions of what things are without a lot of connected motivation.
+And it felt like I don't know if this is a thing that you've ever experienced, but you sit down you play, you're ready to play a board game with some friends and then someone's like, all right, we're gonna sit down and read the rule book from like cover to cover and then everything will be good.
+And then you've got people like me who are like, what is the point of this game?
+How do I win?
+And then like from that I can gather, like my, I can interest my brain in the parts that matter.
+And it's really tough to hold on to just like a list of definitions, for example, without that.}
+
 The patterns that are concerned with \emph{Tooling} (tagged with ``T''), with \emph{Modeling} (M), or with the development \emph{Process} (P).
 The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
 
@@ -117,16 +150,27 @@ There are two distinct roles involved in moldable development:
 \end{inparaenum}
 In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
 
+\eog{Domain models.
+I got into talking about domain models, like I wanna say, 12 years in.
+And until then I just, like, never heard about domain driven development.
+What a domain model really was like a model to me was the M in MVC.}
+
 At the top of the map we have ``Explainable System,'' which is not a pattern per se, but rather the goal of moldable development.
 An \empty{explainable system} is a software system whose domain model has been exposed \tg{explainability extends to other parts that would not be considered domain model. For example, a static dependency graph shows how the system is composed based on a model, but I believe it would not be understood to fall under the domain model. Either we explain what we mean by domain model to also include such variations, or we choose another term.} with the help of numerous custom tools~\cite{Nier22a}.
 
 Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
+\eog{Each custom tool requires the existence of a moldable tool. By itself I don't understand what that means.
+And I'd like to see a little more maybe in terms of like, I don't know, explanation or motivation for what that is.}
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \pattern{blindSpot} is problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \pattern{projectDiary} is a notebook that serves as a starting point for development tasks.
 A \pattern{throwawayAnalysisTool} can be a quick way to solve an urgent problem in a focused way.
 
 Moldable development itself starts with a \pattern{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
+\eog{So a moldable object can be explored.
+I don't think that's a thing in vernacular like I'm saying this, but I'm coming from a place where like if you talk about it and you explain it, you're like, yes, I do do that.
+I just like, didn't have a name for it.
+And it's, I feel like a lot of this is also related to that idea of like, it's like talking to fish about water, like the idea of explainability views and this kind of stuff like software developers do this, but they just don't have awareness that they're doing it.}
 An interesting instance can be encapsulated as an \pattern{exampleObject}, essentially a unit test that returns a tested object.
 An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
 In case the domain includes already existing data entities, each of these can be wrapped in a \pattern{moldableDataWrapper} to produce a moldable object.
@@ -160,6 +204,8 @@ How can you cheaply and effectively extend the development environment with doma
 
 \subsubsection*{Forces}
 Generic software tools are fine for answering generic questions, but they do not scale well when addressing domain-specific questions.
+\eog{, another thing about, like, generic software tools, I don't know what that is.
+Scale well, I don't know what that means.}
 For example, consider a generic debugger being used to debug an event-driven application\,---\,you want to step through the chain of events, not the stack.
 A plugin architecture can open up an IDE to new tools, but plugins can be complex and expensive to implement, and they often do not play nicely with existing tools or with each other.
 
@@ -199,6 +245,13 @@ Some tooling effort is required to open up the existing IDE tools to make them m
 \subsubsection*{Context}
 You have a moldable object, and you are ready to start exploring.
 
+\eog{Page three, you have a moldable object and you're ready to start exploring.
+Where does this fit in with a normal job or workflow?
+I think like if you read the whole paper and then you chew on it and then you read it again, the stuff makes sense, but it's difficult to get there the first pass through and maybe that's OK, maybe it's not important?}
+
+\eog{So you're exploring maybe we could talk about what, what exploring means.
+Like if you ask a regular developer, like tell me about the explorations you've done this morning, versus, hey, what kind of like debugging or like learning about the system?}
+
 \subsubsection*{Problem}
 Where do you start coding?
 
@@ -212,6 +265,7 @@ Writing tests first for parts of the logic of a complex method can be overkill.
 \subsubsection*{Solution}
 Prototype new behavior in the contextual playground of the inspector on a \pattern{moldableObject}.
 The playground will be bound to the context of the instance, so \st{self} and all slots (\ie fields) can be accessed exactly as they would in a running method.
+\eog{Right fields, maybe you want to refer to instance variables, that's what or like whatever they're called in Python, for example, that may be a way to make this more accessible.}
 From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
 Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an \emph{Extract method} refactoring~\cite{Fowl99a}.
 
@@ -227,10 +281,11 @@ In \autoref{fig:inspectingPythonObjects} we see an inspector view of an instance
 
 In the contextual playground we experiment with Python code to extract a particular movie.
 We leverage a \pattern{customView} of the \st{MovieCollection} and of the \st{Movie} to aid our exploration.
+\eog{I don't know how you feel about language notes like this, like we leverage.
+You could also say we use}
 Note that \st{self} in the code snippet is bound to the context of the \st{MovieCollection} instance.
 Once we have identified some useful code, we can extract it as a new method of the object.
 Similarly, if we identify an interesting instance, we can use the code to define an \pattern{exampleObject}.
-
 
 %In \autoref{fig:contextualPlayground} we see an inspector view of an instance of a Ludo game.
 %We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
@@ -240,6 +295,10 @@ Similarly, if we identify an interesting instance, we can use the code to define
 %Once we are happy with the new behavior, we can extract it as a new method.
 
 A well-known use of contextual playgrounds is the JavaScript console of a modern web browser: while inspecting a live web page, you can explore and programmatically interact with the live objects in the run-time environment of the page.
+
+\eog{I really like this part talking about the inspection of a live web page.
+Like that is a thing that I can think of.
+Like a lot of people being intimately familiar with and it is a great metaphor or like link to those kind of patterns descriptions that you're referring to.}
 
 \subsubsection*{Consequences}
 By prototyping new behavior in a contextual playground, you obtain immediate feedback for experimental code.
@@ -258,10 +317,15 @@ How do you make it easy to find interesting information again?
 Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating Playground snippets, to reach the answer you seek.
 The sequence of steps may be cumbersome to follow repeatedly.
 
+\eog{this part here, you could describe it also with like a watch statement in javascript or whatever, like this kind of thing.
+And then people could be more familiar with that because they, they do that.}
+
 \subsubsection*{Solution}
 Turn interesting data into a custom view.
 Extract the navigation steps into a new custom view for the moldable object you start navigating from.
 Start with a \pattern{simpleView}.
+
+\eog{I'd love to see maybe a picture like a figure with this.}
 
 As an example, consider the views of a partially played Ludo game in \autoref{fig:rawViewVsCustomView}.
 We would like to understand which moves have been played up to now.
@@ -280,6 +344,8 @@ From this custom view we can furthermore dive directly into the \st{Move} object
 A custom view exposes information about a domain that can otherwise be hard to find.
 Custom views become an intrinsic part of a software system, thus turning it into an \emph{explainable system}.
 You need a \pattern{moldableTool} into which you can dynamically plug custom views.
+
+\eog{Down here, there's mention of what a you need a moldable tool, but I still don't understand what a moldable tool is given just this paper so far.}
 
 % ----- Custom Search -------------------------
 \subsection*{Custom Search}\label{pat:customSearch}
@@ -305,6 +371,9 @@ In \autoref{fig:customSearch} we see several custom searches for page names, pag
   \caption{Custom substring searches.}
   \label{fig:customSearch}
 \end{figure}
+
+\eog{I think what I was curious about is if there is a way to use an example of a domain specific custom search example, that would be really cool.
+So I don't know, maybe something in ludo or like something more than just like researching.}
 
 As with other custom tools, one way to implement a custom search is as a method of the domain object from which the search is initiated, with a dedicated annotation.
 In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within multiple moldable tools, such as the inspector, the code editor, and also the notebook.
@@ -361,6 +430,9 @@ Next we present the patterns related specifically to modeling domain entities in
 \subsubsection*{Context}
 You have your basic infrastructure in place, and want to start the process of creating an explainable system, either from scratch, or based on some existing software or data.
 
+\eog{Moldable object context, you have got your basic infrastructure in place.
+I, I don't know what that is and I would love a little pointer or more of an explanation.}
+
 \subsubsection*{Problem}
 Where do you start coding an explainable system?
 
@@ -369,15 +441,38 @@ As a programmer, you want to quickly get feedback about the code you are writing
 When you write code in a classical IDE code editor, you are several steps away from seeing the consequences of your coding.
 To write unit tests, you must already know what behavior you want to test and what the results should be.
 
+\eog{When you write code in a classical IDE, I only know one type of IDE.
+And so when you talk about classical, I think this, this gets in your way, you like in the way of your goal more than it adds start coding by inspecting a moldable object.}
+
 \subsubsection*{Solution}
 Start coding by inspecting a moldable object, that is, a live instance of the class you are coding, \emph{not in a code editor}.
 Then incrementally pose domain-specific questions, find the answers by exploring and interacting with the object, and then turn those answers into custom tools, behaviors and tests.
+
+\eog{And then this just, this is like huge, this is awesome.
+I'd love an article just on doing this.
+I wonder if there's a way that we can like push this up because this is this is the stuff, this is like what got me into talking to Tudor in the first place.}
 
 Moldable development is about making systems explainable with the help of custom tools, which means that you need to start the process by asking questions that you want to answer.
 In most cases you can't immediately start building the custom tools, but rather you need to explore the domain objects to understand how to answer the question.
 Once you know how to get the answer, you can turn the exploration steps into a custom tool.
 Starting with a live object means that you can immediately start the exploration process.
 Turning the exploration of an object into a custom tool is the process of molding it, hence we call it a ``moldable object.''
+
+\eog{In most cases, you can't immediately start building the custom tools.
+So like here's like more stuff like I wish this went further 1st, 1st, further up.
+Right, and turning the exploration of an object into a custom tool.
+Like this is, this is really big.}
+
+\eog{The programming in the live REPL is huge and a big deal different from the usual like it is a batch process approach.
+Of making changes and then guessing and tracking.
+Like that's how a lot of work got done at Shopify.
+I would watch people, like, maybe they'd have their exploration done in a test, like at best, maybe in a console.
+But there would be a lot of like, does this work and then you'd have to, like, go to your editor and make some changes.
+Hope.
+The reloading was very unreliable and then, you'd have to like restart the whole system and doing that.
+It, it just took forever.
+It sucked.
+And so when I saw GT at work, like that was magic.}
 
 %\tg{I like how this delegates the creation part to other patterns}
 How do you obtain a moldable object?
@@ -399,6 +494,10 @@ In the second pane we see the \emph{History} view of the object, showing the det
   \caption{A moldable Ludo game instance.}
   \label{fig:moldableLudoGame}
 \end{figure}
+
+\eog{Learning to explicitly ask questions is like, again that asking a fish about water.
+I talked about that at the beginning.
+I also find that this could be like a paper unto itself like, hey, have you tried this?}
 
 With the moldable object at hand, we can ask questions like \emph{What is the current state of the Ludo game?}, or \emph{What happened in the last few moves that we autoplayed?}
 As we answer questions we can create small custom tools, such as a \pattern{customView} or a \pattern{customAction}.
@@ -450,6 +549,9 @@ GtLudoGameExamples>>#emptyGame
 Unlike normal test methods, examples can be \emph{composed}.
 In \autoref{fig:composedExample} we see a second example, \st{playerArolls6}, that starts from the \st{emptyGame} example, rolls a $6$, asserts a few facts, and returns the modified game instance.
 
+\eog{Unlike normal test methods, examples can be composed.
+I would say that examples are designed to be composed.}
+
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{composedExample}
   \caption{Composing examples.}
@@ -491,6 +593,12 @@ To analyze and explore data, we need higher-level views that reflect our underst
 Wrap each kind of data using a dedicated class reflecting the problem domain entity.
 As you explore the data, introduce custom tools (views \etc) to the domain class that reflect answers to questions you ask about the data.
 
+\eog{So how do you develop custom tools for existing data?
+And you're like, yeah, you wrap them and then you build this stuff up.
+I think what I would like to see is more of that.
+Like here's the cool thing that you get out of this, like the value the the upside earlier maybe that just doesn't fit the the pattern that you're filling in like this template.
+But later on, you're like, look at this cool thing, maybe that's the consequences.}
+
 First extract the data of interest.
 This might be data sitting in your file system (for example, a CSV file), or data retrieved from a website.
 For example, here we retrieve a \st{Dictionary} representation of JSON data about the feenk GitHub organization:
@@ -500,6 +608,9 @@ url := 'https://api.github.com/orgs/feenkcom'.
 json := ZnClient new get: url.
 dictionary := STON fromString: json.
 \end{code}
+
+\eog{Would love to see the goal or motivation earlier.
+For this kind of jazz.}
 
 The dictionary representation, however, is not well-suited for exploring the GitHub organization domain.
 If we explore the resulting object (see \autoref{fig:rawGitHubData}) we just see the keys and values of the raw downloaded data.
@@ -596,6 +707,9 @@ Create a dedicated notebook page for each project, or even each project task, to
 Use the notebook to keep a diary of your progress.
 As the project matures, use the notebook as a draft for the documentation.
 
+\eog{Using a live notebook.
+I, I know folks maybe in like Jupiter like Python stuff but specific kind of like scientific Python are used to using this word or this phrase, but I would explain it or define it if you can, if you if you have the space.}
+
 For example, in \autoref{fig:projectDiary} we see a live Lepiter page~\cite{Girb21a} in the \GT Book\footnote{The GT Book is the documentation of the Glamorous Toolkit Moldable Development Environment implemented as a live Lepiter notebook. An archived static snapshot of this page is also available: \url{https://web.archive.org/web/20231213144857/https://book.gtoolkit.com/adding-simple-list-views-for-ludo-players--3g9kpmxty3fj9eev3ucmqkztc}.} documenting the task of adding some list views to the Ludo game.
 
 \begin{figure}[h]
@@ -675,6 +789,12 @@ Pick one of these blind spots as a target.
 The task should be feasible in reasonable time but non-trivial.
 There should be a clear value for the stakeholder, that is, do something that the stakeholder has difficulty with.
 
+\eog{really like this blind spot pattern.
+pointing out things that are difficult to understand modern debug.
+I, I almost want to like, say this is another like first place that we should talk about.
+You do that.
+I, I just wonder like should we like lift this further up in the paper or talk about it first?}
+
 Some typical examples are 
 \begin{inparaenum}[(i)]
 \item exposing hidden dependencies between features, 
@@ -710,7 +830,7 @@ Enhance it or replace it by a richer view only when there is a clear need to do 
 This pattern follows exactly the same reasoning as the \emph{Goal/Question/Metric} (GQM) approach~\cite{Basi94a} for designing software metrics.
 A view, like a metric, only exists because it helps you to answer a question that supports you in achieving some goal.
 Views, or metrics, that do not support a specific goal or answer a concrete question have no reason to exist.
-It follows, then, that a view should be design to answer a specific question you have in a development task.
+It follows, then, that a view should be designed to answer a specific question you have in a development task.
 The simplest design that achieves this is the one you want.
 If new goals and questions arise, you will then either design new views, or extend or replace the existing view by a richer one.
 
@@ -721,6 +841,10 @@ This is also the simplest view to implement, since it only requires, at a minimu
 The next most popular view is a \st{columnedList}, which presents a collection of data in a format resembling a spreadsheet with column headers.
 The \st{Moves} view in \autoref{fig:rawViewVsCustomView} is an example.
 A common flow is to start with a \st{forward} view to an existing \st{columnedList} view of another object, then replace it by a custom \st{columnedList} when a need is identified to rename, replace or add columns.
+
+\eog{The forward view and the column list.
+I think talking about the forward view with just this is hard to digest.
+Maybe a picture here would help with other kinds of simple views.}
 
 In contrast, the \st{Board} view of the Ludo game (as seen in \autoref{fig:ludoViews}) is \emph{not} a simple view, as it requires some effort to build up the interactive GUI view of the board.
 On the other hand, once we have such a view, it can be reused and repurposed, as we can see in the \st{Positions} view of the Ludo player object in the same figure.
@@ -736,6 +860,9 @@ Simple views are easy to understand and extend or replace.
 
 \subsubsection*{Context}
 You are assessing a problem such as a bug, a performance problem, or a security issue, and you are facing a problem that is not understandable.
+
+\eog{A problem that is not understandable.
+I have trouble understanding with that is that could look like.}
 
 \subsubsection*{Problem}
 How can you advance the assessment effectively?
@@ -762,6 +889,10 @@ You can make this possible through a \pattern{moldableTool}.
   \label{fig:throwawayQueryTool}
 \end{figure}
 
+\eog{Project Diary, I think this is really cool.
+It's just not legible in this size.
+I wonder if splitting it over to figures to enhance its legibility.}
+
 A throwaway analysis tool should be cheap to implement.
 In \autoref{fig:throwawayQueryTool} we see an \emph{ad hoc} query to find Lepiter \pattern{projectDiary} pages that match the string ``\st{Ludo}'' and also contain \pattern{exampleObject} snippets, to illustrate the use of example objects in documentation.
 
@@ -778,7 +909,7 @@ By making it cheap to build analysis tools, tool-building becomes an essential p
 \section{Conclusion}
 
 Moldable development makes software systems explainable by making it cheap to add custom tools that support decision making.
-In practice, however, requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
+In practice, however, it requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
 The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
 Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
 

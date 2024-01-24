@@ -1,0 +1,526 @@
+
+Edward Ocampo-Gooding
+  8:37 PM
+IMG_1518
+ 
+Hi Oscar, here's my attempt at high fidelity feedback in a reasonable way. So I read your paper. I really like it. I really love this map in… View transcript
+
+related-work
+1 message marked read
+Undo
+
+Transcript
+0:01
+Hi Oscar, here's my attempt at high fidelity feedback in a reasonable way.
+
+0:05
+So I read your paper.
+
+0:07
+I really like it.
+
+0:08
+I really love this map in particular.
+
+0:12
+I wish that this could be bigger, but I understand that there is a format that you're working with.
+
+0:17
+I, I get it.
+
+0:19
+I think the biggest pieces of feedback I've got are centered around as a person who comes from industry like web development, there's terms in here that I would not consider in the vernacular of a like normal industry developer.
+
+0:44
+And I think that it might get in the way of doing what you're trying to do.
+
+0:50
+I see your goal as let's talk about really cool development patterns and I'll jump into it.
+
+0:58
+So I think one of the first things that popped out was this idea of decision making is a thing.
+
+1:08
+If you talk about it some more than like I get it.
+
+1:11
+But the idea of decision making as a thing wasn't something for me until I started to work at Fink.
+
+1:24
+Domain models.
+I got into talking about domain models, like I wanna say, 12 years in.
+
+1:31
+And until then I just, like, never heard about domain driven development.
+
+1:35
+What a domain model really was like a model to me was the M in NVC.
+
+1:42
+And that, that's just where you put your like business logic that and I'm coming from a rails background.
+
+1:49
+The mention it.
+
+1:51
+Oh, that's my son waking up.
+
+1:52
+OK.
+
+1:52
+I gotta go faster.
+
+1:55
+Views.
+I don't think that's a thing in vernacular, like the closest you'll find it is in the like V like where I would sit my HTML templates.
+
+2:06
+Right.
+
+2:07
+Scaling to arbitrary systems.
+
+2:10
+I'm not sure what that means.
+
+2:12
+For example, an object inspector also not a thing in the vernacular from where I come from.
+
+2:21
+I really like later in here that you talk about using like the inspector in a web browser.
+
+2:27
+But yeah, OK.
+
+2:43
+Each custom tool requires the existence of a moldable tool by itself.
+
+2:49
+I don't understand what that means.
+
+2:53
+And I'd like to see a little more maybe in terms of like, I don't know, explanation or motivation for what that is.
+
+3:00
+I think like that, the hard thing for this section number two that I found is that there's like a lot of definitions of what things are without a lot of connected motivation.
+
+3:16
+And it felt like I don't know if this is a thing that you've ever experienced, but you sit down you play, you're ready to play a board game with some friends and then someone's like, all right, we're gonna sit down and read the rule book from like cover to cover and then everything will be good.
+
+3:31
+And then you've got people like me who are like, what is the point of this game?
+
+3:36
+How do I win?
+
+3:38
+And then like from that I can gather, like my, I can interest my brain in the parts that matter.
+
+3:44
+And it's really tough to hold on to just like a list of definitions, for example, without that.
+
+3:52
+OK.
+
+3:52
+So a moldable object can be explored.
+
+4:00
+I don't think that's a thing in vernacular like I'm saying this, but I'm coming from a place where like if you talk about it and you explain it, you're like, yes, I do do that.
+
+4:12
+I just like, didn't have a name for it.
+
+4:15
+And it's, I feel like a lot of this is also related to that idea of like, it's like talking to fish about water, like the idea of explainability views and this kind of stuff like software developers do this, but they just don't have awareness that they're doing it.
+
+4:33
+It's like that idea of like when you're debugging, there's a question that with at least Tudor, you're making it explicit.
+
+4:41
+But I found that a lot of the time it's just I implicit and you, you don't think about it.
+
+4:48
+And so it it can, it can make things harder.
+
+4:51
+Ok.
+
+4:51
+, another thing about, like, generic software tools.
+
+4:56
+, I don't know what that is.
+
+4:59
+I do now but like I were to think,, scale.
+
+5:03
+Well, I don't know what that means.
+
+5:07
+Ok.
+
+5:07
+, contextual playground.
+
+5:14
+Hold on my guess.
+
+5:14
+Page three, you have a moldable object and you're ready to start exploring.
+
+5:18
+, where does this fit in with a normal job or workflow?
+
+5:25
+, I think like if you read the whole paper and then you chew on it and then you read it again, the stuff makes sense, but it's difficult to get there the first pass through and maybe that's OK, maybe it's not important?
+
+5:46
+Right fields, maybe you want to refer to instance variables, that's what or like whatever they're called in Python, for example, that may be a way to make this more accessible.
+
+5:58
+I don't know how you feel about language notes like this, like we leverage.
+
+6:02
+You could also say we use.
+I really like this part talking about the inspection of a live web page.
+
+6:14
+Like that is a thing that I can think of.
+
+6:18
+Like a lot of people being intimately familiar with and it is a great metaphor or like link to those kind of patterns descriptions that you're referring to.
+
+6:27
+OK.
+
+6:27
+So you're exploring maybe we could talk about what, what exploring means.
+
+6:33
+Like if you ask a regular developer, like tell me about the explorations you've done this morning, versus, hey, what kind of like debugging or like learning about the system?
+
+6:45
+Have you done?
+
+6:45
+, I think again, like people explore, they just don't know what that with that like that.
+
+6:52
+It has a name.
+
+6:54
+Ok.
+
+6:55
+Here's a note about a custom view.
+
+6:58
+I'd love to see maybe a picture like a figure with this,, this part here, you could describe it also with like a watch statement in javascript or whatever, like this kind of thing.
+
+7:14
+And then people could be more familiar with that because they, they do that.
+
+7:20
+Down here, there's mention of what a you need a moldable tool, but I still don't understand what a moldable tool is given just this paper so far.
+
+7:33
+Page four is on the other side of this.
+
+7:38
+I really like this.
+
+7:39
+This is good.
+
+7:41
+I see an example of a custom search domain specific.
+
+7:49
+Yes, sorry.
+
+7:51
+I'm like reading my notes and trying to remember about what was the important thing here?
+
+7:56
+I think what I was curious about is if there is a way to use an example of a domain specific custom search example, that would be really cool.
+
+8:09
+So I don't know, maybe something in ludo or like something more than just like researching.
+
+8:19
+OK.
+
+8:19
+So is this moldable tool an environment?
+
+8:26
+Yes, more than like moldable tool.
+
+8:29
+What are you?
+
+8:32
+So I like this.
+
+8:38
+I've got, this is nice.
+
+8:39
+What could this be for the game?
+
+8:43
+Right.
+
+8:44
+So in the context of Ludo, like what could a an action be a custom action?
+
+8:51
+OK.
+
+8:51
+Moldable object context, you have got your basic infrastructure in place.
+
+8:56
+I, I don't know what that is and I would love a little pointer or more of an explanation.
+
+9:05
+When you write code in a classical IDE, I only know one type of IDE.
+
+9:13
+And so when you talk about classical, I think this, this gets in your way, you like in the way of your goal more than it adds start coding by inspecting a moldable object.
+
+9:28
+And then this just, this is like huge, this is awesome.
+
+9:33
+I'd love an article just on doing this.
+
+9:37
+I wonder if there's a way that we can like push this up because this is this is the stuff, this is like what got me into talking to Tudor in the first place.
+
+9:51
+In most cases, you can't immediately start building the custom tools.
+
+9:55
+So like here's like more stuff like I wish this went further 1st, 1st, further up.
+
+10:02
+Right, and turning the exploration of an object into a custom tool.
+
+10:06
+Like this is, this is really big.
+
+10:09
+The programming in the live REPL is huge and a big deal different from the usual like it is a batch process approach.
+
+10:17
+Of making changes and then guessing and tracking.
+
+10:20
+Like that's how a lot of work got done at Shopify.
+
+10:22
+I would watch people, like, maybe they'd have their exploration done in a test, like at best, maybe in a console.
+
+10:31
+But there would be a lot of like, does this work and then you'd have to, like, go to your editor and make some changes.
+
+10:36
+Hope.
+
+10:37
+The reloading was very unreliable and then, you'd have to like restart the whole system and doing that.
+
+10:46
+It, it just took forever.
+
+10:47
+It sucked.
+
+10:48
+And so when I saw GT at work, like that was magic.
+
+10:54
+So I'm very excited about a, a ruby bridge.
+
+10:57
+OK?
+
+10:59
+So we've got page five here.
+
+11:00
+I like this a lot.
+
+11:01
+The contextual playground, moldable ludo game incident.
+
+11:05
+So good, right?
+
+11:09
+Learning to explicitly ask questions is like, again that asking a fish about water.
+
+11:15
+I talked about that at the beginning.
+
+11:20
+I also find that this could be like a paper unto itself like, hey, have you tried this?
+
+11:26
+And then this example object business here like this is super good.
+
+11:30
+Love it.
+
+11:32
+I can connect with this right away.
+
+11:34
+This is really good.
+
+11:37
+Unlike normal test methods, examples can be composed.
+
+11:41
+I would say that examples are designed to be composed.
+
+11:47
+OK.
+
+11:47
+Let's look for a page six.
+
+11:53
+Yes.
+
+11:58
+This is really good.
+
+12:01
+Would love to see the goal or motivation earlier.
+
+12:05
+For this kind of jazz.
+
+12:08
+So how do you develop custom tools for existing data?
+
+12:15
+And you're like, yeah, you wrap them and then you build this stuff up.
+
+12:20
+I think what I would like to see is more of that.
+
+12:23
+Like here's the cool thing that you get out of this, like the value the the upside earlier maybe that just doesn't fit the the pattern that you're filling in like this template.
+
+12:37
+But later on, you're like, look at this cool thing, maybe that's the consequences.
+
+12:45
+OK?
+
+12:47
+Moldable collection wrapper, I've just got a comment here on how I think it'd be really neat, really fun to see a video walk through to showcase like each of these patterns, not just on this page but like of this paper.
+
+13:02
+So we can see them more in more live way and how they they in, in live like reviewing this paper and writing the stuff I'm trying to write, which is similar to it.
+
+13:11
+It just feels like trying to explain bicycling with like a series of pictures and, and like having it be live as interact I think would be really, really valuable.
+
+13:22
+OK.
+
+13:26
+Using a live notebook.
+
+13:27
+I, I know folks maybe in like Jupiter like Python stuff but specific kind of like scientific Python are used to using this word or this phrase, but I would explain it or define it if you can, if you if you have the space.
+
+13:47
+OK.
+
+13:47
+Page eight.
+
+13:55
+really like this blind spot pattern.
+
+13:59
+pointing out things that are difficult to understand modern debug.
+
+14:01
+I, I almost want to like, say this is another like first place that we should talk about.
+
+14:07
+You do that.
+
+14:08
+I, I just wonder like should we like lift this further up in the paper or talk about it first?
+
+14:15
+I'm not sure how you're gonna run the the workshop, which also sounds amazing.
+
+14:19
+I wish I could come.
+
+14:21
+OK.
+
+14:24
+It follows then that if you should be, I think you want to say designed instead just design.
+
+14:30
+The forward view and the column list.
+I think talking about the forward view with just this is hard to digest.
+
+14:42
+Maybe a picture here would help with other kinds of simple views.
+
+14:48
+That's good.
+
+14:51
+A problem that is not understandable.
+
+14:55
+I have trouble understanding with that is that could look like, I mean, apart from trying to explain moldable development for me, OK?
+
+15:12
+Project Diary, I think this is really cool.
+
+15:15
+It's just not legible in this size.
+
+15:20
+I wonder if splitting it over to figures to enhance its legibility, like more enhanced could help and yeah.
+
+15:32
+Oh Yeah, there's a typo here.
+
+15:34
+However, it requires a paradigm shift.
+
+15:37
+Yeah.
+
+15:37
+OK.
+
+15:37
+In general, great paper.
+
+15:39
+Thanks for writing it.
+
+15:40
+This helped me.
+
+15:42
+And I hope that this feedback helps you
+
