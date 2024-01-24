@@ -1,6 +1,6 @@
 NB: Comments collected from Discord and from the [FedWiki page](http://mold.dreyeck.ch/view/welcome-visitors/view/europlop-project-diary).
 
-Ward feels that the paper, the PDF, has a certain need to stand alone. Most of what he knows about gt comes from the conversations we had with Tudor. He was very impressed with how Tudor said you guys would send gt quotes back and forth via Slack, with little or no accompanying explanation. You also say "explanation" a lot. The summary/abstract starts and ends with that word.
+Ward feels that the paper, the PDF, has a certain need to stand alone. Most of what he knows about GT comes from the conversations we had with Tudor. He was very impressed with how Tudor said you guys would send GT quotes back and forth via Slack, with little or no accompanying explanation. You also say "explanation" a lot. The summary/abstract starts and ends with that word.
 Oscar, at this point I had pointed out your Narrative Picture pattern to Ward and noted that it is not (yet) part of the paper.
 
 Okay, what we think is missing from the paper is the problem statement of Moldable Development. This is excellent:
@@ -10,9 +10,9 @@ https://book.gtoolkit.com/moldable-development-ejn67l5cdqh83kegi9umt1mdd
 Yet, Developers spend most of their time figuring systems out. They do that because they want to learn enough about the system to make a decision. This is the single largest development expense we have. So, we should optimize software engineering for decision making.”
 
 The Human Nature that Ward would like to see in problem statements could easily explore short-term vs long-term decisions. For example, molding is for the short term, but the information it exposes could be either, maybe even both, short for management, long for full time employees.
-
-In our view, the paper is weakened by the assumption that it is aimed at the same audience as the previously published paper. Your goal in the "book" was to inform GT students of the scope of possibilities in this product. We would hope that your goal in publishing samples through PLoP would be to spread your success more broadly. (Ward is thinking of share with him for example). 
 I probably need to explain the Human Nature thing in more detail. It has to do with how he thinks patterns should be written.
+
+In our view, the paper is weakened by the assumption that it is aimed at the same audience as the previously published paper. Your goal in the "book" was to inform GT students of the scope of possibilities in this product. We would hope that your goal in publishing samples through PLoP would be to spread your success more broadly. (Ward is thinking of sharing with him for example). 
 
 Lots of folks like to compose patterns with a template. On wiki Ward suggested two paragraphs separated by the word "Therefore" was sufficient so long as the first paragraph described a recurring problem with roots in human nature, and the second paragraph described something specific you could make or do that "resolves" the forces present in the first paragraph. I might have referred to this as Patlets once or twice. 
 
