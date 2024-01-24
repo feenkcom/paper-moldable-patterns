@@ -24,6 +24,7 @@
 \newcommand\tg[1]{\nbc{TG}{#1}{blue}}
 \newcommand\tk[1]{\nbc{Timo}{#1}{cyan}}
 \newcommand\rb[1]{\nbc{Ralf}{#1}{teal}}
+\newcommand\wc[1]{\nbc{Ward}{#1}{teal}}
 \newcommand\kh[1]{\nbc{Konrad}{#1}{violet}}
 \newcommand\eog[1]{\nbc{Edward}{#1}{purple}}
 %\newcommand\XXX[1]{\nbc{XXX}{#1}{red}}
@@ -57,8 +58,34 @@
 
 \begin{abstract}
 Moldable development supports decision-making by making software systems \emph{explainable}.
+\wc{“Moldable” is a type of development, itself a process that requires decision-
+making by someone, who?
+A system made “explainable” provides better support for decision-making, but
+how? And how much?
+Jason Fried writes, "It's all a judgment call. Every human decision is a gut
+decision. The decision itself is the messy integration of many disparate pieces of
+information, experiences, instincts, stories, and unknowns.” 
+\url{https://world.hey.com/jason/it-s-all-a-judgment-call-6ab5d025}}
 This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model.
+\wc{Tools make software explorable by navigating a model, but is the model reliable?
+Sufficiently complete?
+The model will be in terms of the problem domain, but does the domain have
+ubiquitous terminology?
+The model will be live, meaning it will acquire experience like any living thing?
+The tools will be cheap, but in what way? Inexpensive? Prone to breakage? Of
+no lasting value?}
 Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
+\wc{The authors base this publication on experience, direct personal experience in
+each case? Reports from others?
+Several repeating solutions have been identified and described as patterns using
+words and pictures.
+The patterns depend on each other in order to provide solutions, presumably
+leading to explanations.
+The patterns explain the development process, but not the system that is
+explained by the process leading to decisions.
+I now leap to the conclusion and continue careful reading. I can’t be critical of
+omission now since these sentences complete the document, rather than
+introduce it.}
 \end{abstract}
 
 % \keywords{TODO}
@@ -212,6 +239,12 @@ A custom search often benefits from a \pattern{collectionWrapper}, to allow the 
 We start by presenting the patterns that enable the cheap creation of custom tools.
 
 \rb{Lots of folks like to compose patterns with a template. On wiki Ward suggested two paragraphs separated by the word "Therefore" was sufficient so long as the first paragraph described a recurring problem with roots in human nature, and the second paragraph described something specific you could make or do that "resolves" the forces present in the first paragraph. I might have referred to this as Patlets once or twice.}
+
+\wc{Each statement describes how or where to apply a solution without explaining
+what human need causes these solutions to be routinely required. We were led
+to believe that an ability to make decisions is the root of each need. I will be
+looking for ways to understand this decision making better and to tie human
+decision making to the solutions offered by each pattern.}
 
 % ----- Moldable Tool -------------------------
 \subsection*{Moldable Tool}\label{pat:moldableTool}
@@ -981,8 +1014,24 @@ By making it cheap to build analysis tools, tool-building becomes an essential p
 
 Moldable development makes software systems explainable by making it cheap to add custom tools that support decision making.
 In practice, however, this requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
+\wc{Live programming is a paradigm shift.
+The shift is required to explore.
+The shift allows one to mold the model as explored.
+The molding is done in increments.}
 The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
 Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
+
+\wc{GT embodies these patterns.
+The authors believe the patterns have utility not tied to GT, but are they sufficient
+to match GT when applied?
+To be useful the patterns require some aspects of live programming, which
+aspects?
+This last sentence is sufficient reason for the makers of other environments to
+pay attention to this work.The claim is qualified as only a belief of the authors.
+Surely these patterns will prove valuable should the authors of GT undertake GT
+2.0 and want to be sure not to lose something important. I am left wondering
+what sort of project should be undertaken in my own environment and how that
+project's result should be evaluated.}
 
 % ===== References =========================
 %% The next two lines define the bibliography style to be used, and
