@@ -112,7 +112,7 @@ By applying moldable development, we turn questions we have about the game into 
 
 The figure shows three connected custom inspector views of a running game in Glamorous Toolkit(\GT)~\cite{feenk23a}, a moldable development environment \tg{here we talk about MoDE, but later we refer to IDE. I think it would be nice to introduce MDE earlier and talk about that.}.
 In the leftmost pane we see the game GUI as the \st{Board} view.
-We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of REPL) below the view.
+We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of REPL) below the view.\tk{REPL?}
 In the second pane we can explore the moves of  the completed game, and in the third pane we can explore individual moves.
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
@@ -161,8 +161,8 @@ An \empty{explainable system} is a software system whose domain model has been e
 Each custom tool requires the existence of a \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
 \eog{Each custom tool requires the existence of a moldable tool. By itself I don't understand what that means.
 And I'd like to see a little more maybe in terms of like, I don't know, explanation or motivation for what that is.}
-Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicate parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
-A \pattern{blindSpot} is problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
+Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicated parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
+A \pattern{blindSpot} is a problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \pattern{projectDiary} is a notebook that serves as a starting point for development tasks.
 A \pattern{throwawayAnalysisTool} can be a quick way to solve an urgent problem in a focused way.
 
@@ -208,6 +208,8 @@ Generic software tools are fine for answering generic questions, but they do not
 Scale well, I don't know what that means.}
 For example, consider a generic debugger being used to debug an event-driven application\,---\,you want to step through the chain of events, not the stack.
 A plugin architecture can open up an IDE to new tools, but plugins can be complex and expensive to implement, and they often do not play nicely with existing tools or with each other.
+
+\tk{We call it "the preplanning problem" when discussing frameworks + plug-ins as an implementation option for software product lines. You need to identify all the hot spots for potential extensions in advance, define appropriate extension points, define interfaces which are not too broad and not too narrow, etc.}
 
 \subsubsection*{Solution}
 Make the development tools \emph{moldable} to the \emph{dynamic context} of the artifacts they are intended to work with~\cite{Chis17a}.
@@ -684,7 +686,7 @@ Wrapped collections can be made plug-compatible with raw collections.
 % ===== Process =========================
 \section{Process Patterns}\label{sec:process}
 
-We conclude with the process patterns that guidance in organizing and steering moldable development tasks.
+We conclude with the process patterns that provide guidance in organizing and steering moldable development tasks.
 
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
@@ -909,7 +911,7 @@ By making it cheap to build analysis tools, tool-building becomes an essential p
 \section{Conclusion}
 
 Moldable development makes software systems explainable by making it cheap to add custom tools that support decision making.
-In practice, however, it requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
+In practice, however, this requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
 The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
 Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
 
