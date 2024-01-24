@@ -24,7 +24,7 @@
 \newcommand\tk[1]{\nbc{Timo}{#1}{cyan}}
 \newcommand\rb[1]{\nbc{Ralf}{#1}{darkgray}}
 %\newcommand\XXX[1]{\nbc{XXX}{#1}{gray}}
-\newcommand\kh[1]{\nbc{Konrad}{#1}{magenta}}
+\newcommand\kh[1]{\nbc{Konrad}{#1}{teal}}
 %\newcommand\XXX[1]{\nbc{XXX}{#1}{olive}}
 %\newcommand\XXX[1]{\nbc{XXX}{#1}{orange}}
 \newcommand\eog[1]{\nbc{Edward}{#1}{purple}}
@@ -86,6 +86,12 @@ Software analysis tools can help to some extent, but since every system and ever
 \eog{Views.
 I don't think that's a thing in vernacular, like the closest you'll find it is in the like V like where I would sit my HTML templates.}
 
+\kh{Page 2: "Generic software tools are fine for answering generic
+questions, but they do not scale well when addressing domain-specific
+questions."
+The transition from generic to domain-specific is not "scaling" by my
+definition.}
+
 \eog{Scaling to arbitrary systems.
 I'm not sure what that means.}
 
@@ -104,6 +110,8 @@ But the idea of decision making as a thing wasn't something for me until I start
   \caption{Custom views of a Ludo game.}
   \label{fig:ludoViews}
 \end{figure}
+
+\kh{the examples are well chosen (but the images are a bit small, you need to zoom in to read the text)}
 
 As a simple example, consider the inspector views of a Ludo game implementation in \autoref{fig:ludoViews}.
 With a conventional implementation, we can either try to play the game interactively, or we can stare at the source code.
@@ -133,6 +141,10 @@ These patterns have emerged over several years of experience in developing \GT f
   \label{fig:map}
 \end{figure}
 
+\kh{What is not obvious from the description of the patterns is how they
+mutually support each other. There's an opportunity for a follow-up
+paper that describes how the patterns are applied in a real project.}
+
 \eog{I think like that, the hard thing for this section number two that I found is that there's like a lot of definitions of what things are without a lot of connected motivation.
 And it felt like I don't know if this is a thing that you've ever experienced, but you sit down you play, you're ready to play a board game with some friends and then someone's like, all right, we're gonna sit down and read the rule book from like cover to cover and then everything will be good.
 And then you've got people like me who are like, what is the point of this game?
@@ -141,6 +153,9 @@ And then like from that I can gather, like my, I can interest my brain in the pa
 And it's really tough to hold on to just like a list of definitions, for example, without that.}
 
 The patterns that are concerned with \emph{Tooling} (tagged with ``T''), with \emph{Modeling} (M), or with the development \emph{Process} (P).
+\kh{Page 1: "The patterns that are concerned with Tooling (tagged with
+“T”), with Modeling (M), or with the development Process (P)."
+Parse error: not a proper sentence.}
 The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
 
 There are two distinct roles involved in moldable development:
@@ -196,6 +211,12 @@ We start by presenting the patterns that enable the cheap creation of custom too
 
 % \tg{I think we should focus the paper one what a practitioner should do. Building a moldable tool will happen less often. I am not sure it's a pattern for this audience. But maybe we can use this as an overarching example rather than a pattern.}
 
+\kh{My main criticism of the overall approach of presenting patterns is that
+some of them aren't really patterns. For me, a pattern is something that
+has been repeatedly observed in practice. The very first pattern you
+present, "Moldable Tool", probably isn't a pattern. How many moldable
+tools have been developed? I know of one.}
+
 \subsubsection*{Context}
 You are developing a software system, and find that the existing development tools fall short in supporting domain-specific questions about the software.
 
@@ -244,6 +265,9 @@ Some tooling effort is required to open up the existing IDE tools to make them m
 % ----- Contextual Playground -------------------------
 \subsection*{Contextual Playground}\label{pat:contextualPlayground}
 %\on{See \href{https://book.gtoolkit.com/contextual-playground-9jkob08mw269cpxowmbe0ld8i}{Contextual Playground book page}}
+\kh{"Contextual Playground" is a pattern, but I'd label it "process" rather
+than "tooling". On the other hand, it's also reasonable to have it right
+before "Custom View", as it's a preparation to tooling work.}
 \subsubsection*{Context}
 You have a moldable object, and you are ready to start exploring.
 
@@ -404,6 +428,7 @@ Be sure to pick an evocative button icon and tooltip text to make the intent of 
 Only add buttons for the most important actions to avoid cluttering the interface of a moldable tool.
 
 As an example, consider the inspector view of a Lepiter notebook page in \autoref{fig:customLePageAction}.
+\kh{The name "Lepiter" occurs 10 times, but is never properly introduced.}
 Common actions are to navigate to the notebook database, to view the file in which the state of the notebook page is stored, or to export an HTML version of the page.
 Each of these actions can easily be packaged as an inspector button, so that the action can be performed with a single click, opening a new inspector view of the result.
 In the example we navigate to the database holding all related notebook pages for the given project.
@@ -422,6 +447,11 @@ You need a \pattern{moldableTool} into which you can dynamically plug custom act
 \section{Modeling Patterns}\label{sec:modeling}
 
 Next we present the patterns related specifically to modeling domain entities in a way that facilitates querying and exploration of an explainable system.
+
+\kh{I find the "modeling patterns" most interesting, because they show how
+Moldable Development goes beyond the developer productivity issues that
+most IDEs focus on. They also provide a perspective on OO that is very
+different from the usual focus on the evolution of a code base. }
 
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
@@ -580,6 +610,11 @@ When you are searching for usages of an API, not only do you find examples that 
 % ----- Moldable Data Wrapper -------------------------
 \subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
 % \on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Moldable Data Wrapper book page}}
+\kh{My personal highlight is the "Moldable Collection Wrapper". I have been
+fighting a few times with the tension between "I want to add views to
+this" and "I want to have standard collection protocols on this".
+Implementing an adaptor as a trait looks like an obvious solution -
+after reading the paper.}
 \subsubsection*{Context}
 You are working in a domain with existing data that you want to turn into an explainable system.
 
@@ -731,6 +766,21 @@ For example, the ``DRAFT'' tag is used to track pages of the \GT Book that requi
 
 At the end of a project, consider recycling and rewriting the project pages to create documentation. In this way the diary can serve as a rough draft.
 
+\kh{The "Project Diary" pattern is a very useful one, and also heavily used
+in other contexts (in science we call it a "lab notebook"). But there is
+one aspect of it to which is more an ideal than reality: "At the end of
+a project, consider recycling and rewriting the project pages to create
+documentation. In this way the diary can serve as a rough draft." In my
+experience, this rarely happens, and Lepiter supports it even less than
+other tools. Typically you want to keep the diary for yourself as a
+historical record, so morphing it into documentation for others by
+successive edits is not a good approach. Ideally, I'd want to be able to
+mark parts of it for inclusion in a new document that I'd then edit, but
+I haven't yet seen any support for this. In practice, documentation gets
+written from scratch, with the diary serving only as a source of
+detailed information to be copy-pasted. Maybe one day we will see
+refactoring tools for prose.}
+
 \subsubsection*{Consequences}
 
 A live notebook is an integral part of the project, and evolves together with other software artifacts.
@@ -741,6 +791,12 @@ Notebooks can serve not only to track progress, but also as documentation for bo
 \subsection*{Tooling Buildup}\label{pat:toolingBuildup}
 %\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
 %\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
+\kh{A close second (of a non-pattern) is "Tooling
+Buildup". Has anyone outside feenk ever done this, beyond tweaking some
+parser? These two (non-)patterns are probably the biggest obstacle to
+getting started with Moldable Development. If your domain or your tech
+stack is not supported by GT out of the box, testing the idea is a very
+costly endeavor.}
 \subsubsection*{Context}
 You want to start moldable development but lack the basic infrastructure to start exploring the domain.
 You may be missing a parser for a data format or a DSL, a language bridge to an execution platform, or implementations of key analysis algorithms. 
