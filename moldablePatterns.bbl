@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{9}
+\begin{thebibliography}{10}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -178,6 +178,17 @@
 \urldef\tempurl%
 \url{https://doi.org/10.1109/VISSOFT55257.2022.00009}
 \showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Zelkowitz, Shaw, and Gannon}{Zelkowitz
+  et~al\mbox{.}}{1979}]%
+        {Zelk79b}
+\bibfield{author}{\bibinfo{person}{Marvin Zelkowitz}, \bibinfo{person}{Alan
+  Shaw}, {and} \bibinfo{person}{John Gannon}.} \bibinfo{year}{1979}\natexlab{}.
+\newblock \bibinfo{booktitle}{\emph{Principles of Software Engineering and
+  Design}}.
+\newblock \bibinfo{publisher}{Prentice Hall}.
+\newblock
 
 
 \end{thebibliography}
