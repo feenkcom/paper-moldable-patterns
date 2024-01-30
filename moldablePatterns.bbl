@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -177,6 +177,22 @@
 \newblock
 \urldef\tempurl%
 \url{https://doi.org/10.1109/VISSOFT55257.2022.00009}
+\showDOI{\tempurl}
+
+
+\bibitem[\protect\citeauthoryear{Stallman}{Stallman}{1981}]%
+        {Stal81a}
+\bibfield{author}{\bibinfo{person}{Richard~M. Stallman}.}
+  \bibinfo{year}{1981}\natexlab{}.
+\newblock \showarticletitle{EMACS the Extensible, Customizable Self-documenting
+  Display Editor}.
+\newblock \bibinfo{journal}{\emph{ACM SIGOA Newsletter}} \bibinfo{volume}{2},
+  \bibinfo{number}{1-2} (\bibinfo{date}{April} \bibinfo{year}{1981}),
+  \bibinfo{pages}{147--156}.
+\newblock
+\showISSN{0737-819X}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1159890.806466}
 \showDOI{\tempurl}
 
 

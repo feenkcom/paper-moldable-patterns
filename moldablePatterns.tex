@@ -20,7 +20,7 @@
 \input{st80.tex}
 % ============================================================
 % Macros for this paper
-% \renewcommand{\nbc}[3]{} % To hide reviewer comments
+\renewcommand{\nbc}[3]{} % To hide reviewer comments
 \newcommand\on[1]{\nbc{ON}{#1}{olive}} % add more author macros here
 \newcommand\tg[1]{\nbc{TG}{#1}{blue}}
 \newcommand\tk[1]{\nbc{Timo}{#1}{cyan}}
@@ -61,9 +61,9 @@
 Moldable development supports decision-making by making software systems \emph{explainable}.
 %\wc{“Moldable” is a type of development, itself a process that requires decision- making by someone, who? A system made “explainable” provides better support for decision-making, but how? And how much? Jason Fried writes, "It's all a judgment call. Every human decision is a gut decision. The decision itself is the messy integration of many disparate pieces of information, experiences, instincts, stories, and unknowns.” \url{https://world.hey.com/jason/it-s-all-a-judgment-call-6ab5d025}} \todo{Explain what we mean by decision making.}
 This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model.
-\wc{Tools make software explorable by navigating a model, but is the model reliable? Sufficiently complete? The model will be in terms of the problem domain, but does the domain have ubiquitous terminology? The model will be live, meaning it will acquire experience like any living thing? The tools will be cheap, but in what way? Inexpensive? Prone to breakage? Of no lasting value?}
+%\wc{Tools make software explorable by navigating a model, but is the model reliable? Sufficiently complete? The model will be in terms of the problem domain, but does the domain have ubiquitous terminology? The model will be live, meaning it will acquire experience like any living thing? The tools will be cheap, but in what way? Inexpensive? Prone to breakage? Of no lasting value?}
 Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
-\wc{The authors base this publication on experience, direct personal experience in each case? Reports from others? Several repeating solutions have been identified and described as patterns using words and pictures. The patterns depend on each other in order to provide solutions, presumably leading to explanations. The patterns explain the development process, but not the system that is explained by the process leading to decisions. I now leap to the conclusion and continue careful reading. I can’t be critical of omission now since these sentences complete the document, rather than introduce it.}
+%\wc{The authors base this publication on experience, direct personal experience in each case? Reports from others? Several repeating solutions have been identified and described as patterns using words and pictures. The patterns depend on each other in order to provide solutions, presumably leading to explanations. The patterns explain the development process, but not the system that is explained by the process leading to decisions. I now leap to the conclusion and continue careful reading. I can’t be critical of omission now since these sentences complete the document, rather than introduce it.}
 \end{abstract}
 
 % \keywords{TODO}
@@ -73,7 +73,7 @@ Based on several years of experience of applying moldable development to both op
 % ===== Introduction =========================
 \section{Introduction: Moldable development in a Nutshell}
 
-\eog{I think the biggest pieces of feedback I've got are centered around as a person who comes from industry like web development, there's terms in here that I would not consider in the vernacular of a like normal industry developer. And I think that it might get in the way of doing what you're trying to do.} \todo{Change terminology or elaborate where appropriate}
+%\eog{I think the biggest pieces of feedback I've got are centered around as a person who comes from industry like web development, there's terms in here that I would not consider in the vernacular of a like normal industry developer. And I think that it might get in the way of doing what you're trying to do.} \todo{Change terminology or elaborate where appropriate}
 
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it can be difficult to extract that knowledge.
@@ -88,9 +88,9 @@ Software analysis tools can help to some extent, but since every system and ever
 %\eog{Views. I don't think that's a thing in vernacular, like the closest you'll find it is in the like V like where I would sit my HTML templates.} % fixed
 %\eog{Scaling to arbitrary systems. I'm not sure what that means.} % rephrased
 
-\rb{Okay, what we think is missing from the paper is the problem statement of Moldable Development. This is excellent: \url{https://book.gtoolkit.com/moldable-development-ejn67l5cdqh83kegi9umt1mdd} “When we think of software development, we typically think about the active part. Of constructing. Of building new worlds that never existed. It's an empowering view. Yet, Developers spend most of their time figuring systems out. They do that because they want to learn enough about the system to make a decision. This is the single largest development expense we have. So, we should optimize software engineering for decision making.”} % added paragraph from GT book with citation Zelk79b
+%\rb{Okay, what we think is missing from the paper is the problem statement of Moldable Development. This is excellent: \url{https://book.gtoolkit.com/moldable-development-ejn67l5cdqh83kegi9umt1mdd} “When we think of software development, we typically think about the active part. Of constructing. Of building new worlds that never existed. It's an empowering view. Yet, Developers spend most of their time figuring systems out. They do that because they want to learn enough about the system to make a decision. This is the single largest development expense we have. So, we should optimize software engineering for decision making.”} % added paragraph from GT book with citation Zelk79b
 
-\eog{So I think one of the first things that popped out was this idea of decision making is a thing. If you talk about it some more than like I get it. But the idea of decision making as a thing wasn't something for me until I started to work at feenk.}
+%\eog{So I think one of the first things that popped out was this idea of decision making is a thing. If you talk about it some more than like I get it. But the idea of decision making as a thing wasn't something for me until I started to work at feenk.}
 
 \ins{When we think of software development, we typically think about the active part.
 Of constructing.
@@ -101,7 +101,7 @@ They do that because they want to learn enough about the system to make a decisi
 This is the single largest development expense we have.
 So, we should optimize software engineering for decision making.}
 
-\rb{The Human Nature that Ward would like to see in problem statements could easily explore short-term vs long-term decisions. For example, molding is for the short term, but the information it exposes could be either, maybe even both, short for management, long for full time employees. I probably need to explain the Human Nature thing in more detail. It has to do with how he thinks patterns should be written.}
+%\rb{The Human Nature that Ward would like to see in problem statements could easily explore short-term vs long-term decisions. For example, molding is for the short term, but the information it exposes could be either, maybe even both, short for management, long for full time employees. I probably need to explain the Human Nature thing in more detail. It has to do with how he thinks patterns should be written.}
 
 Moldable development is an approach to constructing software systems that are \emph{explainable}.
 This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
@@ -109,14 +109,14 @@ These custom tools consist of small extensions to the \emph{moldable} tools of t
 
 \ins{Every part of a software system deals with a particular \emph{domain}, whether this be the \emph{business domain} of the overall application, or a more \emph{technical domain}  of the underlying application.
 The net effect of moldable development is to \emph{expose} the underlying models of these diverse domains (\ie the ``domain models'') so that they become explainable, and support decision making.}
-\eog{Domain models. I got into talking about domain models, like I wanna say, 12 years in. And until then I just, like, never heard about domain driven development. What a domain model really was like a model to me was the M in MVC.}
-\tg{explainability extends to other parts that would not be considered domain model. For example, a static dependency graph shows how the system is composed based on a model, but I believe it would not be understood to fall under the domain model. Either we explain what we mean by domain model to also include such variations, or we choose another term.}
+%\eog{Domain models. I got into talking about domain models, like I wanna say, 12 years in. And until then I just, like, never heard about domain driven development. What a domain model really was like a model to me was the M in MVC.}
+%\tg{explainability extends to other parts that would not be considered domain model. For example, a static dependency graph shows how the system is composed based on a model, but I believe it would not be understood to fall under the domain model. Either we explain what we mean by domain model to also include such variations, or we choose another term.}
 
 \ins{The Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
 The examples we use to illustrate moldable development in this paper are all drawn from GT.}
-\tg{could we introduce here the moldable development environment as a concept?}
 
-\eog{For example, an object inspector also not a thing in the vernacular from where I come from.}
+%\tg{could we introduce here the moldable development environment as a concept?}
+%\eog{For example, an object inspector also not a thing in the vernacular from where I come from.}
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{customViews}
@@ -146,8 +146,7 @@ In our experience applying moldable development to many industrial and open sour
 % ===== Moldable Development Patterns =========================
 \section{Moldable Development Patterns}
 
-\rb{Ward feels that the paper, the PDF, has a certain need to stand alone. Most of what he knows about GT comes from the conversations we had with Tudor. He was very impressed with how Tudor said you guys would send GT quotes back and forth via Slack, with little or no accompanying explanation. You also say "explanation" a lot. The summary/abstract starts and ends with that word.
-Oscar, at this point I had pointed out your Narrative Picture pattern to Ward and noted that it is not (yet) part of the paper.}
+%\rb{Ward feels that the paper, the PDF, has a certain need to stand alone. Most of what he knows about GT comes from the conversations we had with Tudor. He was very impressed with how Tudor said you guys would send GT quotes back and forth via Slack, with little or no accompanying explanation. You also say "explanation" a lot. The summary/abstract starts and ends with that word. Oscar, at this point I had pointed out your Narrative Picture pattern to Ward and noted that it is not (yet) part of the paper.}
 
 \rb{In our view, the paper is weakened by the assumption that it is aimed at the same audience as the previously published paper. Your goal in the "book" was to inform GT students of the scope of possibilities in this product. We would hope that your goal in publishing samples through PLoP would be to spread your success more broadly. (Ward is thinking of sharing with him for example). }
 
@@ -188,17 +187,14 @@ At the top of the map we have ``Explainable System,'' which is not a pattern per
 An \empty{explainable system} is a software system whose domain model has been exposed with the help of numerous custom tools~\cite{Nier22a}.
 
 Each custom tool \chg{requires the existence of a}{can be seen as an extension of an existing} \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
-\eog{Each custom tool requires the existence of a moldable tool. By itself I don't understand what that means. And I'd like to see a little more maybe in terms of like, I don't know, explanation or motivation for what that is.}
+%\eog{Each custom tool requires the existence of a moldable tool. By itself I don't understand what that means. And I'd like to see a little more maybe in terms of like, I don't know, explanation or motivation for what that is.}
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicated parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \pattern{blindSpot} is a problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \pattern{projectDiary} is a notebook that serves as a starting point for development tasks.
 A \pattern{throwawayAnalysisTool} can be a quick way to solve an urgent problem in a focused way.
 
 Moldable development itself starts with a \pattern{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
-\eog{So a moldable object can be explored.
-I don't think that's a thing in vernacular like I'm saying this, but I'm coming from a place where like if you talk about it and you explain it, you're like, yes, I do do that.
-I just like, didn't have a name for it.
-And it's, I feel like a lot of this is also related to that idea of like, it's like talking to fish about water, like the idea of explainability views and this kind of stuff like software developers do this, but they just don't have awareness that they're doing it.}
+%\eog{So a moldable object can be explored. I don't think that's a thing in vernacular like I'm saying this, but I'm coming from a place where like if you talk about it and you explain it, you're like, yes, I do do that. I just like, didn't have a name for it. And it's, I feel like a lot of this is also related to that idea of like, it's like talking to fish about water, like the idea of explainability views and this kind of stuff like software developers do this, but they just don't have awareness that they're doing it.}
 An interesting instance can be encapsulated as an \pattern{exampleObject}, essentially a unit test that returns a tested object.
 An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
 In case the domain includes already existing data entities, each of these can be wrapped in a \pattern{moldableDataWrapper} to produce a moldable object.
@@ -246,8 +242,7 @@ How can you cheaply and effectively extend the development environment with doma
 
 \subsubsection*{Forces}
 Generic software tools are fine for answering generic questions, but they do not \chg{scale}{work} well when addressing domain-specific questions.
-\eog{Another thing about, like, generic software tools, I don't know what that is.
-Scale well, I don't know what that means.}
+%\eog{Another thing about, like, generic software tools, I don't know what that is. Scale well, I don't know what that means.}
 For example, consider a generic debugger being used to debug an event-driven application\,---\,you want to step through the chain of events, not the stack.
 A plugin architecture can open up an IDE to new tools, but plugins can be complex and expensive to implement, and they often do not play nicely with existing tools or with each other.
 
@@ -294,9 +289,7 @@ before "Custom View", as it's a preparation to tooling work.}
 \subsubsection*{Context}
 You have a moldable object, and you are ready to start exploring.
 
-\eog{Page three, you have a moldable object and you're ready to start exploring.
-Where does this fit in with a normal job or workflow?
-I think like if you read the whole paper and then you chew on it and then you read it again, the stuff makes sense, but it's difficult to get there the first pass through and maybe that's OK, maybe it's not important?}
+%\eog{Page three, you have a moldable object and you're ready to start exploring. Where does this fit in with a normal job or workflow? I think like if you read the whole paper and then you chew on it and then you read it again, the stuff makes sense, but it's difficult to get there the first pass through and maybe that's OK, maybe it's not important?}
 
 \eog{So you're exploring maybe we could talk about what, what exploring means.
 Like if you ask a regular developer, like tell me about the explorations you've done this morning, versus, hey, what kind of like debugging or like learning about the system?}
@@ -839,11 +832,7 @@ Pick one of these blind spots as a target.
 The task should be feasible in reasonable time but non-trivial.
 There should be a clear value for the stakeholder, that is, do something that the stakeholder has difficulty with.
 
-\eog{really like this blind spot pattern.
-pointing out things that are difficult to understand modern debug.
-I, I almost want to like, say this is another like first place that we should talk about.
-You do that.
-I, I just wonder like should we like lift this further up in the paper or talk about it first?}
+\eog{I really like this blind spot pattern. pointing out things that are difficult to understand modern debug. I almost want to like, say this is another like first place that we should talk about. You do that. I just wonder like should we like lift this further up in the paper or talk about it first?}
 
 Some typical examples are 
 \begin{inparaenum}[(i)]
@@ -957,15 +946,17 @@ By making it cheap to build analysis tools, tool-building becomes an essential p
 % ===== Conclusion =========================
 \section{Conclusion}
 
+The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
 Moldable development makes software systems explainable by making it cheap to add custom tools that support decision making.
 In practice, however, this requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
 %\wc{Live programming is a paradigm shift. The shift is required to explore. The shift allows one to mold the model as explored. The molding is done in increments.}
-The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
+
 Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
+\ins{The key to supporting moldable development is the pattern \pattern{moldableTool}.
+The tools of the environment need to be open to small, custom changes that support decision-making by answering questions about the underlying system under development.
+An example of another system that support such changes is Emacs~\cite{Stal81a}, though it was not designed to support moldable development as we describe it.}
 
-\todo{Add more explanation about GT for other languages and platforms.}
-
-\wc{GT embodies these patterns. The authors believe the patterns have utility not tied to GT, but are they sufficient to match GT when applied? To be useful the patterns require some aspects of live programming, which aspects? This last sentence is sufficient reason for the makers of other environments to pay attention to this work.The claim is qualified as only a belief of the authors. Surely these patterns will prove valuable should the authors of GT undertake GT 2.0 and want to be sure not to lose something important. I am left wondering what sort of project should be undertaken in my own environment and how that project's result should be evaluated.}
+%\wc{GT embodies these patterns. The authors believe the patterns have utility not tied to GT, but are they sufficient to match GT when applied? To be useful the patterns require some aspects of live programming, which aspects? This last sentence is sufficient reason for the makers of other environments to pay attention to this work.The claim is qualified as only a belief of the authors. Surely these patterns will prove valuable should the authors of GT undertake GT 2.0 and want to be sure not to lose something important. I am left wondering what sort of project should be undertaken in my own environment and how that project's result should be evaluated.}
 
 % ===== References =========================
 %% The next two lines define the bibliography style to be used, and
