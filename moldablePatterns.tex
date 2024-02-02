@@ -1,6 +1,6 @@
 %% This file is cloned from `sample-sigconf.tex',
 \documentclass[sigconf]{acmart}
-%% \BibTeX command to typeset BibTeX logo in the docs
+%% BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
   \providecommand\BibTeX{{%
     Bib\TeX}}}
@@ -59,25 +59,20 @@
 
 \begin{abstract}
 Moldable development supports decision-making by making software systems \emph{explainable}.
-%\wc{“Moldable” is a type of development, itself a process that requires decision- making by someone, who? A system made “explainable” provides better support for decision-making, but how? And how much? Jason Fried writes, "It's all a judgment call. Every human decision is a gut decision. The decision itself is the messy integration of many disparate pieces of information, experiences, instincts, stories, and unknowns.” \url{https://world.hey.com/jason/it-s-all-a-judgment-call-6ab5d025}} \todo{Explain what we mean by decision making.}
 This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model.
-%\wc{Tools make software explorable by navigating a model, but is the model reliable? Sufficiently complete? The model will be in terms of the problem domain, but does the domain have ubiquitous terminology? The model will be live, meaning it will acquire experience like any living thing? The tools will be cheap, but in what way? Inexpensive? Prone to breakage? Of no lasting value?}
 Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
-%\wc{The authors base this publication on experience, direct personal experience in each case? Reports from others? Several repeating solutions have been identified and described as patterns using words and pictures. The patterns depend on each other in order to provide solutions, presumably leading to explanations. The patterns explain the development process, but not the system that is explained by the process leading to decisions. I now leap to the conclusion and continue careful reading. I can’t be critical of omission now since these sentences complete the document, rather than introduce it.}
 \end{abstract}
 
-% \keywords{TODO}
+\keywords{Software development; software modeling and analysis; software testing; explainable systems.}
 
 \maketitle
 
 % ===== Introduction =========================
 \section{Introduction: Moldable development in a Nutshell}
 
-%\eog{I think the biggest pieces of feedback I've got are centered around as a person who comes from industry like web development, there's terms in here that I would not consider in the vernacular of a like normal industry developer. And I think that it might get in the way of doing what you're trying to do.} \todo{Change terminology or elaborate where appropriate}
-
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it can be difficult to extract that knowledge.
-The usual \ins{ways to view} software systems are
+The usual ways to view software systems are
 \begin{inparaenum}[(i)]
 \item the source code, and
 \item the running system.
@@ -85,38 +80,24 @@ The usual \ins{ways to view} software systems are
 But neither of these lends itself well to answering questions about the system.
 Software analysis tools can help to some extent, but since every system and every problem is different, it is rare for generic analysis tools \emph{to be effective for arbitrary systems.}
 
-%\eog{Views. I don't think that's a thing in vernacular, like the closest you'll find it is in the like V like where I would sit my HTML templates.} % fixed
-%\eog{Scaling to arbitrary systems. I'm not sure what that means.} % rephrased
-
-%\rb{Okay, what we think is missing from the paper is the problem statement of Moldable Development. This is excellent: \url{https://book.gtoolkit.com/moldable-development-ejn67l5cdqh83kegi9umt1mdd} “When we think of software development, we typically think about the active part. Of constructing. Of building new worlds that never existed. It's an empowering view. Yet, Developers spend most of their time figuring systems out. They do that because they want to learn enough about the system to make a decision. This is the single largest development expense we have. So, we should optimize software engineering for decision making.”} % added paragraph from GT book with citation Zelk79b
-
-%\eog{So I think one of the first things that popped out was this idea of decision making is a thing. If you talk about it some more than like I get it. But the idea of decision making as a thing wasn't something for me until I started to work at feenk.}
-
-\ins{When we think of software development, we typically think about the active part.
+When we think of software development, we typically think about the active part.
 Of constructing.
 Of building new worlds that never existed.
 It's an empowering view.
 Yet, developers spend most of their time figuring systems out~\cite{Zelk79b}.
 They do that because they want to learn enough about the system to make a decision.
 This is the single largest development expense we have.
-So, we should optimize software engineering for decision making.}
-
-%\rb{The Human Nature that Ward would like to see in problem statements could easily explore short-term vs long-term decisions. For example, molding is for the short term, but the information it exposes could be either, maybe even both, short for management, long for full time employees. I probably need to explain the Human Nature thing in more detail. It has to do with how he thinks patterns should be written.}
+So, we should optimize software engineering for decision making.
 
 Moldable development is an approach to constructing software systems that are \emph{explainable}.
 This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
 These custom tools consist of small extensions to the \emph{moldable} tools of the integrated development environment (IDE), such as the object inspector, the code editor, the debugger and the notebook.
 
-\ins{Every part of a software system deals with a particular \emph{domain}, whether this be the \emph{business domain} of the overall application, or a more \emph{technical domain}  of the underlying application.
-The net effect of moldable development is to \emph{expose} the underlying models of these diverse domains (\ie the ``domain models'') so that they become explainable, and support decision making.}
-%\eog{Domain models. I got into talking about domain models, like I wanna say, 12 years in. And until then I just, like, never heard about domain driven development. What a domain model really was like a model to me was the M in MVC.}
-%\tg{explainability extends to other parts that would not be considered domain model. For example, a static dependency graph shows how the system is composed based on a model, but I believe it would not be understood to fall under the domain model. Either we explain what we mean by domain model to also include such variations, or we choose another term.}
+Every part of a software system deals with a particular \emph{domain}, whether this be the \emph{business domain} of the overall application, or a more \emph{technical domain}  of the underlying application.
+The net effect of moldable development is to \emph{expose} the underlying models of these diverse domains (\ie the ``domain models'') so that they become explainable, and support decision making.
 
-\ins{The Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
-The examples we use to illustrate moldable development in this paper are all drawn from GT.}
-
-%\tg{could we introduce here the moldable development environment as a concept?}
-%\eog{For example, an object inspector also not a thing in the vernacular from where I come from.}
+The Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
+The examples we use to illustrate moldable development in this paper are all drawn from GT.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{customViews}
@@ -124,17 +105,14 @@ The examples we use to illustrate moldable development in this paper are all dra
   \label{fig:ludoViews}
 \end{figure}
 
-%\kh{the examples are well chosen (but the images are a bit small, you need to zoom in to read the text)}
-
 As a simple example, consider the inspector views of a Ludo game implementation in \autoref{fig:ludoViews}.
 With a conventional implementation, we can either try to play the game interactively, or we can stare at the source code.
 We can also run the tests, but if these are all green, they do not help us to understand the system.
 By applying moldable development, we turn questions we have about the game into custom views.
 
 The figure shows three connected custom inspector views of a running game in GT.
-% Glamorous Toolkit(\GT)~\cite{feenk23a}, a moldable development environment \tg{here we talk about MoDE, but later we refer to IDE. I think it would be nice to introduce MDE earlier and talk about that.}. \todo{FIX THIS -- refer to GT earlier}
 In the leftmost pane we see the game GUI as the \st{Board} view.
-We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of \chg{REPL}{interactive shell}) below the view. %\tk{REPL?}
+We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of interactive shell) below the view.
 In the second pane we can explore the moves of  the completed game, and in the third pane we can explore individual moves.
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
@@ -146,12 +124,9 @@ In our experience applying moldable development to many industrial and open sour
 % ===== Moldable Development Patterns =========================
 \section{Moldable Development Patterns}
 
-%\rb{Ward feels that the paper, the PDF, has a certain need to stand alone. Most of what he knows about GT comes from the conversations we had with Tudor. He was very impressed with how Tudor said you guys would send GT quotes back and forth via Slack, with little or no accompanying explanation. You also say "explanation" a lot. The summary/abstract starts and ends with that word. Oscar, at this point I had pointed out your Narrative Picture pattern to Ward and noted that it is not (yet) part of the paper.}
-
 \rb{In our view, the paper is weakened by the assumption that it is aimed at the same audience as the previously published paper. Your goal in the "book" was to inform GT students of the scope of possibilities in this product. We would hope that your goal in publishing samples through PLoP would be to spread your success more broadly. (Ward is thinking of sharing with him for example). }
 
 Moldable development can be understood in terms of a collection of mutually supporting 
-%\del{design and process} \tg{the term design introduces a new category that we do not talk about later on - it's somehow overlapping tooling and modelling. I would talk here only about patterns and only and only later introduce the difference categories} 
 patterns, in other words, a \emph{pattern language}, summarized in \autoref{fig:map}.
 These patterns have emerged over several years of experience in developing \GT following moldable development, and applying it to numerous projects.
 
@@ -174,7 +149,6 @@ And it's really tough to hold on to just like a list of definitions, for example
 
 The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
 The patterns that are concerned with \emph{Tooling} are tagged with ``(T)'', with \emph{Modeling} ``(M)'', and with the development \emph{Process} ``(P)''.
-%\kh{Page 1: "The patterns that are concerned with Tooling (tagged with “T”), with Modeling (M), or with the development Process (P)." Parse error: not a proper sentence.}
 
 There are two distinct roles involved in moldable development:
 \begin{inparaenum}[(i)]
@@ -186,15 +160,13 @@ In a purely technical domain, these two roles can often be played by the same pe
 At the top of the map we have ``Explainable System,'' which is not a pattern per se, but rather the goal of moldable development.
 An \empty{explainable system} is a software system whose domain model has been exposed with the help of numerous custom tools~\cite{Nier22a}.
 
-Each custom tool \chg{requires the existence of a}{can be seen as an extension of an existing} \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
-%\eog{Each custom tool requires the existence of a moldable tool. By itself I don't understand what that means. And I'd like to see a little more maybe in terms of like, I don't know, explanation or motivation for what that is.}
+Each custom tool can be seen as an extension of an existing \pattern{moldableTool}, which can be cheaply adapted by a simple customization.
 Some domains require a preliminary phase of \pattern{toolingBuildup}, for example, to create dedicated parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \pattern{blindSpot} is a problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \pattern{projectDiary} is a notebook that serves as a starting point for development tasks.
 A \pattern{throwawayAnalysisTool} can be a quick way to solve an urgent problem in a focused way.
 
 Moldable development itself starts with a \pattern{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
-%\eog{So a moldable object can be explored. I don't think that's a thing in vernacular like I'm saying this, but I'm coming from a place where like if you talk about it and you explain it, you're like, yes, I do do that. I just like, didn't have a name for it. And it's, I feel like a lot of this is also related to that idea of like, it's like talking to fish about water, like the idea of explainability views and this kind of stuff like software developers do this, but they just don't have awareness that they're doing it.}
 An interesting instance can be encapsulated as an \pattern{exampleObject}, essentially a unit test that returns a tested object.
 An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
 In case the domain includes already existing data entities, each of these can be wrapped in a \pattern{moldableDataWrapper} to produce a moldable object.
@@ -226,8 +198,6 @@ decision making to the solutions offered by each pattern.}
 % ----- Moldable Tool -------------------------
 \subsection*{Moldable Tool}\label{pat:moldableTool}
 
-% \tg{I think we should focus the paper one what a practitioner should do. Building a moldable tool will happen less often. I am not sure it's a pattern for this audience. But maybe we can use this as an overarching example rather than a pattern.}
-
 \kh{My main criticism of the overall approach of presenting patterns is that
 some of them aren't really patterns. For me, a pattern is something that
 has been repeatedly observed in practice. The very first pattern you
@@ -241,12 +211,9 @@ You are developing a software system, and find that the existing development too
 How can you cheaply and effectively extend the development environment with domain-specific tools that address your application domain?
 
 \subsubsection*{Forces}
-Generic software tools are fine for answering generic questions, but they do not \chg{scale}{work} well when addressing domain-specific questions.
-%\eog{Another thing about, like, generic software tools, I don't know what that is. Scale well, I don't know what that means.}
+Generic software tools are fine for answering generic questions, but they do not work well when addressing domain-specific questions.
 For example, consider a generic debugger being used to debug an event-driven application\,---\,you want to step through the chain of events, not the stack.
 A plugin architecture can open up an IDE to new tools, but plugins can be complex and expensive to implement, and they often do not play nicely with existing tools or with each other.
-
-%\kh{Page 2: "Generic software tools are fine for answering generic questions, but they do not scale well when addressing domain-specific questions." The transition from generic to domain-specific is not "scaling" by my definition.}
 
 \tk{We call it "the preplanning problem" when discussing frameworks + plug-ins as an implementation option for software product lines. You need to identify all the hot spots for potential extensions in advance, define appropriate extension points, define interfaces which are not too broad and not too narrow, etc.}
 
@@ -282,14 +249,11 @@ Some tooling effort is required to open up the existing IDE tools to make them m
 
 % ----- Contextual Playground -------------------------
 \subsection*{Contextual Playground}\label{pat:contextualPlayground}
-%\on{See \href{https://book.gtoolkit.com/contextual-playground-9jkob08mw269cpxowmbe0ld8i}{Contextual Playground book page}}
 \kh{"Contextual Playground" is a pattern, but I'd label it "process" rather
 than "tooling". On the other hand, it's also reasonable to have it right
 before "Custom View", as it's a preparation to tooling work.}
 \subsubsection*{Context}
 You have a moldable object, and you are ready to start exploring.
-
-%\eog{Page three, you have a moldable object and you're ready to start exploring. Where does this fit in with a normal job or workflow? I think like if you read the whole paper and then you chew on it and then you read it again, the stuff makes sense, but it's difficult to get there the first pass through and maybe that's OK, maybe it's not important?}
 
 \eog{So you're exploring maybe we could talk about what, what exploring means.
 Like if you ask a regular developer, like tell me about the explorations you've done this morning, versus, hey, what kind of like debugging or like learning about the system?}
@@ -306,12 +270,9 @@ Writing tests first for parts of the logic of a complex method can be overkill.
 
 \subsubsection*{Solution}
 Prototype new behavior in the contextual playground of the inspector on a \pattern{moldableObject}.
-The playground will be bound to the context of the instance, so \st{self} and all slots (\ie \chg{fields}{instance variables}) can be accessed exactly as they would in a running method.
-%\eog{Right fields, maybe you want to refer to instance variables, that's what or like whatever they're called in Python, for example, that may be a way to make this more accessible.}
+The playground will be bound to the context of the instance, so \st{self} and all slots (\ie instance variables) can be accessed exactly as they would in a running method.
 From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
 Code snippets that work as expected can then be copy-pasted to existing methods, or extracted to new methods using an \emph{Extract method} refactoring~\cite{Fowl99a}.
-
-% \tg{Perhaps we could show here an example of a Python object showing custom views (we now have a movie example in the book) and a python snippet to navigate it.}
 
 In \autoref{fig:inspectingPythonObjects} we see an inspector view of an instance of a Python \st{MovieCollection} class.
 
@@ -322,30 +283,18 @@ In \autoref{fig:inspectingPythonObjects} we see an inspector view of an instance
 \end{figure}
 
 In the contextual playground we experiment with Python code to extract a particular movie.
-We \chg{leverage}{use} a \pattern{customView} of the \st{MovieCollection} and of the \st{Movie} to aid our exploration.
-%\eog{I don't know how you feel about language notes like this, like we leverage. You could also say we use}
+We use a \pattern{customView} of the \st{MovieCollection} and of the \st{Movie} to aid our exploration.
 Note that \st{self} in the code snippet is bound to the context of the \st{MovieCollection} instance.
 Once we have identified some useful code, we can extract it as a new method of the object.
 Similarly, if we identify an interesting instance, we can use the code to define an \pattern{exampleObject}.
 
-%In \autoref{fig:contextualPlayground} we see an inspector view of an instance of a Ludo game.
-%We want to prototype an ``autoplay'' feature that will automatically roll the die for the current player, or move one of the player's tokens the rolled number of positions.
-%We prototype the behavior in the contextual playground at the bottom of the inspector on the game instance.
-%By evaluating the code snippet and inspecting the result, we can explore the current player after a move in the second pane at right.
-%We can similarly open a contextual playground on the player, if we need to.
-%Once we are happy with the new behavior, we can extract it as a new method.
-
 A well-known use of contextual playgrounds is the JavaScript console of a modern web browser: while inspecting a live web page, you can explore and programmatically interact with the live objects in the run-time environment of the page.
-
-%\eog{I really like this part talking about the inspection of a live web page. Like that is a thing that I can think of. Like a lot of people being intimately familiar with and it is a great metaphor or like link to those kind of patterns descriptions that you're referring to.}
 
 \subsubsection*{Consequences}
 By prototyping new behavior in a contextual playground, you obtain immediate feedback for experimental code.
 
 % ----- Custom View -------------------------
 \subsection*{Custom View}\label{pat:customView}
-%\on{See \href{https://book.gtoolkit.com/viewable-entity-9jkob0898tctthh5o3m23fv4e}{Viewable entity book page}}
-% AKA Viewable Entity
 \subsubsection*{Context}
 You are exploring a live domain model and find some interesting information.
 
@@ -423,7 +372,6 @@ The same search interface can accommodate multiple custom searches to query diff
 
 % ----- Custom Action -------------------------
 \subsection*{Custom Action}\label{pat:customAction}
-% \on{See \href{https://book.gtoolkit.com/custom-action-7ed0nuwfqc5qp8b1b257cavgy}{Custom Action book page}}
 \subsubsection*{Context}
 You are developing an explorable domain model of your application and find yourself repeatedly evaluating the same code snippets to perform a certain action or navigate to another object.
 
@@ -440,8 +388,7 @@ Add a custom action button to the moldable tool for the object involved in a rep
 Be sure to pick an evocative button icon and tooltip text to make the intent of the button clear.
 Only add buttons for the most important actions to avoid cluttering the interface of a moldable tool.
 
-As an example, consider the inspector view in \autoref{fig:customLePageAction} of a notebook page in Lepiter~\cite{Girb21a}, \ins{the live documentation system of GT.}
-%\kh{The name "Lepiter" occurs 10 times, but is never properly introduced.}
+As an example, consider the inspector view in \autoref{fig:customLePageAction} of a notebook page in Lepiter~\cite{Girb21a}, the live documentation system of GT.
 Common actions are to navigate to the notebook database, to view the file in which the state of the notebook page is stored, or to export an HTML version of the page.
 Each of these actions can easily be packaged as an inspector button, so that the action can be performed with a single click, opening a new inspector view of the result.
 In the example we navigate to the database holding all related notebook pages for the given project.
@@ -461,18 +408,11 @@ You need a \pattern{moldableTool} into which you can dynamically plug custom act
 
 Next we present the patterns related specifically to modeling domain entities in a way that facilitates querying and exploration of an explainable system.
 
-%\kh{I find the "modeling patterns" most interesting, because they show how Moldable Development goes beyond the developer productivity issues that most IDEs focus on. They also provide a perspective on OO that is very different from the usual focus on the evolution of a code base. }
-
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
-%\on{See \href{https://book.gtoolkit.com/moldable-object-9jkob03k21sbjujct0kh60016}{Moldable Object}}
-
-%\tg{This pattern seems to be described differently from the book. In the book it's about programming in the context of the object. Here we talk about creating it. I think the focus should be like in the book. The creation is a consequence of that.}
 
 \subsubsection*{Context}
 You are ready to start the process of creating an explainable system, either from scratch, or based on some existing software or data.
-
-%\eog{Moldable object context, you have got your basic infrastructure in place. I don't know what that is and I would love a little pointer or more of an explanation.}
 
 \subsubsection*{Problem}
 Where do you start coding an explainable system?
@@ -482,13 +422,9 @@ As a programmer, you want to quickly get feedback about the code you are writing
 When you write code in a conventional code editor, you are several steps away from seeing the consequences of your coding.
 To write unit tests, you must already know what behavior you want to test and what the results should be.
 
-%\eog{When you write code in a classical IDE, I only know one type of IDE. And so when you talk about classical, I think this, this gets in your way, you like in the way of your goal more than it adds start coding by inspecting a moldable object.}
-
 \subsubsection*{Solution}
 Start coding by inspecting a moldable object, that is, a live instance of the class you are coding, \emph{not in a code editor}.
 Then incrementally pose domain-specific questions, find the answers by exploring and interacting with the object, and then turn those answers into custom tools, behaviors and tests.
-
-%\eog{And then this just, this is like huge, this is awesome. I'd love an article just on doing this. I wonder if there's a way that we can like push this up because this is this is the stuff, this is like what got me into talking to Tudor in the first place.}
 
 Moldable development is about making systems explainable with the help of custom tools, which means that you need to start the process by asking questions that you want to answer.
 In most cases you can't immediately start building the custom tools, but rather you need to explore the domain objects to understand how to answer the question.
@@ -496,11 +432,6 @@ Once you know how to get the answer, you can turn the exploration steps into a c
 Starting with a live object means that you can immediately start the exploration process.
 Turning the exploration of an object into a custom tool is the process of molding it, hence we call it a ``moldable object.''
 
-%\eog{In most cases, you can't immediately start building the custom tools. So like here's like more stuff like I wish this went further 1st, 1st, further up. Right, and turning the exploration of an object into a custom tool. Like this is, this is really big.}
-
-%\eog{The programming in the live REPL is huge and a big deal different from the usual like it is a batch process approach. Of making changes and then guessing and tracking. Like that's how a lot of work got done at Shopify. I would watch people, like, maybe they'd have their exploration done in a test, like at best, maybe in a console. But there would be a lot of like, does this work and then you'd have to, like, go to your editor and make some changes. Hope. The reloading was very unreliable and then, you'd have to like restart the whole system and doing that. It, it just took forever. It sucked. And so when I saw GT at work, like that was magic.}
-
-%\tg{I like how this delegates the creation part to other patterns}
 How do you obtain a moldable object?
 \begin{itemize}[---]
 \item \emph{You already have a class:} create a \pattern{projectDiary} notebook page containing a code snippet to create an instance of the class, and start from there.
@@ -508,8 +439,6 @@ How do you obtain a moldable object?
 \item \emph{You have a test case:} turn the test case into an \pattern{exampleObject} and start from there.
 \item \emph{You have some data:} wrap the data as a \pattern{moldableDataWrapper}.
 \end{itemize}
-
-%\tg{let's make the example about a snippet in the context of an object. Perhaps about auto playing the Ludo game, like in Figure 1, but only with two panes and on the right we see the History view.}
 
 In \autoref{fig:moldableLudoGame} we see an Inspector on an instance of a \lst{Gt\-Ludo\-Recording\-Game} with a \pattern{contextualPlayground} where we can write experimental code that we later extract as methods.
 In this case we are prototyping the \emph{autoplay} feature.
@@ -520,8 +449,6 @@ In the second pane we see the \emph{History} view of the object, showing the det
   \caption{A moldable Ludo game instance.}
   \label{fig:moldableLudoGame}
 \end{figure}
-
-% \eog{Learning to explicitly ask questions is like, again that asking a fish about water. I talked about that at the beginning. I also find that this could be like a paper unto itself like, hey, have you tried this?}
 
 With the moldable object at hand, we can ask questions like \emph{What is the current state of the Ludo game?}, or \emph{What happened in the last few moves that we autoplayed?}
 As we answer questions we can create small custom tools, such as a \pattern{customView} or a \pattern{customAction}.
@@ -570,10 +497,8 @@ GtLudoGameExamples>>#emptyGame
 	^ game  "return the game instance"
 \end{code}
 
-Unlike normal test methods, examples \chg{can be}{are designed to be} \emph{composed}.
+Unlike normal test methods, examples are designed to be \emph{composed}.
 In \autoref{fig:composedExample} we see a second example, \st{playerArolls6}, that starts from the \st{emptyGame} example, rolls a $6$, asserts a few facts, and returns the modified game instance.
-
-%\eog{Unlike normal test methods, examples can be composed. I would say that examples are designed to be composed.}
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{composedExample}
@@ -596,13 +521,8 @@ When an example fails, its dependent examples do not need to be run.
 When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point.
 When you are searching for usages of an API, not only do you find examples that illustrate the usage, but by running the example you obtain a live instance that you can explore.
 
-%\tg{A consequence is also that examples become unit of documentation. We could provide an example with the explanation of game moves in a Lepiter page}
-
 % ----- Moldable Data Wrapper -------------------------
 \subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
-% \on{See \href{https://book.gtoolkit.com/viewable-data-wrapper-9jkob08ts9ihwg72kvyccl5ff}{Moldable Data Wrapper book page}}
-
-%\kh{My personal highlight is the "Moldable Collection Wrapper". I have been fighting a few times with the tension between "I want to add views to this" and "I want to have standard collection protocols on this". Implementing an adaptor as a trait looks like an obvious solution - after reading the paper.}
 
 \subsubsection*{Context}
 You are working in a domain with existing data that you want to turn into an explainable system.
@@ -618,8 +538,6 @@ To analyze and explore data, we need higher-level views that reflect our underst
 \subsubsection*{Solution}
 Wrap each kind of data using a dedicated class reflecting the problem domain entity.
 As you explore the data, introduce custom tools (views \etc) to the domain class that reflect answers to questions you ask about the data.
-
-%\eog{So how do you develop custom tools for existing data? And you're like, yeah, you wrap them and then you build this stuff up. I think what I would like to see is more of that. Like here's the cool thing that you get out of this, like the value the the upside earlier maybe that just doesn't fit the the pattern that you're filling in like this template. But later on, you're like, look at this cool thing, maybe that's the consequences.}
 
 First extract the data of interest.
 This might be data sitting in your file system (for example, a CSV file), or data retrieved from a website.
@@ -658,7 +576,6 @@ We see the result after some moldable development steps in \autoref{fig:wrappedG
   \caption{Wrapped (moldable) GitHub data.}
   \label{fig:wrappedGitHubData}
 \end{figure}
-%\tg{The picture shows also a gray hover highlighting. It should only show the selected one}
 
 \subsubsection*{Consequences}
 
@@ -668,7 +585,6 @@ In case custom tools of the underlying data objects are useful, you can always r
 
 % ----- Moldable Collection Wrapper -------------------------
 \subsection*{Moldable Collection Wrapper}\label{pat:collectionWrapper}
-% \on{See \href{https://book.gtoolkit.com/collection-wrapper-dyquv1bb9krkve76ncq4kyxr7}{Collection wrapper book page}}
 
 \subsubsection*{Context}
 Within your application domain, you not only have to deal with individual domain objects, but also composite entities (\eg a book of notebook pages, a website of web pages), and collections of entities (\eg the result of query).
@@ -709,7 +625,6 @@ We conclude with the process patterns that provide guidance in organizing and st
 
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
-%\on{See \href{https://book.gtoolkit.com/project-diary-dyquv1ad359wsnwasp6hwkgcj}{Project Diary book page}}
 
 \subsubsection*{Context}
 You are working on a software project and need to track your progress.
@@ -772,8 +687,6 @@ Notebooks can serve not only to track progress, but also as documentation for bo
 
 % ----- Tooling Buildup -------------------------
 \subsection*{Tooling Buildup}\label{pat:toolingBuildup}
-%\on{Tooling buildup is the activity you have to perform before you can start the real moldable development. This may have to do with creating parsers for programming languages or data formats of the target domain, bridges to other execution platforms, or any other kind of dedicated tools.}
-%\on{What makes this a pattern, aside from the fact that it is something you have to do? If it's different each time, then it's not a pattern, is it?}
 
 \kh{A close second (of a non-pattern) is "Tooling
 Buildup". Has anyone outside feenk ever done this, beyond tweaking some
@@ -850,7 +763,7 @@ It does not matter if the custom tools you develop do not perfectly match the st
 
 % ----- Simple View -------------------------
 \subsection*{Simple View}\label{pat:simpleView}
-% \on{See \href{https://book.gtoolkit.com/simple-view-dyquv19x8xwi85g99n0akc5lu}{Simple view book page}}
+
 \subsubsection*{Context}
 You have found some useful domain information to expose and have decided to implement a \pattern{customView}.
 
@@ -898,9 +811,7 @@ Simple views are easy to understand and extend or replace.
 \subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
 
 \subsubsection*{Context}
-You are assessing a problem such as a bug, a performance problem, or a security issue, and you are facing a problem that is \chg{not understandable}{very difficult to understand}.
-
-%\eog{A problem that is not understandable. I have trouble understanding what that is, and what that could look like.}
+You are assessing a problem such as a bug, a performance problem, or a security issue, and you are facing a problem that is very difficult to understand.
 
 \subsubsection*{Problem}
 How can you advance the assessment effectively?
@@ -949,14 +860,18 @@ By making it cheap to build analysis tools, tool-building becomes an essential p
 The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
 Moldable development makes software systems explainable by making it cheap to add custom tools that support decision making.
 In practice, however, this requires a paradigm shift since it leverages live programming to explore domain objects and incrementally mold them.
-%\wc{Live programming is a paradigm shift. The shift is required to explore. The shift allows one to mold the model as explored. The molding is done in increments.}
 
 Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
-\ins{The key to supporting moldable development is the pattern \pattern{moldableTool}.
+The key to supporting moldable development is the pattern \pattern{moldableTool}.
 The tools of the environment need to be open to small, custom changes that support decision-making by answering questions about the underlying system under development.
-An example of another system that support such changes is Emacs~\cite{Stal81a}, though it was not designed to support moldable development as we describe it.}
+An example of another system that support such changes is Emacs~\cite{Stal81a}, though it was not designed to support moldable development as we describe it.
+Once the development environment has been opened up to make its core tools moldable, then moldable development can truly start.
 
-%\wc{GT embodies these patterns. The authors believe the patterns have utility not tied to GT, but are they sufficient to match GT when applied? To be useful the patterns require some aspects of live programming, which aspects? This last sentence is sufficient reason for the makers of other environments to pay attention to this work.The claim is qualified as only a belief of the authors. Surely these patterns will prove valuable should the authors of GT undertake GT 2.0 and want to be sure not to lose something important. I am left wondering what sort of project should be undertaken in my own environment and how that project's result should be evaluated.}
+% ===== Acknowledgements =========================
+\subsubsection*{Acknowledgements}
+
+We would like to thank Ralf Barkow, Ward Cunningham, Konrad Hinsen, Timo Kehrer and Edward Ocampo-Gooding for their detailed reviews of drafts of this paper.
+% Alberto Torres, -- didn't reply
 
 % ===== References =========================
 %% The next two lines define the bibliography style to be used, and
