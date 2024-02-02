@@ -1,0 +1,9 @@
+Moldable Development Patterns
+
+Oscar Nierstrasz
+Tudor Gîrba
+
+Moldable development supports decision-making by making software systems explainable. This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model. Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
+
+Keywords:
+Software development, software modeling and analysis, software testing, explainable systems.
