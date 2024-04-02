@@ -1,0 +1,63 @@
+Hi Petr,
+
+Thanks for your kind comments!
+
+> However, it was not until I got to section 2 when I grasped the idea of
+> the moldable development sufficiently. ... which
+> might suggest the Introduction could explain a bit more as well.
+
+It's great that the idea is clear already in section 2! The goal of the paper is to explain moldable development through the patterns, so I'm happy if the idea is emerging already on page 2, but I'll see if I can add something
+
+> ...Have you thought about making the IDE setup and
+> the code used public, e.g. via Docker image on GitHub? I think a live
+> demo like that might be useful as this can be hard to imagine to a full
+> extent.
+
+Actually GT is open source and downloadable for Linux, Mac and Windows. It includes live notebook pages of all the patterns, as well as the full Ludo game. There are also numerous YouTube videos demoing moldable development and aspects of GT. I can highlight this earlier in the paper.
+
+> What I think would be beneficial is a subsection/paragraph to identify
+> the target audience and what the expected benefit for them is. A
+> sentence can sum this up already in the Abstract.
+
+In my first email I wrote this: 
+
+“A key concern is the audience. There are three main readers we would like to target:
+(1) a general audience of technically knowledge readers who are curious about what we do (evangelizing),
+(2) current users and newcomers to GT, our platform, who would like to understand better how to use our platform (onboarding), and
+(3) developers and stakeholders committed to other platforms, who are interested in making moldable development work for their technology (more evangelizing, and technology transfer).”
+I can try to summarize this briefly in the abstract.
+
+> ... Firstly, just a visual thing, but I would format the patterns
+> more clearly. I know you are using the named paragraphs for individual
+> sections of the pattern template used (Context, Problem, Forces,
+> Solution, Consequences), and that makes sense in the proper use of the
+> TeX template. But when I first skimmed through the paper, I actually
+> thought the patterns start way later then they actually do, because the
+> "headings" are really not distinctly visible. A table format would be
+> challenging with the amount of text there is in some parts, so I would
+> at least put the "headings" in bold or on their own lines.
+
+Not sure what you mean. The pattern headings are already in bold and on their own lines. Would it help to start each one with “Pattern:” eg “Pattern: Moldable Tool”?
+
+> ... For the conference
+> itself, it is way better to make it easier on the workshop participants
+> to read, mark, highlight and make notes when printed out. So I would
+> make it one column, increase the font size and the space between the
+> lines, perhaps even include line numbers for easy referencing.
+
+OK.
+
+> The other thing that relates to the patterns generally is the number of
+> them. It is great to have the whole language in a single paper, but fair
+> warning, the workshop group will most probably not have enough time to
+> discuss them all in depth. Thus, you could start thinking about which of
+> the patterns you want them to focus on (I'd say four, at maximum).
+
+Hm. I would rather let the workshop group tell me which patterns need more work. Or perhaps you can tell me which patterns you found hard to understand or did not seem to fit?
+
+To sum up, then, here are the things I'll try to address in the next version:
+- Add some more explanation of MD in the Intro.
+- Explain that the system is downloadable, including demos and the patterns.
+- Summarize in the abstract who is the audience and what they should get out of it.
+- Label the patterns “Pattern: ...”
+- Prepare a single-column conference version of the paper with double spacing and line numbers.

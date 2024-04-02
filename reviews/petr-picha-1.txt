@@ -1,0 +1,91 @@
+2024-04-01
+
+Hi Oscar,
+
+sending over the first round of feedback. Again, I'm sorry it took
+longer than expected.
+
+Overall, I really like the paper. The structure is simple but effective,
+and it gets to the point very quickly. The overall idea of the moldable
+development is easily understandable, I think, and the grouping of
+patterns is clear and justified. The support of decision making is a
+valuable goal and the benefit of understanding the systems and doing it
+in a cost-effective way is also important and apparent.
+
+However, it was not until I got to section 2 when I grasped the idea of
+the moldable development sufficiently. As far as I know, it is not yet a
+wide-spread term and as such, I think it would be beneficial to expand
+on the description given in the Abstract, as this is usually where
+readers get hooked. As said, I fully "got it" only in section 2, which
+might suggest the Introduction could explain a bit more as well. But I
+think that might be more my subjective thing, and at worst an issue with
+reordering a few things and reorganizing (sub-)sections. Feel free to
+leave this one for the larger sample size of readers in the workshop.
+
+The example with the GT and Ludo implementation is good, but since not
+all people (like me) will know what Ludo is, it makes it hard to
+visualize "in action". Have you thought about making the IDE setup and
+the code used public, e.g. via Docker image on GitHub? I think a live
+demo like that might be useful as this can be hard to imagine to a full
+extent.
+
+What I think would be beneficial is a subsection/paragraph to identify
+the target audience and what the expected benefit for them is. A
+sentence can sum this up already in the Abstract. Even if you don't see
+this as a benefit to the paper itself, I would appreciate if you could
+sum it up for me in the next email, so I know who's shoes to put myself
+into upon future readings, so to speak.
+
+I'll delve into the patterns themselves in the next iteration as this is
+meant to be more general feedback, but there are a few notes I want to
+raise. Firstly, just a visual thing, but I would format the patterns
+more clearly. I know you are using the named paragraphs for individual
+sections of the pattern template used (Context, Problem, Forces,
+Solution, Consequences), and that makes sense in the proper use of the
+TeX template. But when I first skimmed through the paper, I actually
+thought the patterns start way later then they actually do, because the
+"headings" are really not distinctly visible. A table format would be
+challenging with the amount of text there is in some parts, so I would
+at least put the "headings" in bold or on their own lines.
+
+Since I'm on the formatting stuff, the format is precisely as described
+at the EuroPLoP website. But that's actually more for the proceedings,
+a.k.a. the final submitted version in September. For the conference
+itself, it is way better to make it easier on the workshop participants
+to read, mark, highlight and make notes when printed out. So I would
+make it one column, increase the font size and the space between the
+lines, perhaps even include line numbers for easy referencing.
+
+The other thing that relates to the patterns generally is the number of
+them. It is great to have the whole language in a single paper, but fair
+warning, the workshop group will most probably not have enough time to
+discuss them all in depth. Thus, you could start thinking about which of
+the patterns you want them to focus on (I'd say four, at maximum). If
+you would really want a full feedback on all of them, there are a couple
+ways. You could wait and see whether your workshop group would have an
+unused slot at the conference (due to fewer papers or absent authors)
+and ask if they'd be willing to use that for another feedback for you.
+You could call for a "birds of the feather" session at another point of
+the conference to run through the ones not covered in the workshop. Of
+course, that's all dependent on the other people's capabilities, time
+and willingness. The last option I'm only including for completeness.
+You could let the workshop validate a subset this time and another
+subset on another PLoP conference and only publish the paper once all
+the patterns have gone through the process. But with the amount of work
+you clearly put into the paper already and the numerous independent
+reviews you managed to get outside of the conference, I definitely see
+why this wouldn't fit you. Which is way I'm only mentioning it, not
+suggesting it.
+
+That's about all from me for now. Next time, I will aim at the patterns
+specifically (let me know if you have any priorities among them). But
+since this is really a well-written and constructed work, I don't expect
+my notes being numerous, nor severe in nature.
+
+Let me know when you upload a new version, or in case you will not
+incorporate any of the feedback above (which is totally fine), let me
+know to continue with the current one.
+
+With regards,
+
+Petr Pícha
