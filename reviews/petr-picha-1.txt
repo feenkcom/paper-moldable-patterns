@@ -1,4 +1,4 @@
-2024-04-01
+# 2024-04-01
 
 Hi Oscar,
 
@@ -89,3 +89,28 @@ know to continue with the current one.
 With regards,
 
 Petr Pícha
+
+---
+# 2024-04-02
+
+Hi Oscar,
+
+to clarify:
+- Add some more explanation of MD in the Intro.
+OK
+- Explain that the system is downloadable, including demos and the patterns.
+OK, a link in a footnote should be fine
+- Summarize in the abstract who is the audience and what they should get out of it.
+Sorry I missed this in your previous email. Abstract is fine for just a short sentence on this, IMO it could be expended upon in a dedicated paragraph in the Intro. But as with all my suggestions it is totally up to you whether you apply them or not.
+- Label the patterns “Pattern: ...”
+Sorry, I apparently explained it wrong. I meant the sections (paragraphs from TeX perspective) of the patter descriptions, i.e. Problem, Forces, etc. not the headings of the pattens (sections from the TeX perspective) themselves. These "first words" of the paragraphs, which are basically individual aspects/fields of the pattern template, could do with some highlighting.
+- Prepare a single-column conference version of the paper with double spacing and line numbers.
+OK
+Hm. I would rather let the workshop group tell me which patterns need more work. Or perhaps you can tell me which patterns you found hard to understand or did not seem to fit?
+Understood. Then I think it is enough to say this to the workshop group before they discuss the paper. How many of them agree on which patterns need most work should then be apparent from the discussion as well as from the prints of the paper with notes each individual should give you afterwards.
+
+With regards,
+
+Petr Pícha
+
+---
