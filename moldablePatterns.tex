@@ -1,5 +1,22 @@
 %% This file is cloned from `sample-sigconf.tex',
-\documentclass[sigconf]{acmart}
+
+%% For the proceedings
+%\documentclass[sigconf]{acmart}
+
+%% For review:
+\documentclass[manuscript,12pt]{acmart}
+\usepackage{lineno}
+\linenumbers
+\linespread{1.4} % CAVEAT -- the acmart style complains. Just ignore and continue.
+
+% NB: To suppress the warning, edit the acmart.cls file, eg in
+%  /usr/local/texlive/2020/texmf-dist/tex/latex/acmart
+% and comment out:
+%\AtEndDocument{\ifx\baselinestretch\ACM@origbaselinestretch\else
+%  \ClassError{\@classname}{An attempt to redefine
+%    \string\baselinestretch\space detected.  Please do not do this for
+%    ACM submissions!}\fi}
+
 %% BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
   \providecommand\BibTeX{{%
@@ -35,11 +52,12 @@
 \captionsetup{aboveskip=5pt,belowskip=-10pt} % Adjust the space around figure captions
 %\usepackage{enumitem}
 %\setlist[description]{font=\itshape}
-\newcommand{\pattern}[1]{\emph{\nameref{pat:#1}}\xspace}
 \newcommand{\GT}{\lst{GT}\xspace} % In case we want to display it differently ...
+\newcommand{\pattern}[1]{\emph{\nameref{pat:#1}}\xspace}
+\newcommand{\patsec}[1]{\noindent\textit{\textbf{#1.}}\xspace}
 % ============================================================
 \begin{document}
-\title[Moldable Development Patterns --- DRAFT]{Moldable Development Patterns}
+\title[Moldable Development Patterns --- REVIEW DRAFT]{Moldable Development Patterns}
 
 \author{Oscar Nierstrasz}
 \affiliation{%
@@ -61,6 +79,11 @@
 Moldable development supports decision-making by making software systems \emph{explainable}.
 This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model.
 Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
+
+This paper targets
+(i) readers curious to learn about moldable development,
+(ii) current users of the \emph{Glamorous Toolkit} moldable IDE wanting to learn best practices, and
+(iii) developers interested in applying moldable development using other platforms and technology.
 \end{abstract}
 
 \keywords{Software development, software modeling and analysis, software testing, explainable systems.}
@@ -97,7 +120,8 @@ Every part of a software system deals with a particular \emph{domain}, whether t
 The net effect of moldable development is to \emph{expose} the underlying models of these diverse domains (\ie the ``domain models'') so that they become explainable, and support decision making.
 
 The Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
-The examples we use to illustrate moldable development in this paper are all drawn from GT.
+The examples we use to illustrate moldable development in this paper are all drawn from GT.\footnote{GT is open source, and runs on Mac, Linux and Windows. You can download GT from \url{https://gtoolkit.com}.
+There you will find alternative descriptions of these patterns in the ``Glamorous Toolkit Book'', a live notebook containing the examples shown here.}
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{customViews}
@@ -204,20 +228,20 @@ has been repeatedly observed in practice. The very first pattern you
 present, "Moldable Tool", probably isn't a pattern. How many moldable
 tools have been developed? I know of one.}
 
-\subsubsection*{Context}
+\patsec{Context}
 You are developing a software system, and find that the existing development tools fall short in supporting domain-specific questions about the software.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How can you cheaply and effectively extend the development environment with domain-specific tools that address your application domain?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 Generic software tools are fine for answering generic questions, but they do not work well when addressing domain-specific questions.
 For example, consider a generic debugger being used to debug an event-driven application\,---\,you want to step through the chain of events, not the stack.
 A plugin architecture can open up an IDE to new tools, but plugins can be complex and expensive to implement, and they often do not play nicely with existing tools or with each other.
 
 \tk{We call it "the preplanning problem" when discussing frameworks + plug-ins as an implementation option for software product lines. You need to identify all the hot spots for potential extensions in advance, define appropriate extension points, define interfaces which are not too broad and not too narrow, etc.}
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Make the development tools \emph{moldable} to the \emph{dynamic context} of the artifacts they are intended to work with~\cite{Chis17a}.
 
 A moldable tool makes its core functionality configurable by means of lightweight mechanisms.
@@ -242,7 +266,7 @@ Other examples include:
 \item a moldable notebook, supporting domain-specific snippets or annotations.
 \end{inparaenum}
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 A moldable tool requires no up-front configuration, since it will be dynamically molded by the artifacts it encounters.
 Conversely, since custom tools are an intrinsic part of software systems rather than the IDE, molding happens when needed.
 Some tooling effort is required to open up the existing IDE tools to make them moldable, \ie dynamically customizable.
@@ -252,23 +276,23 @@ Some tooling effort is required to open up the existing IDE tools to make them m
 \kh{"Contextual Playground" is a pattern, but I'd label it "process" rather
 than "tooling". On the other hand, it's also reasonable to have it right
 before "Custom View", as it's a preparation to tooling work.}
-\subsubsection*{Context}
+\patsec{Context}
 You have a moldable object, and you are ready to start exploring.
 
 \eog{So you're exploring maybe we could talk about what, what exploring means.
 Like if you ask a regular developer, like tell me about the explorations you've done this morning, versus, hey, what kind of like debugging or like learning about the system?}
 
-\subsubsection*{Problem}
+\patsec{Problem}
 Where do you start coding?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 An editor for coding new methods typically provides no facilities for testing the code.
 When we code new behavior as methods, we must repeatedly change our context to incrementally develop the logic.
 Testing the code requires a separate setup.
 Setting up code to prototype and test logic can be cumbersome.
 Writing tests first for parts of the logic of a complex method can be overkill.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Prototype new behavior in the contextual playground of the inspector on a \pattern{moldableObject}.
 The playground will be bound to the context of the instance, so \st{self} and all slots (\ie instance variables) can be accessed exactly as they would in a running method.
 From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
@@ -290,25 +314,25 @@ Similarly, if we identify an interesting instance, we can use the code to define
 
 A well-known use of contextual playgrounds is the JavaScript console of a modern web browser: while inspecting a live web page, you can explore and programmatically interact with the live objects in the run-time environment of the page.
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 By prototyping new behavior in a contextual playground, you obtain immediate feedback for experimental code.
 
 % ----- Custom View -------------------------
 \subsection*{Custom View}\label{pat:customView}
-\subsubsection*{Context}
+\patsec{Context}
 You are exploring a live domain model and find some interesting information.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How do you make it easy to find interesting information again?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating Playground snippets, to reach the answer you seek.
 The sequence of steps may be cumbersome to follow repeatedly.
 
 \eog{this part here, you could describe it also with like a watch statement in javascript or whatever, like this kind of thing.
 And then people could be more familiar with that because they, they do that.}
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Turn interesting data into a custom view.
 Extract the navigation steps into a new custom view for the moldable object you start navigating from.
 Start with a \pattern{simpleView}.
@@ -328,7 +352,7 @@ From this custom view we can furthermore dive directly into the \st{Move} object
   \label{fig:rawViewVsCustomView}
 \end{figure}
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 A custom view exposes information about a domain that can otherwise be hard to find.
 Custom views become an intrinsic part of a software system, thus turning it into an \emph{explainable system}.
 You need a \pattern{moldableTool} into which you can dynamically plug custom views.
@@ -337,17 +361,17 @@ You need a \pattern{moldableTool} into which you can dynamically plug custom vie
 
 % ----- Custom Search -------------------------
 \subsection*{Custom Search}\label{pat:customSearch}
-\subsubsection*{Context}
+\patsec{Context}
 You have a complex domain model consisting of various kinds of entities related to each other.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How can you effectively navigate between domain entities by name, content or other criteria?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 It can be hard to anticipate which domain  entities you will need to navigate to.
 Designing a good query interface can be a difficult task.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Add a custom search for every kind of domain entity you want to navigate to.
 Simply search by substring against various attributes of the domain objects.
 Add a separate search for each attribute type or domain object.
@@ -366,24 +390,24 @@ So I don't know, maybe something in ludo or like something more than just like r
 As with other custom tools, one way to implement a custom search is as a method of the domain object from which the search is initiated, with a dedicated annotation.
 In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within multiple moldable tools, such as the inspector, the code editor, and also the notebook.
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 You need a \pattern{moldableTool} into which you can dynamically plug custom searches.
 The same search interface can accommodate multiple custom searches to query different attributes of multiple domain entities.
 
 % ----- Custom Action -------------------------
 \subsection*{Custom Action}\label{pat:customAction}
-\subsubsection*{Context}
+\patsec{Context}
 You are developing an explorable domain model of your application and find yourself repeatedly evaluating the same code snippets to perform a certain action or navigate to another object.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How can you streamline execution of repeated actions?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 Repeated tasks are annoying and time-consuming.
 Remembering how to perform common tasks increases cognitive overload.
 Storing code to perform common actions as methods or as snippets in class comments doesn't guarantee that the code will be easily found when you need it.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Add a custom action button to the moldable tool for the object involved in a repeated task, encapsulating the boilerplate code to perform it.
 Be sure to pick an evocative button icon and tooltip text to make the intent of the button clear.
 Only add buttons for the most important actions to avoid cluttering the interface of a moldable tool.
@@ -399,7 +423,7 @@ In the example we navigate to the database holding all related notebook pages fo
   \label{fig:customLePageAction}
 \end{figure}
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 Custom actions appear as buttons in moldable tools only in the context of the objects to which they can be applied.
 You need a \pattern{moldableTool} into which you can dynamically plug custom actions.
 
@@ -411,18 +435,18 @@ Next we present the patterns related specifically to modeling domain entities in
 % ----- Moldable Object -------------------------
 \subsection*{Moldable Object}\label{pat:moldableObject}
 
-\subsubsection*{Context}
+\patsec{Context}
 You are ready to start the process of creating an explainable system, either from scratch, or based on some existing software or data.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 Where do you start coding an explainable system?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 As a programmer, you want to quickly get feedback about the code you are writing.
 When you write code in a conventional code editor, you are several steps away from seeing the consequences of your coding.
 To write unit tests, you must already know what behavior you want to test and what the results should be.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Start coding by inspecting a moldable object, that is, a live instance of the class you are coding, \emph{not in a code editor}.
 Then incrementally pose domain-specific questions, find the answers by exploring and interacting with the object, and then turn those answers into custom tools, behaviors and tests.
 
@@ -454,25 +478,25 @@ With the moldable object at hand, we can ask questions like \emph{What is the cu
 As we answer questions we can create small custom tools, such as a \pattern{customView} or a \pattern{customAction}.
 Whenever we identify an interesting state of our moldable object, we can extract it as an \pattern{exampleObject} that we can use as a test case, or as a starting point for further moldable development.
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 Instead of writing code in a text editor in the context of the source code of a class, you are always working in the context of a live object, whose behavior can be immediately explored.
 Instead of writing hypothetical code that you must afterward test, you start by prototyping code, and then extracting new behavior.
 Instead of trying to program custom tools in a vacuum, you first explore and prototype answers to questions, and then extract the code you need to create a custom tool.
 
 % ----- Example Object -------------------------
 \subsection*{Example Object}\label{pat:exampleObject}
-\subsubsection*{Context}
+\patsec{Context}
 You want to explore questions about domain objects that are in particular execution states.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How do you create an object in a particular state to start a moldable development task?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 Concrete examples are needed for many purposes, such as documentation, testing, and exploration.
 Examples can be complex to set up.
 Unit tests consume examples, but they are only accessible if a test fails.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Wrap examples as (instance) methods that optionally evaluate some tests (assertions), and return the example instance.
 Each example may also use one or more existing examples as the initial setup to arrive at the new execution state.
 
@@ -515,7 +539,7 @@ Examples such as these can be embedded into notebook pages and used as moldable 
 \end{figure}
 
     
-\subsubsection*{Consequences}
+\patsec{Consequences}
 Examples can be run just like classical unit tests.
 When an example fails, its dependent examples do not need to be run.
 When an example succeeds, it can be inspected, used as a moldable object to start coding, or embedded as a live example snippet within a notebook page to illustrate some point.
@@ -524,18 +548,18 @@ When you are searching for usages of an API, not only do you find examples that 
 % ----- Moldable Data Wrapper -------------------------
 \subsection*{Moldable Data Wrapper}\label{pat:moldableDataWrapper}
 
-\subsubsection*{Context}
+\patsec{Context}
 You are working in a domain with existing data that you want to turn into an explainable system.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How do you develop custom tools for existing data?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 When we explore data, we represent them using suitable low-level data structures.
 Data structures (lists, dictionaries) reflect the representation of data, not their interpretation.
 To analyze and explore data, we need higher-level views that reflect our understanding of the data.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Wrap each kind of data using a dedicated class reflecting the problem domain entity.
 As you explore the data, introduce custom tools (views \etc) to the domain class that reflect answers to questions you ask about the data.
 
@@ -577,7 +601,7 @@ We see the result after some moldable development steps in \autoref{fig:wrappedG
   \label{fig:wrappedGitHubData}
 \end{figure}
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 
 By wrapping the raw domain data, you obtain a moldable object that can be customized to form part of an explainable system.
 Each time you navigate to other data representing further domain entities, wrap them as well, to build an explorable domain model.
@@ -586,18 +610,18 @@ In case custom tools of the underlying data objects are useful, you can always r
 % ----- Moldable Collection Wrapper -------------------------
 \subsection*{Moldable Collection Wrapper}\label{pat:collectionWrapper}
 
-\subsubsection*{Context}
+\patsec{Context}
 Within your application domain, you not only have to deal with individual domain objects, but also composite entities (\eg a book of notebook pages, a website of web pages), and collections of entities (\eg the result of query).
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How can you effectively provide custom tools for various kinds of collections of domain entities?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 Collections are generic data structures with generic views that are not necessarily informative for your domain.
 Collections of domain entities may occur in various forms and contexts, such as the state of a composite object, or the result of a query.
 Providing custom views for each of these can be tedious and lead to much duplicated code.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Wrap a collection of domain objects in a dedicated collection wrapper, and give it dedicated views, actions and searches.
 In case there are multiple composite entities or collections that should share the same custom tools, factor these out into a common abstract superclass or trait~\cite{Duca06b}.
 
@@ -613,7 +637,7 @@ Similarly, a query for pages matching a particular string will also return a wra
 Furthermore, if the wrapped collection or composite object should also behave like a collection, use a trait to forward collection API requests to the underlying collection.
 In this example, \st{WebPageGroup} uses the trait \st{TGtGroupWithItems} that forwards all collection requests to the \st{items} slot of the wrapper that holds the raw collection.
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 Composite domain objects and collections of domain objects can be molded to support custom tools.
 Query results can be similarly molded.
 Wrapped collections can be made plug-compatible with raw collections.
@@ -626,24 +650,24 @@ We conclude with the process patterns that provide guidance in organizing and st
 % ----- Project Diary -------------------------
 \subsection*{Project Diary}\label{pat:projectDiary}
 
-\subsubsection*{Context}
+\patsec{Context}
 You are working on a software project and need to track your progress.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How can you keep track of decisions, experiments and progress in a moldable development project?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 It's boring to write documentation after the fact, so it is rarely done.
 Documentation is not part of the running system, so it distracts you from coding.
 Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Use a live notebook as the starting point for all tasks.
 Create a dedicated notebook page for each project, or even each project task, to summarize the goals, and provide pointers to related material.
 Use the notebook to keep a diary of your progress.
 
 As the project matures, use the notebook as a draft for the documentation.
-For example, in \autoref{fig:projectDiary} we see a live Lepiter page in the \GT Book\footnote{The GT Book is the documentation of the Glamorous Toolkit Moldable Development Environment implemented as a live Lepiter notebook. An archived static snapshot of this page is also available: \url{https://web.archive.org/web/20231213144857/https://book.gtoolkit.com/adding-simple-list-views-for-ludo-players--3g9kpmxty3fj9eev3ucmqkztc}.} documenting the task of adding some list views to the Ludo game.
+For example, in \autoref{fig:projectDiary} we see a live Lepiter page in the \GT Book\footnote{An archived static snapshot of this page is also available: \url{https://web.archive.org/web/20231213144857/https://book.gtoolkit.com/adding-simple-list-views-for-ludo-players--3g9kpmxty3fj9eev3ucmqkztc}.} documenting the task of adding some list views to the Ludo game.
 
 \eog{``Using a live notebook.'' I know folks maybe in like Jupiter like Python stuff but specific kind of like scientific Python are used to using this word or this phrase, but I would explain it or define it if you can, if you if you have the space.}
 
@@ -679,7 +703,7 @@ written from scratch, with the diary serving only as a source of
 detailed information to be copy-pasted. Maybe one day we will see
 refactoring tools for prose.}
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 
 A live notebook is an integral part of the project, and evolves together with other software artifacts.
 Notebook pages can express tasks in various stages of completion, so can be used as starting points for further development tasks.
@@ -695,19 +719,19 @@ getting started with Moldable Development. If your domain or your tech
 stack is not supported by GT out of the box, testing the idea is a very
 costly endeavor.}
 
-\subsubsection*{Context}
+\patsec{Context}
 You want to start moldable development but lack the basic infrastructure to start exploring the domain.
 You may be missing a parser for a data format or a DSL, a language bridge to an execution platform, or implementations of key analysis algorithms. 
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How do you start moldable development if you are missing core infrastructure?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 When you are building on top of an existing project, you may be missing key tools to allow you to start exploring the domain.
 You might not know where to find existing implementations to directly use, or to port or adapt to your development platform.
 You might lack the expertise to build the tools yourself.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 To start a moldable development activity, you need to have the basic tools available to start exploring.
 If these are missing, you need to first work on a \emph{tooling buildup} phase.
 In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on building the tools you need to start exploring.
@@ -720,25 +744,25 @@ Here are some examples:
 \item implementing graph-traversal algorithms to detect dependencies, deadlocks \etc
 \end{inparaenum}
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 Tooling buildup will slow you down.
 Once you have the right tools in place, you can move fast.
 
 % ----- Blind Spot -------------------------
 \subsection*{Blind Spot}\label{pat:blindSpot}
-\subsubsection*{Context}
+\patsec{Context}
 You are starting to work with an existing team and code base, and you need to engage the key stakeholders.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How do you pick the first moldable development task to focus on?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 The stakeholders are already heavily committed to their current development tasks, and have little time to spare for you.
 They are almost certainly skeptical that moldable development will make them more productive.
 You need to demonstrate early success to get the customer to commit long-term to further collaboration.
 It can be difficult to pick a task that is both feasible in a short amount of time, and also brings value to the stakeholders.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Find the parts of the system that are creating problems for the stakeholders and make them \emph{explainable}.
 These are the ``blind spots'' that are difficult to understand, to monitor, or to debug.
 Pick one of these blind spots as a target.
@@ -757,25 +781,25 @@ Some typical examples are
 Since the stakeholder has little time to spare to guide you, you may have to work in the dark at times.
 Be sure to always have something to show when you come back with questions.
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 By quickly developing a solution to an ongoing problem, you will engage the stakeholder.
 It does not matter if the custom tools you develop do not perfectly match the stakeholder's needs, as the only goal is to convince the stakeholders to commit to closer and longer-term collaboration.
 
 % ----- Simple View -------------------------
 \subsection*{Simple View}\label{pat:simpleView}
 
-\subsubsection*{Context}
+\patsec{Context}
 You have found some useful domain information to expose and have decided to implement a \pattern{customView}.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How should you design a custom view to effectively communicate the information of interest?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 There are many different ways to design a view.
 It is hard to anticipate what information another Stakeholder would be interested in seeing.
 You can spend an arbitrary amount of time and effort implementing a rich, interactive visualization as a view.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Always start with the simplest kind of view that you can implement quickly to convey just the information you are interested in for your current task.
 Enhance it or replace it by a richer view only when there is a clear need to do so.
 
@@ -803,24 +827,24 @@ On the other hand, once we have such a view, it can be reused and repurposed, as
 
 Other kinds of simple views exist to display plain text, simple lists without columns, and trees of hierarchical data.
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 A simple view requires little effort to implement and can be quickly deployed and tested.
 Simple views are easy to understand and extend or replace.
 
 % ----- Throwaway Analysis Tool -------------------------
 \subsection*{Throwaway Analysis Tool}\label{pat:throwawayAnalysisTool}
 
-\subsubsection*{Context}
+\patsec{Context}
 You are assessing a problem such as a bug, a performance problem, or a security issue, and you are facing a problem that is very difficult to understand.
 
-\subsubsection*{Problem}
+\patsec{Problem}
 How can you advance the assessment effectively?
 
-\subsubsection*{Forces}
+\patsec{Forces}
 The goal of an assessment is to find answers as quickly as possible.
 Custom tools help make analyses faster, while generic, ``reusable'' tools can make it more difficult to find the answers you need.
 
-\subsubsection*{Solution}
+\patsec{Solution}
 Build a dedicated, throwaway tool just for your problem.
 Use a \pattern{contextualPlayground} to prototype a visualization or to explore the result of a quick query.
 The focus should be on finding an answer.
@@ -851,7 +875,7 @@ The alternative to custom tools is manual exploration.
 Building a tool, even for just one usage, can outcompete manual exploration by a large margin.
 That budget difference can more than make up for the cost of the tool development.
 
-\subsubsection*{Consequences}
+\patsec{Consequences}
 By making it cheap to build analysis tools, tool-building becomes an essential part of the development process, rather than a side activity, just as writing tests has become an integral development activity rather than an add-on.
 
 % ===== Conclusion =========================
@@ -868,7 +892,7 @@ An example of another system that support such changes is Emacs~\cite{Stal81a}, 
 Once the development environment has been opened up to make its core tools moldable, then moldable development can truly start.
 
 % ===== Acknowledgements =========================
-\subsubsection*{Acknowledgements}
+\patsec{Acknowledgements}
 
 We would like to thank Ralf Barkow, Ward Cunningham, Konrad Hinsen, Timo Kehrer and Edward Ocampo-Gooding for their detailed reviews of drafts of this paper.
 % Alberto Torres, -- didn't reply
@@ -894,8 +918,8 @@ We would like to thank Ralf Barkow, Ward Cunningham, Konrad Hinsen, Timo Kehrer 
 
 % ----- PATTERN -------------------------
 \subsection*{PATTERN}\label{pat:PATTERN}
-\subsubsection*{Context}
-\subsubsection*{Problem}
-\subsubsection*{Forces}
-\subsubsection*{Solution}
-\subsubsection*{Consequences}
+\patsec{Context}
+\patsec{Problem}
+\patsec{Forces}
+\patsec{Solution}
+\patsec{Consequences}
