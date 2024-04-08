@@ -29,7 +29,7 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-12T16:27:49.174457+01:00"
+						"dateAndTimeString" : "2024-01-12T16:27:55.16198+01:00"
 					}
 				},
 				"uid" : {
@@ -39,7 +39,7 @@
 				"paragraphStyle" : {
 					"__type" : "textStyle"
 				},
-				"string" : "Here is the"
+				"string" : "Here is the current patterns map."
 			},
 			{
 				"__type" : "pharoSnippet",
@@ -66,14 +66,14 @@
 					"__type" : "time",
 					"time" : {
 						"__type" : "dateAndTime",
-						"dateAndTimeString" : "2024-01-12T16:27:30.027451+01:00"
+						"dateAndTimeString" : "2024-04-08T09:23:14.258508+02:00"
 					}
 				},
 				"uid" : {
 					"__type" : "uid",
 					"uidString" : "/pL8aA7LDQCdHQ4wAkWR/g=="
 				},
-				"code" : "LePageMondrianMapExamples new patternMapwithExplicitPositions."
+				"code" : "LePageMondrianMapExamples new patternMap."
 			},
 			{
 				"__type" : "pharoSnippet",
