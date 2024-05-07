@@ -1,0 +1,35 @@
+# 2024-05-09
+
+Hi Oscar,
+
+I'm so sorry for the prolonged delay. Lately, things have been hectic to say the least and it took me a while to get through all the patterns. That, however, is just an explanation, not an excuse, so once again, I'm very sorry.
+
+The good news is the paper is in great shape as it is and in my opinion ready for the PC review. I will definitely be recommending its acceptance even if submitted as is. I see no issues with the content or wording of the patterns. The following tips are just concerning their inner structure and if you find them worthy of applying, they should be very quick. But as said, the paper is more than good enough as it is, so you can leave it for after the PC submission, as I realize the deadline is very close.
+
+Here are my suggestion:
+
+1) Related patterns
+
+I would include a "Related Patterns" piece into the pattern description template that you are using. This would just list the other patterns from your language that the current one is related to and how. You sometimes mention such relations in the Solutions, and especially dependencies (i.e., the pattern implementation is dependent on the prior application of some other) are important to highlight. This "section" of each pattern's description would help the reader conceptualize the relations of individual patterns to each other without having to constantly refer back to the language figure.
+
+2) Change the order
+
+If you decide to put the previous suggestion to use, you might want to reorder the pattern descriptions in a way that the ones others depend on come first, before the depending ones. For example, several patterns in the Tooling Patterns category refer to the Moldable Object pattern. In fact, you yourselves state before the patterns that Moldable Object is the base for all of the Moldable development. Thus, I would put the Modeling Patterns first unless there is a stronger logical reason for the order being as it is. It is beneficial for the reader to build on the previously read patterns rather than having to skip ahead because some later pattern seems to be important to understand fully the current one.
+
+3) Separate Solution and Examples
+
+Another change of the pattern template structure I would propose is to separate the generic Solution from the GT (or other) examples. The usage of examples to further describe your patterns is great, but at times it feels too narrow to conceive of the (more) generic solution proposed by the pattern. I would introduce a new "section" of the template, "Example", placed between Solution and Consequences. The text for the examples is already there, so this is just a cut-and-paste task. However, you might find that there is not enough left in the Solution on the generic level in some cases. I think this is a slight issue as describing the solution only through one concrete example might not be enough for the readers to extrapolate it into their specific situations.
+
+4) Other examples
+
+The through-line of using one overall example (GT and Ludo game) to demonstrate almost all the patterns is really great. Especially, since the whole thing is available for everyone to try and explore. I'm just wondering if the patterns could benefit from an extra example each. One of something most developers or software engineers in general are already familiar with in each pattern (or wherever possible). For example, if I understand correctly, the Project Diary pattern could be realized as a ticketing system (Jira/Redmine/RTC) integrated into IDE. Examples that utilize familiar concepts and entities like that can make the patterns more relatable and understandable to the reader even without the need to download and try GT and Ludo.
+
+5) Problem vs. Forces
+
+This last one is very probably just a personal preference, so please, take it as such and only apply it if you find it reasonable or encounter other similar opinions. I am just used to reading forces as a set of short bullet points. To my mind, it makes the hurdles the solution has to overcome more instantly easy to parse and grasp. Your forces read like extensions or further explanations to the problem, and that is most likely totally fine. Like I said, it is just a preference and if it is just mine, then it is not worth making the change for.
+
+I hope you find these useful even if you don't decide to apply them. I have no doubt the paper gets accepted either way. And as far as your absence, that should not get in the way of anything as it almost entirely fits into the period between the PC review submission and acceptance notice. So in that time, I will just read through the newest version again and try to find any additional suggestions which I would then send after the acceptance notice. Provided I can even find anything else to comment on as the paper is really well put together already.
+
+With regards,
+
+Petr Pícha
