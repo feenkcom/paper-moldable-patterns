@@ -48,6 +48,7 @@
 \newcommand\pp[1]{\nbe{Petr}{#1}{cyan}} % Petr Picha
 \newcommand\cp[1]{\nbe{Cesare}{#1}{olive}} % Cesare Pautasso
 \newcommand\dd[1]{\nbe{Daniel}{#1}{magenta}} % "Dazzling" Daniel Pinho
+\newcommand\ws[1]{\nbe{Workshop}{#1}{teal}} % EuroPLoP writers workshop
 %\newcommand\XXX[1]{\nbc{XXX}{#1}{red}}
 %\newcommand\XXX[1]{\nbc{XXX}{#1}{teal}}
 %\newcommand\XXX[1]{\nbc{XXX}{#1}{violet}}
@@ -105,6 +106,19 @@ wanting to learn best practices, and
 % ===== Introduction =========================
 \section{Introduction: Moldable development in a Nutshell}
 
+\ws{Takeaways from the workshop:
+Separate solution summary from details. 
+List separately related patterns.
+List more negative consequences.
+List known uses explicitly.
+Highlight better the patterns in the paper.
+Perhaps describe an idealized order of the patterns.
+Which patterns are obligatory, resp. optional?
+The Explainable System motivation needs to be clearer.
+The experience should be made clear at the beginning, not the end.
+Explain the difference between a Simple View and a raw view.
+Also: it would have been better to split the patterns into detailed patterns and “patlets” just described in a line or two.}
+
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it can be difficult to extract that knowledge.
 The usual ways to view software systems are
@@ -131,6 +145,8 @@ This is achieved by making it cheap to create dozens, hundreds or even thousands
 These custom tools consist of small extensions to the \emph{moldable} tools of the integrated development environment (IDE), such as the object inspector, the code editor, the debugger and the notebook.
 
 Every part of a software system deals with a particular \emph{domain}, whether this be the \emph{business domain} of the overall application, or a more \emph{technical domain}  of the underlying application.
+\ws{JN: Is the business model separate from the display? (cf MVC) 
+In the back of the Blue book there is a reference to a non-existing book on Building Interactive Applications in Smalltalk. The GoF book was the closest answer.}
 The net effect of moldable development is to \emph{expose} the underlying models of these diverse domains (\ie the ``domain models'') 
 \cp{is this related to reverse engineering models out of the code?}
 so that they become explainable, and support decision making.
@@ -187,6 +203,14 @@ These patterns have emerged over several years of experience in developing \GT f
 mutually support each other. There's an opportunity for a follow-up
 paper that describes how the patterns are applied in a real project.}
 
+\ws{JN: The path through the patterns is a crazy maze (shows green lines drawn on the map). (Need to show an idealized path?)\\
+PP: Instead of showing the patterns in the order by the categories, instead just show an idealized order?\\
+JN: Or, like in the GoF book, just list them in alphabetical order.}
+
+\ws{PP: Must we use all the patterns or is there a minimal subset?
+Why isn't a debugger enough? 
+OK, I see. You can get at the data with a debugger, but it may be hard. The custom views make it easy to get at the answers.}
+
 %\eog{I think like that, the hard thing for this section number two that I found is that there's like a lot of definitions of what things are without a lot of connected motivation.
 %And it felt like I don't know if this is a thing that you've ever experienced, but you sit down you play, you're ready to play a board game with some friends and then someone's like, all right, we're gonna sit down and read the rule book from like cover to cover and then everything will be good.
 %And then you've got people like me who are like, what is the point of this game?
@@ -210,6 +234,7 @@ At the top of the map we have ``Explainable System,'' which is not a pattern per
 \c[{it could be a composite pattern}
 An \empty{explainable system} is a software system whose domain model has been exposed with the help of numerous custom tools~\cite{Nier22a}.
 \cp{interesting, but narrow definition. Is exposing its domain model the only way to explain a system?}
+\ws{JN: I would just dump the Explainable System part, and just focus on the moldability. It's also not about reshaping a system.}
 
 Each custom tool can be seen as an extension of an existing \patref{moldableTool}, which can be cheaply adapted by a simple customization.
 Some domains require a preliminary phase of \patref{toolingBuildup}, for example, to create dedicated parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
@@ -258,7 +283,9 @@ We start by presenting the patterns that enable the cheap creation of custom too
 
 % \wc{Each statement describes how or where to apply a solution without explaining what human need causes these solutions to be routinely required. We were led to believe that an ability to make decisions is the root of each need. I will be looking for ways to understand this decision making better and to tie human decision making to the solutions offered by each pattern.}
 
-
+\ws{JN: I found it difficult to pick out individual patterns in the formatted paper. The pattern names don't jump out to me. On p 24 it's not clear there are two patterns. On p 4 the Modeling Patterns header is more visible than the pattern itself.
+(Maybe label them all “PATTERN: …”?)\\
+DP: Or add the category label to the name (P, T etc).}
 
 %: ----- Moldable Tool -------------------------
 \pattern{Moldable Tool}{moldableTool}
@@ -286,7 +313,10 @@ and they often do not play nicely with existing tools or with each other.
 
 \patsec{Solution}
 \cp{Consider splitting the solution from the example/known use. An example is included in most patterns, so the template of the pattern could feature "Example" between "Solution" and "Consequences".}
+\ws{PP: Problems are short and succinct but the solutions not. Perhaps split into Solution and Details.}
 Make the development tools \emph{moldable} to the \emph{dynamic context} of the artifacts they are intended to work with~\cite{Chis17a}.
+\ws{JN: P. 7, line 119. Since “moldable” and “dynamic” are in italics. Are they forces?
+There is a Known Use within the solution.}
 
 A moldable tool makes its core functionality configurable by means of lightweight mechanisms.
 For example, a Test Runner in a modern IDE recognizes the presence of test cases by means of various programming conventions, \ie a test case is a method with a standard annotation, or it's a method whose name starts with ``\st{test}'' and belongs to a class that inherits from a \st{TestCase} class or implements a \st{Test} interface.
@@ -316,10 +346,16 @@ or
 \item a moldable notebook, supporting domain-specific snippets or annotations.
 \end{inparaenum}
 
+\ws{JN: Known uses are needed. If the paper was about explainable systems, a known use could be: A traveler arrives at Heathrow and is denied boarding. The explainable system shows why this has happened.
+If it's the Ludo game, it could be Johnny who loses, and the explainable system explains to him why.
+If it's an industrial system, say that “In System blah we were able to …”.}
+
 \patsec{Consequences}
 A moldable tool requires no up-front configuration, since it will be dynamically molded by the artifacts it encounters.
 Conversely, since custom tools are an intrinsic part of software systems rather than the IDE, molding happens when needed.
 Some tooling effort is required to open up the existing IDE tools to make them moldable, \ie dynamically customizable.
+
+\ws{PP: Consequences mostly seem to be missing negative ones.}
 
 %: ----- Contextual Playground -------------------------
 \pattern{Contextual Playground}{contextualPlayground}
@@ -377,6 +413,17 @@ By prototyping new behavior in a contextual playground, you obtain immediate fee
 
 %: ----- Custom View -------------------------
 \pattern{Custom View}{customView}
+
+\ws{PP: I see how this works for user interfaces, but not clear how it works for other domains.\\
+ON: Do you mean that you don’t see how moldable development would work for non-GUI applications?\\
+PP: answer – I don’t see how this would work with an application without a user interface.\\
+(Problem: the paper examples are UI heavy. Over lunch discussed how data-heavy applications, like GitHub actions can also be handled the same way.)}
+
+\ws{JN: Michael Jackson in one of his books says, “the more applicable something is, the less specific help it will provide.” A lot of this is playing in this space.\\
+ON: Do you mean that the patterns or the tools are too generic? The whole idea of MD is that you need to build custom tools using these general patterns.\\
+JN answer: I’m not sure you really want custom views. One issue is the time and effort to build a custom view. You can spend no time and use a raw view, or you can spend a lot of time building a beautiful custom view. The paper does not get into how you build the views. It seems to be by textual code – not sure why. You could have a view builder that explains views. Collection Wrapper wasn’t clear why it’s needed. There are a lot of assumptions about the language you’re using which aren’t explicit.\\
+Perhaps you should cite Self and Lively.}
+
 \patsec{Context}
 You are exploring a live domain model and find some interesting information.
 
@@ -417,6 +464,10 @@ Custom views become an intrinsic part of a software system,
 \cp{are those views accessible from end users? -- trying to understand what characterizes them as "intrinsic"}
 thus turning it into an \emph{explainable system}.
 You need a \patref{moldableTool} into which you can dynamically plug custom views.
+
+\ws{DP: In the consequences of Custom View there are references to related patterns. pp 10-11. It seems strange to have that in the consequences. Before the consequences mention the related patterns.\\
+PP: Would not put that in the Solution. I would separate related patterns in a subsection in the template.}
+
 
 \eog{Down here, there's mention of what a you need a moldable tool, but I still don't understand what a moldable tool is given just this paper so far.}
 
@@ -500,6 +551,9 @@ Next we present the patterns related specifically to modeling domain entities in
 %: ----- Moldable Object -------------------------
 \pattern{Moldable Object}{moldableObject}
 
+\ws{JN: What%: ----- s a Moldable Object? (Chants problem solution.) Solution is very heavy - there's a lot of stuff going on here.\\
+DP: The issue with the solution is that it seems to be self-defined. (A Moldable Object starts with a Moldable Object.) We need to take action from the beginning.}
+
 \patsec{Context}
 You are ready to start the process 
 \cp{should a question to be explained already be there? or will the question/answer emerge by itself after this process starts?}
@@ -542,6 +596,8 @@ wrap the data as a \patref{moldableDataWrapper}.
 In \autoref{fig:moldableLudoGame} we see an Inspector on an instance of a \lst{Gt\-Ludo\-Recording\-Game} with a \patref{contextualPlayground} where we can write experimental code that we later extract as methods.
 In this case we are prototyping the \emph{autoplay} feature.
 In the second pane we see the \emph{History} view of the object, showing the details of all the moves of the game.
+
+\ws{JN: In the Ludo game, where did the history come from? Is it the game or the molding?}
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{moldableLudoGame}
@@ -627,6 +683,8 @@ When you are searching for usages of an API, not only do you find examples that 
 
 %: ----- Moldable Data Wrapper -------------------------
 \pattern{Moldable Data Wrapper}{moldableDataWrapper}
+
+\ws{JN: Moldable Data Wrapper and Moldable Collection Wrapper seem to overlap or be in conflict.}
 
 \patsec{Context}
 You are working in a domain with existing data that you want to turn into an explainable system.
@@ -771,7 +829,7 @@ Extract interesting code snippets as example objects to document interesting use
 As the project grows, organize the notebook into a main page with an overview, and separate notebook pages for different tasks or groups of related tasks.
 
 Consider using notebook tags 
-\cp{related work?: https://hillside.net/plop/2013/papers/proceedings/papers/cunningham.pdf}
+\cp{related work?: \url{https://hillside.net/plop/2013/papers/proceedings/papers/cunningham.pdf}}
 to organize your pages implicitly. For example, use a dedicated project tag for all the project pages, and additional tags to indicate their status (``todo'', ``completed'', ``urgent'' \etc).
 For example, the ``DRAFT'' tag is used to track pages of the \GT Book that require further editing.
 
@@ -825,6 +883,8 @@ Tooling buildup will slow you down.
 \cp{especially if the expertise is lacking. Most of the previous solution examples imply something needs to be built. However there are YAML parser libraries, SQL database clients, etc. Is reusing them vs. rewriting them from scratch not also part of "tooling buildup"?}
 Once you have the right tools in place, you can move fast.
 \dd{Good use of opposing consequences!}
+\ws{DP: In Tooling Buildup has a negative consequence. But they are predominantly positive. Need to see more potential liabilities.}
+
 
 %: ----- Blind Spot -------------------------
 \pattern{Blind Spot}{blindSpot}
@@ -869,6 +929,8 @@ It does not matter if the custom tools you develop do not perfectly match the st
 
 %: ----- Simple View -------------------------
 \pattern{Simple View}{simpleView}
+
+\ws{JN: Instead of Simple View, why not just take a generic view? What's the difference between a simple view and a custom view?}
 
 \patsec{Context}
 You have found some useful domain information to expose and have decided to implement a \patref{customView}.
@@ -917,6 +979,8 @@ Simple views are easy to understand and extend or replace.
 
 %: ----- Throwaway Analysis Tool -------------------------
 \pattern{Throwaway Analysis Tool}{throwawayAnalysisTool}
+
+\ws{JN: Throwaway Tools aren't.}
 
 \patsec{Context}
 You are assessing a problem such as a bug, a performance problem, or a security issue, and you are facing a problem that is very difficult to understand.
@@ -973,6 +1037,8 @@ tool-building becomes an essential part of the development process, rather than 
 
 % ===== Conclusion =========================
 \section{Conclusion}
+
+\ws{JN: The voice of the author is disembodied, but only comes out in the conclusion that there is a lot of experience here. It should be made clearer earlier.}
 
 The pattern language described here has been mined from several years of experience in applying moldable development to both open- and closed-source projects, using the \GT moldable development platform.
 Moldable development makes software systems explainable by making it cheap to add custom tools that support decision making.

@@ -1,0 +1,140 @@
+# EuroPLoP MD patterns workshop feedback
+
+Feedback from workshop A.
+
+2024-07-04
+
+EuroPLoP Moldable Patterns feedback - Google Docs
+
+https://docs.google.com/document/d/10i9qqP0koxaGc71FKFd1DzF5KzZKNk0TrzYX0wPNtDY/edit
+# Participants
+James Noble, ON, Stefan Holtel, Petr Picha, Daniel Pinho, (Eduardo Guerra double-booked).
+# Excerpts to read:
+Moldable development supports decision-making by making software systems explainable. This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model. Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
+Moldable development itself starts with a Moldable Object, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks. An interesting instance can be encapsulated as an Example Object, essentially a unit test that returns a tested object. An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
+# Feedback
+Starting with positive remarks
+PP: Complex description of the practice. Downloadable examples. Main idea: make visible  to developers what the code is doing, beyond what debuggers do.
+SH: Making systems explainable from different perspectives. Showing domains of understanding. The toolkit makes it easy to get answers to arbitrary questions.
+JN: Format is nice. Like the white space for the conference version. 
+PP: Like the map on page 5. Categorization helps to organize the patterns.
+DP: Introduction was well-explained.
+PP: Appreciate multiple revisions before submission and acknowledging the reviewers.
+PP: Figures are nice to get you halfway to the live system.
+DP: The figures help to drive the point home in Moldable Tool.
+PP: The map and pattern overview are useful to see the overall picture before seeing the first pattern.
+PP: There are way too many patterns to discuss.
+ON: Which patterns do you not understand?
+JN: I really like the topic. My PhD was about this stuff.
+PP: I see how this works for user interfaces, but not clear how it works for other domains. (NB: Asked for clarification later.)
+PP: The problem is usually stated as shortly and succinctly as possible, which is nice.
+JN: Problem-solution pairs work nicely. (Chants a problem-solution pair.)
+(NB: “Pointing” is a form of annotation in prayer books telling where to break in the chanting.)
+PN: In Moldable Object, I like the running example.
+JN: It would be funnier if they were called “Moldy Development Patterns.”
+DP: In the consequences of Custom View there are references to related patterns. pp 10-11. It seems strange to have that in the consequences. Before the consequences mention the related patterns.
+PP: Would not put that in the Solution. I would separate related patterns in a subsection in the template. 
+PP: Problems are short and succinct but the solutions not. Perhaps split into Solution and Details.
+PP: Consequences mostly seem to be missing negative ones.
+DP: In Tooling Buildup has a negative consequence. But they are predominantly positive. Need to see more potential liabilities.
+PP: As shepherd, I read the paper three times, so I did not find patterns that I did not understand.
+JN: I found it difficult to pick out individual patterns in the formatted paper. The pattern names don't jump out to me. On p 24 it's not clear there are two patterns. On p 4 the Modeling Patterns header is more visible than the pattern itself.
+(Maybe label them all “PATTERN: …”?)
+DP: Or add the category label to the name (P, T etc).
+JN: The path through the patterns is a crazy maze (shows green lines drawn on the map).
+(Need to show an idealized path?)
+PP: Instead of showing the patterns in the order by the categories, instead just show an idealized order?
+
+JN: Or, like in the GoF book, just list them in alphabetical order.
+
+JN: Without looking at the paper, what is an Explainable System?
+
+PP: It’s the goal.
+
+SH: It’s the purpose.
+
+JN: An echoey room is a room with echos. An explainable system is …
+
+DP: One where you can easily get information about the system.
+
+PP: It’s about the ease of transfer of information from someone who knows it.
+
+JN: It’s not a system that “explains itself”. A developer can explain it to a stakeholder.
+
+DP: It’s also a self-explaining system. You’re gleaning information yourself.
+
+PP: It’s not just about explaining to a stakeholder, but a developer explaining to another one, or to themselves in the future.
+
+JN: I would just dump the Explainable System part, and just focus on the moldability. It’s also not about reshaping a system.
+
+JN: The voice of the author is disembodied, but only comes out in the conclusion that there is a lot of experience here. It should be made clearer earlier.
+
+JN: Known uses are needed. If the paper was about explainable systems, a known use could be: A traveler arrives at Heathrow and is denied boarding. The explainable system shows why this has happened.
+
+JN: If it’s the Ludo game, it could be Johnny who loses, and the explainable system explains to him why.
+
+JN: If it’s an industrial system, say that “In System blah we were able to …”.
+
+JN: P. 7, line 119. Since “moldable” and “dynamic” are in italics. Are they forces?
+There is a Known Use within the solution.
+
+JN: What’s a Contextual Playground. Anyone? Any negative consequences?
+E.g., you can write any garbage code in the contextual playground that could crash the system. 
+Debuggers are hard enough to understand, so let’s give developers some LSD!
+A problem is that the semantics of code in a playground is not the same as it is in source code (cf Haskell).
+
+JN: Michael Jackson in one of his books says, “the more applicable something is, the less specific help it will provide.” A lot of this is playing in this space.
+(Ask for clarification - the whole idea is that you need to build custom tools using these general patterns.)
+
+JN: Throwaway Tools aren’t.
+
+JN: Instead of Simple View, why not just take a generic view? What’s the difference between a simple view and a custom view?
+
+JN: In the Ludo game, where did the history come from? Is it the game or the molding?
+
+JN: Is the business model separate from the display? (cf MVC) 
+In the back of the Blue book there is a reference to a non-existing book on Building Interactive Applications in Smalltalk. The GoF book was the closest answer.
+
+JN: What’s a Moldable Object? (Chants problem solution.) Solution is very heavy - there’s a lot of stuff going on here.
+
+DP: The issue with the solution is that it seems to be self-defined. (A Moldable Object starts with a Moldable Object.) We need to take action from the beginning.
+
+# Clarifications
+PP: I see how this works for user interfaces, but not clear how it works for other domains.
+ON: Do you mean that you don’t see how moldable development would work for non-GUI applications?
+PP: answer – I don’t see how this would work with an application without a user interface.
+(Problem: the paper examples are UI heavy. Over lunch discussed how data-heavy applications, like GitHub actions can also be handled the same way.)
+JN: Michael Jackson in one of his books says, “the more applicable something is, the less specific help it will provide.” A lot of this is playing in this space.
+
+ON: Do you mean that the patterns or the tools are too generic? The whole idea of MD is that you need to build custom tools using these general patterns.
+
+JN answer: I’m not sure you really want custom views. One issue is the time and effort to build a custom view. You can spend no time and use a raw view, or you can spend a lot of time building a beautiful custom view. The paper does not get into how you build the views. It seems to be by textual code – not sure why. You could have a view builder that explains views. Collection Wrapper wasn’t clear why it’s needed. There are a lot of assumptions about the language you’re using which aren’t explicit.
+Perhaps you should cite Self and Lively.
+
+JN: Moldable Data Wrapper and Moldable Collection Wrapper seem to overlap or be in conflict.
+
+# Offline comments (lunch, etc)
+
+PP: Must we use all the patterns or is there a minimal subset?
+Why isn't a debugger enough? 
+OK, I see. You can get at the data with a debugger, but it may be hard. The custom views make it easy to get at the answers.
+# Summary of suggestions
+Separate solution summary from details. 
+List separately related patterns.
+List more negative consequences.
+List known uses explicitly.
+Highlight better the patterns in the paper.
+Perhaps describe an idealized order of the patterns.
+Which patterns are obligatory, resp. optional?
+The Explainable System motivation needs to be clearer.
+The experience should be made clear at the beginning, not the end.
+Explain the difference between a Simple View and a raw view.
+
+Also: it would have been better to split the patterns into detailed patterns and “patlets” just described in a line or two.
+
+# What did I learn?
+Internally reviewing the patterns in advance of submission was well-appreciated.
+A more refined template can be a good thing.
+It’s hard to understand what exactly people understand.
+
+
