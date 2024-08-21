@@ -4,6 +4,7 @@
 \documentclass[sigconf]{acmart}
 
 %% For review (and arxiv.org)
+%\documentclass[manuscript,10pt]{acmart}
 %\documentclass[manuscript,12pt]{acmart}
 %\usepackage{lineno}
 %\linenumbers
@@ -86,17 +87,17 @@
 
 Moldable development supports decision-making by making software systems \emph{explainable}.
 This is done by making it cheap to add numerous custom tools to your software, 
-\cp{your software or your software development environment?}
+%\cp{your software or your software development environment?}
 turning it into a live, explorable domain model.
 Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
 
 This paper targets
 (i) readers curious to learn about moldable development,
 (ii) current users of the \emph{Glamorous Toolkit} moldable IDE
-\cp{these are probably the readers who will benefit most, given the examples and terminology used which is very GT specific.}
+%\cp{these are probably the readers who will benefit most, given the examples and terminology used which is very GT specific.}
 wanting to learn best practices, and
 (iii) developers interested in applying moldable development using other platforms and technology.
-\dd{Good explanation of the paper's target audience}
+%\dd{Good explanation of the paper's target audience}
 \end{abstract}
 
 \keywords{Software development, software modeling and analysis, software testing, explainable systems.}
@@ -106,28 +107,30 @@ wanting to learn best practices, and
 % ===== Introduction =========================
 \section{Introduction: Moldable development in a Nutshell}
 
-\ws{Takeaways from the workshop:
-Separate solution summary from details. 
-List separately related patterns.
-List more negative consequences.
-List known uses explicitly.
-Highlight better the patterns in the paper.
-Perhaps describe an idealized order of the patterns.
-Which patterns are obligatory, resp. optional?
-The Explainable System motivation needs to be clearer.
-The experience should be made clear at the beginning, not the end.
-Explain the difference between a Simple View and a raw view.
-Also: it would have been better to split the patterns into detailed patterns and “patlets” just described in a line or two.}
+%\ws{Takeaways from the workshop:\\
+%- Separate solution summary from details. \\
+%- List separately related patterns.\\
+%- List more negative consequences.\\
+%- List known uses explicitly.\\
+%- Highlight better the patterns in the paper.\\
+%- Perhaps describe an idealized order of the patterns.\\
+%- Which patterns are obligatory, resp. optional?\\
+%- The Explainable System motivation needs to be clearer.\\
+%- The experience should be made clear at the beginning, not the end.\\
+%- Explain the difference between a Simple View and a raw view.\\
+%- Also: it would have been better to split the patterns into detailed patterns and “patlets” just described in a line or two.
+%}
 
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it can be difficult to extract that knowledge.
 The usual ways to view software systems are
-\cp{ignoring requirement specifications, documentation, modeling artifacts, architectural decision records...}
 \begin{inparaenum}[(i)]
 \item the source code, and
 \item the running system.
 \end{inparaenum}
 But neither of these lends itself well to answering questions about the system.
+%\cp{ignoring requirement specifications, documentation, modeling artifacts, architectural decision records...}
+In addition there may exist documentation and other related artifacts, but these are typically incomplete, or out-of-sync with the actual system.
 Software analysis tools can help to some extent, but since every system and every problem is different, it is rare for generic analysis tools \emph{to be effective for arbitrary systems.}
 
 When we think of software development, we typically think about the active part.
@@ -139,16 +142,15 @@ They do that because they want to learn enough about the system to make a decisi
 This is the single largest development expense we have.
 So, we should optimize software engineering for decision making.
 
-Moldable development is an approach to constructing software systems that are \emph{explainable}.
-\cp{What is your definition of "explainability"?  Is it the ability of answering questions about the software? but who answers the questions? the tool or the developer interpreting what a tool shows?}
+Moldable development is an approach to constructing software systems that are \emph{explainable}, that is to say, systems that can answer questions about themselves.
+%\cp{What is your definition of "explainability"?  Is it the ability of answering questions about the software? but who answers the questions? the tool or the developer interpreting what a tool shows?}
 This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
 These custom tools consist of small extensions to the \emph{moldable} tools of the integrated development environment (IDE), such as the object inspector, the code editor, the debugger and the notebook.
 
 Every part of a software system deals with a particular \emph{domain}, whether this be the \emph{business domain} of the overall application, or a more \emph{technical domain}  of the underlying application.
-\ws{JN: Is the business model separate from the display? (cf MVC) 
-In the back of the Blue book there is a reference to a non-existing book on Building Interactive Applications in Smalltalk. The GoF book was the closest answer.}
+%\ws{JN: Is the business model separate from the display? (cf MVC)  In the back of the Blue book there is a reference to a non-existing book on Building Interactive Applications in Smalltalk. The GoF book was the closest answer.}
 The net effect of moldable development is to \emph{expose} the underlying models of these diverse domains (\ie the ``domain models'') 
-\cp{is this related to reverse engineering models out of the code?}
+%\cp{is this related to reverse engineering models out of the code?}
 so that they become explainable, and support decision making.
 
 The Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
@@ -167,7 +169,7 @@ We can also run the tests, but if these are all green, they do not help us to un
 By applying moldable development, we turn questions we have about the game into custom views.
 
 The figure shows three connected custom inspector views
-\cp{are these views released to be available to all users of the game? or are they only present during development? -- just trying to reflect on the "your software" or "your software development environment" comment from the beginning of the introduction}
+%\cp{are these views released to be available to all users of the game? or are they only present during development? -- just trying to reflect on the "your software" or "your software development environment" comment from the beginning of the introduction}
 of a running game in GT.
 In the leftmost pane we see the game GUI as the \st{Board} view.
 We can also interact programmatically with the game, evaluating ``\st{self autoPlay: 1000}'' in a contextual playground (a kind of interactive shell) below the view.
@@ -176,7 +178,7 @@ The \st{Move} view visualizes the actual move performed in the context of the cu
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
 
 In a nutshell, moldable development is a way to make systems explainable by making the \emph{inside} of a software system visible and explorable through custom tools.
-\cp{how many of these tools are domain/application specific and how many are reusable across different applications?}
+%\cp{how many of these tools are domain/application specific and how many are reusable across different applications?}
 Of course, this begs the question how to actually apply moldable development in practice.
 In our experience applying moldable development to many industrial and open source systems, we have encountered a number of repeating patterns, which we document below.
 
@@ -185,31 +187,30 @@ In our experience applying moldable development to many industrial and open sour
 
 %\rb{In our view, the paper is weakened by the assumption that it is aimed at the same audience as the previously published paper. Your goal in the "book" was to inform GT students of the scope of possibilities in this product. We would hope that your goal in publishing samples through PLoP would be to spread your success more broadly. (Ward is thinking of sharing with him for example). }
 
-\dd{I don't necessarily agree with the pattern collections being pattern languages --- the relationships between patterns also matter.}
+%\dd{I don't necessarily agree with the pattern collections being pattern languages --- the relationships between patterns also matter.}
 
 Moldable development can be understood in terms of a collection of mutually supporting 
-\dd{Make this more evident}
+%\dd{Make this more evident}
 patterns, in other words, a \emph{pattern language}, summarized in \autoref{fig:map}.
 These patterns have emerged over several years of experience in developing \GT following moldable development, and applying it to numerous projects.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{map}
   \caption{A map of moldable development patterns.
-  \cp{consider adding a legend for the arrow. Having "it depends on" relationships helps really well to build up the hierarchy until the goal of having an explainable system. The question is whether explainable system requires ALL or AT LEAST ONE of the underlying patterns, likewise for Contextual Playground - does it need ALL or AT LEAST ONE of the custom view/search/action patterns.}}
+%  \cp{consider adding a legend for the arrow. Having "it depends on" relationships helps really well to build up the hierarchy until the goal of having an explainable system. The question is whether explainable system requires ALL or AT LEAST ONE of the underlying patterns, likewise for Contextual Playground - does it need ALL or AT LEAST ONE of the custom view/search/action patterns.}
+  }
   \label{fig:map}
 \end{figure}
 
-\kh{What is not obvious from the description of the patterns is how they
-mutually support each other. There's an opportunity for a follow-up
-paper that describes how the patterns are applied in a real project.}
+%\kh{What is not obvious from the description of the patterns is how they mutually support each other. There's an opportunity for a follow-up paper that describes how the patterns are applied in a real project.}
 
-\ws{JN: The path through the patterns is a crazy maze (shows green lines drawn on the map). (Need to show an idealized path?)\\
-PP: Instead of showing the patterns in the order by the categories, instead just show an idealized order?\\
-JN: Or, like in the GoF book, just list them in alphabetical order.}
+%\ws{JN: The path through the patterns is a crazy maze (shows green lines drawn on the map). (Need to show an idealized path?)\\
+%PP: Instead of showing the patterns in the order by the categories, instead just show an idealized order?\\
+%JN: Or, like in the GoF book, just list them in alphabetical order.}
 
-\ws{PP: Must we use all the patterns or is there a minimal subset?
-Why isn't a debugger enough? 
-OK, I see. You can get at the data with a debugger, but it may be hard. The custom views make it easy to get at the answers.}
+%\ws{PP: Must we use all the patterns or is there a minimal subset?
+%Why isn't a debugger enough? 
+%OK, I see. You can get at the data with a debugger, but it may be hard. The custom views make it easy to get at the answers.}
 
 %\eog{I think like that, the hard thing for this section number two that I found is that there's like a lot of definitions of what things are without a lot of connected motivation.
 %And it felt like I don't know if this is a thing that you've ever experienced, but you sit down you play, you're ready to play a board game with some friends and then someone's like, all right, we're gonna sit down and read the rule book from like cover to cover and then everything will be good.
@@ -218,33 +219,35 @@ OK, I see. You can get at the data with a debugger, but it may be hard. The cust
 %And then like from that I can gather, like my, I can interest my brain in the parts that matter.
 %And it's really tough to hold on to just like a list of definitions, for example, without that.}
 
-The arrows in the diagram can be interpreted as meaning that one pattern ``uses'' or ``requires'' others.
+The diagram illustrates some of the ways in which the patterns support each other:
+the arrows indicate that one pattern ``uses'' or ``leads to'' another.
 The patterns that are concerned with \emph{Tooling} are tagged with ``(T)'', with \emph{Modeling} ``(M)'', and with the development \emph{Process} ``(P)''.
 
 There are two distinct roles involved in moldable development:
 \begin{inparaenum}[(i)]
 \item the \emph{Facilitator} is responsible for the technical realization of custom tools, and
 \item the \emph{Stakeholder} is responsible for the domain model and questions about the domain that should be answered by the custom tools.
-\cp{can a tool always answer a question? or is a tool used to answer a question?}
+%\cp{can a tool always answer a question? or is a tool used to answer a question?}
 \end{inparaenum}
 In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
 
 At the top of the map we have ``Explainable System,'' which is not a pattern per se, but rather the goal of moldable development.
-\cp{why not consider to promoting "explainable system" to a pattern?}
-\c[{it could be a composite pattern}
-An \empty{explainable system} is a software system whose domain model has been exposed with the help of numerous custom tools~\cite{Nier22a}.
-\cp{interesting, but narrow definition. Is exposing its domain model the only way to explain a system?}
-\ws{JN: I would just dump the Explainable System part, and just focus on the moldability. It's also not about reshaping a system.}
+%\cp{why not consider to promoting "explainable system" to a pattern?}
+%\cp{it could be a composite pattern}
+An \empty{explainable system} is a software system whose domain models have been exposed with the help of numerous custom tools~\cite{Nier22a}.
+%\cp{interesting, but narrow definition. Is exposing its domain model the only way to explain a system?}
+%\ws{JN: I would just dump the Explainable System part, and just focus on the moldability. It's also not about reshaping a system.}
 
 Each custom tool can be seen as an extension of an existing \patref{moldableTool}, which can be cheaply adapted by a simple customization.
 Some domains require a preliminary phase of \patref{toolingBuildup}, for example, to create dedicated parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \patref{blindSpot} is a problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \patref{projectDiary} is a notebook that serves as a starting point for development tasks.
 A \patref{throwawayAnalysisTool} can be a quick way to solve an urgent problem in a focused way.
-\cp{What about more heavy-weight tools which perform static/dynamic analysis?}
+%\cp{What about more heavy-weight tools which perform static/dynamic analysis?}
 
+At the center of the diagram we see \patref{moldableObject}, which is also the most central pattern in terms of methodology.
 Moldable development itself starts with a \patref{moldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
-\cp{how is this related to a blackbox, glassbox, whitebox approach? how invasive is moldable development? does it change the system being explained or just helps to observe it? or explanation inevitably leads to evolution...}
+%\cp{how is this related to a blackbox, glassbox, whitebox approach? how invasive is moldable development? does it change the system being explained or just helps to observe it? or explanation inevitably leads to evolution...}
 An interesting instance can be encapsulated as an \patref{exampleObject}, essentially a unit test that returns a tested object.
 An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
 In case the domain includes already existing data entities, each of these can be wrapped in a \patref{moldableDataWrapper} to produce a moldable object.
@@ -260,32 +263,53 @@ The most common of these tools are:
 A custom view is frequently a \patref{simpleView} that can be quickly prototyped, and later extended.
 A custom search often benefits from a \patref{collectionWrapper}, to allow the results of a query to be also molded with custom tools.
 
-\dd{Good explanation/overview on the pattern language!}
+%\dd{Good explanation/overview on the pattern language!}
 
-\pp{1) Related patterns: I would include a "Related Patterns" piece into the pattern description template that you are using. This would just list the other patterns from your language that the current one is related to and how. You sometimes mention such relations in the Solutions, and especially dependencies (i.e., the pattern implementation is dependent on the prior application of some other) are important to highlight. This "section" of each pattern's description would help the reader conceptualize the relations of individual patterns to each other without having to constantly refer back to the language figure.}
+\subsubsection*{How to read the patterns.}
+The patterns below are listed in three sections, starting with \nameref{sec:tooling}, and proceeding through \nameref{sec:modeling} and \nameref{sec:process}.
+This order reflects the diagram in \autoref{fig:map}, and provides a complete picture of all the patterns.
+The hasty reader might prefer to start directly with \patref{moldableObject} at center of the diagram, and from there follow the arrows to the other patterns, the most fundamental being 
+\patref{exampleObject}, 
+\patref{contextualPlayground}, and
+\patref{customView}.
+This will provide a quick introduction to the most central and essential of the moldable development patterns.
 
-\pp{2) Change the order: If you decide to put the previous suggestion to use, you might want to reorder the pattern descriptions in a way that the ones others depend on come first, before the depending ones. For example, several patterns in the Tooling Patterns category refer to the Moldable Object pattern. In fact, you yourselves state before the patterns that Moldable Object is the base for all of the Moldable development. Thus, I would put the Modeling Patterns first unless there is a stronger logical reason for the order being as it is. It is beneficial for the reader to build on the previously read patterns rather than having to skip ahead because some later pattern seems to be important to understand fully the current one.}
+
+%\pp{1) Related patterns: I would include a "Related Patterns" piece into the pattern description template that you are using. This would just list the other patterns from your language that the current one is related to and how. You sometimes mention such relations in the Solutions, and especially dependencies (i.e., the pattern implementation is dependent on the prior application of some other) are important to highlight. This "section" of each pattern's description would help the reader conceptualize the relations of individual patterns to each other without having to constantly refer back to the language figure.}
+
+%\pp{2) Change the order: If you decide to put the previous suggestion to use, you might want to reorder the pattern descriptions in a way that the ones others depend on come first, before the depending ones. For example, several patterns in the Tooling Patterns category refer to the Moldable Object pattern. In fact, you yourselves state before the patterns that Moldable Object is the base for all of the Moldable development. Thus, I would put the Modeling Patterns first unless there is a stronger logical reason for the order being as it is. It is beneficial for the reader to build on the previously read patterns rather than having to skip ahead because some later pattern seems to be important to understand fully the current one.}
 
 
-\pp{3) Separate Solution and Examples: Another change of the pattern template structure I would propose is to separate the generic Solution from the GT (or other) examples. The usage of examples to further describe your patterns is great, but at times it feels too narrow to conceive of the (more) generic solution proposed by the pattern. I would introduce a new "section" of the template, "Example", placed between Solution and Consequences. The text for the examples is already there, so this is just a cut-and-paste task. However, you might find that there is not enough left in the Solution on the generic level in some cases. I think this is a slight issue as describing the solution only through one concrete example might not be enough for the readers to extrapolate it into their specific situations.}
+%\pp{3) Separate Solution and Examples: Another change of the pattern template structure I would propose is to separate the generic Solution from the GT (or other) examples. The usage of examples to further describe your patterns is great, but at times it feels too narrow to conceive of the (more) generic solution proposed by the pattern. I would introduce a new "section" of the template, "Example", placed between Solution and Consequences. The text for the examples is already there, so this is just a cut-and-paste task. However, you might find that there is not enough left in the Solution on the generic level in some cases. I think this is a slight issue as describing the solution only through one concrete example might not be enough for the readers to extrapolate it into their specific situations.}
 
-\pp{4) Other examples: The through-line of using one overall example (GT and Ludo game) to demonstrate almost all the patterns is really great. Especially, since the whole thing is available for everyone to try and explore. I'm just wondering if the patterns could benefit from an extra example each. One of something most developers or software engineers in general are already familiar with in each pattern (or wherever possible). For example, if I understand correctly, the Project Diary pattern could be realized as a ticketing system (Jira/Redmine/RTC) integrated into IDE. Examples that utilize familiar concepts and entities like that can make the patterns more relatable and understandable to the reader even without the need to download and try GT and Ludo.}
+%\pp{4) Other examples: The through-line of using one overall example (GT and Ludo game) to demonstrate almost all the patterns is really great. Especially, since the whole thing is available for everyone to try and explore. I'm just wondering if the patterns could benefit from an extra example each. One of something most developers or software engineers in general are already familiar with in each pattern (or wherever possible). For example, if I understand correctly, the Project Diary pattern could be realized as a ticketing system (Jira/Redmine/RTC) integrated into IDE. Examples that utilize familiar concepts and entities like that can make the patterns more relatable and understandable to the reader even without the need to download and try GT and Ludo.}
 
-\pp{5) Problem vs. Forces: This last one is very probably just a personal preference, so please, take it as such and only apply it if you find it reasonable or encounter other similar opinions. I am just used to reading forces as a set of short bullet points. To my mind, it makes the hurdles the solution has to overcome more instantly easy to parse and grasp. Your forces read like extensions or further explanations to the problem, and that is most likely totally fine. Like I said, it is just a preference and if it is just mine, then it is not worth making the change for.}
+%\pp{5) Problem vs. Forces: This last one is very probably just a personal preference, so please, take it as such and only apply it if you find it reasonable or encounter other similar opinions. I am just used to reading forces as a set of short bullet points. To my mind, it makes the hurdles the solution has to overcome more instantly easy to parse and grasp. Your forces read like extensions or further explanations to the problem, and that is most likely totally fine. Like I said, it is just a preference and if it is just mine, then it is not worth making the change for.}
 
 % ===== Tooling =========================
 \section{Tooling Patterns}\label{sec:tooling}
 
 We start by presenting the patterns that enable the cheap creation of custom tools.
-\cp{how does the order in which the patterns are placed in the paper fit with the map in Figure 2? Maybe add another map where the patterns remain in the same place but the edges show the sequence of the paper?}
+%\cp{how does the order in which the patterns are placed in the paper fit with the map in Figure 2? Maybe add another map where the patterns remain in the same place but the edges show the sequence of the paper?}
 
 %\rb{Lots of folks like to compose patterns with a template. On wiki Ward suggested two paragraphs separated by the word "Therefore" was sufficient so long as the first paragraph described a recurring problem with roots in human nature, and the second paragraph described something specific you could make or do that "resolves" the forces present in the first paragraph. I might have referred to this as Patlets once or twice.}
 
 % \wc{Each statement describes how or where to apply a solution without explaining what human need causes these solutions to be routinely required. We were led to believe that an ability to make decisions is the root of each need. I will be looking for ways to understand this decision making better and to tie human decision making to the solutions offered by each pattern.}
 
-\ws{JN: I found it difficult to pick out individual patterns in the formatted paper. The pattern names don't jump out to me. On p 24 it's not clear there are two patterns. On p 4 the Modeling Patterns header is more visible than the pattern itself.
-(Maybe label them all “PATTERN: …”?)\\
-DP: Or add the category label to the name (P, T etc).}
+%\ws{JN: I found it difficult to pick out individual patterns in the formatted paper. The pattern names don't jump out to me. On p 24 it's not clear there are two patterns. On p 4 the Modeling Patterns header is more visible than the pattern itself.
+%(Maybe label them all “PATTERN: …”?)\\
+%DP: Or add the category label to the name (P, T etc).}
+
+
+%:FIX TEMPLATE <===
+\todo{Refine pattern template:\\
+- Make Forces a list?\\
+- List more negative consequences.\\
+- Separate solution summary from details. \\
+- Add related patterns.\\
+- Add Known uses.\\
+- Add Examples. (more examples needed)\\
+}
 
 %: ----- Moldable Tool -------------------------
 \pattern{Moldable Tool}{moldableTool}
@@ -932,6 +956,9 @@ It does not matter if the custom tools you develop do not perfectly match the st
 
 \ws{JN: Instead of Simple View, why not just take a generic view? What's the difference between a simple view and a custom view?}
 
+\todo{Explain the difference between a Simple View and a raw view.}
+
+
 \patsec{Context}
 You have found some useful domain information to expose and have decided to implement a \patref{customView}.
 
@@ -1055,7 +1082,7 @@ Once the development environment has been opened up to make its core tools molda
 
 We would like to thank Ralf Barkow, Ward Cunningham, Konrad Hinsen, Timo Kehrer and Edward Ocampo-Gooding for their detailed reviews of drafts of this paper.
 % Alberto Torres, -- didn't reply
-\todo{Thanks to Petr Picha, Cesare Pautasso, and Daniel Pinho for their written comments, and the EuroPLoP workshop participants for their feedback.}
+Thanks are due as well to Petr Picha, Cesare Pautasso, and Daniel Pinho for their written comments, and the EuroPLoP workshop participants for their feedback.
 
 % ===== References =========================
 %% The next two lines define the bibliography style to be used, and
