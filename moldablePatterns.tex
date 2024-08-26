@@ -1,15 +1,19 @@
 %% This file is cloned from `sample-sigconf.tex',
-
+%
 %% For the proceedings
-\documentclass[sigconf]{acmart}
-
+%\documentclass[sigconf]{acmart}
+%
 %% For review (and arxiv.org)
 %\documentclass[manuscript,10pt]{acmart}
 %\documentclass[manuscript,12pt]{acmart}
 %\usepackage{lineno}
 %\linenumbers
 %\linespread{1.4} % CAVEAT -- the acmart style complains. Just ignore and continue.
-
+%
+% PREPRINT version -- see https://www.micahsmith.com/blog/2021/02/sharing-a-preprint-using-acmart/
+\documentclass[acmsmall,screen,authorversion,nonacm]{acmart} % PREPRINT
+%
+% ============================================================
 % NB: To suppress the warning, edit the acmart.cls file, eg in
 %  /usr/local/texlive/2020/texmf-dist/tex/latex/acmart
 % and comment out:
@@ -17,7 +21,24 @@
 %  \ClassError{\@classname}{An attempt to redefine
 %    \string\baselinestretch\space detected.  Please do not do this for
 %    ACM submissions!}\fi}
-
+% ============================================================
+\input{macros}
+\input{st80.tex}
+% ============================================================
+\newboolean{preprint}
+\setboolean{preprint}{true}
+%\setboolean{preprint}{false}
+\ifthenelse{\boolean{preprint}}{
+% FOR PREPRINT
+%\usepackage{fancyhdr}
+%\AtBeginDocument{%
+%    \addtolength{\footskip}{2.0\baselineskip}%
+%    \fancyfoot[L]{\textit{Preprint.}}%
+%}
+}{
+% FOR CAMERA-READY
+}
+% ============================================================
 %% BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
   \providecommand\BibTeX{{%
@@ -33,9 +54,6 @@
 %    FEBRUARY 5, 2024 - Deadline for initial paper submission
 %    MARCH 10, 2024 -  Acceptance for shepherding; Start of shepherding
 %    JUNE 16, 2024 - End of shepherding; Deadline for conference version of paper
-% ============================================================
-\input{macros}
-\input{st80.tex}
 % ============================================================
 % Macros for this paper
 %\renewcommand{\nbc}[3]{} % To hide reviewer comments
