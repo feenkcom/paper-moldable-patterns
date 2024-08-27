@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{15}
+\begin{thebibliography}{19}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -125,6 +125,22 @@
 \showDOI{\tempurl}
 
 
+\bibitem[Edwards(2004)]%
+        {Edwa04a}
+\bibfield{author}{\bibinfo{person}{Jonathan Edwards}.}
+  \bibinfo{year}{2004}\natexlab{}.
+\newblock \showarticletitle{Example centric programming}. In
+  \bibinfo{booktitle}{\emph{OOPSLA 04: Companion to the 19th annual ACM SIGPLAN
+  conference on Object-oriented programming systems, languages, and
+  applications}} (Vancouver, BC, CANADA). \bibinfo{publisher}{ACM Press},
+  \bibinfo{pages}{124--124}.
+\newblock
+\showISBNx{1-58113-833-4}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1028664.1028713}
+\showDOI{\tempurl}
+
+
 \bibitem[{feenk.com}(2023)]%
         {feenk23a}
 \bibfield{author}{\bibinfo{person}{{feenk.com}}.}
@@ -160,6 +176,24 @@
 \url{https://lepiter.io/feenk/introducing-lepiter--knowledge-management--e2p6apqsz5npq7m4xte0kkywn/}
 \showURL{%
 \tempurl}
+
+
+\bibitem[Kavalar et~al\mbox{.}(2023)]%
+        {Kava23a}
+\bibfield{author}{\bibinfo{person}{Martin Kavalar}, \bibinfo{person}{Philippa
+  Markovics}, {and} \bibinfo{person}{Jack Rusher}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Clerk: Moldable Live Programming for {Clojure}}. In
+  \bibinfo{booktitle}{\emph{Companion Proceedings of the 7th International
+  Conference on the Art, Science, and Engineering of Programming}} (Tokyo,
+  Japan) \emph{(\bibinfo{series}{Programming '23})}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{pages}{22–31}.
+\newblock
+\showISBNx{9798400707551}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3594671.3594682}
+\showDOI{\tempurl}
 
 
 \bibitem[Kuhn et~al\mbox{.}(2008)]%
@@ -215,6 +249,23 @@
 \showDOI{\tempurl}
 
 
+\bibitem[Rein et~al\mbox{.}(2018)]%
+        {Rein18a}
+\bibfield{author}{\bibinfo{person}{Patrick Rein}, \bibinfo{person}{Stefan
+  Ramson}, \bibinfo{person}{Jens Lincke}, \bibinfo{person}{Robert Hirschfeld},
+  {and} \bibinfo{person}{Tobias Pape}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Exploratory and Live, Programming and Coding: A
+  Literature Study Comparing Perspectives on Liveness}.
+\newblock \bibinfo{journal}{\emph{The Art, Science, and Engineering of
+  Programming}} \bibinfo{volume}{3}, \bibinfo{number}{1} (\bibinfo{date}{July}
+  \bibinfo{year}{2018}).
+\newblock
+\showISSN{2473-7321}
+\urldef\tempurl%
+\url{https://doi.org/10.22152/programming-journal.org/2019/3/1}
+\showDOI{\tempurl}
+
+
 \bibitem[Stallman(1981)]%
         {Stal81a}
 \bibfield{author}{\bibinfo{person}{Richard~M. Stallman}.}
@@ -246,6 +297,21 @@
 \showISBNx{9781450348362}
 \urldef\tempurl%
 \url{https://doi.org/10.1145/3079368.3079376}
+\showDOI{\tempurl}
+
+
+\bibitem[Valenzuela-Toledo et~al\mbox{.}(2023)]%
+        {Vale23a}
+\bibfield{author}{\bibinfo{person}{Pablo Valenzuela-Toledo},
+  \bibinfo{person}{Alexandre Bergel}, \bibinfo{person}{Timo Kehrer}, {and}
+  \bibinfo{person}{Oscar Nierstrasz}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{{EGAD}: A moldable tool for {GitHub} Action
+  analysis}. In \bibinfo{booktitle}{\emph{Proceedings of the 14th International
+  Conference on Mining Software Repositories}} (Melbourne, Australia)
+  \emph{(\bibinfo{series}{MSR '23})}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/MSR59073.2023.00044}
 \showDOI{\tempurl}
 
 
