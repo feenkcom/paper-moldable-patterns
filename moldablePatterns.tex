@@ -343,7 +343,7 @@ You are developing a software system, and find that the existing development too
 domain-specific questions about the software.
 
 \patsec{Problem}
-How can you cheaply and effectively extend the development environment with custom tools that address questions about your application domain?
+\emph{How can you cheaply and effectively extend the development environment with custom tools that address questions about your application domain?}
 %\cp{domain-specific is pleonastic with the last part of the sentence}
 
 \patsec{Forces}
@@ -359,7 +359,7 @@ and they often do not compose nicely with existing tools or with each other.
 \patsec{Solution}
 %\cp{Consider splitting the solution from the example/known use. An example is included in most patterns, so the template of the pattern could feature "Example" between "Solution" and "Consequences".}
 %\ws{PP: Problems are short and succinct but the solutions not. Perhaps split into Solution and Details.}
-Make the development tools \emph{moldable} to the \emph{dynamic context} of the artifacts they are intended to work with~\cite{Chis17a}, by associating custom behavior to the artifacts themselves.
+\emph{Make the development tools \emph{moldable} to the \emph{dynamic context} of the artifacts they are intended to work with~\cite{Chis17a}, by associating custom behavior to the artifacts themselves.}
 %\ws{JN: P. 7, line 119. Since “moldable” and “dynamic” are in italics. Are they forces? There is a Known Use within the solution.}
 
 \patsec{Examples}
@@ -414,13 +414,16 @@ A \patref{MoldableTool} reacts to a \patref{MoldableObject}, which triggers cust
 %: ----- Contextual Playground -------------------------
 \pattern{Contextual Playground}{ContextualPlayground}
 %\kh{"Contextual Playground" is a pattern, but I'd label it "process" rather than "tooling". On the other hand, it's also reasonable to have it right before "Custom View", as it's a preparation to tooling work.}
+
+\todo{Not so clear what problem is being solved. Is this about exploring, coding, testing or prototyping? It's all mixed up. What is the insight?}
+
 \patsec{Context}
-You are using a \patref{MoldableTool}, and you are ready to start exploring.
+You are using a \patref{MoldableTool}, and you are ready to start exploring your software system.
 
 % \eog{So you're exploring maybe we could talk about what, what exploring means. Like if you ask a regular developer, like tell me about the explorations you've done this morning, versus, hey, what kind of like debugging or like learning about the system?}
 
 \patsec{Problem}
-Where do you start exploring?
+\emph{Where do you start exploring?}
 %\cp{is coding a synonym of exploring? or what is the relationship between the two?}
 
 \patsec{Forces}
@@ -434,7 +437,7 @@ Writing tests first for parts of the logic of a complex method can be overkill.\
 
 \patsec{Solution}
 \todo{Explain the relationship between exploring, coding and protoyping.}
-Prototype new behavior in the contextual playground of the inspector on a \patref{MoldableObject}.
+\emph{Prototype new behavior in the contextual playground of the inspector on a \patref{MoldableObject}.}
 %\cp{this pattern has not been introduced yet, so readers may need to jump ahead to learn about it before understanding the solution of the contextual playground}
 The playground will be bound to the context of the instance, so \st{self} and all slots (\ie instance variables) can be accessed exactly as they would in a running method.
 From the moldable object you can navigate to any parts of the instance, to explore the APIs, or to test experimental code.
@@ -500,20 +503,20 @@ GT playgrounds for inspector, coder and debugger.}
 You are exploring a live domain model and find some interesting information.
 
 \patsec{Problem}
-How do you make it easy to find interesting information again?
+\emph{How do you make it easy to find interesting information again?}
 
 \patsec{Forces}
 Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating Playground snippets,
 %\cp{this is only implicitly hinted at in the previous pattern. Consider explaining it already in the playground pattern}
 to reach the answer you seek.\\
-The sequence of steps may be cumbersome to follow repeatedly.
+The sequence of steps may be cumbersome to follow repeatedly.\\
+The default view you obtain may not highlight the interesting bits of information.
 
 % \eog{this part here, you could describe it also with like a watch statement in javascript or whatever, like this kind of thing. And then people could be more familiar with that because they, they do that.}
 
 \patsec{Solution}
-Turn interesting data into a custom view.
+\emph{Turn interesting data into a custom view.}
 Extract the navigation steps into a new custom view for the moldable object you start navigating from.
-Start with a \patref{SimpleView}.
 
 %\eog{I'd love to see maybe a picture like a figure with this.}
 
@@ -550,9 +553,9 @@ Are there others?
 }
 
 \patsec{Related patterns}
-\todo{...
+\todo{
+Start with a \patref{SimpleView}.
 \patref{MoldableTool}is a prerequisite. (Explain how)
-\patref{SimpleView}.
 }
 
 %: ----- Custom Search -------------------------
@@ -562,14 +565,14 @@ Are there others?
 You have a complex domain model consisting of various kinds of entities related to each other.
 
 \patsec{Problem}
-How can you effectively navigate between domain entities by name, content or other criteria?
+\emph{How can you effectively navigate between domain entities by name, content or other criteria?}
 
 \patsec{Forces}
 It can be hard to anticipate which domain  entities you will need to navigate to.\\
 Designing a good query interface can be a difficult task.
 
 \patsec{Solution}
-Add a custom search for every kind of domain entity you want to navigate to.
+\emph{Add a custom search for every kind of domain entity you want to navigate to.}
 Simply search by substring against various attributes of the domain objects.
 Add a separate search for each attribute type or domain object.
 
@@ -608,7 +611,7 @@ GT global spotter vs dedicated spotter for a knowledge base or a given inspector
 You are developing an explorable domain model of your application and find yourself repeatedly evaluating the same code snippets to perform a certain action or navigate to another object.
 
 \patsec{Problem}
-How can you streamline execution of repeated actions?
+\emph{How can you streamline execution of repeated actions?}
 
 \patsec{Forces}
 Repeated tasks are annoying, time-consuming, and error-prone.\\
@@ -617,7 +620,7 @@ Remembering how to perform common tasks increases cognitive overload.\\
 Storing code to perform common actions as methods or as snippets in class comments doesn't guarantee that the code will be easily found when you need it.
 
 \patsec{Solution}
-Add a custom action button to the moldable tool for the object involved in a repeated task, encapsulating the boilerplate code to perform it.
+\emph{Add a custom action button to the moldable tool for the object involved in a repeated task, encapsulating the boilerplate code to perform it.}
 Be sure to pick an evocative button icon and tooltip text to make the intent of the button clear.
 Only add buttons for the most important actions to avoid cluttering the interface of a moldable tool.
 
@@ -663,7 +666,7 @@ of creating an explainable system, either from scratch, or based on some existin
 \todo{Refine context and problem.}
 
 \patsec{Problem}
-Where do you start coding an explainable system?
+\emph{Where do you start coding an explainable system?}
 
 \patsec{Forces}
 As a programmer, you want to quickly get feedback 
@@ -673,9 +676,9 @@ When you write code in a conventional code editor, you are several steps away fr
 To write unit tests, you must already know what behavior you want to test and what the results should be.
 
 \patsec{Solution}
-Start coding by inspecting a live instance of the class you are coding, 
+\emph{Start coding by inspecting a live instance of the class you are coding,
 %\cp{is any live instance of a class already a moldable object?}
-\emph{not in a code editor}.
+\emph{not in a code editor}.}
 Then incrementally pose domain-specific questions, find the answers by exploring and interacting with the object, and then turn the way you reach those answers 
 %\cp{the way to obtain those answers (?)}
 into custom tools, behaviors and tests.
@@ -734,7 +737,7 @@ Instead of trying to program custom tools in a vacuum, you first explore and pro
 You want to explore questions about domain objects that are in particular execution states.
 
 \patsec{Problem}
-How do you create an object in a particular state to start a moldable development task?
+\emph{How do you create an object in a particular state to start a moldable development task?}
 
 \patsec{Forces}
 Concrete examples are needed for many purposes, such as documentation, testing, and exploration.\\
@@ -742,9 +745,9 @@ Examples can be complex to set up.\\
 Unit tests consume examples, but they are only accessible if a test fails.
 
 \patsec{Solution}
-Wrap examples as (instance) methods that optionally evaluate some tests (assertions), 
+\emph{Wrap examples as (instance) methods that optionally evaluate some tests (assertions), 
 %\cp{how do these assertions help answering the problem question above?}
-and return the example instance.
+and return the example instance.}
 %\cp{sounds like a GOF factory method?}
 Each example may also use one or more existing examples as the initial setup to arrive at the new execution state.
 
@@ -815,7 +818,7 @@ A similar framework for Java is JExample~\cite{Kuhn08a}.
 You are working in a domain with existing data that you want to turn into an explainable system.
 
 \patsec{Problem}
-How do you develop custom tools for existing data?
+\emph{How do you develop custom tools for existing data?}
 
 \patsec{Forces}
 When we explore data, we represent them using suitable low-level data structures.\\
@@ -823,7 +826,7 @@ Data structures (lists, dictionaries) reflect the representation of data, not th
 To analyze and explore data, we need higher-level views that reflect our understanding of the data.
 
 \patsec{Solution}
-Wrap each kind of data using a dedicated class reflecting the problem domain entity.
+\emph{Wrap each kind of data using a dedicated class reflecting the problem domain entity.}
 As you explore the data, introduce custom tools (views \etc) to the domain class that reflect answers to questions you ask about the data.
 
 First extract the data of interest.
@@ -889,7 +892,7 @@ In case custom tools of the underlying data objects are useful, you can always r
 Within your application domain, you not only have to deal with individual domain objects, but also composite entities (\eg a book of notebook pages, a website of web pages), and collections of entities (\eg the result of query).
 
 \patsec{Problem}
-How can you effectively provide custom tools for various kinds of collections of domain entities?
+\emph{How can you effectively provide custom tools for various kinds of collections of domain entities?}
 
 \patsec{Forces}
 Collections are generic data structures with generic views that are not necessarily informative for your domain.\\
@@ -897,7 +900,7 @@ Collections of domain entities may occur in various forms and contexts, such as 
 Providing custom views for each of these can be tedious and lead to much duplicated code.
 
 \patsec{Solution}
-Wrap a collection of domain objects in a dedicated collection wrapper, and give it dedicated views, actions and searches.
+\emph{Wrap a collection of domain objects in a dedicated collection wrapper, and give it dedicated views, actions and searches.}
 In case there are multiple composite entities or collections that should share the same custom tools, factor these out into a common abstract superclass or trait~\cite{Duca06b}.
 
 For example, in \autoref{fig:moldableCollectionWrapper} we see that when we navigate to the \st{Pages} of a website, we obtain not a raw collection, but a \lst{Web\-Page\-Group} wrapping the collection, and providing custom tools, such as a map of reachable and unreachable pages.
@@ -938,7 +941,7 @@ We conclude with the process patterns that provide guidance in organizing and st
 You are working on a software project and need to track your progress.
 
 \patsec{Problem}
-How can you keep track of decisions, experiments and progress in a moldable development project?
+\emph{How can you keep track of decisions, experiments and progress in a moldable development project?}
 %\cp{consider mentioning this property in the context already (unless the pattern is applicable to any software project)}
 
 \patsec{Forces}
@@ -947,9 +950,9 @@ Documentation is not part of the running system, so it distracts you from coding
 Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
 
 \patsec{Solution}
-Use a live notebook 
+\emph{Use a live notebook 
 %\cp{why "live"? and isn't this notebook a place to write some kind of documentation?}
-as the starting point for all tasks.
+as the starting point for all tasks.}
 Create a dedicated notebook page for each project, or even each project task, to summarize the goals, and provide pointers to related material.
 Use the notebook to keep a diary of your progress.
 
@@ -1010,7 +1013,7 @@ to start exploring the domain.
 You may be missing a parser for a data format or a DSL, a language bridge to an execution platform, or implementations of key analysis algorithms. 
 
 \patsec{Problem}
-How do you start moldable development if you are missing core infrastructure?
+\emph{How do you start moldable development if you are missing core infrastructure?}
 
 \patsec{Forces}
 %\dd{This feels like more of the problem.}
@@ -1019,7 +1022,7 @@ You might not know where to find existing implementations to directly use, or to
 You might lack the expertise to build the tools yourself.
 
 \patsec{Solution}
-To start a moldable development activity, you need to have the basic tools available to start exploring.
+\emph{To start a moldable development activity, you need to have the basic tools available to start exploring.}
 If these are missing, you need to first work on a \emph{tooling buildup} phase.
 In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on building the tools you need to start exploring.
 
@@ -1056,7 +1059,7 @@ NB: \patref{MoldableTool} is something else
 You are starting to work with an existing team and code base, and you need to engage the key stakeholders.
 
 \patsec{Problem}
-How do you pick the first moldable development task to focus on?
+\emph{How do you pick the first moldable development task to focus on?}
 
 \patsec{Forces}
 The stakeholders are already heavily committed to their current development tasks, and have little time to spare for you.\\
@@ -1065,7 +1068,7 @@ You need to demonstrate early success to get the customer to commit long-term to
 It can be difficult to pick a task that is both feasible in a short amount of time, and also brings value to the stakeholders.
 
 \patsec{Solution}
-Find the parts of the system that are creating problems for the stakeholders and make them \emph{explainable}.
+\emph{Find the parts of the system that are creating problems for the stakeholders and make them \emph{explainable}.}
 These are the ``blind spots'' that are difficult to understand, to monitor, or to debug.
 Pick one of these blind spots as a target.
 The task should be feasible in reasonable time
@@ -1112,7 +1115,7 @@ Need some GT anecdotes?
 You have found some useful domain information to expose and have decided to implement a \patref{CustomView}.
 
 \patsec{Problem}
-How should you design a custom view to effectively communicate the information of interest?
+\emph{How should you design a custom view to effectively communicate the information of interest?}
 
 \patsec{Forces}
 There are many different ways to design a view.\\
@@ -1120,7 +1123,7 @@ It is hard to anticipate what information another Stakeholder would be intereste
 You can spend an arbitrary amount of time and effort implementing a rich, interactive visualization as a view.
 
 \patsec{Solution}
-Always start with the simplest kind of view that you can implement quickly to convey just the information you are interested in for your current task.
+\emph{Always start with the simplest kind of view that you can implement quickly to convey just the information you are interested in for your current task.}
 Enhance it or replace it by a richer view only when there is a clear need to do so.
 
 This pattern follows exactly the same reasoning as the \emph{Goal/Question/Metric} (GQM) approach~\cite{Basi94a} for designing software metrics.
@@ -1172,7 +1175,7 @@ Simple views are easy to understand and extend or replace.
 You are assessing a problem such as a bug, a performance problem, or a security issue, and you are facing a problem that is very difficult to understand.
 
 \patsec{Problem}
-How can you advance the assessment effectively?
+\emph{How can you advance the assessment effectively?}
 
 \patsec{Forces}
 The goal of an assessment is to find answers as quickly as possible.\\
@@ -1181,7 +1184,7 @@ Custom tools help make analyses faster, while generic, ``reusable'' tools can ma
 Throwaway tools aren't.
 
 \patsec{Solution}
-Build a dedicated, throwaway tool just for your problem.
+\emph{Build a dedicated, throwaway tool just for your problem.}
 Use a \patref{ContextualPlayground} to prototype a visualization or to explore the result of a quick query.
 
 \todo{Move the following sentences to other sections ... (Consequences etc}
