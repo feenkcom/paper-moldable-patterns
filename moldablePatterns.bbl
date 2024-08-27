@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{11}
+\begin{thebibliography}{15}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -37,8 +37,7 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
-\bibitem[\protect\citeauthoryear{Basili, Caldiera, and Rombach}{Basili
-  et~al\mbox{.}}{1994}]%
+\bibitem[Basili et~al\mbox{.}(1994)]%
         {Basi94a}
 \bibfield{author}{\bibinfo{person}{Victor~R Basili}, \bibinfo{person}{Gianluigi
   Caldiera}, {and} \bibinfo{person}{H.~Dieter Rombach}.}
@@ -50,8 +49,21 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{Chi\c{s}, G\^irba, Kubelka, Nierstrasz,
-  Reichhart, and Syrel}{Chi\c{s} et~al\mbox{.}}{2017}]%
+\bibitem[Beck and Gamma(1998)]%
+        {Beck98a}
+\bibfield{author}{\bibinfo{person}{Kent Beck} {and} \bibinfo{person}{Erich
+  Gamma}.} \bibinfo{year}{1998}\natexlab{}.
+\newblock \showarticletitle{Test Infected: Programmers Love Writing Tests}.
+\newblock \bibinfo{journal}{\emph{Java Report}} \bibinfo{volume}{3},
+  \bibinfo{number}{7} (\bibinfo{year}{1998}), \bibinfo{pages}{51--56}.
+\newblock
+\urldef\tempurl%
+\url{http://members.pingnet.ch/gamma/junit.htm}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Chi\c{s} et~al\mbox{.}(2017)]%
         {Chis17a}
 \bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Tudor
   G\^irba}, \bibinfo{person}{Juraj Kubelka}, \bibinfo{person}{Oscar
@@ -68,8 +80,35 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Ducasse, Nierstrasz, Sch{\"a}rli, Wuyts, and
-  Black}{Ducasse et~al\mbox{.}}{2006}]%
+\bibitem[Chi\c{s} et~al\mbox{.}(2014)]%
+        {Chis14a}
+\bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Tudor
+  G\^{i}rba}, {and} \bibinfo{person}{Oscar Nierstrasz}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{The {Moldable Inspector}: a framework for
+  domain-specific object inspection}. In \bibinfo{booktitle}{\emph{Proceedings
+  of International Workshop on Smalltalk Technologies (IWST 2014)}} (Cambridge,
+  England).
+\newblock
+\urldef\tempurl%
+\url{http://scg.unibe.ch/archive/papers/Chis14a-MoldableInspector.pdf}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Chi\c{s} et~al\mbox{.}(2024)]%
+        {Chis24a}
+\bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Oscar
+  Nierstrasz}, {and} \bibinfo{person}{Tudor G\^irba}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Moldable Exceptions}. In
+  \bibinfo{booktitle}{\emph{Proceedings of Onward! 2024}}.
+\newblock
+\newblock
+\shownote{to appear}.
+
+
+\bibitem[Ducasse et~al\mbox{.}(2006)]%
         {Duca06b}
 \bibfield{author}{\bibinfo{person}{St\'ephane Ducasse}, \bibinfo{person}{Oscar
   Nierstrasz}, \bibinfo{person}{Nathanael Sch{\"a}rli}, \bibinfo{person}{Roel
@@ -86,7 +125,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{{feenk.com}}{{feenk.com}}{2023}]%
+\bibitem[{feenk.com}(2023)]%
         {feenk23a}
 \bibfield{author}{\bibinfo{person}{{feenk.com}}.}
   \bibinfo{year}{2023}\natexlab{}.
@@ -98,8 +137,7 @@
 \tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Fowler, Beck, Brant, Opdyke, and
-  Roberts}{Fowler et~al\mbox{.}}{1999}]%
+\bibitem[Fowler et~al\mbox{.}(1999)]%
         {Fowl99a}
 \bibfield{author}{\bibinfo{person}{Martin Fowler}, \bibinfo{person}{Kent Beck},
   \bibinfo{person}{John Brant}, \bibinfo{person}{William Opdyke}, {and}
@@ -110,7 +148,7 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{G\^irba}{G\^irba}{2021}]%
+\bibitem[G\^irba(2021)]%
         {Girb21a}
 \bibfield{author}{\bibinfo{person}{Tudor G\^irba}.}
   \bibinfo{year}{2021}\natexlab{}.
@@ -124,8 +162,7 @@
 \tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Kuhn, Rompaey, H\"ansenberger, Nierstrasz,
-  Demeyer, Gaelli, and Leemput}{Kuhn et~al\mbox{.}}{2008}]%
+\bibitem[Kuhn et~al\mbox{.}(2008)]%
         {Kuhn08a}
 \bibfield{author}{\bibinfo{person}{Adrian Kuhn}, \bibinfo{person}{Bart~Van
   Rompaey}, \bibinfo{person}{Lea H\"ansenberger}, \bibinfo{person}{Oscar
@@ -145,18 +182,17 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Kur\v{s}, Lungu, and Nierstrasz}{Kur\v{s}
-  et~al\mbox{.}}{2014}]%
+\bibitem[Kur\v{s} et~al\mbox{.}(2014)]%
         {Kurs14b}
 \bibfield{author}{\bibinfo{person}{Jan Kur\v{s}}, \bibinfo{person}{Mircea
   Lungu}, {and} \bibinfo{person}{Oscar Nierstrasz}.}
   \bibinfo{year}{2014}\natexlab{}.
 \newblock \showarticletitle{Bounded Seas: Island Parsing Without Shipwrecks}.
   In \bibinfo{booktitle}{\emph{Software Language Engineering}}
-  \emph{(\bibinfo{series}{Lecture Notes in Computer Science})},
-  \bibfield{editor}{\bibinfo{person}{Beno\^{i}t Combemale},
-  \bibinfo{person}{David~J. Pearce}, \bibinfo{person}{Olivier Barais}, {and}
-  \bibinfo{person}{Jurgen~J. Vinju}} (Eds.), Vol.~\bibinfo{volume}{8706}.
+  \emph{(\bibinfo{series}{Lecture Notes in Computer Science},
+  Vol.~\bibinfo{volume}{8706})}, \bibfield{editor}{\bibinfo{person}{Beno\^{i}t
+  Combemale}, \bibinfo{person}{David~J. Pearce}, \bibinfo{person}{Olivier
+  Barais}, {and} \bibinfo{person}{Jurgen~J. Vinju}} (Eds.).
   \bibinfo{publisher}{Springer International Publishing},
   \bibinfo{pages}{62--81}.
 \newblock
@@ -166,8 +202,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Nierstrasz and G\^irba}{Nierstrasz and
-  G\^irba}{2022}]%
+\bibitem[Nierstrasz and G\^irba(2022)]%
         {Nier22a}
 \bibfield{author}{\bibinfo{person}{Oscar Nierstrasz} {and}
   \bibinfo{person}{Tudor G\^irba}.} \bibinfo{year}{2022}\natexlab{}.
@@ -180,7 +215,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Stallman}{Stallman}{1981}]%
+\bibitem[Stallman(1981)]%
         {Stal81a}
 \bibfield{author}{\bibinfo{person}{Richard~M. Stallman}.}
   \bibinfo{year}{1981}\natexlab{}.
@@ -196,8 +231,25 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Zelkowitz, Shaw, and Gannon}{Zelkowitz
-  et~al\mbox{.}}{1979}]%
+\bibitem[Syrel(2017)]%
+        {Syre17a}
+\bibfield{author}{\bibinfo{person}{Aliaksei Syrel}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Towards a live, moldable code editor}. In
+  \bibinfo{booktitle}{\emph{Companion Proceedings of the 1st International
+  Conference on the Art, Science, and Engineering of Programming}} (Brussels,
+  Belgium) \emph{(\bibinfo{series}{Programming '17})}.
+  \bibinfo{publisher}{Association for Computing Machinery},
+  \bibinfo{address}{New York, NY, USA}, Article \bibinfo{articleno}{43},
+  \bibinfo{numpages}{3}~pages.
+\newblock
+\showISBNx{9781450348362}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3079368.3079376}
+\showDOI{\tempurl}
+
+
+\bibitem[Zelkowitz et~al\mbox{.}(1979)]%
         {Zelk79b}
 \bibfield{author}{\bibinfo{person}{Marvin Zelkowitz}, \bibinfo{person}{Alan
   Shaw}, {and} \bibinfo{person}{John Gannon}.} \bibinfo{year}{1979}\natexlab{}.

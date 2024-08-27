@@ -28,15 +28,13 @@
 \newboolean{preprint}
 \setboolean{preprint}{true}
 %\setboolean{preprint}{false}
-\ifthenelse{\boolean{preprint}}{
-% FOR PREPRINT
-%\usepackage{fancyhdr}
-%\AtBeginDocument{%
-%    \addtolength{\footskip}{2.0\baselineskip}%
-%    \fancyfoot[L]{\textit{Preprint.}}%
-%}
-}{
-% FOR CAMERA-READY
+\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
+\usepackage{fancyhdr}
+\AtBeginDocument{%
+    \addtolength{\footskip}{2.0\baselineskip}%
+    \fancyfoot[L]{\textit{Preprint of paper workshopped at EuroPLoP, July 3--7, 2024, Kloster Irsee, Germany.}}%
+}
+}{% FOR CAMERA-READY
 }
 % ============================================================
 %% BibTeX command to typeset BibTeX logo in the docs
@@ -87,7 +85,7 @@
 %\newcommand{\patsec}[1]{\paragraph{\noindent{}#1.}\xspace}
 % ============================================================
 \begin{document}
-\title[Moldable Development Patterns --- REVIEW DRAFT]{Moldable Development Patterns}
+\title[Moldable Development Patterns --- preprint]{Moldable Development Patterns}
 
 \author{Oscar Nierstrasz}
 \affiliation{%
@@ -103,7 +101,7 @@
   \country{Switzerland}}
 \email{tudor.girba@feenk.com}
 
-\renewcommand{\shortauthors}{Nierstrasz and G\^irba} % If more, then change to et al.
+%\renewcommand{\shortauthors}{Nierstrasz and G\^irba} % If more, then change to et al.
 
 \begin{abstract}
 %\emph{NB: This draft has been formatted single-column with 1.4x spacing for the EuroPLoP conference. This is not the final print version.}
@@ -325,14 +323,14 @@ We start by presenting the patterns that enable the cheap creation of custom too
 
 
 %:FIX TEMPLATE <===
-\todo{Refine pattern template:\\
-- Make Forces a list?\\
-- List more negative consequences.\\
-- Separate solution summary from details (or Examples). \\
-- Add Examples. (more examples needed)\\
-- Separate out related patterns.\\
-- Add Known uses.\\
-}
+%\todo{Refine pattern template:\\
+%- Make Forces a list?\\
+%- List more negative consequences.\\
+%- Separate solution summary from details (or Examples). \\
+%- Add Examples. (more examples needed)\\
+%- Separate out related patterns.\\
+%- Add Known uses.\\
+%}
 
 %: ----- Moldable Tool -------------------------
 \pattern{Moldable Tool}{MoldableTool}
@@ -400,27 +398,24 @@ Some tooling effort is required to open up the existing IDE tools to make them m
 %\ws{PP: Consequences mostly seem to be missing negative ones.}
 
 \patsec{Known Uses}
-\todo{
-Unit testing.
-Moldable Inspector.
-Moldable Coder.
-Moldable  Debugger.
-}
+Unit testing tools such a JUnit~\cite{Beck98a} rely either on inheritance or annotations to automatically detect which methods in a package are tests, and adapt the IDE to enable testing tools, however the tool adaptation is fixed, and cannot be further customized without writing a new plugin.
+The Glamorous Toolkit includes several moldable tools.
+The Moldable Inspector~\cite{Chis14a} installs custom views, actions (\ie buttons), and search interfaces whenever an object is inspected that defines such custom tools as annotated methods.
+The Moldable Coder~\cite{Syre17a} (\ie code editor) also can add custom views, actions and searches when editing the source of a class with annotated methods.
+The Moldable Debugger~\cite{Chis24a} provides custom views, actions and searches installed as methods in the class of a caught exception.
 
 %\ws{JN: Known uses are needed. If the paper was about explainable systems, a known use could be: A traveler arrives at Heathrow and is denied boarding. The explainable system shows why this has happened.
 %If it's the Ludo game, it could be Johnny who loses, and the explainable system explains to him why.
 %If it's an industrial system, say that “In System blah we were able to …”.}
 
 \patsec{Related patterns}
-\todo{
-A moldable tool reacts to a \patref{MoldableObject}, which triggers custom tools such as \patref{CustomView}, \patref{CustomSearch} or \patref{CustomAction}.
-}
+A \patref{MoldableTool} reacts to a \patref{MoldableObject}, which triggers custom tools such as \patref{CustomView}, \patref{CustomSearch} or \patref{CustomAction}.
 
 %: ----- Contextual Playground -------------------------
 \pattern{Contextual Playground}{ContextualPlayground}
 %\kh{"Contextual Playground" is a pattern, but I'd label it "process" rather than "tooling". On the other hand, it's also reasonable to have it right before "Custom View", as it's a preparation to tooling work.}
 \patsec{Context}
-You have a moldable object, and you are ready to start exploring.
+You are using a \patref{MoldableTool}, and you are ready to start exploring.
 
 % \eog{So you're exploring maybe we could talk about what, what exploring means. Like if you ask a regular developer, like tell me about the explorations you've done this morning, versus, hey, what kind of like debugging or like learning about the system?}
 
@@ -482,6 +477,7 @@ GT playgrounds for inspector, coder and debugger.}
 
 \patsec{Related patterns}
 \todo{Prototyping Custom tools and extracting the code.
+\patref{MoldableTool} and \patref{MoldableObject}.
 \patref{CustomView}
 \patref{CustomAction}
 \patref{CustomSearch}
