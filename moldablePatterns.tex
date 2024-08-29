@@ -28,14 +28,14 @@
 \newboolean{preprint}
 \setboolean{preprint}{true}
 %\setboolean{preprint}{false}
-\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
-\usepackage{fancyhdr}
-\AtBeginDocument{%
-    \addtolength{\footskip}{2.0\baselineskip}%
-    \fancyfoot[L]{\textit{Preprint of paper workshopped at EuroPLoP, July 3--7, 2024, Kloster Irsee, Germany.}}%
-}
-}{% FOR CAMERA-READY
-}
+%\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
+%\usepackage{fancyhdr}
+%\AtBeginDocument{%
+%    \addtolength{\footskip}{2.0\baselineskip}%
+%    \fancyfoot[L]{\textit{Preprint of paper workshopped at EuroPLoP, July 3--7, 2024, Kloster Irsee, Germany.}}%
+%}
+%}{% FOR CAMERA-READY
+%}
 % ============================================================
 %% BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
@@ -85,7 +85,12 @@
 %\newcommand{\patsec}[1]{\paragraph{\noindent{}#1.}\xspace}
 % ============================================================
 \begin{document}
-\title[Moldable Development Patterns --- preprint]{Moldable Development Patterns}
+\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
+\title[Moldable Development Patterns --- preprint]{Moldable Development Patterns}%
+\thanks{Preprint of paper workshopped at \href{https://www.europlop.net}{EuroPLoP} 2024, July 3--7, 2024, Kloster Irsee, Germany.}%
+}{
+\title{Moldable Development Patterns}%
+}
 
 \author{Oscar Nierstrasz}
 \affiliation{%
@@ -1043,14 +1048,11 @@ You may be missing a parser for a data format or a DSL, a language bridge to an 
 \end{itemize}
 
 \patsec{Solution}
-\emph{To start a moldable development activity, you need to have the basic tools available to start exploring.}
-%:===> TODO --- Split Tool Buildup solution into solution and steps <===
-\todo{Split Solution and steps}
-If these are missing, you need to first work on a \emph{tooling buildup} phase.
-In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on building the tools you need to start exploring.
+\emph{To start a moldable development activity, first obtain the basic tools you need to start exploring.}
+%If these are missing, you need to first work on a \emph{tooling buildup} phase.
 
 \patsec{Examples}
-Here are some examples:
+In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on acquiring the tools you need to start exploring.
 \begin{inparaenum}[(i)]
 \item building a parser for YAML configuration files so that you can extract useful data from them and apply the \patref{MoldableDataWrapper} pattern,
 \item building an island parser~\cite{Kurs14b} to extract interesting bits of information from source files 
@@ -1091,10 +1093,10 @@ You need to demonstrate early success to get the customer to commit long-term to
 \end{itemize}
 
 \patsec{Solution}
-\emph{Find the parts of the system that are creating problems for the stakeholders and make them \emph{explainable}.}
-%:===> TODO --- Split solution and steps <===
-\todo{Split Solution and steps}
-These are the ``blind spots'' that are difficult to understand, to monitor, or to debug.
+\emph{Find the parts of the system that are creating problems for the stakeholders and make them explainable.}
+
+\patsec{Steps}
+The ``blind spots'' are the aspects that are difficult to understand, to monitor, or to debug.
 Pick one of these blind spots as a target.
 The task should be feasible in reasonable time
 (\ie hours or days, but not weeks or months)
@@ -1122,7 +1124,7 @@ It does not matter if the custom tools you develop do not perfectly match the st
 
 \patsec{Known Uses}
 %:===> TODO -- Known uses of Blind Spot <===
-\todo{Need some GT anecdotes. Can we expand on one of the example listed above?}
+\todo{Need some GT anecdotes. Can we expand on one of the examples listed above?}
 
 \patsec{Related patterns}
 A Blind Spot will manifest itself as one or more instances of a \patref{MoldableObject}.
@@ -1269,7 +1271,7 @@ tool-building becomes an essential part of the development process, rather than 
 
 \patsec{Known Uses}
 %:===> TODO -- Known Uses of Throwaway Analysis Tool? <===
-\todo{...}
+\todo{One or two GT anecdotes?}
 
 \patsec{Related patterns}
 Use a \patref{ContextualPlayground} to prototype the tools.
@@ -1325,5 +1327,3 @@ Thanks are due as well to Petr Picha, Cesare Pautasso, and Daniel Pinho for thei
 \ifthenelse{\boolean{preprint}}{% FOR PREPRINT
 }{% FOR CAMERA-READY
 }
-
-%:===> TODO -- XXX <===
