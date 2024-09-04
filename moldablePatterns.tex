@@ -404,7 +404,7 @@ Some tooling effort is required to open up the existing IDE tools to make them m
 %\ws{PP: Consequences mostly seem to be missing negative ones.}
 
 \patsec{Known Uses}
-Unit testing tools such a JUnit~\cite{Beck98a} rely either on inheritance or annotations to automatically detect which methods in a package are tests, and adapt the IDE to enable testing tools, however the tool adaptation is fixed, and cannot be further customized without writing a new plugin.
+Unit testing tools such as JUnit~\cite{Beck98a} rely either on inheritance or annotations to automatically detect which methods in a package are tests, and adapt the IDE to enable test runners, however the tool adaptation is fixed, and cannot be further customized without writing a new plugin.
 The JetBrains IDE allows you to customize the views of objects within a debugging session, though the custom views are specified in the configuration of the tool itself, not in the context of the object.\footnote{\href{https://web.archive.org/web/20240523010248/https://www.jetbrains.com/help/idea/customizing-views.html\#renderers}{https://www.jetbrains.com/help/idea/customizing-views.html\#renderers}}
 The Glamorous Toolkit includes several moldable tools.
 The Moldable Inspector~\cite{Chis14a} installs custom views, actions (\ie buttons), and search interfaces whenever an object is inspected that defines such custom tools as annotated methods.
@@ -955,7 +955,7 @@ Lifeware\footnote{\url{https://www.lifeware.ch}} uses Moldable Collection Wrappe
 There are about two dozen usages with GT, wrapping collections of notebook pages, web pages, logging events, and various other kinds of domain entities.
 
 \patsec{Related patterns}
-Whenever you develop a \patref{CustomSearch} that returns a collection, consider wrapping it as a \patref{CollectionWrapper}.
+Whenever you develop a \patref{CustomSearch} that returns a collection, consider wrapping it as a Moldable Collection Wrapper.
 
 % ===== Process =========================
 \section{Process Patterns}\label{sec:process}
@@ -1029,7 +1029,7 @@ Notebooks can serve not only to track progress, but also as documentation for bo
 Jupyter\footnote{\href{https://web.archive.org/web/20240820082136/https://docs.jupyter.org/en/latest/}{https://docs.jupyter.org/}} notebooks are commonly used as both activity logs and as project documentation.
 
 \patsec{Related patterns}
-A Project Diary page can embed numerous live \patref{ExampleObject} instance to document specific points.
+A Project Diary page can embed numerous live \patref{ExampleObject} instances to document specific points.
 
 %: ----- Tooling Buildup -------------------------
 \pattern{Tooling Buildup}{ToolingBuildup}
@@ -1209,7 +1209,7 @@ Within GT there exist nearly 1000 \st{forward} views that simply reuse an existi
 Over 800 views are simple \st{columnedList} views, in contrast to just under 500 \st{explicit} views that explicitly construct more complex graphical views.
 
 \patsec{Related patterns}
-When you introduce a \patref{CustomView}, you want to start with a \patref{SimpleView}.
+When you introduce a \patref{CustomView}, you want to start with a Simple View.
 
 %: ----- Throwaway Analysis Tool -------------------------
 \pattern{Throwaway Analysis Tool}{ThrowawayAnalysisTool}
@@ -1301,7 +1301,7 @@ Once the development environment has been opened up to make its core tools molda
 \subsection*{Acknowledgements}
 We would like to thank Ralf Barkow, Ward Cunningham, Konrad Hinsen, Timo Kehrer and Edward Ocampo-Gooding for their detailed reviews of drafts of this paper.
 % Alberto Torres, -- didn't reply
-Thanks are due as well to Petr Picha, Cesare Pautasso, and Daniel Pinho for their written comments, and the EuroPLoP workshop participants for their feedback.
+Thanks are due as well to Petr Picha, Cesare Pautasso, and Daniel Pinho for their written comments, and the EuroPLoP workshop participants for their spoken feedback.
 
 % ===== References =========================
 %% The next two lines define the bibliography style to be used, and
