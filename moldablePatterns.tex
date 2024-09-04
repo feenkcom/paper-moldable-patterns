@@ -149,7 +149,7 @@ wanting to learn best practices, and
 
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it can be difficult to extract that knowledge.
-The usual ways to view software systems are
+The usual \chg{ways to view}{artifacts to evaluate} software systems are
 \begin{inparaenum}[(i)]
 \item the source code, and
 \item the running system.
@@ -163,14 +163,14 @@ When we think of software development, we typically think about the active part.
 Of constructing.
 Of building new worlds that never existed.
 It's an empowering view.
-Yet, developers spend most of their time figuring systems out~\cite{Zelk79b}.
+Yet, developers spend most of their time figuring systems out~\cite{Zelk79b} \tg{I would propose \cite{Xia18a}}.
 They do that because they want to learn enough about the system to make a decision.
 This is the single largest development expense we have.
 So, we should optimize software engineering for decision making.
 
 Moldable development is an approach to constructing software systems that are \emph{explainable}, that is to say, systems that can answer questions about themselves.
 %\cp{What is your definition of "explainability"?  Is it the ability of answering questions about the software? but who answers the questions? the tool or the developer interpreting what a tool shows?}
-This is achieved by making it cheap to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
+This is achieved by making it \chg{cheap}{inexpensive} to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
 These custom tools consist of small extensions to the \emph{moldable} tools of the integrated development environment (IDE), such as the object inspector, the code editor, the debugger and the notebook.
 
 Every part of a software system deals with a particular \emph{domain}, whether this be the \emph{business domain} of the overall application, or a more \emph{technical domain}  of the underlying application.
@@ -179,15 +179,9 @@ The net effect of moldable development is to \emph{expose} the underlying models
 %\cp{is this related to reverse engineering models out of the code?}
 so that they become explainable, and support decision making.
 
-The Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
+\del{The }Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
 The examples we use to illustrate moldable development in this paper are all drawn from GT.\footnote{GT is open source, and runs on Mac, Linux and Windows. You can download GT from \url{https://gtoolkit.com}.
 There you will find alternative descriptions of these patterns in the ``Glamorous Toolkit Book'', a live notebook containing the examples shown here.}
-
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{CustomViews}
-  \caption{Custom views of a Ludo game.}
-  \label{fig:ludoViews}
-\end{figure}
 
 As a simple example, consider the inspector views of a Ludo game implementation in \autoref{fig:ludoViews}.
 With a conventional implementation, we can either try to play the game interactively, or we can stare at the source code.
@@ -202,6 +196,13 @@ We can also interact programmatically with the game, evaluating ``\st{self autoP
 In the second pane we can explore the moves of  the completed game, and in the third pane we can explore individual moves.
 The \st{Move} view visualizes the actual move performed in the context of the current game state at that point in time.
 Each of these views is achieved with just a few lines of code, and leads to the Ludo game becoming an explainable system that can be explored in ways that are far richer and more intuitive than by trying to read source code.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{CustomViews}
+  \caption{Custom views of a Ludo game.}
+  \label{fig:ludoViews}
+\end{figure}
+
 
 In a nutshell, moldable development is a way to make systems explainable by making the \emph{inside} of a software system visible and explorable through custom tools.
 %\cp{how many of these tools are domain/application specific and how many are reusable across different applications?}
@@ -264,7 +265,7 @@ An \empty{explainable system} is a software system whose domain models have been
 %\cp{interesting, but narrow definition. Is exposing its domain model the only way to explain a system?}
 %\ws{JN: I would just dump the Explainable System part, and just focus on the moldability. It's also not about reshaping a system.}
 
-Each custom tool can be seen as an extension of an existing \patref{MoldableTool}, which can be cheaply adapted by a simple customization.
+Each custom tool can be seen as an extension of an existing \patref{MoldableTool}, which can be \chg{cheaply adapted by a simple customization}{inexpensively customized}.
 Some domains require a preliminary phase of \patref{ToolingBuildup}, for example, to create dedicated parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \patref{BlindSpot} is a problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \patref{ProjectDiary} is a notebook that serves as a starting point for development tasks.
@@ -407,7 +408,7 @@ Unit testing tools such a JUnit~\cite{Beck98a} rely either on inheritance or ann
 The JetBrains IDE allows you to customize the views of objects within a debugging session, though the custom views are specified in the configuration of the tool itself, not in the context of the object.\footnote{\href{https://web.archive.org/web/20240523010248/https://www.jetbrains.com/help/idea/customizing-views.html\#renderers}{https://www.jetbrains.com/help/idea/customizing-views.html\#renderers}}
 The Glamorous Toolkit includes several moldable tools.
 The Moldable Inspector~\cite{Chis14a} installs custom views, actions (\ie buttons), and search interfaces whenever an object is inspected that defines such custom tools as annotated methods.
-The Moldable Coder~\cite{Syre17a} (\ie code editor) also can add custom views, actions and searches when editing the source of a class with annotated methods.
+The Moldable Coder~\cite{Syre17a} (\ie code editor) also can add custom views, \ins{highlighters,} actions and searches when editing the source of a class with annotated methods.
 The Moldable Debugger~\cite{Chis24a} provides custom views, actions and searches installed as methods in the class of a caught exception.
 
 %\ws{JN: Known uses are needed. If the paper was about explainable systems, a known use could be: A traveler arrives at Heathrow and is denied boarding. The explainable system shows why this has happened.
@@ -451,7 +452,7 @@ When we code new behavior as methods, we must repeatedly change our context to i
 
 \patsec{Steps}
 A contextual playground provides a live programming interface (\eg a REPL) to programmatically interact with the software entity managed by a \patref{MoldableTool}.
-Typically this entity will be a live object, but it could be class, or any other kind of software entity.
+\del{Typically this entity will be a live object, but it could be a class, or any other kind of software entity.}
 The playground will be bound to the context of the object, so \st{self} and all slots (\ie instance variables) can be accessed exactly as they would in a running method.
 
 Use the contextual playground to write code snippets to extract data, test hypotheses, navigate to parts or other related objects, to explore the API, or to prototype new behavior.
@@ -463,10 +464,10 @@ The same process can be used whether the extracted code consists of accessors, a
 In \autoref{fig:inspectingPythonObjects} we see an inspector view 
 %\cp{is this how the contextual playground looks like?}
 of an instance of a Python \st{MovieCollection} class.
-In the leftmost pane we see a notebook page with live code snippets, which function as contextual playgrounds within the context of the notebook page.
+In the leftmost pane we see a notebook page with live code snippets, which function as contextual playgrounds within the context of the notebook page \tg{I am not sure we should call the global pages contextual. I somehow would keep that word only for the ones in a non-global context - like an inspector or debugger}.
 From there we navigate to a moldable object inspector, a moldable tool for exploring live instances.
 In this case we are exploring a live Python instance of a \st{MovieCollection} object, with several custom views showing the \st{Directors}, \st{Years} and \st{Movies} of the collection.
-At the bottom of the inspector we see another contextual playground, this one bound to the context of the Python object.
+At the bottom of the inspector we see \del{another} contextual playground, this one bound to the context of the Python object.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{inspectingPythonObjects}
@@ -520,7 +521,7 @@ A contextual playground for an \patref{ExampleObject} can also be used to explor
 You are exploring a live domain model and find some interesting information.
 
 \patsec{Problem}
-\emph{How do you make it easy to find interesting information again?}
+\emph{How do you make it easy to find interesting information again?} \tg{I am not certain about the *again* part. Most often we want a view to be useful the first time we use it. The second time is a bonus.}
 
 \patsec{Forces}
 \begin{itemize}[---]
@@ -567,8 +568,11 @@ You first need a \patref{MoldableTool} into which you can dynamically plug custo
 \patsec{Known Uses}
 Clerk~\cite{Kava23a} is an open-source programming assistant for the Clojure language, which offers moldable, custom views within notebook pages.
 Custom views are pervasive in GT.
-In a standard image from August 2024, there exist over 1800 classes with a total of over 3600 view methods, averaging under 12 lines of code.
+In a standard image from August 2024, there exist over 1800 classes with a total of over 3600 view methods, averaging under 12 lines of code \tg{is it worthwhile to say that these extensions affect 12K classes due to subclassing. What about adding the treemap with all classes with views and examples highlighted?}.
 % In the image v1.0.1073 of Aug 27, 2024, there are 3627 gtView methods in 1893 classes
+%In the image DEV v1.0.1090 2024-09-02T16:07:58.717276+02:00 we also have:
+%methods := #gtView gtPragmas result toArray wait.%(((methods collect: #methodClass as: Set) reject: [ :each | each = Object or: [ each = ProtoObject]]) flatCollect: #withAllSubclasses) reject: #isMeta
+%==>12029
 
 \patsec{Related patterns}
 A \patref{MoldableTool} is a prerequisite for a custom view to be automatically installed when the relevant artifact (an object, a class, an exception, \etc) is seen by the tool.
@@ -597,11 +601,6 @@ You have a complex domain model consisting of various kinds of entities related 
 Simply search by substring against various attributes of the domain objects.
 Add a separate search for each attribute type or domain object.
 
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{CustomSearch}
-  \caption{Custom substring searches.}
-  \label{fig:CustomSearch}
-\end{figure}
 
 \patsec{Examples}
 In \autoref{fig:CustomSearch} we see several custom searches for page names, page content and link names within a website.
@@ -609,6 +608,13 @@ In \autoref{fig:CustomSearch} we see several custom searches for page names, pag
 %So I don't know, maybe something in ludo or like something more than just like researching.}
 As with other custom tools, one way to implement a custom search is as a method of the domain object from which the search is initiated, with a dedicated annotation.
 In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within multiple moldable tools, such as the inspector, the code editor, and also the notebook.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{CustomSearch}
+  \caption{Custom substring searches. \tg{I would rather pick a more explicit example like the address book}}
+  \label{fig:CustomSearch}
+\end{figure}
+
 
 \patsec{Consequences}
 You need a \patref{MoldableTool} into which you can dynamically plug custom searches.\\
