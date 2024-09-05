@@ -571,7 +571,8 @@ Custom views are pervasive in GT.
 In a standard image from August 2024, there exist over 1800 classes with a total of over 3600 view methods, averaging under 12 lines of code \tg{is it worthwhile to say that these extensions affect 12K classes due to subclassing. What about adding the treemap with all classes with views and examples highlighted?}.
 % In the image v1.0.1073 of Aug 27, 2024, there are 3627 gtView methods in 1893 classes
 %In the image DEV v1.0.1090 2024-09-02T16:07:58.717276+02:00 we also have:
-%methods := #gtView gtPragmas result toArray wait.%(((methods collect: #methodClass as: Set) reject: [ :each | each = Object or: [ each = ProtoObject]]) flatCollect: #withAllSubclasses) reject: #isMeta
+%methods := #gtView gtPragmas result toArray wait.
+%(((methods collect: #methodClass as: Set) reject: [ :each | each = Object or: [ each = ProtoObject]]) flatCollect: #withAllSubclasses) reject: #isMeta
 %==>12029
 
 \patsec{Related patterns}
