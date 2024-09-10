@@ -421,6 +421,8 @@ A Moldable Tool should provide a \patref{ContextualPlayground} to enable a live 
 
 %: ----- Contextual Playground -------------------------
 \pattern{Contextual Playground}{ContextualPlayground}
+
+\tg{I would rename this to Contextual Snippet. It's not the page, but the snippet that is essential. We should also say that it is interesting to have different kinds of snippets, much like we can have different kinds of views.}
 %\kh{"Contextual Playground" is a pattern, but I'd label it "process" rather than "tooling". On the other hand, it's also reasonable to have it right before "Custom View", as it's a preparation to tooling work.}
 
 %\todo{Not so clear what problem is being solved. Is this about exploring, coding, testing or prototyping? It's all mixed up. What is the insight?}
@@ -507,6 +509,8 @@ A contextual playground for an \patref{ExampleObject} can also be used to explor
 %: ----- Custom View -------------------------
 \pattern{Custom View}{CustomView}
 
+\tg{I think I would call this Contextual View to have it match the Contextual Playground. And I would also name the other two Contextual Search, Contextual Action. What do you think?}
+
 %\ws{PP: I see how this works for user interfaces, but not clear how it works for other domains.\\
 %ON: Do you mean that you don’t see how moldable development would work for non-GUI applications?\\
 %PP: answer – I don’t see how this would work with an application without a user interface.\\
@@ -552,6 +556,8 @@ From this custom view we can furthermore dive directly into the \st{Move} object
   \caption{A raw view and two custom views.}
   \label{fig:rawViewVsCustomView}
 \end{figure}
+
+\tg{I think we should expand somewhere on the combination between Contextual View and Moldable Object. It is this interplay that allows us to create new development UIs easily. Especially when we pick a meta object it becomes interesting. For example, a search in GT is just a snippet + object + view. For example, we could use the idea that a view on the exception becomes a view for debugging. Then we have a missing pattern: Connected Contexts, or Contextual Flow. For example, if I have a stack object with a view showing the contents of the stack, and another object with a specific stack context, I get a debugger.}
 
 \patsec{Consequences}
 A custom view exposes information about a domain that can otherwise be hard to find.\\
@@ -1028,6 +1034,7 @@ Notebooks can serve not only to track progress, but also as documentation for bo
 
 \patsec{Known Uses}
 Jupyter\footnote{\href{https://web.archive.org/web/20240820082136/https://docs.jupyter.org/en/latest/}{https://docs.jupyter.org/}} notebooks are commonly used as both activity logs and as project documentation.
+\ins{Personal knowledge management systems like RoamResearch\footnote{\href{https://web.archive.org/web/20240820082136/https://docs.jupyter.org/en/latest/}{https://roamresearch.com}} are regularly used for diary including for software projects.}
 
 \patsec{Related patterns}
 A Project Diary page can embed numerous live \patref{ExampleObject} instances to document specific points.
