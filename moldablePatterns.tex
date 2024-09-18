@@ -149,7 +149,7 @@ wanting to learn best practices, and
 
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it can be difficult to extract that knowledge.
-The usual \chg{ways to view}{artifacts to evaluate} software systems are
+The usual artifacts to evaluate software systems are
 \begin{inparaenum}[(i)]
 \item the source code, and
 \item the running system.
@@ -163,14 +163,15 @@ When we think of software development, we typically think about the active part.
 Of constructing.
 Of building new worlds that never existed.
 It's an empowering view.
-Yet, developers spend most of their time figuring systems out~\cite{Zelk79b} \tg{I would propose \cite{Xia18a}}.
+Yet, developers spend most of their time figuring systems out~\cite{Xia18a}.
+% Was \cite{Zelk79b}
 They do that because they want to learn enough about the system to make a decision.
 This is the single largest development expense we have.
 So, we should optimize software engineering for decision making.
 
 Moldable development is an approach to constructing software systems that are \emph{explainable}, that is to say, systems that can answer questions about themselves.
 %\cp{What is your definition of "explainability"?  Is it the ability of answering questions about the software? but who answers the questions? the tool or the developer interpreting what a tool shows?}
-This is achieved by making it \chg{cheap}{inexpensive} to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
+This is achieved by making it inexpensive to create dozens, hundreds or even thousands of custom tools to answers questions about a software system \emph{as these questions arise}.
 These custom tools consist of small extensions to the \emph{moldable} tools of the integrated development environment (IDE), such as the object inspector, the code editor, the debugger and the notebook.
 
 Every part of a software system deals with a particular \emph{domain}, whether this be the \emph{business domain} of the overall application, or a more \emph{technical domain}  of the underlying application.
@@ -179,7 +180,7 @@ The net effect of moldable development is to \emph{expose} the underlying models
 %\cp{is this related to reverse engineering models out of the code?}
 so that they become explainable, and support decision making.
 
-\del{The }Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
+Glamorous Toolkit (GT)~\cite{feenk23a} is an example of a \emph{moldable} \emph{development} \emph{environment} in which the development tools are continuously molded to make the software under development explainable.
 The examples we use to illustrate moldable development in this paper are all drawn from GT.\footnote{GT is open source, and runs on Mac, Linux and Windows. You can download GT from \url{https://gtoolkit.com}.
 There you will find alternative descriptions of these patterns in the ``Glamorous Toolkit Book'', a live notebook containing the examples shown here.}
 
@@ -250,6 +251,9 @@ The diagram illustrates some of the ways in which the patterns support each othe
 the arrows indicate that one pattern ``uses'' or ``leads to'' another.
 The patterns that are concerned with \emph{Tooling} are tagged with ``(T)'', with \emph{Modeling} ``(M)'', and with the development \emph{Process} ``(P)''.
 
+%:===> TODO -- Add Composed Narrative to the map and the body. <===
+\todo{Add Composed Narrative to the map and the body.}
+
 There are two distinct roles involved in moldable development:
 \begin{inparaenum}[(i)]
 \item the \emph{Facilitator} is responsible for the technical realization of custom tools, and
@@ -265,7 +269,7 @@ An \empty{explainable system} is a software system whose domain models have been
 %\cp{interesting, but narrow definition. Is exposing its domain model the only way to explain a system?}
 %\ws{JN: I would just dump the Explainable System part, and just focus on the moldability. It's also not about reshaping a system.}
 
-Each custom tool can be seen as an extension of an existing \patref{MoldableTool}, which can be \chg{cheaply adapted by a simple customization}{inexpensively customized}.
+Each custom tool can be seen as an extension of an existing \patref{MoldableTool}, which can be inexpensively customized.
 Some domains require a preliminary phase of \patref{ToolingBuildup}, for example, to create dedicated parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
 A \patref{BlindSpot} is a problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
 A \patref{ProjectDiary} is a notebook that serves as a starting point for development tasks.
@@ -408,7 +412,7 @@ Unit testing tools such as JUnit~\cite{Beck98a} rely either on inheritance or an
 The JetBrains IDE allows you to customize the views of objects within a debugging session, though the custom views are specified in the configuration of the tool itself, not in the context of the object.\footnote{\href{https://web.archive.org/web/20240523010248/https://www.jetbrains.com/help/idea/customizing-views.html\#renderers}{https://www.jetbrains.com/help/idea/customizing-views.html\#renderers}}
 The Glamorous Toolkit includes several moldable tools.
 The Moldable Inspector~\cite{Chis14a} installs custom views, actions (\ie buttons), and search interfaces whenever an object is inspected that defines such custom tools as annotated methods.
-The Moldable Coder~\cite{Syre17a} (\ie code editor) also can add custom views, \ins{highlighters,} actions and searches when editing the source of a class with annotated methods.
+The Moldable Coder~\cite{Syre17a} (\ie code editor) also can add custom views, highlighters, actions and searches when editing the source of a class with annotated methods.
 The Moldable Debugger~\cite{Chis24a} provides custom views, actions and searches installed as methods in the class of a caught exception.
 
 %\ws{JN: Known uses are needed. If the paper was about explainable systems, a known use could be: A traveler arrives at Heathrow and is denied boarding. The explainable system shows why this has happened.
@@ -422,7 +426,7 @@ A Moldable Tool should provide a \patref{ContextualPlayground} to enable a live 
 %: ----- Contextual Playground -------------------------
 \pattern{Contextual Playground}{ContextualPlayground}
 
-\tg{I would rename this to Contextual Snippet. It's not the page, but the snippet that is essential. We should also say that it is interesting to have different kinds of snippets, much like we can have different kinds of views.}
+%\tg{I would rename this to Contextual Snippet. It's not the page, but the snippet that is essential. We should also say that it is interesting to have different kinds of snippets, much like we can have different kinds of views.}
 %\kh{"Contextual Playground" is a pattern, but I'd label it "process" rather than "tooling". On the other hand, it's also reasonable to have it right before "Custom View", as it's a preparation to tooling work.}
 
 %\todo{Not so clear what problem is being solved. Is this about exploring, coding, testing or prototyping? It's all mixed up. What is the insight?}
@@ -454,7 +458,7 @@ When we code new behavior as methods, we must repeatedly change our context to i
 
 \patsec{Steps}
 A contextual playground provides a live programming interface (\eg a REPL) to programmatically interact with the software entity managed by a \patref{MoldableTool}.
-\del{Typically this entity will be a live object, but it could be a class, or any other kind of software entity.}
+%\del{Typically this entity will be a live object, but it could be a class, or any other kind of software entity.}
 The playground will be bound to the context of the object, so \st{self} and all slots (\ie instance variables) can be accessed exactly as they would in a running method.
 
 Use the contextual playground to write code snippets to extract data, test hypotheses, navigate to parts or other related objects, to explore the API, or to prototype new behavior.
@@ -466,10 +470,11 @@ The same process can be used whether the extracted code consists of accessors, a
 In \autoref{fig:inspectingPythonObjects} we see an inspector view 
 %\cp{is this how the contextual playground looks like?}
 of an instance of a Python \st{MovieCollection} class.
-In the leftmost pane we see a notebook page with live code snippets, which function as contextual playgrounds within the context of the notebook page \tg{I am not sure we should call the global pages contextual. I somehow would keep that word only for the ones in a non-global context - like an inspector or debugger}.
+In the leftmost pane we see a notebook page with live code snippets, which function as contextual playgrounds within the context of the notebook page.
+% \tg{I am not sure we should call the global pages contextual. I somehow would keep that word only for the ones in a non-global context - like an inspector or debugger}.
 From there we navigate to a moldable object inspector, a moldable tool for exploring live instances.
 In this case we are exploring a live Python instance of a \st{MovieCollection} object, with several custom views showing the \st{Directors}, \st{Years} and \st{Movies} of the collection.
-At the bottom of the inspector we see \del{another} contextual playground, this one bound to the context of the Python object.
+At the bottom of the inspector we see a contextual playground bound to the context of the Python object.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{inspectingPythonObjects}
@@ -523,7 +528,8 @@ A contextual playground for an \patref{ExampleObject} can also be used to explor
 You are exploring a live domain model and find some interesting information.
 
 \patsec{Problem}
-\emph{How do you make it easy to find interesting information again?} \tg{I am not certain about the *again* part. Most often we want a view to be useful the first time we use it. That we can use it a second time is a bonus.}
+\emph{How do you make it easy to find interesting information?}
+% \tg{I am not certain about the *again* part. Most often we want a view to be useful the first time we use it. That we can use it a second time is a bonus.}
 
 \patsec{Forces}
 \begin{itemize}[---]
@@ -557,6 +563,7 @@ From this custom view we can furthermore dive directly into the \st{Move} object
   \label{fig:rawViewVsCustomView}
 \end{figure}
 
+%:===> TODO -- expand relationship between Contextual View and Moldable Object <===
 \tg{I think we should expand somewhere on the combination between Contextual View and Moldable Object. It is this interplay that allows us to create new development UIs easily. Especially when we pick a meta object it becomes interesting. For example, a search in GT is just a snippet + object + view. For example, we could use the idea that a view on the exception becomes a view for debugging. Then we have a missing pattern: Connected Contexts, or Contextual Flow. For example, if I have a stack object with a view showing the contents of the stack, and another object with a specific stack context, I get a debugger.}
 
 \patsec{Consequences}
@@ -590,6 +597,7 @@ It is also worthwhile to note that if we take inheritance into account, then the
 %==>12029
 
 \patsec{Related patterns}
+%:===> TODO -- Elaborate on the interplay between custom view and \patref{MoldableObject} <===
 \tg{Elaborate on the interplay between custom view and \patref{MoldableObject}}
 A \patref{MoldableTool} is a prerequisite for a custom view to be automatically installed when the relevant artifact (an object, a class, an exception, \etc) is seen by the tool.
 A \patref{CustomView} should be cheap to implement.
@@ -630,7 +638,7 @@ In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within
   \caption{Custom substring searches. \tg{I would rather pick a more explicit example like the address book. Or at least we should show on the left a collection that we search through.}}
   \label{fig:CustomSearch}
 \end{figure}
-
+%:===> TODO -- Pick more explicit custom search exampl <===
 
 \patsec{Consequences}
 You need a \patref{MoldableTool} into which you can dynamically plug custom searches.\\
@@ -701,18 +709,20 @@ You want to explain a particular aspect of a software system.
 It could be an explanation of how to use the system, or a problem or bug that needs to be resolved.
 
 \patsec{Problem}
-How can you explain an issue with a software system in an intuitive way that is easy for a reader to follow?
+\emph{How can you explain an issue with a software system in an intuitive way that is easy for a reader to follow?}
 
 \patsec{Forces}
-Pure textual narratives can be hard to follow and visualize.
-A picture is worth a thousand words.
-An individual screenshot without context can be misleading.
+\begin{itemize}[---]
+\item Pure textual narratives can be hard to follow and visualize.
+\item A picture is worth a thousand words.
+\item An individual screenshot without context can be misleading.
+\end{itemize}
 
 \patsec{Solution}
-Create a narrative composed of views of various objects or tools, where each view leads to the next by performing a particular action or step.
-Share the narrative as a static screenshot, record it as a video, or perform it live with an audience.
+\emph{Create a narrative composed of views of various objects or tools, where each view leads to the next by performing a particular action or step.
+Share the narrative as a static screenshot, record it as a video, or perform it live with an audience.}
 
-\patsec{Examples}
+\patsec{Steps}
 Choose a starting point within a given tool, such as a notebook page, an inspector view of an object, a debugger window, or a source code editor on a class or package.
 Navigate to a new state by performing a step, such as clicking on an element of a view, performing a custom action, initiating a custom search, evaluating a code snippet in a contextual playground, or any other GUI action.
 String together these states and steps into a narrative.
@@ -720,6 +730,7 @@ Capture the narrative as a screenshot or a video, or a live, scripted GUI entity
 Be sure to capture the entire view of each tool or object to provide the necessary context.
 If necessary, edit or decorate the narrative to highlight certain aspects or steps performed.
 
+\patsec{Examples}
 In \autoref{fig:drillerShortcuts} we see a composed narrative answering the question of how to locate the implementation of a shortcut of an editor. The narrative starts with a visual scene for which we see the rendering tree (similar to an HTML DOM). A paragraph object from the editor is selected and reveals its list of shortcuts. A shortcut object presents its defining source code and concludes the answer.
 
 \begin{figure}[h]
@@ -728,23 +739,24 @@ In \autoref{fig:drillerShortcuts} we see a composed narrative answering the ques
   \label{fig:drillerShortcuts}
 \end{figure}
 
-\patsec{Consequences}
 Most of the figures in this paper are illustrations of Composed Narrative.
 For example Figure 3 shows how a given Custom View is implemented in a few lines of code.
 Figure 5 shows how a raw view differs from a Custom View.
 Figure 9 illustrates how examples can be composed to create new examples.
 
-\patsec{Known Uses}
+\patsec{Consequences}
 A Composed Narrative tells a story of how one can get to an interesting state.
 You may need to carefully adjust the individual views to highlight what is interesting.
 Composed Narratives consisting of more than three views may be unwieldy when shared as static screenshots.
 
+\patsec{Known Uses}
+Narrative art works,\footnote{\url{https://web.archive.org/web/20240916005104/https://en.wikipedia.org/wiki/Narrative_art}} from the Bronze Age through to modern graphic novels, tell stories by juxtaposing images.
+Montage Theory, dating from the early days of cinema~\cite{Eise49a}, creates narratives in film by creatively juxtaposing individual shots.
+
 \patsec{Related patterns}
 The first view of a composed narrative is often a \patref{ProjectDiary} notebook page, or a \patref{CustomView} of an \patref{ExampleObject}.
-The steps performed may be a \patref{CustomAction}, a \patref{CustomSearch} or evaluating a snippet in a \patref{ContexualPlayground}.
+The steps performed may be a \patref{CustomAction}, a \patref{CustomSearch} or evaluating a snippet in a \patref{ContextualPlayground}.
 A scripted Composed Narrative can itself be turned into an \patref{ExampleObject}.
-
-
 
 % ===== Modeling =========================
 \section{Modeling Patterns}\label{sec:modeling}
@@ -804,6 +816,7 @@ As we answer questions we can create small custom tools, such as a \patref{Custo
 The model of the history emerged from the need to answer questions about the evolution of an instance of the game, while the history view was created as a \patref{CustomView} to enable exploration of a game's history.
 Whenever we identify an interesting state of our moldable object, we can extract it as an \patref{ExampleObject} that we can use as a test case, or as a starting point for further moldable development.
 
+%:===> TODO -- Add moldable object example with more meta data <===
 \tg{Add an example with a more meta object. Candidate: debugger stack + context code}
 
 \patsec{Consequences}
@@ -973,7 +986,7 @@ Each time you navigate to other data representing further domain entities, wrap 
 In case custom tools of the underlying data objects are useful, you can always recycle them and make them available to the wrapped objects as well.
 
 \patsec{Known Uses}
-Lifeware\footnote{\url{https://www.lifeware.ch}} uses Moldable Data Wrappers extensively to wrap SQL data in the \chg{Insurance}{insurance} domain to be able to create custom views for these data.
+Lifeware\footnote{\url{https://www.lifeware.ch}} uses Moldable Data Wrappers extensively to wrap SQL data in the insurance domain to be able to create custom views for these data.
 % 49 classes with gtViews and a rawData slot
 Within GT (August, 2024) there are over 40 classes that wrap a \st{rawData} slot and provide custom views.
 These classes wrap diverse data ranging from Jupyter notebooks to social media records.
@@ -1099,7 +1112,7 @@ Notebooks can serve not only to track progress, but also as documentation for bo
 
 \patsec{Known Uses}
 Jupyter\footnote{\href{https://web.archive.org/web/20240820082136/https://docs.jupyter.org/en/latest/}{https://docs.jupyter.org/}} notebooks are commonly used as both activity logs and as project documentation.
-\ins{Personal knowledge management systems like RoamResearch\footnote{\href{https://web.archive.org/web/20240820082136/https://docs.jupyter.org/en/latest/}{https://roamresearch.com}} are regularly used for diary including for software projects.}
+Personal knowledge management systems like RoamResearch\footnote{\href{https://web.archive.org/web/20240820082136/https://docs.jupyter.org/en/latest/}{https://roamresearch.com}} are regularly used for diaries for software projects.
 
 \patsec{Related patterns}
 A Project Diary page can embed numerous live \patref{ExampleObject} instances to document specific points.
@@ -1202,7 +1215,7 @@ By quickly developing a solution to an ongoing problem, you will engage the stak
 It does not matter if the custom tools you develop do not perfectly match the stakeholder's needs, as the only goal is to convince the stakeholders to commit to closer and longer-term collaboration.
 
 \patsec{Known Uses}
-%:===> TODO -- Known uses of Blind Spot <===
+%:===> TODO -- Add Known uses of Blind Spot <===
 \tg{This is an example from a 2-day hackathon: \url{https://lepiter.io/feenk/steering-agile-architecture-by-example--th-e2p6aps2brbby94deek31xqxh/}. However, while it worked nicely, it did not convince anyone at that time.}
 \todo{Need some GT anecdotes. Can we expand on one of the examples listed above?}
 
