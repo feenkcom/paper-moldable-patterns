@@ -539,6 +539,8 @@ You are exploring a live domain model and find some interesting information.
 \emph{Turn interesting data into a custom view.}
 Extract the navigation steps into a new custom view for the moldable object you start navigating from.
 
+\tg{I think we should emphasize the contextual nature of the view. There is a mapping between the view and some context (object in inspector, stack in debugger and we can imagine other mappings) based on which views are presented in the environment. Because of this, we do not seek the view. The view comes to us.}
+
 %\eog{I'd love to see maybe a picture like a figure with this.}
 
 \patsec{Examples}
@@ -572,7 +574,15 @@ You first need a \patref{MoldableTool} into which you can dynamically plug custo
 \patsec{Known Uses}
 Clerk~\cite{Kava23a} is an open-source programming assistant for the Clojure language, which offers moldable, custom views within notebook pages.
 Custom views are pervasive in GT.
-In a standard image from August 2024, there exist over 1800 classes with a total of over 3600 view methods, averaging under 12 lines of code \tg{is it worthwhile to say that these extensions affect 12K classes due to subclassing. What about adding the treemap with all classes with views and examples highlighted?}.
+In a standard image from August 2024, there exist over 1800 classes with a total of over 3600 view methods, averaging under 12 lines of code. 
+It is also worthwhile to note that if we take inheritance into account, then the views affect 12000 classes. The treemap from \autoref{fig:treemapViewsAndExamples} offers an overview of the GT classes organized in packages. A class appears is colored with blue if it or its superclass defines a custom view, and in green if it defines an example method (see \patref{ExampleObject}).
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{treemapViewsAndExamples}
+  \caption{A treemap of all classes in GT grouped in packages, highlighting with blue those that define at least a Custom View.}
+  \label{fig:treemapViewsAndExamples}
+\end{figure}
+
 % In the image v1.0.1073 of Aug 27, 2024, there are 3627 gtView methods in 1893 classes
 %In the image DEV v1.0.1090 2024-09-02T16:07:58.717276+02:00 we also have:
 %methods := #gtView gtPragmas result toArray wait.
@@ -580,9 +590,10 @@ In a standard image from August 2024, there exist over 1800 classes with a total
 %==>12029
 
 \patsec{Related patterns}
+\ins{\patref{MoldableObject}}
 A \patref{MoldableTool} is a prerequisite for a custom view to be automatically installed when the relevant artifact (an object, a class, an exception, \etc) is seen by the tool.
 A \patref{CustomView} should be cheap to implement.
-Start with a \patref{SimpleView}, and only add complexity when it is needed.
+Start with a \patref{SimpleView}, and only elaborate it when it is needed.
 
 %: ----- Custom Search -------------------------
 \pattern{Custom Search}{CustomSearch}
@@ -682,27 +693,56 @@ In the GT image of August, 2024, there are over 200 classes that define a total 
 A \patref{CustomAction} can also be used to spawn a particular \patref{CustomView} of the same object or a related one.
 
 
-%: ----- Composed Narratives -------------------------
-\pattern{Composed Narratives}{ComposedNarratives}
-\tg{Composable Narratives?}
-
-\tg{TODO}
+%: ----- Composed Narrative -------------------------
+\pattern{Composed Narrative}{ComposedNarrative}
 
 \patsec{Context} 
+You want to explain a particular aspect of a software system.
+It could be an explanation of how to use the system, or a problem or bug that needs to be resolved.
 
 \patsec{Problem}
+How can you explain an issue with a software system in an intuitive way that is easy for a reader to follow?
 
 \patsec{Forces}
+Pure textual narratives can be hard to follow and visualize.
+A picture is worth a thousand words.
+An individual screenshot without context can be misleading.
 
 \patsec{Solution}
+Create a narrative composed of views of various objects or tools, where each view leads to the next by performing a particular action or step.
+Share the narrative as a static screenshot, record it as a video, or perform it live with an audience.
 
 \patsec{Examples}
+Choose a starting point within a given tool, such as a notebook page, an inspector view of an object, a debugger window, or a source code editor on a class or package.
+Navigate to a new state by performing a step, such as clicking on an element of a view, performing a custom action, initiating a custom search, evaluating a code snippet in a contextual playground, or any other GUI action.
+String together these states and steps into a narrative.
+Capture the narrative as a screenshot or a video, or a live, scripted GUI entity, and share it.
+Be sure to capture the entire view of each tool or object to provide the necessary context.
+If necessary, edit or decorate the narrative to highlight certain aspects or steps performed.
+
+In \autoref{fig:drillerShortcuts} we see a composed narrative answering the question of how to locate the implementation of a shortcut of an editor. The narrative starts with a visual scene for which we see the rendering tree (similar to an HTML DOM). A paragraph object from the editor is selected and reveals its list of shortcuts. A shortcut object presents its defining source code and concludes the answer.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{drillerShortcuts}
+  \caption{An composed narrative showing how to explore the shortcuts available in an editor.}
+  \label{fig:drillerShortcuts}
+\end{figure}
 
 \patsec{Consequences}
+Most of the figures in this paper are illustrations of Composed Narrative.
+For example Figure 3 shows how a given Custom View is implemented in a few lines of code.
+Figure 5 shows how a raw view differs from a Custom View.
+Figure 9 illustrates how examples can be composed to create new examples.
 
 \patsec{Known Uses}
+A Composed Narrative tells a story of how one can get to an interesting state.
+You may need to carefully adjust the individual views to highlight what is interesting.
+Composed Narratives consisting of more than three views may be unwieldy when shared as static screenshots.
 
 \patsec{Related patterns}
+The first view of a composed narrative is often a \patref{ProjectDiary} notebook page, or a \patref{CustomView} of an \patref{ExampleObject}.
+The steps performed may be a \patref{CustomAction}, a \patref{CustomSearch} or evaluating a snippet in a \patref{ContexualPlayground}.
+A scripted Composed Narrative can itself be turned into an \patref{ExampleObject}.
 
 
 
