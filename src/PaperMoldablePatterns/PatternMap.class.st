@@ -1,3 +1,6 @@
+"
+Pattern map for the Moldable Development Patterns paper.
+"
 Class {
 	#name : #PatternMap,
 	#superclass : #Object,
