@@ -223,7 +223,7 @@ patterns, in other words, a \emph{pattern language}, summarized in \autoref{fig:
 These patterns have emerged over several years of experience in developing \GT following moldable development, and applying it to numerous projects.
 
 \begin{figure}[h]
-  \includegraphics[width=\columnwidth]{map}
+  \includegraphics[width=\columnwidth]{map-redux}
   \caption{A map of moldable development patterns.
 %  \cp{consider adding a legend for the arrow. Having "it depends on" relationships helps really well to build up the hierarchy until the goal of having an explainable system. The question is whether explainable system requires ALL or AT LEAST ONE of the underlying patterns, likewise for Contextual Playground - does it need ALL or AT LEAST ONE of the custom view/search/action patterns.}
   }
@@ -251,9 +251,6 @@ The diagram illustrates some of the ways in which the patterns support each othe
 the arrows indicate that one pattern ``uses'' or ``leads to'' another.
 The patterns that are concerned with \emph{Tooling} are tagged with ``(T)'', with \emph{Modeling} ``(M)'', and with the development \emph{Process} ``(P)''.
 
-%:===> TODO -- Add Composed Narrative to the map and the body. <===
-\todo{Add Composed Narrative to the map and the body.}
-
 There are two distinct roles involved in moldable development:
 \begin{inparaenum}[(i)]
 \item the \emph{Facilitator} is responsible for the technical realization of custom tools, and
@@ -269,10 +266,12 @@ An \empty{explainable system} is a software system whose domain models have been
 %\cp{interesting, but narrow definition. Is exposing its domain model the only way to explain a system?}
 %\ws{JN: I would just dump the Explainable System part, and just focus on the moldability. It's also not about reshaping a system.}
 
-Each custom tool can be seen as an extension of an existing \patref{MoldableTool}, which can be inexpensively customized.
 Some domains require a preliminary phase of \patref{ToolingBuildup}, for example, to create dedicated parsers for programming languages, DSLs or specialized data formats, or bridges to other execution platforms.
+Each custom tool can be seen as an extension of an existing \patref{MoldableTool}, which can be inexpensively customized.
+A \patref{ProjectDiary} is a notebook that serves as a starting point for development tasks and recording explanations.
+An explanation generally takes the form of a \patref{ComposedNarrative}, a story built up with the help of  live objects.
 A \patref{BlindSpot} is a problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
-A \patref{ProjectDiary} is a notebook that serves as a starting point for development tasks.
+
 A \patref{ThrowawayAnalysisTool} can be a quick way to solve an urgent problem in a focused way.
 %\cp{What about more heavy-weight tools which perform static/dynamic analysis?}
 
@@ -638,7 +637,7 @@ In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within
   \caption{Custom substring searches. \tg{I would rather pick a more explicit example like the address book. Or at least we should show on the left a collection that we search through.}}
   \label{fig:CustomSearch}
 \end{figure}
-%:===> TODO -- Pick more explicit custom search exampl <===
+%:===> TODO -- Pick more explicit custom search example <===
 
 \patsec{Consequences}
 You need a \patref{MoldableTool} into which you can dynamically plug custom searches.\\
@@ -1215,9 +1214,9 @@ By quickly developing a solution to an ongoing problem, you will engage the stak
 It does not matter if the custom tools you develop do not perfectly match the stakeholder's needs, as the only goal is to convince the stakeholders to commit to closer and longer-term collaboration.
 
 \patsec{Known Uses}
-%:===> TODO -- Add Known uses of Blind Spot <===
-\tg{This is an example from a 2-day hackathon: \url{https://lepiter.io/feenk/steering-agile-architecture-by-example--th-e2p6aps2brbby94deek31xqxh/}. However, while it worked nicely, it did not convince anyone at that time.}
-\todo{Need some GT anecdotes. Can we expand on one of the examples listed above?}
+%\tg{This is an example from a 2-day hackathon: \url{https://lepiter.io/feenk/steering-agile-architecture-by-example--th-e2p6aps2brbby94deek31xqxh/}. However, while it worked nicely, it did not convince anyone at that time.}
+%\todo{Need some GT anecdotes. Can we expand on one of the examples listed above?}
+Finding and understanding legacy feature toggles in the Open edX Proposals project is a public example of a Blind Spot tackled with GT during a hackathon~\cite{Girb21b}.
 
 \patsec{Related patterns}
 A Blind Spot will manifest itself as one or more instances of a \patref{MoldableObject}.
