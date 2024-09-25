@@ -815,8 +815,22 @@ As we answer questions we can create small custom tools, such as a \patref{Custo
 The model of the history emerged from the need to answer questions about the evolution of an instance of the game, while the history view was created as a \patref{CustomView} to enable exploration of a game's history.
 Whenever we identify an interesting state of our moldable object, we can extract it as an \patref{ExampleObject} that we can use as a test case, or as a starting point for further moldable development.
 
-%:===> TODO -- Add moldable object example with more meta data <===
-\tg{Add an example with a more meta object. Candidate: debugger stack + context code}
+A moldable object can encapsulate entities at different levels of abstractions.
+When viewed with a \patref{CustomView} and connected with other moldable objects we can form various kinds of \patref{ComposedNarrative}.
+
+For example, in \autoref{fig:moldableStackCode} we see three related objects.
+On the left we see a \lst{Circular\-Memory\-Logger} object that shows multiple signals logged for an asynchronous execution.
+In the middle we have an instance of \lst{Br\-Text\-Styler\-Async\-Styling\-Started}.
+The signal contains the stack and presents it in a \patref{CustomView}.
+Selecting an item in the stack shows the related \lst{Context} object that displays a view with the Source.
+Essentially, we have obtained a postmortem debugger connected to a logger.
+There are many such combinations possible.
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{moldableStackCode}
+  \caption{Two interconnected moldable objects playing the role of a debugger.}
+  \label{fig:moldableStackCode}
+\end{figure}
 
 \patsec{Consequences}
 Instead of writing code in a text editor in the context of the source code of a class, you are always working in the context of a live object, whose behavior can be immediately explored.\\
@@ -1363,7 +1377,7 @@ tool-building becomes an essential part of the development process, rather than 
 
 \patsec{Known Uses}
 %:===> TODO -- Known Uses of Throwaway Analysis Tool? <===
-\todo{One or two GT anecdotes?}
+\todo{One or two GT anecdotes?} \tg{Guiding the links coverage in the book}
 
 \patsec{Related patterns}
 Use a \patref{ContextualPlayground} to prototype the tools.
