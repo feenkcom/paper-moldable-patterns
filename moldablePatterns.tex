@@ -562,9 +562,6 @@ From this custom view we can furthermore dive directly into the \st{Move} object
   \label{fig:rawViewVsCustomView}
 \end{figure}
 
-%:===> TODO -- expand relationship between Contextual View and Moldable Object <===
-\tg{I think we should expand somewhere on the combination between Contextual View and Moldable Object. It is this interplay that allows us to create new development UIs easily. Especially when we pick a meta object it becomes interesting. For example, a search in GT is just a snippet + object + view. For example, we could use the idea that a view on the exception becomes a view for debugging. Then we have a missing pattern: Connected Contexts, or Contextual Flow. For example, if I have a stack object with a view showing the contents of the stack, and another object with a specific stack context, I get a debugger.}
-
 \patsec{Consequences}
 A custom view exposes information about a domain that can otherwise be hard to find.\\
 Custom views become an intrinsic part of a software system,
@@ -828,7 +825,7 @@ There are many such combinations possible.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{moldableStackCode}
-  \caption{Two interconnected moldable objects playing the role of a debugger.}
+  \caption{Three interconnected moldable objects playing the role of a logger linked to a debugger.}
   \label{fig:moldableStackCode}
 \end{figure}
 
