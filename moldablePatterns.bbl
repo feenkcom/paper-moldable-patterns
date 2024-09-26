@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{21}
+\begin{thebibliography}{22}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -37,8 +37,7 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
-\bibitem[\protect\citeauthoryear{Basili, Caldiera, and Rombach}{Basili
-  et~al\mbox{.}}{1994}]%
+\bibitem[Basili et~al\mbox{.}(1994)]%
         {Basi94a}
 \bibfield{author}{\bibinfo{person}{Victor~R Basili}, \bibinfo{person}{Gianluigi
   Caldiera}, {and} \bibinfo{person}{H.~Dieter Rombach}.}
@@ -50,7 +49,7 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{Beck and Gamma}{Beck and Gamma}{1998}]%
+\bibitem[Beck and Gamma(1998)]%
         {Beck98a}
 \bibfield{author}{\bibinfo{person}{Kent Beck} {and} \bibinfo{person}{Erich
   Gamma}.} \bibinfo{year}{1998}\natexlab{}.
@@ -64,8 +63,7 @@
 \tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Chi\c{s}, G\^irba, Kubelka, Nierstrasz,
-  Reichhart, and Syrel}{Chi\c{s} et~al\mbox{.}}{2017}]%
+\bibitem[Chi\c{s} et~al\mbox{.}(2017)]%
         {Chis17a}
 \bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Tudor
   G\^irba}, \bibinfo{person}{Juraj Kubelka}, \bibinfo{person}{Oscar
@@ -82,8 +80,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Chi\c{s}, G\^{i}rba, and Nierstrasz}{Chi\c{s}
-  et~al\mbox{.}}{2014}]%
+\bibitem[Chi\c{s} et~al\mbox{.}(2014)]%
         {Chis14a}
 \bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Tudor
   G\^{i}rba}, {and} \bibinfo{person}{Oscar Nierstrasz}.}
@@ -99,8 +96,7 @@
 \tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Chi\c{s}, Nierstrasz, and G\^irba}{Chi\c{s}
-  et~al\mbox{.}}{2024}]%
+\bibitem[Chi\c{s} et~al\mbox{.}(2024)]%
         {Chis24a}
 \bibfield{author}{\bibinfo{person}{Andrei Chi\c{s}}, \bibinfo{person}{Oscar
   Nierstrasz}, {and} \bibinfo{person}{Tudor G\^irba}.}
@@ -109,11 +105,10 @@
   \bibinfo{booktitle}{\emph{Proceedings of Onward! 2024}}.
 \newblock
 \newblock
-\shownote{To appear.}
+\shownote{To appear}.
 
 
-\bibitem[\protect\citeauthoryear{Ducasse, Nierstrasz, Sch{\"a}rli, Wuyts, and
-  Black}{Ducasse et~al\mbox{.}}{2006}]%
+\bibitem[Ducasse et~al\mbox{.}(2006)]%
         {Duca06b}
 \bibfield{author}{\bibinfo{person}{St\'ephane Ducasse}, \bibinfo{person}{Oscar
   Nierstrasz}, \bibinfo{person}{Nathanael Sch{\"a}rli}, \bibinfo{person}{Roel
@@ -130,7 +125,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Edwards}{Edwards}{2004}]%
+\bibitem[Edwards(2004)]%
         {Edwa04a}
 \bibfield{author}{\bibinfo{person}{Jonathan Edwards}.}
   \bibinfo{year}{2004}\natexlab{}.
@@ -146,8 +141,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Eisenstein and Leyda}{Eisenstein and
-  Leyda}{1949}]%
+\bibitem[Eisenstein and Leyda(1949)]%
         {Eise49a}
 \bibfield{author}{\bibinfo{person}{Sergei Eisenstein} {and}
   \bibinfo{person}{Jay Leyda}.} \bibinfo{year}{1949}\natexlab{}.
@@ -161,7 +155,7 @@
 \tempurl}
 
 
-\bibitem[\protect\citeauthoryear{{feenk.com}}{{feenk.com}}{2023}]%
+\bibitem[{feenk.com}(2023)]%
         {feenk23a}
 \bibfield{author}{\bibinfo{person}{{feenk.com}}.}
   \bibinfo{year}{2023}\natexlab{}.
@@ -173,8 +167,7 @@
 \tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Fowler, Beck, Brant, Opdyke, and
-  Roberts}{Fowler et~al\mbox{.}}{1999}]%
+\bibitem[Fowler et~al\mbox{.}(1999)]%
         {Fowl99a}
 \bibfield{author}{\bibinfo{person}{Martin Fowler}, \bibinfo{person}{Kent Beck},
   \bibinfo{person}{John Brant}, \bibinfo{person}{William Opdyke}, {and}
@@ -185,7 +178,7 @@
 \newblock
 
 
-\bibitem[\protect\citeauthoryear{G\^irba}{G\^irba}{2021a}]%
+\bibitem[G\^irba(2021a)]%
         {Girb21a}
 \bibfield{author}{\bibinfo{person}{Tudor G\^irba}.}
   \bibinfo{year}{2021}\natexlab{a}.
@@ -199,7 +192,7 @@
 \tempurl}
 
 
-\bibitem[\protect\citeauthoryear{G\^irba}{G\^irba}{2021b}]%
+\bibitem[G\^irba(2021b)]%
         {Girb21b}
 \bibfield{author}{\bibinfo{person}{Tudor G\^irba}.}
   \bibinfo{year}{2021}\natexlab{b}.
@@ -208,13 +201,12 @@
 \newblock \bibinfo{howpublished}{Blog post}.
 \newblock
 \urldef\tempurl%
-\url{https://lepiter.io/feenk/steering-agile-architecture-by-example--th-e2p6aps2brbby94deek31xqxh/}
+\url{https://web.archive.org/web/20231129023359/https://lepiter.io/feenk/steering-agile-architecture-by-example--th-e2p6aps2brbby94deek31xqxh/}
 \showURL{%
 \tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Kavalar, Markovics, and Rusher}{Kavalar
-  et~al\mbox{.}}{2023}]%
+\bibitem[Kavalar et~al\mbox{.}(2023)]%
         {Kava23a}
 \bibfield{author}{\bibinfo{person}{Martin Kavalar}, \bibinfo{person}{Philippa
   Markovics}, {and} \bibinfo{person}{Jack Rusher}.}
@@ -232,8 +224,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Kuhn, Rompaey, H\"ansenberger, Nierstrasz,
-  Demeyer, Gaelli, and Leemput}{Kuhn et~al\mbox{.}}{2008}]%
+\bibitem[Kuhn et~al\mbox{.}(2008)]%
         {Kuhn08a}
 \bibfield{author}{\bibinfo{person}{Adrian Kuhn}, \bibinfo{person}{Bart~Van
   Rompaey}, \bibinfo{person}{Lea H\"ansenberger}, \bibinfo{person}{Oscar
@@ -253,18 +244,17 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Kur\v{s}, Lungu, and Nierstrasz}{Kur\v{s}
-  et~al\mbox{.}}{2014}]%
+\bibitem[Kur\v{s} et~al\mbox{.}(2014)]%
         {Kurs14b}
 \bibfield{author}{\bibinfo{person}{Jan Kur\v{s}}, \bibinfo{person}{Mircea
   Lungu}, {and} \bibinfo{person}{Oscar Nierstrasz}.}
   \bibinfo{year}{2014}\natexlab{}.
 \newblock \showarticletitle{Bounded Seas: Island Parsing Without Shipwrecks}.
   In \bibinfo{booktitle}{\emph{Software Language Engineering}}
-  \emph{(\bibinfo{series}{Lecture Notes in Computer Science})},
-  \bibfield{editor}{\bibinfo{person}{Beno\^{i}t Combemale},
-  \bibinfo{person}{David~J. Pearce}, \bibinfo{person}{Olivier Barais}, {and}
-  \bibinfo{person}{Jurgen~J. Vinju}} (Eds.), Vol.~\bibinfo{volume}{8706}.
+  \emph{(\bibinfo{series}{Lecture Notes in Computer Science},
+  Vol.~\bibinfo{volume}{8706})}, \bibfield{editor}{\bibinfo{person}{Beno\^{i}t
+  Combemale}, \bibinfo{person}{David~J. Pearce}, \bibinfo{person}{Olivier
+  Barais}, {and} \bibinfo{person}{Jurgen~J. Vinju}} (Eds.).
   \bibinfo{publisher}{Springer International Publishing},
   \bibinfo{pages}{62--81}.
 \newblock
@@ -274,8 +264,23 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Nierstrasz and G\^irba}{Nierstrasz and
-  G\^irba}{2022}]%
+\bibitem[Luhmann(1981)]%
+        {Luhm81a}
+\bibfield{author}{\bibinfo{person}{Niklas Luhmann}.}
+  \bibinfo{year}{1981}\natexlab{}.
+\newblock \showarticletitle{Kommunikation mit {Zettelk{\"a}sten}: Ein
+  {Erfahrungsbericht}}.
+\newblock \bibinfo{journal}{\emph{{\"O}ffentliche Meinung und sozialer
+  Wandel/Public Opinion and Social Change}} (\bibinfo{year}{1981}),
+  \bibinfo{pages}{222--228}.
+\newblock
+\urldef\tempurl%
+\url{https://ckrybus.com/static/papers/luhmann1981.pdf}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Nierstrasz and G\^irba(2022)]%
         {Nier22a}
 \bibfield{author}{\bibinfo{person}{Oscar Nierstrasz} {and}
   \bibinfo{person}{Tudor G\^irba}.} \bibinfo{year}{2022}\natexlab{}.
@@ -288,8 +293,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Rein, Ramson, Lincke, Hirschfeld, and
-  Pape}{Rein et~al\mbox{.}}{2018}]%
+\bibitem[Rein et~al\mbox{.}(2018)]%
         {Rein18a}
 \bibfield{author}{\bibinfo{person}{Patrick Rein}, \bibinfo{person}{Stefan
   Ramson}, \bibinfo{person}{Jens Lincke}, \bibinfo{person}{Robert Hirschfeld},
@@ -306,7 +310,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Stallman}{Stallman}{1981}]%
+\bibitem[Stallman(1981)]%
         {Stal81a}
 \bibfield{author}{\bibinfo{person}{Richard~M. Stallman}.}
   \bibinfo{year}{1981}\natexlab{}.
@@ -322,7 +326,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Syrel}{Syrel}{2017}]%
+\bibitem[Syrel(2017)]%
         {Syre17a}
 \bibfield{author}{\bibinfo{person}{Aliaksei Syrel}.}
   \bibinfo{year}{2017}\natexlab{}.
@@ -340,8 +344,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Valenzuela-Toledo, Bergel, Kehrer, and
-  Nierstrasz}{Valenzuela-Toledo et~al\mbox{.}}{2023}]%
+\bibitem[Valenzuela-Toledo et~al\mbox{.}(2023)]%
         {Vale23a}
 \bibfield{author}{\bibinfo{person}{Pablo Valenzuela-Toledo},
   \bibinfo{person}{Alexandre Bergel}, \bibinfo{person}{Timo Kehrer}, {and}
@@ -356,8 +359,7 @@
 \showDOI{\tempurl}
 
 
-\bibitem[\protect\citeauthoryear{Xia, Bao, Lo, Xing, Hassan, and Li}{Xia
-  et~al\mbox{.}}{2018}]%
+\bibitem[Xia et~al\mbox{.}(2018)]%
         {Xia18a}
 \bibfield{author}{\bibinfo{person}{Xin Xia}, \bibinfo{person}{Lingfeng Bao},
   \bibinfo{person}{David Lo}, \bibinfo{person}{Zhenchang Xing},

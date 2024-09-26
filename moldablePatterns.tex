@@ -1,10 +1,10 @@
 %% This file is cloned from `sample-sigconf.tex',
 %
 %% For the proceedings
-%\documentclass[sigconf,screen]{acmart}
+\documentclass[sigconf,screen]{acmart}
 %
 % PREPRINT version -- see https://www.micahsmith.com/blog/2021/02/sharing-a-preprint-using-acmart/
-\documentclass[acmsmall,screen,authorversion,nonacm]{acmart} % PREPRINT
+%\documentclass[acmsmall,screen,authorversion,nonacm]{acmart} % PREPRINT
 %
 %% For review
 %\documentclass[manuscript,10pt]{acmart}
@@ -26,8 +26,8 @@
 \input{st80.tex}
 % ============================================================
 \newboolean{preprint}
-\setboolean{preprint}{true}
-%\setboolean{preprint}{false}
+%\setboolean{preprint}{true}
+\setboolean{preprint}{false}
 %\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
 %\usepackage{fancyhdr}
 %\AtBeginDocument{%
@@ -116,7 +116,6 @@ This is done by making it cheap to add numerous custom tools to your software,
 %\cp{your software or your software development environment?}
 turning it into a live, explorable domain model.
 Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
-
 This paper targets
 (i) readers curious to learn about moldable development,
 (ii) current users of the \emph{Glamorous Toolkit} moldable IDE
@@ -157,7 +156,7 @@ The usual artifacts to evaluate software systems are
 But neither of these lends itself well to answering questions about the system.
 %\cp{ignoring requirement specifications, documentation, modeling artifacts, architectural decision records...}
 In addition there may exist documentation and other related artifacts, but these are typically incomplete, or out-of-sync with the actual system.
-Software analysis tools can help to some extent, but since every system and every problem is different, it is rare for generic analysis tools \emph{to be effective for arbitrary systems.}
+Software analysis tools can help to some extent, but since every system and every problem is different, \emph{it is rare for generic analysis tools to be effective for arbitrary systems.}
 
 When we think of software development, we typically think about the active part.
 Of constructing.
@@ -271,12 +270,11 @@ Each custom tool can be seen as an extension of an existing \patref{MoldableTool
 A \patref{ProjectDiary} is a notebook that serves as a starting point for development tasks and recording explanations.
 An explanation generally takes the form of a \patref{ComposedNarrative}, a story built up with the help of  live objects.
 A \patref{BlindSpot} is a problematic part of the target system that is hard to understand and work with, and may be a promising starting point for moldable development to initially engage Stakeholders.
-
 A \patref{ThrowawayAnalysisTool} can be a quick way to solve an urgent problem in a focused way.
 %\cp{What about more heavy-weight tools which perform static/dynamic analysis?}
 
 At the center of the diagram we see \patref{MoldableObject}, which is also the most central pattern in terms of methodology.
-Moldable development itself starts with a \patref{MoldableObject}, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
+Moldable development itself starts with a moldable object, a live instance of a domain entity that is explored and molded with custom tools that package the results of exploration tasks.
 %\cp{how is this related to a blackbox, glassbox, whitebox approach? how invasive is moldable development? does it change the system being explained or just helps to observe it? or explanation inevitably leads to evolution...}
 An interesting instance can be encapsulated as an \patref{ExampleObject}, essentially a unit test that returns a tested object.
 An example can be embedded in a project diary notebook page, and can also be used as a moldable object itself for further development tasks.
@@ -441,8 +439,8 @@ You are using a \patref{MoldableTool}, and you are ready to start exploring your
 
 \patsec{Forces}
 \begin{itemize}[---]
-\item An editor for coding new methods typically provides no facilities for testing the code.\\
-When we code new behavior as methods, we must repeatedly change our context to incrementally develop the logic.
+\item An editor for coding new methods typically provides no facilities for testing the code.
+\item When we code new behavior as methods, we must repeatedly change our context to incrementally develop the logic.
 \item Testing the code requires a separate setup.
 %\cp{This text is very concrete, trying to give an example where a fragmented tool UI design can lead to poor usability.}
 \item Setting up code to prototype and test logic can be cumbersome.
@@ -456,7 +454,7 @@ When we code new behavior as methods, we must repeatedly change our context to i
 %\cp{this pattern has not been introduced yet, so readers may need to jump ahead to learn about it before understanding the solution of the contextual playground}
 
 \patsec{Steps}
-A contextual playground provides a live programming interface (\eg a REPL) to programmatically interact with the software entity managed by a \patref{MoldableTool}.
+A contextual playground provides a live programming interface to programmatically interact with the software entity managed by a \patref{MoldableTool}.
 %\del{Typically this entity will be a live object, but it could be a class, or any other kind of software entity.}
 The playground will be bound to the context of the object, so \st{self} and all slots (\ie instance variables) can be accessed exactly as they would in a running method.
 
@@ -477,7 +475,7 @@ At the bottom of the inspector we see a contextual playground bound to the conte
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{inspectingPythonObjects}
-  \caption{Exploring Python objects in a contextual playground (bottom of middle pane).}
+  \caption{Exploring Python objects within a contextual playground (bottom of middle pane).}
   \label{fig:inspectingPythonObjects}
 \end{figure}
 
@@ -532,7 +530,7 @@ You are exploring a live domain model and find some interesting information.
 
 \patsec{Forces}
 \begin{itemize}[---]
-\item Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating Playground snippets, to reach the answer you seek.
+\item Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating code snippets, to reach the answer you seek.
 %\cp{this is only implicitly hinted at in the previous pattern. Consider explaining it already in the playground pattern}
 \item The sequence of steps may be cumbersome to follow repeatedly.
 \item The default view you obtain may not highlight the interesting bits of information.
@@ -544,6 +542,7 @@ You are exploring a live domain model and find some interesting information.
 \emph{Turn interesting data into a custom view.}
 Extract the navigation steps into a new custom view for the moldable object you start navigating from.
 
+%:*** PENDING TODO HERE *** --- emphasize contextual nature of view
 \tg{I think we should emphasize the contextual nature of the view. There is a mapping between the view and some context (object in inspector, stack in debugger and we can imagine other mappings) based on which views are presented in the environment. Because of this, we do not seek the view. The view comes to us.}
 
 %\eog{I'd love to see maybe a picture like a figure with this.}
@@ -554,7 +553,7 @@ We would like to understand which moves have been played up to now.
 In the leftmost pane we are exploring a ``raw view''\,---\,a generic view of the state of the object.
 With this view we can navigate to the individual moves and explore them, but it is a clumsy way to explore the object.
 In the second pane we see a custom \st{Moves} view that lists the moves in order, with columns showing each roll of the die, the player who rolled the die, and any token that may have moved.
-From this custom view we can furthermore dive directly into the \st{Move} object, which in turn has a custom view visualizing the change in state.
+From this custom view we can then dive directly into the \st{Move} object, which in turn has a custom view visualizing the change in state.
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{rawViewVsCustomView}
@@ -582,7 +581,7 @@ It is also worthwhile to note that if we take inheritance into account, then the
 
 \begin{figure}[h]
   \includegraphics[width=\columnwidth]{treemapViewsAndExamples}
-  \caption{A treemap of all classes in GT grouped in packages, highlighting with blue those that define at least a Custom View.}
+  \caption{A treemap of all classes in GT grouped in packages, highlighting in blue those that define at least a Custom View.}
   \label{fig:treemapViewsAndExamples}
 \end{figure}
 
@@ -593,7 +592,7 @@ It is also worthwhile to note that if we take inheritance into account, then the
 %==>12029
 
 \patsec{Related patterns}
-%:===> TODO -- Elaborate on the interplay between custom view and \patref{MoldableObject} <===
+%:*** PENDING TODO HERE *** --- Elaborate on the interplay between custom view and \patref{MoldableObject}
 \tg{Elaborate on the interplay between custom view and \patref{MoldableObject}}
 A \patref{MoldableTool} is a prerequisite for a custom view to be automatically installed when the relevant artifact (an object, a class, an exception, \etc) is seen by the tool.
 A \patref{CustomView} should be cheap to implement.
@@ -634,7 +633,7 @@ In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within
   \caption{Custom substring searches. \tg{I would rather pick a more explicit example like the address book. Or at least we should show on the left a collection that we search through.}}
   \label{fig:CustomSearch}
 \end{figure}
-%:===> TODO -- Pick more explicit custom search example <===
+%:*** PENDING TODO HERE *** --- Pick more explicit custom search example <===
 
 \patsec{Consequences}
 You need a \patref{MoldableTool} into which you can dynamically plug custom searches.\\
@@ -736,9 +735,9 @@ In \autoref{fig:drillerShortcuts} we see a composed narrative answering the ques
 \end{figure}
 
 Most of the figures in this paper are illustrations of Composed Narrative.
-For example Figure 3 shows how a given Custom View is implemented in a few lines of code.
-Figure 5 shows how a raw view differs from a Custom View.
-Figure 9 illustrates how examples can be composed to create new examples.
+For example, \autoref{fig:viewCode} shows how a given Custom View is implemented in a few lines of code.
+\autoref{fig:rawViewVsCustomView} shows how a raw view differs from a Custom View.
+\autoref{fig:composedExample} illustrates how examples can be composed to create new examples.
 
 \patsec{Consequences}
 A Composed Narrative tells a story of how one can get to an interesting state.
@@ -746,7 +745,7 @@ You may need to carefully adjust the individual views to highlight what is inter
 Composed Narratives consisting of more than three views may be unwieldy when shared as static screenshots.
 
 \patsec{Known Uses}
-Narrative art works,\footnote{\url{https://web.archive.org/web/20240916005104/https://en.wikipedia.org/wiki/Narrative_art}} from the Bronze Age through to modern graphic novels, tell stories by juxtaposing images.
+Narrative art works,\footnote{\href{https://web.archive.org/web/20240916005104/https://en.wikipedia.org/wiki/Narrative\_art}{https://en.wikipedia.org/wiki/Narrative\_art}} from the Bronze Age through to modern graphic novels, tell stories by juxtaposing images.
 Montage Theory, dating from the early days of cinema~\cite{Eise49a}, creates narratives in film by creatively juxtaposing individual shots.
 
 \patsec{Related patterns}
@@ -814,7 +813,6 @@ Whenever we identify an interesting state of our moldable object, we can extract
 
 A moldable object can encapsulate entities at different levels of abstractions.
 When viewed with a \patref{CustomView} and connected with other moldable objects we can form various kinds of \patref{ComposedNarrative}.
-
 For example, in \autoref{fig:moldableStackCode} we see three related objects.
 On the left we see a \lst{Circular\-Memory\-Logger} object that shows multiple signals logged for an asynchronous execution.
 In the middle we have an instance of \lst{Br\-Text\-Styler\-Async\-Styling\-Started}.
@@ -882,7 +880,7 @@ It resembles a classical unit test in all respects except one: it returns the in
 
 %\dd{monospace font?}
 
-\needlines{5}
+\needlines{10}
 \begin{code}
 GtLudoGameExamples>>#emptyGame
 	<gtExample>
@@ -1121,6 +1119,7 @@ Notebook pages can express tasks in various stages of completion, so can be used
 Notebooks can serve not only to track progress, but also as documentation for both technical and non-technical stakeholders.
 
 \patsec{Known Uses}
+A Zettelkasten\footnote{\href{https://web.archive.org/web/20240917092258/https://en.wikipedia.org/wiki/Zettelkasten}{https://en.wikipedia.org/wiki/Zettelkasten}}~\cite{Luhm81a} is a traditional form of note-taking, where notes are cross-indexed in card files using various metadata, to be used as a knowledge base for research and writing.
 Jupyter\footnote{\href{https://web.archive.org/web/20240820082136/https://docs.jupyter.org/en/latest/}{https://docs.jupyter.org/}} notebooks are commonly used as both activity logs and as project documentation.
 Personal knowledge management systems like RoamResearch\footnote{\href{https://web.archive.org/web/20240820082136/https://docs.jupyter.org/en/latest/}{https://roamresearch.com}} are regularly used for diaries for software projects.
 
@@ -1154,13 +1153,13 @@ You may be missing a parser for a data format or a DSL, a language bridge to an 
 %If these are missing, you need to first work on a \emph{tooling buildup} phase.
 
 \patsec{Examples}
-In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on acquiring the tools you need to start exploring.
+In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on acquiring the tools you need to start exploring:
 \begin{inparaenum}[(i)]
 \item building a parser for YAML configuration files so that you can extract useful data from them and apply the \patref{MoldableDataWrapper} pattern,
 \item building an island parser~\cite{Kurs14b} to extract interesting bits of information from source files 
 %\cp{sounds like a form of static analysis?}
 in software languages for which a full parser may not be readily available,
-\item building a bridge to a foreign execution platform, such as for Python, or AWS, or a database system, so that you can observe and interact with run-time entities in the target platform, or
+\item building a bridge to a foreign execution platform, such as for Python, AWS, or a database system, so that you can observe and interact with run-time entities in the target platform, or
 \item implementing graph-traversal algorithms to detect dependencies, deadlocks \etc
 \end{inparaenum}
 
@@ -1259,11 +1258,11 @@ Enhance the simple view, or replace it by a richer view only when there is a cle
 
 This pattern follows exactly the same reasoning as the \emph{Goal/Question/Metric} (GQM) approach~\cite{Basi94a} for designing software metrics.
 A view, like a metric, only exists because it helps you to answer a question that supports you in achieving some goal.
-Views, or metrics, that do not support a specific goal or answer a concrete question have no reason to exist.
+Views or metrics that do not support a specific goal or answer a concrete question have no reason to exist.
 It follows, then, that a view should be designed to answer a specific question you have in a development task.
 The simplest design that achieves this is the one you want.
 %\cp{achieving the peak of simplicity may also require to spend an arbitrary amount of time and effort :-)}
-If new goals and questions arise, you will then either design new views, or extend or replace the existing view by a richer one.
+If new goals and questions arise, you will then either design new views, or extend or replace the existing views by richer ones.
 
 \patsec{Examples}
 \GT supports a wide range of different kinds of views, ranging from simple textual lists and trees, to arbitrary visualizations.
@@ -1339,7 +1338,7 @@ Reusability should only later become a concern.
 Some tools can indeed become reusable as a \patref{CustomView}, \patref{CustomSearch}, or \patref{CustomAction}, but that should not be the driving force.
 When you start with reusability in mind, you tend to favor generic tools. 
 %\cp{is this about bulding a tool or selecting a tool?}
-However, assessment benefits from contextual tools.
+However, assessment benefits from \emph{contextual tools}.
 Focusing on the context first speeds up the overall effort. 
 To make this economically feasible, the cost of the tool should be amortized on the first use.
 %\cp{which implies that such cost should be very low -- making the "building" vs "using" (not "reusing") a tool concept intriguing}
@@ -1374,14 +1373,15 @@ tool-building becomes an essential part of the development process, rather than 
 
 \patsec{Known Uses}
 There are numerous examples of \emph{ad hoc} analyses implemented as Throwaway Tools in the GT book, for example the page on \emph{Optimizing the links in the book for first time readers} shows a script (\autoref{fig:optimizingLinks}) to generate a visualization of the pages in the book itself that are reachable by following links contrasted with standalone pages.
-\begin{figure}[h]
+
+\patsec{Related patterns}
+Use a \patref{ContextualPlayground} to prototype the tools.
+
+\begin{figure}[ht]
   \includegraphics[width=\columnwidth]{optimizingLinks}
   \caption{A throwaway tool to visualize reachable and unreachable knowledge base pages.}
   \label{fig:optimizingLinks}
 \end{figure}
-
-\patsec{Related patterns}
-Use a \patref{ContextualPlayground} to prototype the tools.
 
 % ===== Conclusion =========================
 \section{Conclusion}
@@ -1395,7 +1395,7 @@ In practice, however, this requires a paradigm shift since it leverages live pro
 Although the examples given here have all been drawn from \GT, we believe that they can be applied in any programming environment that offers a minimal level of support for live programming.
 The key to supporting moldable development is the pattern \patref{MoldableTool}.
 The tools of the environment need to be open to small, custom changes that support decision-making by answering questions about the underlying system under development.
-An example of another system that support such changes is Emacs~\cite{Stal81a}, though it was not designed to support moldable development as we describe it.
+An example of another system that supports such changes is Emacs~\cite{Stal81a}, though it was not designed to support moldable development as we describe it.
 Once the development environment has been opened up to make its core tools moldable, then moldable development can truly start.
 
 % ===== Acknowledgements =========================
