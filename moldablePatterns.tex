@@ -376,16 +376,15 @@ For example, a Test Runner in a modern IDE recognizes the presence of test cases
 By the same token an inspector can be made moldable by recognizing that an object it is inspecting has one or more custom views defined as annotated methods.
 %\cp{so the object has to play nicely with the inspector tool}
 For example, in \autoref{fig:viewCode} we see that inspecting an instance of a \st{GtLudoRecordingGame} yields a custom \st{Moves} view listing the moves played thus far, as the inspector detects a \st{gtMovesFor:} method defined in the object with a \st{<gtView>} pragma (\ie annotation).\footnote{All the examples are written in Pharo Smalltalk, the platform upon which \GT is built. See \url{https://pharo.org}}
-The custom view is defined in a just a few lines of code, creating a \st{columnedList} from the moves.
-
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{viewCode}
-  \caption{Defining a custom inspector view.}
-  \label{fig:viewCode}
-\end{figure}
 
 The precise mechanism used to mold a tool is not as important as is the fact that the customizations should be cheap, \ie few lines of code, and \emph{dynamic}, \ie detected at run time.
 %\cp{this powerful "dynamic" aspect could be expanded: the m. tool can expose (or modify) the dynamic runtime state; the m. tool activation does not require to restart/reset the software being explained...}
+
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{viewCode}
+  \caption{Defining a custom view in a just a few lines of code.}
+  \label{fig:viewCode}
+\end{figure}
 
 Other examples include:
 \begin{inparaenum}[(i)]
@@ -530,6 +529,7 @@ You are exploring a live domain model and find some interesting information.
 
 \patsec{Forces}
 \begin{itemize}[---]
+\item To obtain an interesting view of data, you are generally forced to activate a dedicated tool.
 \item Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating code snippets, to reach the answer you seek.
 %\cp{this is only implicitly hinted at in the previous pattern. Consider explaining it already in the playground pattern}
 \item The sequence of steps may be cumbersome to follow repeatedly.
@@ -542,30 +542,30 @@ You are exploring a live domain model and find some interesting information.
 \emph{Turn interesting data into a custom view.}
 Extract the navigation steps into a new custom view for the moldable object you start navigating from.
 
-%:*** PENDING TODO HERE *** --- emphasize contextual nature of view
-\tg{I think we should emphasize the contextual nature of the view. There is a mapping between the view and some context (object in inspector, stack in debugger and we can imagine other mappings) based on which views are presented in the environment. Because of this, we do not seek the view. The view comes to us.}
+%\tg{I think we should emphasize the contextual nature of the view. There is a mapping between the view and some context (object in inspector, stack in debugger and we can imagine other mappings) based on which views are presented in the environment. Because of this, we do not seek the view. The view comes to us.}
+%\on{The point is that we do not want to have to always go to a tool to do something, but rather than views will enable the ability to get to interesting stuff just by navigating.}
 
 %\eog{I'd love to see maybe a picture like a figure with this.}
 
 \patsec{Examples}
 As an example, consider the views of a partially played Ludo game in \autoref{fig:rawViewVsCustomView}.
+\begin{figure}[h]
+  \includegraphics[width=\columnwidth]{rawViewVsCustomView}
+  \caption{A raw view and two custom views.}
+  \label{fig:rawViewVsCustomView}
+\end{figure}
 We would like to understand which moves have been played up to now.
 In the leftmost pane we are exploring a ``raw view''\,---\,a generic view of the state of the object.
 With this view we can navigate to the individual moves and explore them, but it is a clumsy way to explore the object.
 In the second pane we see a custom \st{Moves} view that lists the moves in order, with columns showing each roll of the die, the player who rolled the die, and any token that may have moved.
 From this custom view we can then dive directly into the \st{Move} object, which in turn has a custom view visualizing the change in state.
 
-\begin{figure}[h]
-  \includegraphics[width=\columnwidth]{rawViewVsCustomView}
-  \caption{A raw view and two custom views.}
-  \label{fig:rawViewVsCustomView}
-\end{figure}
-
 \patsec{Consequences}
 A custom view exposes information about a domain that can otherwise be hard to find.\\
 Custom views become an intrinsic part of a software system,
 %\cp{are those views accessible from end users? -- trying to understand what characterizes them as "intrinsic"}
 thus turning it into an \emph{explainable system}.\\
+By augmenting an object with a custom view, you can navigate directly to interesting information about that object, without having to fire up a separate tool.\\
 You first need a \patref{MoldableTool} into which you can dynamically plug custom views.
 
 %\ws{DP: In the consequences of Custom View there are references to related patterns. pp 10-11. It seems strange to have that in the consequences. Before the consequences mention the related patterns.\\
@@ -592,8 +592,8 @@ It is also worthwhile to note that if we take inheritance into account, then the
 %==>12029
 
 \patsec{Related patterns}
-%:*** PENDING TODO HERE *** --- Elaborate on the interplay between custom view and \patref{MoldableObject}
-\tg{Elaborate on the interplay between custom view and \patref{MoldableObject}}
+A custom view is closely related to a given \patref{MoldableObject}.
+Interconnected objects with custom views can form a \patref{ComposedNarrative}.
 A \patref{MoldableTool} is a prerequisite for a custom view to be automatically installed when the relevant artifact (an object, a class, an exception, \etc) is seen by the tool.
 A \patref{CustomView} should be cheap to implement.
 Start with a \patref{SimpleView}, and only elaborate it when it is needed.
@@ -622,18 +622,23 @@ Add a separate search for each attribute type or domain object.
 
 
 \patsec{Examples}
-In \autoref{fig:CustomSearch} we see several custom searches for page names, page content and link names within a website.
+In \autoref{fig:addressBookSearch} we see custom searches for people and addresses within an address book.
 %\eog{I think what I was curious about is if there is a way to use an example of a domain specific custom search example, that would be really cool.
 %So I don't know, maybe something in ludo or like something more than just like researching.}
 As with other custom tools, one way to implement a custom search is as a method of the domain object from which the search is initiated, with a dedicated annotation.
 In \GT, custom searches are annotated with \st{<gtSearch>}, and triggered within multiple moldable tools, such as the inspector, the code editor, and also the notebook.
 
+%\begin{figure}[h]
+%  \includegraphics[width=\columnwidth]{CustomSearch}
+%  \caption{Custom substring searches. \tg{I would rather pick a more explicit example like the address book. Or at least we should show on the left a collection that we search through.}}
+%  \label{fig:CustomSearch}
+%\end{figure}
+
 \begin{figure}[h]
-  \includegraphics[width=\columnwidth]{CustomSearch}
-  \caption{Custom substring searches. \tg{I would rather pick a more explicit example like the address book. Or at least we should show on the left a collection that we search through.}}
-  \label{fig:CustomSearch}
+  \includegraphics[width=\columnwidth]{addressBookSearch}
+  \caption{Custom substring searches.}
+  \label{fig:addressBookSearch}
 \end{figure}
-%:*** PENDING TODO HERE *** --- Pick more explicit custom search example <===
 
 \patsec{Consequences}
 You need a \patref{MoldableTool} into which you can dynamically plug custom searches.\\
