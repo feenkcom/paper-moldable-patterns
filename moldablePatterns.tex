@@ -1,10 +1,10 @@
 %% This file is cloned from `sample-sigconf.tex',
 %
 %% For the proceedings
-\documentclass[sigconf,screen]{acmart}
+%\documentclass[sigconf,screen]{acmart}
 %
 % PREPRINT version -- see https://www.micahsmith.com/blog/2021/02/sharing-a-preprint-using-acmart/
-%\documentclass[acmsmall,screen,authorversion,nonacm]{acmart} % PREPRINT
+\documentclass[acmsmall,screen,authorversion,nonacm]{acmart} % PREPRINT
 %
 %% For review
 %\documentclass[manuscript,10pt]{acmart}
@@ -26,8 +26,8 @@
 \input{st80.tex}
 % ============================================================
 \newboolean{preprint}
-%\setboolean{preprint}{true}
-\setboolean{preprint}{false}
+\setboolean{preprint}{true}
+%\setboolean{preprint}{false}
 %\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
 %\usepackage{fancyhdr}
 %\AtBeginDocument{%
@@ -87,7 +87,7 @@
 \begin{document}
 \ifthenelse{\boolean{preprint}}{% FOR PREPRINT
 \title[Moldable Development Patterns --- preprint]{Moldable Development Patterns}%
-\thanks{Preprint of paper workshopped at \href{https://www.europlop.net}{EuroPLoP} 2024, July 3--7, 2024, Kloster Irsee, Germany.}%
+\thanks{Preprint of paper workshopped at \href{https://www.europlop.net}{EuroPLoP} 2024, July 3--7, 2024, Kloster Irsee, Germany. To appear (ACM)}%
 }{
 \title{Moldable Development Patterns}%
 }
@@ -1410,8 +1410,9 @@ We would like to thank Ralf Barkow, Ward Cunningham, Konrad Hinsen, Timo Kehrer 
 Thanks are due as well to Petr Picha, Cesare Pautasso, and Daniel Pinho for their written comments, and the EuroPLoP workshop participants for their spoken feedback.
 
 % ===== References =========================
-%% The next two lines define the bibliography style to be used, and
-%% the bibliography file.
+\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
+\renewcommand*{\bibfont}{\small}
+}{}
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{moldablePatterns}
 
