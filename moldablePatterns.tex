@@ -22,9 +22,6 @@
 %    \string\baselinestretch\space detected.  Please do not do this for
 %    ACM submissions!}\fi}
 % ============================================================
-\input{macros}
-\input{st80.tex}
-% ============================================================
 \newboolean{preprint}
 %\setboolean{preprint}{true}
 \setboolean{preprint}{false}
@@ -36,6 +33,13 @@
 %}
 %}{% FOR CAMERA-READY
 %}
+% ============================================================
+\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
+\input{macros}
+}{% FOR CAMERA-READY
+\input{macros-acm}
+}
+\input{st80.tex}
 % ============================================================
 %% BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
@@ -89,6 +93,14 @@
 \setlength{\parskip}{1ex plus 0.4ex minus 0.2ex}
 %\setlength{\parindent}{0cm}
 %\newcommand{\patsec}[1]{\paragraph{\noindent{}#1.}\xspace}
+% ============================================================
+\usepackage[inline]{enumitem}
+\newlength{\itemizeMargin}
+\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
+\setlength{\itemizeMargin}{12pt} % for Forces
+}{% FOR CAMERA-READY
+\setlength{\itemizeMargin}{10pt} % for Forces
+}
 % ============================================================
 \begin{document}
 \ifthenelse{\boolean{preprint}}{% FOR PREPRINT
@@ -155,10 +167,10 @@ wanting to learn best practices, and
 Software systems are rich sources of knowledge for both developers and non-technical stakeholders.
 But it can be difficult to extract that knowledge.
 The usual artifacts to evaluate software systems are
-\begin{inparaenum}[(i)]
+\begin{enumerate*}[label=(\roman*)]
 \item the source code, and
 \item the running system.
-\end{inparaenum}
+\end{enumerate*}
 But neither of these lends itself well to answering questions about the system.
 %\cp{ignoring requirement specifications, documentation, modeling artifacts, architectural decision records...}
 In addition there may exist documentation and other related artifacts, but these are typically incomplete, or out-of-sync with the actual system.
@@ -257,11 +269,11 @@ the arrows indicate that one pattern ``uses'' or ``leads to'' another.
 The patterns that are concerned with \emph{Tooling} are tagged with ``(T)'', with \emph{Modeling} ``(M)'', and with the development \emph{Process} ``(P)''.
 
 There are two distinct roles involved in moldable development:
-\begin{inparaenum}[(i)]
+\begin{enumerate*}[label=(\roman*)]
 \item the \emph{Facilitator} is responsible for the technical realization of custom tools, and
 \item the \emph{Stakeholder} is responsible for the domain model and questions about the domain that should be answered by the custom tools.
 %\cp{can a tool always answer a question? or is a tool used to answer a question?}
-\end{inparaenum}
+\end{enumerate*}
 In a purely technical domain, these two roles can often be played by the same person (\ie a developer), but in general they may be distinct people.
 
 At the top of the map we have ``Explainable System,'' which is not a pattern per se, but rather the goal of moldable development.
@@ -289,11 +301,11 @@ In case the domain includes already existing data entities, each of these can be
 A moldable object can be explored with the help of its \patref{ContextualPlayground}, a live programming environment bound to the state of a live instance.
 Working code can be extracted from such a playground to create custom tools.
 The most common of these tools are:
-\begin{inparaenum}[(i)]
+\begin{enumerate*}[label=(\roman*)]
 \item a \patref{CustomView}, a dedicated view of an object within a moldable tool such as an object inspector or a code browser, to display or visualize domain-specific information,
 \item a \patref{CustomAction} that encapsulates a useful domain action, and
 \item a \patref{CustomSearch}, to perform an ad hoc query over objects reachable from a given moldable object.
-\end{inparaenum}
+\end{enumerate*}
 A custom view is frequently a \patref{SimpleView} that can be quickly prototyped, and later extended.
 A custom search often benefits from a \patref{CollectionWrapper}, to allow the results of a query to be also molded with custom tools.
 
@@ -358,7 +370,7 @@ domain-specific questions about the software.
 %\cp{domain-specific is pleonastic with the last part of the sentence}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = \itemizeMargin, label = ---]
 \item Generic software tools are fine for answering generic questions, but they do not work well when addressing domain-specific questions.
 %For example, consider a generic debugger being used to debug an event-driven application\,---\,you want to step through the chain of events, not the stack.
 %\dd{Consider separating the forces, eg with a line break.}
@@ -393,14 +405,14 @@ The precise mechanism used to mold a tool is not as important as is the fact tha
 \end{figure}
 
 Other examples include:
-\begin{inparaenum}[(i)]
+\begin{enumerate*}[label=(\roman*)]
 \item a moldable code browser offering alternative views of packages, classes or methods to show dependencies, tests, or other more domain-specific features, such as custom visualizations,
 %\cp{such as?}
 \item a moldable debugger to adapt the stepping behavior for diverse domains such as event-driven applications or parsing rules, 
 % \cp{is this an not numbered standalone example?}
 or
 \item a moldable notebook, supporting domain-specific snippets or annotations.
-\end{inparaenum}
+\end{enumerate*}
 
 \patsec{Consequences}
 A moldable tool requires no up-front configuration, since it will be dynamically molded by the artifacts it encounters.\\
@@ -443,7 +455,7 @@ You are using a \patref{MoldableTool}, and you are ready to start exploring your
 %\cp{is coding a synonym of exploring? or what is the relationship between the two?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item An editor for coding new methods typically provides no facilities for testing the code.
 \item When we code new behavior as methods, we must repeatedly change our context to incrementally develop the logic.
 \item Testing the code requires a separate setup.
@@ -534,7 +546,7 @@ You are exploring a live domain model and find some interesting information.
 % \tg{I am not certain about the *again* part. Most often we want a view to be useful the first time we use it. That we can use it a second time is a bonus.}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item To obtain an interesting view of data, you are generally forced to activate a dedicated tool.
 \item Navigating to the data you want to reach may entail a sequence of operations, either clicking in views, or evaluating code snippets, to reach the answer you seek.
 %\cp{this is only implicitly hinted at in the previous pattern. Consider explaining it already in the playground pattern}
@@ -614,7 +626,7 @@ You have a complex domain model consisting of various kinds of entities related 
 \emph{How can you effectively navigate between domain entities by name, content or other criteria?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item It can be hard to anticipate which domain  entities you will need to navigate to.
 \item Designing a good query interface can be a difficult task.
 \end{itemize}
@@ -668,7 +680,7 @@ You are developing an explorable domain model of your application and find yours
 \emph{How can you streamline execution of repeated actions?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item Repeated tasks are annoying, time-consuming, and error-prone.
 %\cp{error-prone too}
 \item Remembering how to perform common tasks increases cognitive overload.
@@ -718,7 +730,7 @@ It could be an explanation of how to use the system, or a problem or bug that ne
 \emph{How can you explain an issue with a software system in an intuitive way that is easy for a reader to follow?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item Pure textual narratives can be hard to follow and visualize.
 \item A picture is worth a thousand words.
 \item An individual screenshot without context can be misleading.
@@ -783,7 +795,7 @@ You are ready to start the process of creating an explainable system, either fro
 \emph{Where do you start coding an explainable system?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item As a programmer, you want to quickly get feedback about the code you are writing.
 %\cp{get feedback from whom? (maybe) understand the consequences/impact of the code you are writing.}
 \item When you write code in a conventional code editor, you are several steps away from seeing the consequences of your coding.
@@ -850,7 +862,7 @@ One could argue that any live programming task starts with a ``moldable object''
 
 \patsec{Related patterns}
 You can obtain a moldable object in various ways.
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item \emph{You already have a class:} create a \patref{ProjectDiary} notebook page containing a code snippet to create an instance of the class, and start from there.
 \item \emph{You don't have a class:} within a \patref{ProjectDiary} page, start instead with a code snippet that instantiates an empty class, and then prototype the behavior.
 \item \emph{You have a test case:} turn the test case into an \patref{ExampleObject} and start from there.
@@ -868,7 +880,7 @@ You want to explore questions about domain objects that are in particular execut
 \emph{How do you create an object in a particular state to start a moldable development task?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item Concrete examples are needed for many purposes, such as documentation, testing, and exploration.
 \item Examples can be complex to set up.
 \item Unit tests consume examples, but they are only accessible if a test fails.
@@ -949,7 +961,7 @@ You are working in a domain with existing data that you want to turn into an exp
 \emph{How do you develop custom tools for existing data?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item When we explore data, we represent them using suitable low-level data structures.
 \item Data structures (lists, dictionaries) reflect the representation of data, not their interpretation.
 \item To analyze and explore data, we need higher-level views that reflect our understanding of the data.
@@ -1024,7 +1036,7 @@ Within your application domain, you not only have to deal with individual domain
 \emph{How can you effectively provide custom tools for various kinds of collections of domain entities?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item Collections are generic data structures with generic views that are not necessarily informative for your domain.
 \item Collections of domain entities may occur in various forms and contexts, such as the state of a composite object, or the result of a query.
 \item Providing custom views for each of these can be tedious and lead to much duplicated code.
@@ -1077,7 +1089,7 @@ You are working on a software project and need to track your progress.
 %\cp{consider mentioning this property in the context already (unless the pattern is applicable to any software project)}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item It's boring to write documentation after the fact.
 \item Documentation is not part of the running system, so it distracts you from coding.
 \item Tools for tracking your progress are separate from the code base, so they are commonly out of sync with reality.
@@ -1152,7 +1164,7 @@ You may be missing a parser for a data format or a DSL, a language bridge to an 
 \emph{How do you start moldable development if you are missing core infrastructure?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item When you are building on top of an existing project, you may be missing key tools to allow you to start exploring the domain.
 %\dd{This feels like more of the problem.}
 \item You might not know where to find existing implementations to directly use, or to port or adapt to your development platform.
@@ -1165,14 +1177,14 @@ You may be missing a parser for a data format or a DSL, a language bridge to an 
 
 \patsec{Examples}
 In this phase you \emph{do not focus} on specific domain questions you want to explore, but rather on acquiring the tools you need to start exploring:
-\begin{inparaenum}[(i)]
+\begin{enumerate*}[label=(\roman*)]
 \item building a parser for YAML configuration files so that you can extract useful data from them and apply the \patref{MoldableDataWrapper} pattern,
 \item building an island parser~\cite{Kurs14b} to extract interesting bits of information from source files 
 %\cp{sounds like a form of static analysis?}
 in software languages for which a full parser may not be readily available,
 \item building a bridge to a foreign execution platform, such as for Python, AWS, or a database system, so that you can observe and interact with run-time entities in the target platform, or
 \item implementing graph-traversal algorithms to detect dependencies, deadlocks \etc
-\end{inparaenum}
+\end{enumerate*}
 
 \patsec{Consequences}
 Tooling Buildup will slow you down.\\
@@ -1197,7 +1209,7 @@ You are starting to work with an existing team and code base, and you need to en
 \emph{How do you pick the first moldable development task to focus on?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item The stakeholders are already heavily committed to their current development tasks, and have little time to spare for you.
 \item They are almost certainly skeptical that moldable development will make them more productive.\\
 You need to demonstrate early success to get the customer to commit long-term to further collaboration.
@@ -1220,11 +1232,11 @@ There should be a clear value for the stakeholder, that is, do something that th
 
 \patsec{Examples}
 Some typical examples are 
-\begin{inparaenum}[(i)]
+\begin{enumerate*}[label=(\roman*)]
 \item exposing hidden dependencies between features, 
 \item visualizing performance costs of test runs on a cluster, or
 \item providing views to gain insights into scheduling deadlocks.
-\end{inparaenum}
+\end{enumerate*}
 
 \patsec{Consequences}
 Since 
@@ -1255,7 +1267,7 @@ You have found some useful domain information to expose and have decided to impl
 \emph{How should you design a custom view to effectively communicate the information of interest?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item There are many different ways to design a view.
 \item It is hard to anticipate what information another Stakeholder would be interested in seeing.
 \item You can spend an arbitrary amount of time and effort implementing a rich, interactive visualization as a view.
@@ -1330,7 +1342,7 @@ You are assessing a problem such as a bug, a performance problem, or a security 
 \emph{How can you advance the assessment effectively?}
 
 \patsec{Forces}
-\begin{itemize}[---]
+\begin{itemize}[leftmargin = 10pt, label = ---]
 \item The goal of an assessment is to find answers as quickly as possible.
 \item Custom tools help make analyses faster, while generic, ``reusable'' tools can make it more difficult to find the answers you need.
 %\cp{building generic tools is definitely more expensive than building ad-hoc tools. But the "reusable" tools by definition are already built and just need to be selected or rejected as not suitable for the task, a decision that shouldn't take too much time. Clearly if the generic tool has been selected for performing a task for which it is not appropriate...}\\
@@ -1427,10 +1439,10 @@ Thanks are due as well to Petr Picha, Cesare Pautasso, and Daniel Pinho for thei
 
 % ===== TEMPLATES =========================
 
-\begin{inparaenum}[(i)]
+\begin{enumerate*}[label=(\roman*)]
 \item
 \item
-\end{inparaenum}
+\end{enumerate*}
 
 %: ----- PATTERN -------------------------
 \pattern{PATTERN}{PATTERN}
