@@ -1,10 +1,10 @@
 %% This file is cloned from `sample-sigconf.tex',
 %
 %% For the proceedings
-%\documentclass[sigconf,screen]{acmart}
+\documentclass[sigconf,screen]{acmart}
 %
 % PREPRINT version -- see https://www.micahsmith.com/blog/2021/02/sharing-a-preprint-using-acmart/
-\documentclass[acmsmall,screen,authorversion,nonacm]{acmart} % PREPRINT
+%\documentclass[acmsmall,screen,authorversion,nonacm]{acmart} % PREPRINT
 %
 %% For review
 %\documentclass[manuscript,10pt]{acmart}
@@ -26,8 +26,8 @@
 \input{st80.tex}
 % ============================================================
 \newboolean{preprint}
-\setboolean{preprint}{true}
-%\setboolean{preprint}{false}
+%\setboolean{preprint}{true}
+\setboolean{preprint}{false}
 %\ifthenelse{\boolean{preprint}}{% FOR PREPRINT
 %\usepackage{fancyhdr}
 %\AtBeginDocument{%
@@ -44,9 +44,15 @@
 \setcopyright{acmlicensed}
 \copyrightyear{2024}
 \acmYear{2024}
-\acmDOI{XXXXXXX.XXXXXXX}
-\acmConference[EuroPLoP '24]{29th European Conference on Pattern Languages of Programs}{July 3--7, 2024}{Kloster Irsee, Germany}
-\acmISBN{978-1-4503-XXXX-X/18/06}
+\setcopyright{acmlicensed}\acmConference[EuroPLoP 2024]{29th European Conference on Pattern Languages of Programs, People, and Practices}{July 3--7, 2024}{Irsee, Germany}
+\acmBooktitle{29th European Conference on Pattern Languages of Programs, People, and Practices (EuroPLoP 2024), July 3--7, 2024, Irsee, Germany}
+\acmDOI{10.1145/3698322.3698327}
+\acmISBN{979-8-4007-1683-6/24/07}
+%\copyrightyear{2024}
+%\acmYear{2024}
+%\acmDOI{XXXXXXX.XXXXXXX}
+%\acmConference[EuroPLoP '24]{29th European Conference on Pattern Languages of Programs}{July 3--7, 2024}{Kloster Irsee, Germany}
+%\acmISBN{978-1-4503-XXXX-X/18/06}
 % ============================================================
 % https://www.europlop.net
 %    FEBRUARY 5, 2024 - Deadline for initial paper submission
