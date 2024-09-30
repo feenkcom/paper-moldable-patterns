@@ -4,11 +4,11 @@ This is the repo for *Moldable Development Patterns*, presented at [EuroPLoP 202
 
 This repo contains both the LaTeX sources for the paper and the GT materials (Lepiter database, source package) to  support the paper.
 
-ArXiv preprint (PDF): TBA
+Preprint available on [arXiv (PDF)](https://arxiv.org/pdf/2409.18811)
 
-ArXiv DOI: TBA
+ArXiv DOI: [10.48550/arXiv.2409.18811](https://doi.org/10.48550/arXiv.2409.18811)
 
-ACM DOI: TBA
+ACM DOI: [10.1145/3698322.3698327](https://doi.org/10.1145/3698322.3698327) (To appear)
 
 Online GT Book pages: [static HTML](https://book.gtoolkit.com/moldable-development-patterns-vuflnrgp5r5o4m1szatoo4e2)
 
