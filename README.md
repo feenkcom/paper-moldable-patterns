@@ -31,19 +31,19 @@ Oscar Nierstrasz, Tudor Gîrba
 
 ## Abstract
 
-Moldable development supports decision-making by making software systems explainable. This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model. Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice.
-This paper targets (i) readers curious to learn about moldable development, (ii) current users of the \emph{Glamorous Toolkit} moldable IDE wanting to learn best practices, and (iii) developers interested in applying moldable development using other platforms and technology.
+Moldable development supports decision-making by making software systems explainable. This is done by making it cheap to add numerous custom tools to your software, turning it into a live, explorable domain model. Based on several years of experience of applying moldable development to both open-source and industrial systems, we have identified several mutually supporting patterns to explain how moldable development works in practice. This paper targets (i) readers curious to learn about moldable development, (ii) current users of the Glamorous Toolkit moldable IDE wanting to learn best practices, and (iii) developers interested in applying moldable development using other platforms and technology.
 
 Keywords:
 Software development, software modeling and analysis, software testing, explainable systems.
 
-## BibTeX citation (provisional)
+## BibTeX citation
 
 ```
 @inproceedings{Nier24a,
+	Annote = {internationalworkshop},
 	Author = {Oscar Nierstrasz and Tudor G\^irba},
 	Booktitle = {Proceedings of EuroPLoP 2024},
-	Keywords = {feenk-pub Girba MISSING-DOI MISSING-URL},
+	Keywords = {feenk-pub Girba},
 	Title = {Moldable Development Patterns},
 		Abstract= {Moldable development supports decision-making by
 		making software systems explainable. This is done by making it
@@ -57,15 +57,18 @@ Software development, software modeling and analysis, software testing, explaina
 		moldable IDE wanting to learn best practices, and (iii) developers
 		interested in applying moldable development using other platforms
 		and technology.},
-	Note = {to appear},
 	eprint = {2409.18811},
 	archivePrefix = {arXiv},
 	primaryClass = {cs.SE},
-	arxiv-doi = {10.48550/arXiv.2409.18811},
-	doi = {10.48550/arXiv.2409.18811},
+	doi = {10.1145/3698322.3698327},
 	url = {https://arxiv.org/pdf/2409.18811},
-	acm-doi = {https://doi.org/10.1145/3698322.3698327},
+	arxiv-doi = {10.48550/arXiv.2409.18811},
+	acm-doi = {10.1145/3698322.3698327},
 	scg-url = {http://scg.unibe.ch/archive/papers/Nier24a-MoldableDevelopmentPatterns.pdf},
 	Year = {2024}
 }
 ```
+
+# ArXiV Paper download
+
+[](https://arxiv.org/abs/2409.18811)
