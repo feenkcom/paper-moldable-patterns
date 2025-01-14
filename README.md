@@ -71,4 +71,4 @@ Software development, software modeling and analysis, software testing, explaina
 
 # ArXiV Paper download
 
-[](https://arxiv.org/abs/2409.18811)
+[ArXiV preprint](https://arxiv.org/abs/2409.18811)
